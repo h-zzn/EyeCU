@@ -70,7 +70,8 @@ public class EyeTrackingRay : MonoBehaviour
         UnSelect(true);
     }
 
-    if(hit.transform != null && hit.transform.gameObject.CompareTag("Cube")) // Add a null check here
+    if(hit.transform != null && 
+    (hit.transform.gameObject.CompareTag("redCube") || hit.transform.gameObject.CompareTag("blueCube"))) // Add a null check here
         HoveredCube = hit.transform.gameObject;
     }
 

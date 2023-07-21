@@ -30,12 +30,14 @@ public class ControllerManager : MonoBehaviour
     {
         if(OVRInput.GetDown(OVRInput.Button.One))
         {
-            Destroy(eyeTrackingRayRight.HoveredCube);
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
+                Destroy(eyeTrackingRayRight.HoveredCube);
         }
 
         if(OVRInput.GetDown(OVRInput.Button.Three))
         {
-            Destroy(eyeTrackingRayLeft.HoveredCube);
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
+                Destroy(eyeTrackingRayLeft.HoveredCube);
         }
     }
 }
