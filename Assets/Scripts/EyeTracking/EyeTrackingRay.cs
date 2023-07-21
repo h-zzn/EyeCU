@@ -5,7 +5,7 @@ using UnityEngine;
 public class EyeTrackingRay : MonoBehaviour
 {
     [SerializeField]
-    private float rayDistance = 1.0f;
+    private float rayDistance = 100.0f;
 
     [SerializeField]
     private float rayWidth = 0.01f;
@@ -46,31 +46,34 @@ public class EyeTrackingRay : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        RaycastHit hit;
+{
+    RaycastHit hit;
 
-        Vector3 rayCastDirection = transform.TransformDirection(Vector3.forward) * rayDistance;
-        
-        //if (Physics.Raycast(transform.position, rayCastDirection, out hit, Mathf.Infinity, layersToInclude)) 
-        if (Physics.Raycast(transform.position, rayCastDirection, out hit, Mathf.Infinity, layersToInclude)) 
+    Vector3 rayCastDirection = transform.TransformDirection(Vector3.forward) * rayDistance;
+
+    if (Physics.Raycast(transform.position, rayCastDirection, out hit, Mathf.Infinity, layersToInclude)) 
+    {
+        UnSelect(); // Change this line
+        lineRenderer.startColor = rayColorHoverState;
+        lineRenderer.endColor = rayColorHoverState;
+        var eyeInteractable = hit.transform.GetComponent<EyeInteractable>();
+        if (eyeInteractable != null) // Add a null check here
         {
-            UnSelect();
-            lineRenderer.startColor = rayColorHoverState;
-            lineRenderer.endColor = rayColorHoverState;
-            var eyeInteractable = hit.transform.GetComponent<EyeInteractable>();
             eyeInteractables.Add(eyeInteractable);
             eyeInteractable.IsHovered = true;
         }
-        else 
-        {
-            lineRenderer.startColor = rayColorDefaultState;
-            lineRenderer.endColor = rayColorDefaultState;
-            UnSelect(true);
-        }
-
-        if(hit.transform.gameObject.CompareTag("Cube"))
-            HoveredCube = hit.transform.gameObject;
     }
+    else 
+    {
+        lineRenderer.startColor = rayColorDefaultState;
+        lineRenderer.endColor = rayColorDefaultState;
+        UnSelect(true);
+    }
+
+    if(hit.transform != null && hit.transform.gameObject.CompareTag("Cube")) // Add a null check here
+        HoveredCube = hit.transform.gameObject;
+    }
+
 
     void UnSelect(bool clear = false)
     {

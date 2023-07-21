@@ -17,7 +17,7 @@ public class Cube : MonoBehaviour
     {
         if(!eyeInteractable.IsHovered)
         {
-            transform.position += transform.forward/100;
+            transform.position += transform.forward/50;
         }
     }
 }
