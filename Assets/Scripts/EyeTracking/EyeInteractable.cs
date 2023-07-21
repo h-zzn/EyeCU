@@ -22,20 +22,23 @@ public class EyeInteractable : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start() => meshRenderer = GetComponent<MeshRenderer>();
- 
+    void Start() 
+    {
+        meshRenderer = GetComponent<MeshRenderer>(); 
+        IsHovered = false; 
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(IsHovered)
         {
-            meshRenderer.material = OnHoverActiveMaterial;
-            OnObjectHover?.Invoke(gameObject);
+            meshRenderer.material = OnHoverActiveMaterial; 
+            OnObjectHover?.Invoke(gameObject); 
         }
         else
         {
-            meshRenderer.material = OnHoverInactiveMaterial;
+            meshRenderer.material = OnHoverInactiveMaterial; 
         }
     }
 }

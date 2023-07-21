@@ -23,6 +23,8 @@ public class EyeTrackingRay : MonoBehaviour
 
     private List<EyeInteractable> eyeInteractables = new List<EyeInteractable>();
 
+    public GameObject HoveredCube = null; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +50,8 @@ public class EyeTrackingRay : MonoBehaviour
         RaycastHit hit;
 
         Vector3 rayCastDirection = transform.TransformDirection(Vector3.forward) * rayDistance;
-
+        
+        //if (Physics.Raycast(transform.position, rayCastDirection, out hit, Mathf.Infinity, layersToInclude)) 
         if (Physics.Raycast(transform.position, rayCastDirection, out hit, Mathf.Infinity, layersToInclude)) 
         {
             UnSelect();
@@ -64,6 +67,9 @@ public class EyeTrackingRay : MonoBehaviour
             lineRenderer.endColor = rayColorDefaultState;
             UnSelect(true);
         }
+
+        if(hit.transform.gameObject.CompareTag("Cube"))
+            HoveredCube = hit.transform.gameObject;
     }
 
     void UnSelect(bool clear = false)
