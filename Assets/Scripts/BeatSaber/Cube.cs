@@ -12,12 +12,12 @@ public class Cube : MonoBehaviour
         eyeInteractable = this.GetComponent<EyeInteractable>();
     }
 
-    // Update is called once per frame
+    // Update is called once per farame
     void Update()
     {
         if(!eyeInteractable.IsHovered)
         {
-            transform.position += transform.forward/25;
+            transform.position += transform.forward/8;
         }
     }
 }

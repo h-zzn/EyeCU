@@ -6,11 +6,12 @@ TagManager:
   tags:
   - redCube
   - blueCube
+  - Cube
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Marker
   - Water
   - UI
   - 

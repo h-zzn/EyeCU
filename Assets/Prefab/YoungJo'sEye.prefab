@@ -4207,7 +4207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699859455464384112}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4302,7 +4302,7 @@ MonoBehaviour:
   ApplyPosition: 1
   ApplyRotation: 1
   ReferenceFrame: {fileID: 4051494625010457590}
-  TrackingMode: 2
+  TrackingMode: 1
 --- !u!120 &1339454573140782674
 LineRenderer:
   serializedVersion: 2
@@ -4419,13 +4419,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d31a575a2d9bf42b5ae87f68a2c7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 50
-  rayWidth: 0.01
+  markerPrefab: {fileID: 7968132919979764526, guid: 72f4f9ec751532841b1d4aff270ca6bf, type: 3}
+  rayDistance: 15
+  rayWidth: 100
   layersToInclude:
     serializedVersion: 2
-    m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rayColorHoverState: {r: 1, g: 0, b: 0, a: 1}
+    m_Bits: 23
+  rayColorDefaultState: {r: 1, g: 0.9954416, b: 0.4575472, a: 0}
+  rayColorHoverState: {r: 0.7744359, g: 1, b: 0.5707547, a: 0}
   HoveredCube: {fileID: 0}
 --- !u!1 &1708041231232870951
 GameObject:
@@ -22977,7 +22978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8465128114956353960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23072,7 +23073,7 @@ MonoBehaviour:
   ApplyPosition: 1
   ApplyRotation: 1
   ReferenceFrame: {fileID: 4051494625010457590}
-  TrackingMode: 2
+  TrackingMode: 1
 --- !u!120 &375656367240432518
 LineRenderer:
   serializedVersion: 2
@@ -23184,18 +23185,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8465128114956353960}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1d31a575a2d9bf42b5ae87f68a2c7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 50
+  markerPrefab: {fileID: 0}
+  rayDistance: 10
   rayWidth: 0.01
   layersToInclude:
     serializedVersion: 2
     m_Bits: 4294967295
-  rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rayColorHoverState: {r: 1, g: 0, b: 0, a: 1}
+  rayColorDefaultState: {r: 0.9811321, g: 0.97627413, b: 0.51370597, a: 0.2}
+  rayColorHoverState: {r: 0.7744359, g: 1, b: 0.5707547, a: 0.20392157}
   HoveredCube: {fileID: 0}
 --- !u!1 &8488703301583060036
 GameObject:

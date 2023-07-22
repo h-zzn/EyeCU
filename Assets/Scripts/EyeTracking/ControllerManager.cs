@@ -13,11 +13,11 @@ public class ControllerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LeftEyeInteractor = GameObject.Find("LeftEyeInteractor");
+        //LeftEyeInteractor = GameObject.Find("LeftEyeInteractor");
         RightEyeInteractor = GameObject.Find("RightEyeInteractor");
         
-        eyeTrackingRayLeft = LeftEyeInteractor.GetComponent<EyeTrackingRay>();
-        eyeTrackingRayRight = LeftEyeInteractor.GetComponent<EyeTrackingRay>();
+        //eyeTrackingRayLeft = LeftEyeInteractor.GetComponent<EyeTrackingRay>();
+        eyeTrackingRayRight = RightEyeInteractor.GetComponent<EyeTrackingRay>();
     }
 
     // Update is called once per frame
@@ -30,14 +30,16 @@ public class ControllerManager : MonoBehaviour
     {
         if(OVRInput.GetDown(OVRInput.Button.One))
         {
-            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube")
+                && eyeTrackingRayRight.HoveredCube != null)
                 Destroy(eyeTrackingRayRight.HoveredCube);
         }
 
         if(OVRInput.GetDown(OVRInput.Button.Three))
         {
-            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
-                Destroy(eyeTrackingRayLeft.HoveredCube);
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube")
+                && eyeTrackingRayRight.HoveredCube != null)
+                Destroy(eyeTrackingRayRight.HoveredCube);
         }
     }
 }
