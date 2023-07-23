@@ -5,17 +5,35 @@ using DG.Tweening; //import
 
 public class CircleMovingBlock : MonoBehaviour
 {
-    public GameObject target;
+    public GameObject[] targets;
+    Sequence mySequence;
 
     void Start()
     {
-        transform.DOMoveX(target.transform.position.x, 3).SetEase(Ease.OutQuad);
-        transform.DOMoveY(target.transform.position.y, 3).SetEase(Ease.InQuad);
+        mySequence = DOTween.Sequence()
+        .OnStart(() => {
+            transform.DOMoveX(targets[0].transform.position.x, 3).SetEase(Ease.OutQuad);
+            transform.DOMoveY(targets[0].transform.position.y, 3).SetEase(Ease.InQuad);
+            transform.DOMoveZ(targets[0].transform.position.z, 3).SetEase(Ease.InQuad);
+        })
+        .SetDelay(0.5f)
+        .Append(MySequence2(1))
+        .Append(MySequence2(2))
+        .Append(MySequence2(3));
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+
+    Sequence MySequence2(int a){
+        return DOTween.Sequence()
+        .OnStart(() => {
+            transform.DOMoveX(targets[a].transform.position.x, 3).SetEase(Ease.OutQuad);
+            transform.DOMoveY(targets[a].transform.position.y, 3).SetEase(Ease.InQuad);
+            transform.DOMoveZ(targets[a].transform.position.z, 3).SetEase(Ease.InQuad);
+        })
+        .SetDelay(0.5f);
     }
 }
