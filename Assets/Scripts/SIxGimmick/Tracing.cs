@@ -13,7 +13,7 @@ public class Tracing : MonoBehaviour
 
 
     private float hoverDuration = 0f;
-    private const float maxHoverDuration = 5f; // 5 seconds
+    [SerializeField] private float maxHoverDuration = 5f; // 5 seconds
     public bool IsHovered { get; set; }
 
     private void Awake() 
@@ -44,6 +44,14 @@ public class Tracing : MonoBehaviour
         {
             // Reset the hover duration if the gaze is interrupted
             hoverDuration = 0f;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("TargetPosition"))
+        {
+            other.gameObject.transform.position += transform.forward*2;
         }
     }
 
