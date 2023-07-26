@@ -28,8 +28,7 @@ public class EyeTrackingRay : MonoBehaviour
 
     private LineRenderer lineRenderer;
 
-    private List<Cube> Cubes = new List<Cube>();
-    private List<Tracing> Tracings = new List<Tracing>();
+    private GameObject EyeTargetingObject;
 
     public GameObject HoveredCube = null; 
 
@@ -64,19 +63,34 @@ public class EyeTrackingRay : MonoBehaviour
             UnSelect(); // Change this line
             lineRenderer.startColor = rayColorHoverState;
             lineRenderer.endColor = rayColorHoverState;
+
+            if(hit.transform != null && (hit.transform.gameObject.CompareTag("redCube") || hit.transform.gameObject.CompareTag("blueCube")))
+            {
+                EyeTargetingObject = hit.transform.gameObject;
+                EyeTargetingObject.GetComponent<Cube>().IsHovered = true;
+                HoveredCube = hit.transform.gameObject;
+            }
+            else if(hit.transform != null && hit.transform.gameObject.CompareTag("MovingOrb"))
+            {
+                EyeTargetingObject = hit.transform.gameObject;
+                EyeTargetingObject.GetComponent<Tracing>().IsHovered = true;
+            }
+            
+            /*
             var Cube = hit.transform.GetComponent<Cube>();
             if (Cube != null) // Add a null check here
             {
-                Cubes.Add(Cube);
+                EyeTargetingObject = Cube;
                 Cube.IsHovered = true;
             }
 
             var Tracing = hit.transform.GetComponent<Tracing>();
             if (Tracing != null) // Add a null check here
             {
-                Tracings.Add(Tracing);
+                EyeTargetingObject = Tracing;
                 Tracing.IsHovered = true;
             }
+            */
 
             if (currentMarker == null)
                 {
@@ -98,32 +112,21 @@ public class EyeTrackingRay : MonoBehaviour
             // Ray가 아무것도 맞지 않은 경우 표식 삭제
             DestroyMarker();
         }
-
-        if(hit.transform != null && 
-        ((hit.transform != null && (hit.transform.gameObject.CompareTag("redCube") || hit.transform.gameObject.CompareTag("blueCube"))))) // Add a null check here
-            HoveredCube = hit.transform.gameObject;
     }
 
 
     void UnSelect(bool clear = false)
     {
-        foreach (var interactable in Cubes)
+        if(EyeTargetingObject != null && (EyeTargetingObject.gameObject.CompareTag("redCube") || EyeTargetingObject.gameObject.CompareTag("blueCube")))
         {
-            interactable.IsHovered = false;
+            EyeTargetingObject.GetComponent<Cube>().IsHovered = false;
         }
-        if (clear)
+        else if(EyeTargetingObject != null && EyeTargetingObject.CompareTag("MovingOrb"))
         {
-            Cubes.Clear();
+            EyeTargetingObject.GetComponent<Tracing>().IsHovered = false;
         }
 
-        foreach (var interactable in Tracings)
-        {
-            interactable.IsHovered = false;
-        }
-        if (clear)
-        {
-            Tracings.Clear();
-        }  
+        EyeTargetingObject = null;
     }
 
     Transform SpawnMarker(Vector3 position, Vector3 normal)

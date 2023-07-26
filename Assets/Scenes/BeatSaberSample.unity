@@ -1310,18 +1310,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubackssissanggumEye
       objectReference: {fileID: 0}
-    - target: {fileID: 1609956363909220259, guid: 7f2e32e2df56e864daf12eb016a36bd9, type: 3}
-      propertyPath: TrackingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2861356041794319756, guid: 7f2e32e2df56e864daf12eb016a36bd9, type: 3}
-      propertyPath: controllerType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080697463324146506, guid: 7f2e32e2df56e864daf12eb016a36bd9, type: 3}
-      propertyPath: controllerType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4897986226559339869, guid: 7f2e32e2df56e864daf12eb016a36bd9, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -44,11 +44,6 @@ public class Tracing : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else
-        {
-            // Reset the hover duration if the gaze is interrupted
-            hoverDuration = 0f;
-        }
     }
 
     void OnTriggerEnter(Collider other)

@@ -17200,7 +17200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f728bace028ed9545ba7e61932689068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerType: -1
+  controllerType: 2
   vibrationDuration: 1
 --- !u!1 &6443466533649219494
 GameObject:
@@ -21244,7 +21244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9fa394a4647f5449050ba408f6c2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerType: -1
+  controllerType: 1
   vibrationDuration: 1
 --- !u!1 &7736000611754846419
 GameObject:
