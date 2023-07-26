@@ -14,7 +14,6 @@ public class BlueSwordCubeCollision : MonoBehaviour
         {
             // 충돌한 오브젝트가 blueCube 태그를 가지고 있다면 해당 오브젝트를 삭제합니다.
             Destroy(collision.gameObject);
-            Debug.Log("aaa");
 
             // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
             OVRHapticsClip clip = new OVRHapticsClip();

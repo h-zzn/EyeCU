@@ -28,7 +28,7 @@ public class EyeTrackingRay : MonoBehaviour
 
     private LineRenderer lineRenderer;
 
-    private List<EyeInteractable> eyeInteractables = new List<EyeInteractable>();
+    private List<Cube> Cubes = new List<Cube>();
 
     public GameObject HoveredCube = null; 
 
@@ -63,11 +63,11 @@ public class EyeTrackingRay : MonoBehaviour
             UnSelect(); // Change this line
             lineRenderer.startColor = rayColorHoverState;
             lineRenderer.endColor = rayColorHoverState;
-            var eyeInteractable = hit.transform.GetComponent<EyeInteractable>();
-            if (eyeInteractable != null) // Add a null check here
+            var Cube = hit.transform.GetComponent<Cube>();
+            if (Cube != null) // Add a null check here
             {
-                eyeInteractables.Add(eyeInteractable);
-                eyeInteractable.IsHovered = true;
+                Cubes.Add(Cube);
+                Cube.IsHovered = true;
             }
 
             if (currentMarker == null)
@@ -99,13 +99,13 @@ public class EyeTrackingRay : MonoBehaviour
 
     void UnSelect(bool clear = false)
     {
-        foreach (var interactable in eyeInteractables)
+        foreach (var interactable in Cubes)
         {
             interactable.IsHovered = false;
         }
         if (clear)
         {
-            eyeInteractables.Clear();
+            Cubes.Clear();
         }
     }
 
