@@ -9,6 +9,8 @@ TagManager:
   - Cube
   - blueSword
   - redSword
+  - MovingOrb
+  - TargetPosition
   layers:
   - Default
   - TransparentFX
