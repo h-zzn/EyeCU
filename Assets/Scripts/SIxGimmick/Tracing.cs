@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
 
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
 public class Tracing : MonoBehaviour
 {
     public GameObject[] targets;
@@ -33,6 +35,8 @@ public class Tracing : MonoBehaviour
         {
             // Increment the hover duration
             hoverDuration += Time.deltaTime;
+
+            Debug.Log("hoverDuration: "+hoverDuration);
 
             if (hoverDuration >= maxHoverDuration)
             {

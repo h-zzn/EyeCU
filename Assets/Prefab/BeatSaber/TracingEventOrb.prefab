@@ -4858,7 +4858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1838293673264505572}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TracingEventOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

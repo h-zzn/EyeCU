@@ -23,7 +23,7 @@ public class RedSwordCubeCollision : MonoBehaviour
                 clip.WriteSample(sample);
             }
 
-            OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
+            OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.RTouch) ? RightChannel : LeftChannel;
             hapticsChannel.Preempt(clip);
 
             // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
@@ -37,7 +37,7 @@ public class RedSwordCubeCollision : MonoBehaviour
         yield return new WaitForSeconds(vibrationDuration);
 
         // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
-        OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
+        OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.RTouch) ? RightChannel : LeftChannel;
         hapticsChannel.Clear();
     }
 }

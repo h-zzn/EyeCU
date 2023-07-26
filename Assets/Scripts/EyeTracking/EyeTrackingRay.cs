@@ -29,6 +29,7 @@ public class EyeTrackingRay : MonoBehaviour
     private LineRenderer lineRenderer;
 
     private List<Cube> Cubes = new List<Cube>();
+    private List<Tracing> Tracings = new List<Tracing>();
 
     public GameObject HoveredCube = null; 
 
@@ -70,6 +71,13 @@ public class EyeTrackingRay : MonoBehaviour
                 Cube.IsHovered = true;
             }
 
+            var Tracing = hit.transform.GetComponent<Tracing>();
+            if (Tracing != null) // Add a null check here
+            {
+                Tracings.Add(Tracing);
+                Tracing.IsHovered = true;
+            }
+
             if (currentMarker == null)
                 {
                     // 표식이 없는 경우 새로 생성
@@ -92,7 +100,7 @@ public class EyeTrackingRay : MonoBehaviour
         }
 
         if(hit.transform != null && 
-        (hit.transform.gameObject.CompareTag("redCube") || hit.transform.gameObject.CompareTag("blueCube"))) // Add a null check here
+        ((hit.transform != null && (hit.transform.gameObject.CompareTag("redCube") || hit.transform.gameObject.CompareTag("blueCube"))))) // Add a null check here
             HoveredCube = hit.transform.gameObject;
     }
 
@@ -107,6 +115,15 @@ public class EyeTrackingRay : MonoBehaviour
         {
             Cubes.Clear();
         }
+
+        foreach (var interactable in Tracings)
+        {
+            interactable.IsHovered = false;
+        }
+        if (clear)
+        {
+            Tracings.Clear();
+        }  
     }
 
     Transform SpawnMarker(Vector3 position, Vector3 normal)

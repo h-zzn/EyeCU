@@ -17,9 +17,11 @@ public class Cube : MonoBehaviour
     // Update is called once per farame
     void Update()
     {
+        transform.position += transform.forward/8;
+
         if(!IsHovered)
         {
-            transform.position += transform.forward/8;
+
         }
     }
 }
