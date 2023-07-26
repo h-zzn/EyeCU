@@ -11,7 +11,7 @@ public class DamagedArea : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube"))
+        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube") || other.gameObject.CompareTag("MovingOrb"))
         {
             Destroy(other.gameObject);
         }
