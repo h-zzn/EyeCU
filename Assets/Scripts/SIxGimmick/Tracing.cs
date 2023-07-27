@@ -13,7 +13,7 @@ public class Tracing : MonoBehaviour
     public int movingTime = 3; 
     private Coroutine DrawCircle;
 
-
+    [SerializeField] private AudioSource UngSound;
     private float hoverDuration = 0f;
     private float maxHoverDuration = 5f; // 5 seconds
     public bool IsHovered { get; set; }
@@ -35,13 +35,24 @@ public class Tracing : MonoBehaviour
         {
             // Increment the hover duration
             hoverDuration += Time.deltaTime;
-
+            if (UngSound != null)
+            {
+                UngSound.Play();
+            }
+            
             if (hoverDuration >= maxHoverDuration)
             {
                 if (transform.parent != null)
                 {
                     Destroy(transform.parent.gameObject);
                 }
+            }
+        }
+        else
+        {
+            if (UngSound != null)
+            {
+                UngSound.Stop();
             }
         }
     }

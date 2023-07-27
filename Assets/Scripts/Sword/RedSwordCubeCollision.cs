@@ -8,10 +8,16 @@ public class RedSwordCubeCollision : MonoBehaviour
     public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
     public float vibrationDuration = 1.0f; // 햅틱 지속 시간
 
+    [SerializeField] private AudioSource SsingSound;
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("redCube"))
         {
+            if (SsingSound != null)
+            {
+                SsingSound.Play();
+            }
             // 충돌한 오브젝트가 blueCube 태그를 가지고 있다면 해당 오브젝트를 삭제합니다.
             Destroy(collision.gameObject);
 
