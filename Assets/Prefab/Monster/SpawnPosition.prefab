@@ -47,7 +47,7 @@ Transform:
   - {fileID: 1635845340307076462}
   - {fileID: 1568078015947985563}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7056990054718925823
 MonoBehaviour:
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75210d23802a4bc4bafceeff7837f972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpawnStop: 1
   cubes:
   - {fileID: 8996436200413609872, guid: e0a4e2d087adc4d4d9d2bfbe914e4be0, type: 3}
   - {fileID: 8996436200413609872, guid: 4f1c1e7a3f52de046a287623abc7931b, type: 3}

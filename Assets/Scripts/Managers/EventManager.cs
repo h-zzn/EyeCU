@@ -4,15 +4,103 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject[] basicOrbSpawner;
+    [SerializeField] private GameObject[] SpecialOrbSpawner;
+
+    private bool eventStarted = false;
+    [SerializeField] private float startDelayTime;
+    
+    [SerializeField] private float BasicSpawnTime;
+    [SerializeField] private float swordTime;
+
+    private float Timer = 0;
+
+    private Coroutine EventFlow = null;
+
+    [SerializeField] private GameObject Eye;
+
+    void Awake()
     {
-        
+        BasicSpawnStop(true);
+        SpecialOrbSpawnAllStop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!eventStarted)
+        {
+            // Wait for startDelayTime
+            if (Timer >= startDelayTime)
+            {
+                eventStarted = true;
+
+                // Start a coroutine to handle the event flow
+                if(EventFlow == null)
+                    EventFlow = StartCoroutine(EventFlowCoroutine());
+            }
+        }
+
+        Timer += Time.deltaTime;
     }
+
+    //첫번째 이벤트 flow
+    private IEnumerator EventFlowCoroutine()
+    {   
+        //기본 메커니즘 시간
+        BasicSpawnStop(false);
+        yield return new WaitForSeconds(BasicSpawnTime);
+
+        //특별 orb 등장 시간
+        BasicSpawnStop(true);
+        SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop = false;
+        while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
+        {
+            yield return null;
+        }
+        
+        //sword만 쓸 수 있게 된 시간
+        removeEyeMarker();
+        basicOrbSpawner[0].GetComponent<Spawner>().isSpawnStop = false;
+        basicOrbSpawner[1].GetComponent<Spawner>().isSpawnStop = false;
+        Eye.GetComponent<EyeTrackingRay>().enabled = false;
+        yield return new WaitForSeconds(swordTime);
+        
+        //기본 메커니즘 시간
+        BasicSpawnStop(false);
+        Eye.GetComponent<EyeTrackingRay>().enabled = true;
+        yield return new WaitForSeconds(BasicSpawnTime);
+
+        //게임 종료
+        BasicSpawnStop(true);
+        SpecialOrbSpawnAllStop();
+        // Reset
+        //eventStarted = false;
+        //EventFlow = null;
+    }
+
+
+    //기본 스포너 멈춤 여부 
+    public void BasicSpawnStop(bool stop)
+    {
+        foreach (GameObject spawner in basicOrbSpawner)
+        {
+            spawner.GetComponent<Spawner>().isSpawnStop = stop;
+        }
+    }
+
+    //특수 스포너 다 멈춤
+    public void SpecialOrbSpawnAllStop()
+    {
+        foreach (GameObject spawner in SpecialOrbSpawner)
+        {
+            spawner.GetComponent<SpecialOrbSpawner>().isSpawnStop = true;
+        }
+    }
+
+    private void removeEyeMarker()
+    {
+        Destroy(GameObject.FindWithTag("EyeMarker"));
+    }
+
 }

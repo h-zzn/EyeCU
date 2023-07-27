@@ -784,7 +784,7 @@ Transform:
   - {fileID: 6914933625566023729}
   - {fileID: 3607546243312148115}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &90863859978830256
 MonoBehaviour:
@@ -798,11 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f720e9702bc5f2c4ca53f97f38489b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnStop: 0
-  basicSpawner:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  isSpawnStop: 1
   SpecialOrbPrefab: {fileID: 921425815045983877, guid: 0fd0a3847145c514ead20b393bc7a47f, type: 3}
   points:
   - {fileID: 1431400063975143861}
@@ -821,9 +817,8 @@ MonoBehaviour:
   - {fileID: 892530074849291496}
   - {fileID: 2292616886866916280}
   - {fileID: 6914933625566023729}
-  startDelayTime: 0
   SpecialOrbInterval: 7.5
-  NumofSpecialOrb: 3
+  maxNumofSpecialOrb: 3
 --- !u!1 &6339423273614932676
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static OVRHaptics;
 
 public class ControllerManager : MonoBehaviour
 {
@@ -12,7 +11,9 @@ public class ControllerManager : MonoBehaviour
     private EyeTrackingRay eyeTrackingRayRight;
 
     public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
-    public float vibrationDuration = 1.0f; // 햅틱 지속 시간
+
+    [SerializeField] private GameObject leftSword;
+    [SerializeField] private GameObject rightSword;
 
     // Start is called before the first frame update
     void Start()
@@ -28,45 +29,64 @@ public class ControllerManager : MonoBehaviour
     void Update()
     {
         BtnDown();
+        activeSword();
     }
 
     void BtnDown()
     {
-        if(OVRInput.GetDown(OVRInput.Button.One))
+        if(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
         {
-            OVRHapticsClip clip = new OVRHapticsClip();
-            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube")
-                && eyeTrackingRayRight.HoveredCube != null)
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
+            {   
                 Destroy(eyeTrackingRayRight.HoveredCube);
-
-            OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.RTouch) ? RightChannel : LeftChannel;
-            hapticsChannel.Preempt(clip);
-
-            StartCoroutine(StopVibration());
+                eyeTrackingRayRight.HoveredCube = null;
+            }
         }
 
-        if(OVRInput.GetDown(OVRInput.Button.Three))
+        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
         {
-            OVRHapticsClip clip = new OVRHapticsClip();
-            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube")
-                && eyeTrackingRayRight.HoveredCube != null)
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
+            {
                 Destroy(eyeTrackingRayRight.HoveredCube);
-            
-            OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.RTouch) ? LeftChannel : RightChannel;
-            hapticsChannel.Preempt(clip);
-
-            // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
-            StartCoroutine(StopVibration());
+                eyeTrackingRayRight.HoveredCube = null;
+            }
         }
     }
 
-    private IEnumerator StopVibration()
+    void activeSword()
     {
-        // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
-        yield return new WaitForSeconds(vibrationDuration);
+        //ON
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
+        {
+            if (rightSword.activeSelf == false)
+            {
+                rightSword.SetActive(true);
+            }
+        }
 
-        // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
-        OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.RTouch) ? RightChannel : LeftChannel;
-        hapticsChannel.Clear();
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+        {
+            if (leftSword.activeSelf == false)
+            {
+                leftSword.SetActive(true);
+            }
+        }
+
+        //OFF
+        if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
+        {
+            if (rightSword.activeSelf == true)
+            {
+                rightSword.SetActive(false);
+            }
+        }
+
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
+        {
+            if (leftSword.activeSelf == true)
+            {
+                leftSword.SetActive(false);
+            }
+        }
     }
 }

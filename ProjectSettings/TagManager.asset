@@ -11,6 +11,7 @@ TagManager:
   - redSword
   - MovingOrb
   - TargetPosition
+  - EyeMarker
   layers:
   - Default
   - TransparentFX

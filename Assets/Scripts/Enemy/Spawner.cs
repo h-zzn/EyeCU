@@ -11,19 +11,11 @@ public class Spawner : MonoBehaviour
     public float beat = (60/130)*2;
     private float coolTime = 0;
 
-    private float Timer = 0;
-    [SerializeField] private float startDelayTime;
-
-    // Update is called once per frame
     void Update()
     {
         if(!isSpawnStop)
         {
-            if(Timer > startDelayTime)
-                spawnOrb();
-
-            if(Timer <= startDelayTime + 0.1f)
-                Timer += Time.deltaTime;
+            spawnOrb();
         }
     }
 
