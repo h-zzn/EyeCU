@@ -18,6 +18,7 @@ public class EventManager : MonoBehaviour
     private Coroutine EventFlow = null;
 
     [SerializeField] private GameObject Eye;
+    [SerializeField] private AudioSource BGM;
 
     void Awake()
     {
@@ -44,14 +45,14 @@ public class EventManager : MonoBehaviour
         Timer += Time.deltaTime;
     }
 
-    //ì²«ë²ˆì§¸ ì´ë²¤íŠ¸ flow
+    //ì²«ë²ˆì§? ?´ë²¤íŠ¸ flow
     private IEnumerator EventFlowCoroutine()
     {   
-        //ê¸°ë³¸ ë©”ì»¤ë‹ˆì¦˜ ì‹œê°„
+        //ê¸°ë³¸ ë©”ì»¤?‹ˆì¦? ?‹œê°?
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
 
-        //íŠ¹ë³„ orb ë“±ì¥ ì‹œê°„
+        //?Š¹ë³? orb ?“±?¥ ?‹œê°?
         BasicSpawnStop(true);
         SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop = false;
         while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
@@ -59,14 +60,14 @@ public class EventManager : MonoBehaviour
             yield return null;
         }
         
-        //swordë§Œ ì“¸ ìˆ˜ ìˆê²Œ ëœ ì‹œê°„
+        //swordë§? ?“¸ ?ˆ˜ ?ˆê²? ?œ ?‹œê°?
         removeEyeMarker();
         basicOrbSpawner[0].GetComponent<Spawner>().isSpawnStop = false;
         basicOrbSpawner[1].GetComponent<Spawner>().isSpawnStop = false;
         Eye.GetComponent<EyeTrackingRay>().enabled = false;
         yield return new WaitForSeconds(swordTime);
         
-        //ê¸°ë³¸ ë©”ì»¤ë‹ˆì¦˜ ì‹œê°„
+        //ê¸°ë³¸ ë©”ì»¤?‹ˆì¦? ?‹œê°?
         BasicSpawnStop(false);
         Eye.GetComponent<EyeTrackingRay>().enabled = true;
         yield return new WaitForSeconds(BasicSpawnTime);
@@ -74,13 +75,17 @@ public class EventManager : MonoBehaviour
         //ê²Œì„ ì¢…ë£Œ
         BasicSpawnStop(true);
         SpecialOrbSpawnAllStop();
+        if (BGM != null)
+        {
+            BGM.Stop();
+        }
         // Reset
         //eventStarted = false;
         //EventFlow = null;
     }
 
 
-    //ê¸°ë³¸ ìŠ¤í¬ë„ˆ ë©ˆì¶¤ ì—¬ë¶€ 
+    //ê¸°ë³¸ ?Š¤?¬?„ˆ ë©ˆì¶¤ ?—¬ë¶? 
     public void BasicSpawnStop(bool stop)
     {
         foreach (GameObject spawner in basicOrbSpawner)
@@ -89,7 +94,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    //íŠ¹ìˆ˜ ìŠ¤í¬ë„ˆ ë‹¤ ë©ˆì¶¤
+    //?Š¹?ˆ˜ ?Š¤?¬?„ˆ ?‹¤ ë©ˆì¶¤
     public void SpecialOrbSpawnAllStop()
     {
         foreach (GameObject spawner in SpecialOrbSpawner)
