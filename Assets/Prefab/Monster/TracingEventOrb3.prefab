@@ -19824,7 +19824,7 @@ MonoBehaviour:
   - {fileID: 5325877555548470109}
   - {fileID: 4605568173304688179}
   movingTime: 1
-  UngSound: {fileID: 0}
+  UngSound: {fileID: 5133553497259348437}
 --- !u!135 &9072556321195170360
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19887,7 +19887,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

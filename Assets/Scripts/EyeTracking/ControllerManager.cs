@@ -15,6 +15,9 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private GameObject leftSword;
     [SerializeField] private GameObject rightSword;
 
+    public AudioClip yourAudioClip;
+    [SerializeField] private AudioSource PoongSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,10 @@ public class ControllerManager : MonoBehaviour
         {
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
             {   
+                if (PoongSound != null)
+                {
+                    PoongSound.Play();
+                }
                 Destroy(eyeTrackingRayRight.HoveredCube);
                 eyeTrackingRayRight.HoveredCube = null;
             }
@@ -47,6 +54,10 @@ public class ControllerManager : MonoBehaviour
         {
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
             {
+                if (PoongSound != null)
+                {
+                    PoongSound.Play();
+                }
                 Destroy(eyeTrackingRayRight.HoveredCube);
                 eyeTrackingRayRight.HoveredCube = null;
             }
