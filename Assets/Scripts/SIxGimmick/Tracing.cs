@@ -15,7 +15,7 @@ public class Tracing : MonoBehaviour
 
 
     private float hoverDuration = 0f;
-    [SerializeField] private float maxHoverDuration = 5f; // 5 seconds
+    private float maxHoverDuration = 5f; // 5 seconds
     public bool IsHovered { get; set; }
 
     private void Awake() 
@@ -36,12 +36,12 @@ public class Tracing : MonoBehaviour
             // Increment the hover duration
             hoverDuration += Time.deltaTime;
 
-            Debug.Log("hoverDuration: "+hoverDuration);
-
             if (hoverDuration >= maxHoverDuration)
             {
-                // Destroy the object after 5 seconds of continuous gaze
-                Destroy(gameObject);
+                if (transform.parent != null)
+                {
+                    Destroy(transform.parent.gameObject);
+                }
             }
         }
     }
@@ -50,7 +50,7 @@ public class Tracing : MonoBehaviour
     {
         if(other.gameObject.CompareTag("TargetPosition"))
         {
-            other.gameObject.transform.position += transform.forward*2;
+            other.gameObject.transform.position += transform.forward*4;
         }
     }
 
