@@ -8,8 +8,8 @@ public class DamagedArea : MonoBehaviour
     {
         
     }
-
-    void OnCollisionEnter(Collision other)
+    
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube") || other.gameObject.CompareTag("MovingOrb"))
         {
