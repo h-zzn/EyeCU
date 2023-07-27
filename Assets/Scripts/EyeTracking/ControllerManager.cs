@@ -15,8 +15,8 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private GameObject leftSword;
     [SerializeField] private GameObject rightSword;
 
-    public AudioClip yourAudioClip;
     [SerializeField] private AudioSource PoongSound;
+    [SerializeField] private AudioSource ChengSound;   
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +69,11 @@ public class ControllerManager : MonoBehaviour
         //ON
         if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
         {
+            if (ChengSound != null)
+            {
+                ChengSound.Play();
+            }
+
             if (rightSword.activeSelf == false)
             {
                 rightSword.SetActive(true);
@@ -77,6 +82,11 @@ public class ControllerManager : MonoBehaviour
 
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
         {
+            if (ChengSound != null)
+            {
+                ChengSound.Play();
+            }
+
             if (leftSword.activeSelf == false)
             {
                 leftSword.SetActive(true);
