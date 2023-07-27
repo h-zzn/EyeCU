@@ -6,7 +6,7 @@ using System.Linq;
 public class SpecialOrbSpawner : MonoBehaviour
 {
     public bool isSpawnStop = true;
-    [SerializeField] private GameObject SpecialOrbPrefab;
+    [SerializeField] private GameObject[] SpecialOrbPrefab;
     
     public Transform[] points;
 
@@ -46,7 +46,7 @@ public class SpecialOrbSpawner : MonoBehaviour
     {
         if (coolTime > SpecialOrbInterval && Orbs.Count < maxNumofSpecialOrb) 
         {
-            GameObject Orb = Instantiate(SpecialOrbPrefab, points[Random.Range(0, points.Length)]);
+            GameObject Orb = Instantiate(SpecialOrbPrefab[Random.Range(0,3)], points[Random.Range(0, points.Length)]);
             Orb.transform.localPosition = Vector3.zero;
             Orb.transform.Rotate(transform.forward);
             Orbs.Add(Orb);

@@ -1605,6 +1605,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 90863859978830256, guid: f72ae540b5020374f863b1c931a2a693, type: 3}
+      propertyPath: SpecialOrbPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 921425815045983877, guid: 0fd0a3847145c514ead20b393bc7a47f, type: 3}
+    - target: {fileID: 90863859978830256, guid: f72ae540b5020374f863b1c931a2a693, type: 3}
+      propertyPath: SpecialOrbPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 921425815045983877, guid: ccc2bccd73407144c944ea0ceb3bb58a, type: 3}
+    - target: {fileID: 90863859978830256, guid: f72ae540b5020374f863b1c931a2a693, type: 3}
+      propertyPath: SpecialOrbPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 921425815045983877, guid: 2e65433801391ef40adfc6786146502f, type: 3}
     - target: {fileID: 5721371230319394229, guid: f72ae540b5020374f863b1c931a2a693, type: 3}
       propertyPath: m_Name
       value: SpecialSpawnPosition
