@@ -9,9 +9,14 @@ TagManager:
   - Cube
   - blueSword
   - redSword
+<<<<<<< HEAD
   - MovingOrb
   - TargetPosition
   - EyeMarker
+=======
+  - item
+  - gameOver
+>>>>>>> HJ
   layers:
   - Default
   - TransparentFX
