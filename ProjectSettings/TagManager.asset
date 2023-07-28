@@ -3,25 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - redCube
-  - blueCube
-  - Cube
-  - blueSword
-  - redSword
-<<<<<<< HEAD
-  - MovingOrb
-  - TargetPosition
-  - EyeMarker
-=======
-  - item
-  - gameOver
->>>>>>> HJ
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Marker
+  - 
   - Water
   - UI
   - 
