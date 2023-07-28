@@ -36,8 +36,8 @@ public class EyeTrackingRay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-        SetupRay();
+        lineRenderer = GetComponent<LineRenderer>();  
+        SetupRay();  
     }
 
     void SetupRay()

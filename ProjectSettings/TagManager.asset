@@ -3,12 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TargetPosition
+  - MovingOrb
+  - blueCube
+  - redCube
+  - redSword
+  - EyeMarker
+  - LavaStone
+  - IceStone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NonEyeTargeting
   - Water
   - UI
   - 

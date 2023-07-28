@@ -11,7 +11,7 @@ public class BlueSwordCubeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("blueCube"))
+        if (collision.gameObject.CompareTag("IceStone"))
         {
             if (SsingSound != null)
             {

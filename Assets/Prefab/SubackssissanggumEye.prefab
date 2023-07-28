@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d31a575a2d9bf42b5ae87f68a2c7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  markerPrefab: {fileID: 7968132919979764526, guid: 72f4f9ec751532841b1d4aff270ca6bf, type: 3}
+  markerPrefab: {fileID: 4311508398875014, guid: e1ce0597a4cbdd34eb57413e5e704e00, type: 3}
   rayDistance: 15
   rayWidth: 100
   layersToInclude:
