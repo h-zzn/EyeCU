@@ -9,6 +9,8 @@ TagManager:
   - Cube
   - blueSword
   - redSword
+  - item
+  - gameOver
   layers:
   - Default
   - TransparentFX
