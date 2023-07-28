@@ -17,6 +17,7 @@ public class Tracing : MonoBehaviour
     private float hoverDuration = 0f;
     private float maxHoverDuration = 5f; // 5 seconds
     public bool IsHovered { get; set; }
+    private bool hasAudioPlayed = false;
 
     private void Awake() 
     {
@@ -35,11 +36,13 @@ public class Tracing : MonoBehaviour
         {
             // Increment the hover duration
             hoverDuration += Time.deltaTime;
-            if (UngSound != null)
+
+            if (!hasAudioPlayed && UngSound != null)
             {
                 UngSound.Play();
+                hasAudioPlayed = true; // Set the flag to true to indicate audio has played.
             }
-            
+
             if (hoverDuration >= maxHoverDuration)
             {
                 if (transform.parent != null)
@@ -53,6 +56,7 @@ public class Tracing : MonoBehaviour
             if (UngSound != null)
             {
                 UngSound.Stop();
+                hasAudioPlayed = false; // Reset the flag when the object is no longer hovered.
             }
         }
     }

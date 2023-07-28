@@ -52,6 +52,9 @@ public class EventManager : MonoBehaviour
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
 
+        //"Don't take your eyes off the starry Orb! Put all my energy into your eyes!" It's time to say that
+        yield return new WaitForSeconds(7);
+
         //?���? orb ?��?�� ?���?
         BasicSpawnStop(true);
         SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop = false;
@@ -66,6 +69,9 @@ public class EventManager : MonoBehaviour
         basicOrbSpawner[1].GetComponent<Spawner>().isSpawnStop = false;
         Eye.GetComponent<EyeTrackingRay>().enabled = false;
         yield return new WaitForSeconds(swordTime);
+
+        //It's time to let you know that the power of your eyes is back
+        yield return new WaitForSeconds(7);
         
         //기본 메커?���? ?���?
         BasicSpawnStop(false);
