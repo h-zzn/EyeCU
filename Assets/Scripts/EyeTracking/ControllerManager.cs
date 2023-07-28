@@ -15,6 +15,9 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private GameObject leftSword;
     [SerializeField] private GameObject rightSword;
 
+    [SerializeField] private GameObject leftEffect;
+    [SerializeField] private GameObject rightEffect;
+
     [SerializeField] private AudioSource PoongSound;
     [SerializeField] private AudioSource ChengSound;   
 
@@ -66,7 +69,7 @@ public class ControllerManager : MonoBehaviour
 
     void activeSword()
     {
-        //ON
+        //sword ON effect off
         if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
         {
             if (ChengSound != null)
@@ -77,6 +80,11 @@ public class ControllerManager : MonoBehaviour
             if (rightSword.activeSelf == false)
             {
                 rightSword.SetActive(true);
+            }
+
+            if (rightEffect.activeSelf == true)
+            {
+                rightEffect.SetActive(false);
             }
         }
 
@@ -91,14 +99,24 @@ public class ControllerManager : MonoBehaviour
             {
                 leftSword.SetActive(true);
             }
+
+            if (leftEffect.activeSelf == true)
+            {
+                leftEffect.SetActive(false);
+            }
         }
 
-        //OFF
+        //sword Off effect on
         if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
         {
             if (rightSword.activeSelf == true)
             {
                 rightSword.SetActive(false);
+            }
+
+            if (rightEffect.activeSelf == false)
+            {
+                rightEffect.SetActive(true);
             }
         }
 
@@ -107,6 +125,11 @@ public class ControllerManager : MonoBehaviour
             if (leftSword.activeSelf == true)
             {
                 leftSword.SetActive(false);
+            }
+
+            if (leftEffect.activeSelf == false)
+            {
+                leftEffect.SetActive(true);
             }
         }
     }

@@ -72,12 +72,18 @@ public class EventManager : MonoBehaviour
         StoneSpawnStop(true);
         yield return new WaitForSeconds(7);
         
+
         //기본 메커?���? ?���?
         BasicSpawnStop(false);
-        yield return new WaitForSeconds(BasicSpawnTime);
+        yield return new WaitForSeconds(10);
+        StoneSpawnStop(false);
+        stoneSpawner[0].GetComponent<Spawner>().beat *=3;
+        stoneSpawner[1].GetComponent<Spawner>().beat *=3;
+        yield return new WaitForSeconds(BasicSpawnTime-10);
 
         //게임 종료
         BasicSpawnStop(true);
+        StoneSpawnStop(true);
         SpecialOrbSpawnAllStop();
 
         yield return new WaitForSeconds(30);
