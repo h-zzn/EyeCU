@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6296064793119209080}
   - component: {fileID: 7056990054718925823}
   m_Layer: 0
-  m_Name: OrbSpawner
+  m_Name: BasicOrbSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

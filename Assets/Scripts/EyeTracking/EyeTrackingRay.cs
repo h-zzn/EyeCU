@@ -117,16 +117,27 @@ public class EyeTrackingRay : MonoBehaviour
 
     void UnSelect(bool clear = false)
     {
-        if(EyeTargetingObject != null && (EyeTargetingObject.gameObject.CompareTag("redCube") || EyeTargetingObject.gameObject.CompareTag("blueCube")))
+        if (EyeTargetingObject != null)
         {
-            EyeTargetingObject.GetComponent<Cube>().IsHovered = false;
-        }
-        else if(EyeTargetingObject != null && EyeTargetingObject.CompareTag("MovingOrb"))
-        {
-            EyeTargetingObject.GetComponent<Tracing>().IsHovered = false;
-        }
+            if (EyeTargetingObject.CompareTag("redCube") || EyeTargetingObject.CompareTag("blueCube"))
+            {
+                Cube cubeComponent = EyeTargetingObject.GetComponent<Cube>();
+                if (cubeComponent != null)
+                {
+                    cubeComponent.IsHovered = false;
+                }
+            }
+            else if (EyeTargetingObject.CompareTag("MovingOrb"))
+            {
+                TracingEventOrb tracingComponent = EyeTargetingObject.GetComponent<TracingEventOrb>();
+                if (tracingComponent != null)
+                {
+                    tracingComponent.IsHovered = false;
+                }
+            }
 
-        EyeTargetingObject = null;
+            EyeTargetingObject = null;
+        }
     }
 
     Transform SpawnMarker(Vector3 position, Vector3 normal)

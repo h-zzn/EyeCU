@@ -192,6 +192,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+--- !u!1 &165691406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8493262977034340869, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
+  m_PrefabInstance: {fileID: 4391287119821082717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &597471935 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 441883992826740416, guid: 7f2e32e2df56e864daf12eb016a36bd9, type: 3}
@@ -333,7 +338,7 @@ MonoBehaviour:
   basicOrbSpawner:
   - {fileID: 1628963508}
   - {fileID: 711841352}
-  - {fileID: 0}
+  - {fileID: 165691406}
   stoneSpawner:
   - {fileID: 0}
   - {fileID: 1629632650}
@@ -1281,7 +1286,7 @@ Transform:
   - {fileID: 1559196165}
   - {fileID: 1225803960}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780701388 stripped
 GameObject:
@@ -1525,7 +1530,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2460329135503315430, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2460329135503315430, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
       propertyPath: m_LocalPosition.x
