@@ -82,9 +82,9 @@ public class Tracing : MonoBehaviour
     Sequence Quadrant34(int a){
         return DOTween.Sequence()
         .OnStart(() => {
-            transform.DOMoveX(targets[a].transform.position.x, movingTime).SetEase(Ease.InQuad);
-            transform.DOMoveY(targets[a].transform.position.y, movingTime).SetEase(Ease.OutQuad);
-            transform.DOMoveZ(targets[a].transform.position.z, movingTime).SetEase(Ease.OutQuad);
+            transform.DOMoveX(targets[a].transform.position.x, movingTime*2).SetEase(Ease.InQuad);
+            transform.DOMoveY(targets[a].transform.position.y, movingTime*2).SetEase(Ease.OutQuad);
+            transform.DOMoveZ(targets[a].transform.position.z, movingTime*2).SetEase(Ease.OutQuad);
         })
         .SetDelay(movingTime);
     } 
