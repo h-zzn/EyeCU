@@ -15,7 +15,6 @@ TagManager:
   - EyeMarker
   - LavaStone
   - IceStone
-
   layers:
   - Default
   - TransparentFX
