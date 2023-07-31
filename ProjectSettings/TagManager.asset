@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - EyeMarker
+  - gameStartButton
+  - tutorialButton
   - TargetPosition
   - MovingOrb
   - blueCube
