@@ -12,6 +12,8 @@ TagManager:
   - EyeMarker
   - LavaStone
   - IceStone
+  - gameStartButton
+  - tutorialButton
   layers:
   - Default
   - TransparentFX
