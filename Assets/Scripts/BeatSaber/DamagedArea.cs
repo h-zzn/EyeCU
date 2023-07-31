@@ -22,5 +22,12 @@ public class DamagedArea : MonoBehaviour
                 Destroy(other.transform.parent.gameObject);
             }
         }
+        else if(other.gameObject.CompareTag("LavaStone") && other.gameObject.CompareTag("IceStone"))
+        {
+            if (other.transform.parent != null)
+            {
+                Destroy(other.transform.parent.gameObject);
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ public class RedSwordCubeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("redCube"))
+        if (collision.gameObject.CompareTag("LavaStone"))
         {
             if (SsingSound != null)
             {

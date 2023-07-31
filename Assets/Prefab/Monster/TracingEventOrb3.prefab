@@ -9817,7 +9817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4605568173304688179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -3, z: 4}
+  m_LocalPosition: {x: -1, y: -2.5, z: 4}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19729,9 +19729,9 @@ GameObject:
   - component: {fileID: 2812025971407179491}
   - component: {fileID: 5479649051640432363}
   - component: {fileID: 8278373802797602972}
-  - component: {fileID: 61360254245267195}
   - component: {fileID: 9072556321195170360}
   - component: {fileID: 886076353572345163}
+  - component: {fileID: 5361722484285890978}
   - component: {fileID: 5133553497259348437}
   m_Layer: 0
   m_Name: TracingOrb
@@ -19806,25 +19806,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &61360254245267195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5313004513565903675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdf74b8a2d4e17469fcfe822138ec6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 6263582374662015332}
-  - {fileID: 6692924988220418928}
-  - {fileID: 5325877555548470109}
-  - {fileID: 4605568173304688179}
-  movingTime: 1
-  UngSound: {fileID: 5133553497259348437}
 --- !u!135 &9072556321195170360
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19873,6 +19854,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5361722484285890978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5313004513565903675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10002e027588334c86b8b96fe587f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedPattern: 1
+  targets:
+  - {fileID: 6263582374662015332}
+  - {fileID: 6692924988220418928}
+  - {fileID: 5325877555548470109}
+  - {fileID: 4605568173304688179}
+  movingTime: 1
+  HMT: 0.9
+  UngSound: {fileID: 5133553497259348437}
 --- !u!82 &5133553497259348437
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19997,7 +19999,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5325877555548470109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 3, z: 3}
+  m_LocalPosition: {x: -1, y: 2.5, z: 3}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20130,7 +20132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6263582374662015332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 3, z: 1}
+  m_LocalPosition: {x: 1, y: 2.5, z: 1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20263,7 +20265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6692924988220418928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -3, z: 2}
+  m_LocalPosition: {x: 1, y: -2.5, z: 2}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []

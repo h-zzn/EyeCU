@@ -5,6 +5,7 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] basicOrbSpawner;
+    [SerializeField] private GameObject[] stoneSpawner;
     [SerializeField] private GameObject[] SpecialOrbSpawner;
 
     private bool eventStarted = false;
@@ -64,22 +65,25 @@ public class EventManager : MonoBehaviour
         }
         
         //sword�? ?�� ?�� ?���? ?�� ?���?
-        removeEyeMarker();
-        basicOrbSpawner[0].GetComponent<Spawner>().isSpawnStop = false;
-        basicOrbSpawner[1].GetComponent<Spawner>().isSpawnStop = false;
-        Eye.GetComponent<EyeTrackingRay>().enabled = false;
+        StoneSpawnStop(false);
         yield return new WaitForSeconds(swordTime);
-
+        
         //It's time to let you know that the power of your eyes is back
+        StoneSpawnStop(true);
         yield return new WaitForSeconds(7);
         
+
         //기본 메커?���? ?���?
         BasicSpawnStop(false);
-        Eye.GetComponent<EyeTrackingRay>().enabled = true;
-        yield return new WaitForSeconds(BasicSpawnTime);
+        yield return new WaitForSeconds(10);
+        StoneSpawnStop(false);
+        stoneSpawner[0].GetComponent<Spawner>().beat *=3;
+        stoneSpawner[1].GetComponent<Spawner>().beat *=3;
+        yield return new WaitForSeconds(BasicSpawnTime-10);
 
         //게임 종료
         BasicSpawnStop(true);
+        StoneSpawnStop(true);
         SpecialOrbSpawnAllStop();
 
         yield return new WaitForSeconds(30);
@@ -97,6 +101,14 @@ public class EventManager : MonoBehaviour
     public void BasicSpawnStop(bool stop)
     {
         foreach (GameObject spawner in basicOrbSpawner)
+        {
+            spawner.GetComponent<Spawner>().isSpawnStop = stop;
+        }
+    }
+
+    public void StoneSpawnStop(bool stop)
+    {
+        foreach (GameObject spawner in stoneSpawner)
         {
             spawner.GetComponent<Spawner>().isSpawnStop = stop;
         }

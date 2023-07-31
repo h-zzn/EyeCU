@@ -8,27 +8,35 @@ using DG.Tweening;
 [RequireComponent(typeof(Rigidbody))]
 public class Tracing : MonoBehaviour
 {
+    public enum MovementPattern
+    {
+        O,
+        Z,
+    }
+    [SerializeField] private MovementPattern selectedPattern = MovementPattern.O;
+
     public GameObject[] targets;
     private Sequence mySequence;
-    public int movingTime = 3; 
-    private Coroutine DrawCircle;
+    public float movingTime = 3;
+    private Coroutine drawCoroutine;
 
+    [SerializeField] private float HMT = 1;
     [SerializeField] private AudioSource UngSound;
     private float hoverDuration = 0f;
     private float maxHoverDuration = 5f; // 5 seconds
     public bool IsHovered { get; set; }
     private bool hasAudioPlayed = false;
 
-    private void Awake() 
+    private void Awake()
     {
-        IsHovered = false; 
+        IsHovered = false;
     }
 
-    void Update()
+    private void Update()
     {
-        if(DrawCircle == null)
+        if (drawCoroutine == null)
         {
-            DrawCircle = StartCoroutine("drawCircle");
+            StartMovementCoroutine();
         }
 
         // Check if the object is being gazed upon
@@ -63,13 +71,37 @@ public class Tracing : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("TargetPosition"))
+        if (other.gameObject.CompareTag("TargetPosition"))
         {
-            other.gameObject.transform.position += transform.forward*4;
+            other.gameObject.transform.position += transform.forward * 4;
         }
     }
 
-    Sequence Quadrant12(int a){
+    Sequence Quadrant12(int a)
+    {
+        return DOTween.Sequence()
+            .OnStart(() =>
+            {
+                transform.DOMoveX(targets[a].transform.position.x, movingTime);
+                transform.DOMoveY(targets[a].transform.position.y, movingTime);
+                transform.DOMoveZ(targets[a].transform.position.z, movingTime);
+            })
+            .SetDelay(movingTime);
+    }
+
+    Sequence Quadrant34(int a)
+    {
+        return DOTween.Sequence()
+            .OnStart(() =>
+            {
+                transform.DOMoveX(targets[a].transform.position.x, movingTime * HMT);
+                transform.DOMoveY(targets[a].transform.position.y, movingTime * HMT);
+                transform.DOMoveZ(targets[a].transform.position.z, movingTime * HMT);
+            })
+            .SetDelay(movingTime);
+    }
+
+    Sequence CircleQuadrant12(int a){
         return DOTween.Sequence()
         .OnStart(() => {
             transform.DOMoveX(targets[a].transform.position.x, movingTime).SetEase(Ease.OutQuad);
@@ -79,7 +111,7 @@ public class Tracing : MonoBehaviour
         .SetDelay(movingTime);
     } 
 
-    Sequence Quadrant34(int a){
+    Sequence CircleQuadrant34(int a){
         return DOTween.Sequence()
         .OnStart(() => {
             transform.DOMoveX(targets[a].transform.position.x, movingTime).SetEase(Ease.InQuad);
@@ -89,14 +121,31 @@ public class Tracing : MonoBehaviour
         .SetDelay(movingTime);
     } 
 
-    IEnumerator drawCircle()
+    IEnumerator DrawPattern(MovementPattern pattern)
     {
-        mySequence = Quadrant12(0)
-        .Append(Quadrant34(1))
-        .Append(Quadrant12(2))
-        .Append(Quadrant34(3));
-        yield return new WaitForSeconds( movingTime*4 );
-        DrawCircle = null;
+        switch (pattern)
+        {
+            case MovementPattern.O:
+                mySequence = Quadrant12(0)
+                    .Append(CircleQuadrant34(1))
+                    .Append(CircleQuadrant12(2))
+                    .Append(CircleQuadrant34(3));
+                break;
+
+            case MovementPattern.Z:
+                mySequence = Quadrant12(0)
+                    .Append(Quadrant34(1))
+                    .Append(Quadrant12(2))
+                    .Append(Quadrant34(3));
+                break;
+        }
+
+        yield return new WaitForSeconds(movingTime * 4);
+        drawCoroutine = null;
+    }
+
+    void StartMovementCoroutine()
+    {
+        drawCoroutine = StartCoroutine(DrawPattern(selectedPattern));
     }
 }
-

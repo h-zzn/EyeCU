@@ -32,7 +32,7 @@ public class SpecialOrbSpawner : MonoBehaviour
             
             if(Orbs.Count == maxNumofSpecialOrb) 
             {
-                if(Orbs.All(orb => orb == null)) //ì •í•´ì§„ ì˜¤ë¸Œë“¤ì´ ë‹¤ ì‚¬ë¼ì§€ë©´ ìŠ¤í° ì¤‘ì§€
+                if(Orbs.All(orb => orb == null)) //? •?•´ì§? ?˜¤ë¸Œë“¤?´ ?‹¤ ?‚¬?¼ì§?ë©? ?Š¤?° ì¤‘ì??
                 {
                     isSpawnStop = true;
                     resetAllValue();
@@ -41,12 +41,12 @@ public class SpecialOrbSpawner : MonoBehaviour
         }    
     }
 
-    //íŠ¹ë³„í•œ ë¬¼ì²´ë¥¼ ì†Œí™˜
+    //?Š¹ë³„í•œ ë¬¼ì²´ë¥? ?†Œ?™˜
     public void spawnSpecialOrb()
     {
         if (coolTime > SpecialOrbInterval && Orbs.Count < maxNumofSpecialOrb) 
         {
-            GameObject Orb = Instantiate(SpecialOrbPrefab[Random.Range(0,3)], points[Random.Range(0, points.Length)]);
+            GameObject Orb = Instantiate(SpecialOrbPrefab[Random.Range(0,SpecialOrbPrefab.Length)], points[Random.Range(0, points.Length)]);
             Orb.transform.localPosition = Vector3.zero;
             Orb.transform.Rotate(transform.forward);
             Orbs.Add(Orb);
@@ -56,7 +56,7 @@ public class SpecialOrbSpawner : MonoBehaviour
         coolTime += Time.deltaTime;
     }
 
-    //ë³€ìˆ˜ ë¦¬ì…‹
+    //ë³??ˆ˜ ë¦¬ì…‹
     public void resetAllValue()
     {
         coolTime = SpecialOrbInterval;

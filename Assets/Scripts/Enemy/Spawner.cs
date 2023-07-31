@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
     {
         if(coolTime > beat) 
         {
-            GameObject cube = Instantiate(cubes[Random.Range(0,2)],points[Random.Range(0,16)]);
+            GameObject cube = Instantiate(cubes[Random.Range(0,cubes.Length)],points[Random.Range(0,points.Length)]);
             cube.transform.localPosition = Vector3.zero;
             cube.transform.Rotate(transform.forward);
             coolTime = 0;

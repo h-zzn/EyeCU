@@ -7,11 +7,20 @@ TagManager:
   - EyeMarker
   - gameStartButton
   - tutorialButton
+  - TargetPosition
+  - MovingOrb
+  - blueCube
+  - redCube
+  - redSword
+  - EyeMarker
+  - LavaStone
+  - IceStone
+
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NonEyeTargeting
   - Water
   - UI
   - 
