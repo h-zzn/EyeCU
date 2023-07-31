@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - EyeMarker
+  - gameStartButton
+  - tutorialButton
   - TargetPosition
   - MovingOrb
   - blueCube
@@ -12,8 +15,6 @@ TagManager:
   - EyeMarker
   - LavaStone
   - IceStone
-  - gameStartButton
-  - tutorialButton
   layers:
   - Default
   - TransparentFX
