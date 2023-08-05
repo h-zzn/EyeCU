@@ -30,18 +30,18 @@ public class EventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!eventStarted)
+        if (!eventStarted) 
         {
             // Wait for startDelayTime
-            if (Timer >= startDelayTime)
+            if (Timer >= startDelayTime) 
             {
                 eventStarted = true;
 
                 // Start a coroutine to handle the event flow
                 if(EventFlow == null)
-                    EventFlow = StartCoroutine(EventFlowCoroutine());
+                    EventFlow = StartCoroutine(EventFlowCoroutine()); 
             }
-        }
+        } 
 
         Timer += Time.deltaTime;
     }
@@ -65,28 +65,28 @@ public class EventManager : MonoBehaviour
         }
         
         //sword�? ?�� ?�� ?���? ?�� ?���?
-        StoneSpawnStop(false);
-        yield return new WaitForSeconds(swordTime);
+        StoneSpawnStop(false); 
+        yield return new WaitForSeconds(swordTime); 
         
         //It's time to let you know that the power of your eyes is back
-        StoneSpawnStop(true);
-        yield return new WaitForSeconds(7);
+        StoneSpawnStop(true); 
+        yield return new WaitForSeconds(7); 
         
 
         //기본 메커?���? ?���?
-        BasicSpawnStop(false);
-        yield return new WaitForSeconds(10);
-        StoneSpawnStop(false);
-        stoneSpawner[0].GetComponent<Spawner>().beat *=3;
-        stoneSpawner[1].GetComponent<Spawner>().beat *=3;
-        yield return new WaitForSeconds(BasicSpawnTime-10);
+        BasicSpawnStop(false); 
+        yield return new WaitForSeconds(10); 
+        StoneSpawnStop(false); 
+        stoneSpawner[0].GetComponent<Spawner>().beat *=3; 
+        stoneSpawner[1].GetComponent<Spawner>().beat *=3; 
+        yield return new WaitForSeconds(BasicSpawnTime-10); 
 
         //게임 종료
-        BasicSpawnStop(true);
-        StoneSpawnStop(true);
-        SpecialOrbSpawnAllStop();
+        BasicSpawnStop(true); 
+        StoneSpawnStop(true); 
+        SpecialOrbSpawnAllStop(); 
 
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(30); 
         if (BGM != null)
         {
             BGM.Stop();
