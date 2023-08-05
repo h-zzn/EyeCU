@@ -32,7 +32,7 @@ public class SpecialOrbSpawner : MonoBehaviour
             
             if(Orbs.Count == maxNumofSpecialOrb) 
             {
-                if(Orbs.All(orb => orb == null)) //? •?•´ì§? ?˜¤ë¸Œë“¤?´ ?‹¤ ?‚¬?¼ì§?ë©? ?Š¤?° ì¤‘ì??
+                if(Orbs.All(orb => orb == null)) 
                 {
                     isSpawnStop = true;
                     resetAllValue();
@@ -41,7 +41,6 @@ public class SpecialOrbSpawner : MonoBehaviour
         }    
     }
 
-    //?Š¹ë³„í•œ ë¬¼ì²´ë¥? ?†Œ?™˜
     public void spawnSpecialOrb()
     {
         if (coolTime > SpecialOrbInterval && Orbs.Count < maxNumofSpecialOrb) 
@@ -56,7 +55,6 @@ public class SpecialOrbSpawner : MonoBehaviour
         coolTime += Time.deltaTime;
     }
 
-    //ë³??ˆ˜ ë¦¬ì…‹
     public void resetAllValue()
     {
         coolTime = SpecialOrbInterval;

@@ -4,29 +4,22 @@ using UnityEngine;
 
 public class DamagedArea : MonoBehaviour
 {
-    void Update()
-    {
-        
-    }
+    [SerializeField] private GameObject EventManager; 
     
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube"))
+        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube") || other.gameObject.CompareTag("LavaStone") || other.gameObject.CompareTag("IceStone"))
         {
-            Destroy(other.gameObject);
+            EventManager.GetComponent<stageManager>().stageHP -= 100;
+            Destroy(other.gameObject); 
         }
         else if(other.gameObject.CompareTag("MovingOrb"))
         {
             if (other.transform.parent != null)
             {
-                Destroy(other.transform.parent.gameObject);
-            }
-        }
-        else if(other.gameObject.CompareTag("LavaStone") && other.gameObject.CompareTag("IceStone"))
-        {
-            if (other.transform.parent != null)
-            {
-                Destroy(other.transform.parent.gameObject);
+                EventManager.GetComponent<stageManager>().stageHP -= 500;
+                Destroy(other.transform.parent.gameObject); 
             }
         }
     }
