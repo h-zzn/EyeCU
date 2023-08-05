@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 109099981155305056}
   - component: {fileID: -1161458869987711272}
   - component: {fileID: 223823611661477884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedCube
   m_TagString: redCube
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 10791868165190677}
   - component: {fileID: 3964148217609804821}
   - component: {fileID: 624401414055176382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
