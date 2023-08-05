@@ -44,15 +44,22 @@ public class SliceObject : MonoBehaviour
             GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
             SetupSlicedComponent(upperHull);
             ChangeLayer(upperHull);
+            DestroyAfterDelay(upperHull,2f);
             
 
             GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
             SetupSlicedComponent(lowerHull);
             ChangeLayer(lowerHull);
+            DestroyAfterDelay(lowerHull,2f);
 
 
             Destroy(target);
         }
+    }
+
+    public void DestroyAfterDelay(GameObject obj, float delay)
+    {
+        Destroy(obj,delay);
     }
     public void ChangeLayer(GameObject target)
     {

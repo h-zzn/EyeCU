@@ -4343,7 +4343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &335758536
 Transform:
   m_ObjectHideFlags: 0
@@ -4380,7 +4380,7 @@ MonoBehaviour:
   sliceableLayer:
     serializedVersion: 2
     m_Bits: 64
-  crossSectionMaterial: {fileID: 2100000, guid: ad051d3b772984b47a4b27afcec8cd89, type: 2}
+  crossSectionMaterial: {fileID: 2100000, guid: a66a4d1207e812745a2377b08756f5be, type: 2}
   cutForce: 2000
 --- !u!4 &337206612 stripped
 Transform:
@@ -15487,7 +15487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1204942577
 Transform:
   m_ObjectHideFlags: 0
@@ -15523,8 +15523,8 @@ MonoBehaviour:
   velocityEstimator: {fileID: 491590407}
   sliceableLayer:
     serializedVersion: 2
-    m_Bits: 64
-  crossSectionMaterial: {fileID: 2100000, guid: f0e40fc865770de4cb1577c051163a9d, type: 2}
+    m_Bits: 128
+  crossSectionMaterial: {fileID: 2100000, guid: 195fa595852516b449d9800d9b15cd49, type: 2}
   cutForce: 2000
 --- !u!4 &1207045879 stripped
 Transform:
@@ -31013,7 +31013,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 09e54e346bce1874a96c87d189eda55e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5cf7f785a394d7c438c772f9317d52f2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -33212,8 +33212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerType: -1
-  leftSword: {fileID: 7709583292153673435}
-  rightSword: {fileID: 6432664790957593990}
+  leftSword: {fileID: 1204942576}
+  rightSword: {fileID: 335758535}
   leftEffect: {fileID: 6401016211829988939}
   rightEffect: {fileID: 2319231689375256845}
   PoongSound: {fileID: 5132576193042651182}
@@ -37127,7 +37127,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 09e54e346bce1874a96c87d189eda55e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5cf7f785a394d7c438c772f9317d52f2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -43391,7 +43391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6441046242887719919
 Transform:
   m_ObjectHideFlags: 0
@@ -47239,7 +47239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7714970970917386783
 Transform:
   m_ObjectHideFlags: 0
