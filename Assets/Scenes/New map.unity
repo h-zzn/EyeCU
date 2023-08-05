@@ -22427,6 +22427,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4072211825316567462, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
+      propertyPath: isSpawnStop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072211825316567462, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
       propertyPath: cubes.Array.data[0]
       value: 
       objectReference: {fileID: 7561202846035471452, guid: 3b7ef6bb7e3348a4b96eda3331f40708, type: 3}
@@ -22469,6 +22473,10 @@ PrefabInstance:
     - target: {fileID: 6443542779730588250, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 169.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481391726253272510, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
+      propertyPath: isSpawnStop
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6481391726253272510, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
       propertyPath: cubes.Array.data[0]
