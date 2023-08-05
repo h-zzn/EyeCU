@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9087713970410089584}
   - component: {fileID: 1553534469440925179}
   - component: {fileID: 6501507620988835792}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: IceStoneAttack
   m_TagString: IceStone
   m_Icon: {fileID: 0}

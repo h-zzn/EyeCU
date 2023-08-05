@@ -29,6 +29,8 @@ public class SliceObject : MonoBehaviour
             GameObject target = hit.transform.gameObject;
             Slice(target);
         }
+
+
     }
     public void Slice(GameObject target)
     {
@@ -42,10 +44,12 @@ public class SliceObject : MonoBehaviour
             GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
             SetupSlicedComponent(upperHull);
             ChangeLayer(upperHull);
+            
 
             GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
             SetupSlicedComponent(lowerHull);
             ChangeLayer(lowerHull);
+
 
             Destroy(target);
         }

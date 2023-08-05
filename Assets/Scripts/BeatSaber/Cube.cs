@@ -8,17 +8,18 @@ using UnityEngine.Events;
 public class Cube : MonoBehaviour
 {
     public bool IsHovered { get; set; }
+    private Vector3 originVector;
 
     void Awake()
     {
         IsHovered = false; 
+        originVector = transform.forward;
     }
 
     // Update is called once per farame
     void Update()
     {
-        transform.position += transform.forward/8;
-
+        transform.position += originVector/8;
         if(!IsHovered)
         {
 
