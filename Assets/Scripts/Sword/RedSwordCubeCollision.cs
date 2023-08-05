@@ -47,4 +47,3 @@ public class RedSwordCubeCollision : MonoBehaviour
         hapticsChannel.Clear();
     }
 }
-
