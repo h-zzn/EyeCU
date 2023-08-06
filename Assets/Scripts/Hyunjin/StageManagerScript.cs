@@ -10,7 +10,7 @@ public class StageManagerScript : MonoBehaviour
 
     int levelat; // 현재 스테이지 번호
     public GameObject stageNumObject;
-    public GameObject successGroupObject;
+    //public GameObject successGroupObject;
 
     private static bool hasDeletedKey = false;
 
@@ -28,11 +28,11 @@ public class StageManagerScript : MonoBehaviour
             stages[i] = stageNumObject.transform.GetChild(i).gameObject;
         }
 
-        GameObject[] successBlock = new GameObject[successGroupObject.transform.childCount];
-        for (int i = 0; i < successGroupObject.transform.childCount; i++)
-        {
-            successBlock[i] = successGroupObject.transform.GetChild(i).gameObject;
-        }
+        // GameObject[] successBlock = new GameObject[successGroupObject.transform.childCount];
+        // for (int i = 0; i < successGroupObject.transform.childCount; i++)
+        // {
+        //     successBlock[i] = successGroupObject.transform.GetChild(i).gameObject;
+        // }
 
         
 
@@ -47,7 +47,7 @@ public class StageManagerScript : MonoBehaviour
         if(levelat > 0){
             for(int i = levelat; i<=levelat; i++){
                 stages[i-1].SetActive(false);
-                successBlock[i-1].SetActive(true);
+                //successBlock[i-1].SetActive(true);
             }
         }
     }

@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hyunjin/StartScene.unity
     guid: 67b5cca2a6945d748889e02f6ebc4fc0
+  - enabled: 1
+    path: Assets/Scenes/Hyunjin/StartScene 1.unity
+    guid: 30a23e58feff50b4c9f880578a5b5275
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 4c1a559d0f1d4ad45b9f061d87ff4c8b, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e267a95fc3213864f9b2ad67294181e3, type: 2}

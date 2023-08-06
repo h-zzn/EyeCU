@@ -80,6 +80,6 @@ public class StageGameManager : MonoBehaviour
     }
 
     public void GoHome(){
-        SceneManager.LoadScene(0); 
+        SceneManager.LoadScene(3); 
     }
 }
