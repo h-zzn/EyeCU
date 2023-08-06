@@ -15,7 +15,7 @@ public class StageGameManager : MonoBehaviour
     public GameObject[] gameItems;  // 게임이 끝났을 때 파괴할 게임 오브젝트 배열
     private int finalScore;
 
-    private static bool hasDeletedKey = false;
+    private static bool hasDeletedKey = false; 
     
     // 플레이 도중 점수 관련
     private void Start(){
@@ -80,6 +80,6 @@ public class StageGameManager : MonoBehaviour
     }
 
     public void GoHome(){
-        SceneManager.LoadScene(3); 
+        SceneManager.LoadScene(0); 
     }
 }

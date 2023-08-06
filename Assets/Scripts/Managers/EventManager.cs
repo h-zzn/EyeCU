@@ -8,12 +8,9 @@ public class EventManager : MonoBehaviour
     [SerializeField] private GameObject[] stoneSpawner;
     [SerializeField] private GameObject[] SpecialOrbSpawner;
 
-    private bool eventStarted = false;
-
     public bool GameClear = false;
     
-    [SerializeField] private float startDelayTime;
-    
+    [SerializeField] private float EventStartDelayTime;
     [SerializeField] private float BasicSpawnTime;
     [SerializeField] private float swordTime;
 
@@ -21,46 +18,36 @@ public class EventManager : MonoBehaviour
 
     public Coroutine EventFlow = null;
 
-    void Awake()
+    void Awake()  
     {
-        BasicSpawnStop(true);
-        SpecialOrbSpawnAllStop();
+        BasicSpawnStop(true);  
+        SpecialOrbSpawnAllStop();  
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!eventStarted) 
-        {
-            // Wait for startDelayTime
-            if (Timer >= startDelayTime) 
-            {
-                eventStarted = true;
-
-                // Start a coroutine to handle the event flow
-                if(EventFlow == null)
-                    EventFlow = StartCoroutine(EventFlowCoroutine()); 
-            }
-        } 
-
-        Timer += Time.deltaTime;
+        
     }
 
-    private IEnumerator EventFlowCoroutine()
+    public IEnumerator EventFlowCoroutine()
     {   
+        //start window 
+        //yield return new WaitForSeconds(EventStartDelayTime); 
+
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
 
         //"Don't take your eyes off the starry Orb! Put all my energy into your eyes!" It's time to say that
         yield return new WaitForSeconds(7);
-
+        
         BasicSpawnStop(true);
         SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop = false;
         while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
         {
             yield return null;
         }
-        
+
         StoneSpawnStop(false); 
         yield return new WaitForSeconds(swordTime); 
         
@@ -70,6 +57,7 @@ public class EventManager : MonoBehaviour
         
         BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
+
         StoneSpawnStop(false); 
         stoneSpawner[0].GetComponent<Spawner>().beat *=3; 
         stoneSpawner[1].GetComponent<Spawner>().beat *=3; 
@@ -80,12 +68,64 @@ public class EventManager : MonoBehaviour
         StoneSpawnStop(true); 
         SpecialOrbSpawnAllStop(); 
         yield return new WaitForSeconds(5);
+        
         GameClear = true;
         // Reset
         //eventStarted = false;
         //EventFlow = null;
     }
 
+    public IEnumerator TutorialEventFlow()
+    {   
+        //start window 
+        //yield return new WaitForSeconds(EventStartDelayTime); 
+
+
+        //마법 오브 제거 방법 window 
+        //yield return new WaitForSeconds(5); 
+        BasicSpawnStop(false);
+        yield return new WaitForSeconds(BasicSpawnTime);
+
+        //"Don't take your eyes off the starry Orb! Put all my energy into your eyes!" It's time to say that
+        yield return new WaitForSeconds(7);
+        
+        //특별 오브 제거 방법 window 
+        //yield return new WaitForSeconds(5); 
+        BasicSpawnStop(true);
+        SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop = false;
+        while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
+        {
+            yield return null;
+        }
+
+        //돌덩이 제거 방법 window 
+        //yield return new WaitForSeconds(5); 
+        StoneSpawnStop(false); 
+        yield return new WaitForSeconds(swordTime); 
+        
+        //It's time to let you know that the power of your eyes is back
+        StoneSpawnStop(true); 
+        yield return new WaitForSeconds(7); 
+        
+        BasicSpawnStop(false); 
+        yield return new WaitForSeconds(10); 
+
+        StoneSpawnStop(false); 
+        stoneSpawner[0].GetComponent<Spawner>().beat *=3; 
+        stoneSpawner[1].GetComponent<Spawner>().beat *=3; 
+        yield return new WaitForSeconds(BasicSpawnTime-10); 
+        
+
+        BasicSpawnStop(true); 
+        StoneSpawnStop(true); 
+        SpecialOrbSpawnAllStop(); 
+        yield return new WaitForSeconds(5);
+        
+        GameClear = true;
+        // Reset
+        //eventStarted = false;
+        //EventFlow = null;
+    }
 
     public void BasicSpawnStop(bool stop)
     {
