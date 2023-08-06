@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class gameStartScript : MonoBehaviour
-{
+{    
     public float shakeTime = 1.0f;
     public float shakeSpeed = 2.0f;
     public float shakeAmount = 1.0f;
+
+    public int gameStartValue = 0;
 
     public GameObject map2;
 
@@ -22,6 +24,8 @@ public class gameStartScript : MonoBehaviour
     }
 
     IEnumerator Shake(){
+        gameStartValue = 1;
+        Debug.Log("Shake~");
         Vector3 originPosition = cam.localPosition;
         float elapsedTime = 0.0f;
 
