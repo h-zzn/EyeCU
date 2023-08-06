@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 6547998149044863684}
   - component: {fileID: 1928309914038804630}
   - component: {fileID: 8193435362759254643}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: IceSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerType: 1
   vibrationDuration: 1
-  SsingSound: {fileID: 0}
+  SsingSound: {fileID: 8193435362759254643}
 --- !u!82 &8193435362759254643
 AudioSource:
   m_ObjectHideFlags: 0
@@ -900,7 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7193459972245717258}
   - component: {fileID: 8333599071059638296}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: End Slice Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1074,7 @@ GameObject:
   - component: {fileID: 1584463181555386557}
   - component: {fileID: 7911178738655843413}
   - component: {fileID: 660427628695448389}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12863,7 +12863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5249497236085207030}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Start Slice Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48115,7 +48115,7 @@ GameObject:
   - component: {fileID: 5737068764914986822}
   - component: {fileID: 7514720144455498481}
   - component: {fileID: 3182927660878301160}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53267,7 +53267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3518053805100503845}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Start Slice Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55029,7 +55029,7 @@ GameObject:
   - component: {fileID: 4721859663900509759}
   - component: {fileID: 1789493566007122854}
   - component: {fileID: 6041128043923567747}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61774,7 +61774,7 @@ GameObject:
   - component: {fileID: 8903016138092317596}
   - component: {fileID: 2675454525495851710}
   - component: {fileID: 2894831881661157102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68768,7 +68768,7 @@ Transform:
   - {fileID: 4271939955076244527}
   - {fileID: 8068705810569230131}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393476222726514362
 MonoBehaviour:
@@ -70415,7 +70415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5218497863027426653}
   - component: {fileID: 8265859453048606381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: L_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70626,7 +70626,7 @@ GameObject:
   - component: {fileID: 8665207521856790842}
   - component: {fileID: 6429866935640086502}
   - component: {fileID: 3751004293163431988}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79899,7 +79899,7 @@ GameObject:
   - component: {fileID: 6542223787841779267}
   - component: {fileID: 7001223648880989173}
   - component: {fileID: 8869384807504350910}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117012,7 +117012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6376741652051364113}
   - component: {fileID: 6172748434942925685}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: R_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117160,7 +117160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 217146980093907868}
   - component: {fileID: 1253795981439575964}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: End Slice Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117588,7 +117588,7 @@ GameObject:
   - component: {fileID: 8912026883305058269}
   - component: {fileID: 6408332854177745771}
   - component: {fileID: 8593022875280820867}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
