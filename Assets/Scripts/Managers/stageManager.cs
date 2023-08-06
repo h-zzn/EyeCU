@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class stageManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource BGM;
-    
-    public int stageHP = 1000;
+    [SerializeField] private AudioSource BGM; 
 
-    private float Timer = 0;
+    private EventManager eventManager; 
+
+    private DamagedArea damagedArea;
+
+    private Coroutine stageOver = null;
+    private Coroutine stageClear = null;
+
+    void Awake()
+    {
+        eventManager = this.transform.GetComponent<EventManager>(); 
+        damagedArea = this.transform.GetComponent<DamagedArea>();
+    }
 
     void Update() 
     {
-        if(stageHP <= 0)
+        if(damagedArea.stageHP <= 0)
         {
-            StartCoroutine(StageOver());    
+            if(stageOver == null)
+                stageOver = StartCoroutine(StageOver()); 
+            eventManager.EventFlow = null; 
         }
 
-        Timer += Time.deltaTime; 
+        if(damagedArea.stageHP > 0 && eventManager.GameClear == true)
+        {
+            if(stageClear == null)
+                stageClear = StartCoroutine(StageClear()); 
+        }
     }
 
     public IEnumerator StageOver() 
@@ -38,7 +53,7 @@ public class stageManager : MonoBehaviour
     {
         if (BGM != null)
         {
-            BGM.Stop();
+            BGM.Stop(); 
         }
     }
 
