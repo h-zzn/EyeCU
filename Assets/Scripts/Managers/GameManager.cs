@@ -22,6 +22,16 @@ public class GameManager : MonoBehaviour
 
     public Coroutine EventFlow = null;
 
+    private static bool hasDeletedKey = false; 
+
+    // final HP 관련
+    public Text finalHPText;
+    private int finalHP;
+
+    // 플레이 도중 점수 관련
+    public Text currentScoreText;
+    int score;
+
     private enum StageLevel
     {
         tutorial, 
@@ -47,6 +57,15 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("FinalHP");
             hasDeletedKey = true;
+        }
+
+        finalHP = PlayerPrefs.GetInt("FinalHP");
+
+        if(PlayerPrefs.HasKey("FinalHP")){
+            StageClear();
+        }
+        else{
+            SetText();
         }
     }
 
@@ -82,6 +101,16 @@ public class GameManager : MonoBehaviour
 
         Timer += Time.deltaTime;
     }
+    
+    public void GetScore(){
+        score += 100;
+        SetText();
+    }
+
+    public void SetText(){
+        currentScoreText.text = "Score: " + score.ToString();
+    }
+
 
     public IEnumerator StageOver() 
     {
@@ -94,6 +123,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StageClear() 
     {
+        if(!PlayerPrefs.HasKey("FinalHP")){
+            finalScore = score;
+            SaveHP(finalScore);
+        }
+
         SaveHP(damagedArea.stageHP);
         yield return new WaitForSeconds(2); 
         BGMOff();
