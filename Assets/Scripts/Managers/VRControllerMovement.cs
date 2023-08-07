@@ -22,14 +22,15 @@ public class VRControllerMovement : MonoBehaviour
         hmdForward.y = 0f;
         hmdForward.Normalize();
 
-        // Get the thumbstick input.
-        Vector2 thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+        // Get the thumbstick input from both left and right controllers.
+        Vector2 leftThumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+        Vector2 rightThumbstickInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
 
-        // Rotate the player based on thumbstick horizontal input.
-        playerTransform.Rotate(Vector3.up * thumbstickInput.x * rotationSpeed);
+        // Movement control with left thumbstick (forward, backward, sideways).
+        Vector3 moveDirection = (hmdForward * leftThumbstickInput.y) + (playerTransform.right * leftThumbstickInput.x);
 
-        // Calculate the movement direction based on HMD forward and thumbstick vertical input.
-        Vector3 moveDirection = hmdForward * thumbstickInput.y;
+        // Rotation control with right thumbstick.
+        playerTransform.Rotate(Vector3.up * rightThumbstickInput.x * rotationSpeed);
 
         // Make the player move in the direction of the HMD facing.
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
