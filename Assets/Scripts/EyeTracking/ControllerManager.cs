@@ -12,6 +12,11 @@ public class ControllerManager : MonoBehaviour
 
     public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
 
+    Vector3 hitEffectPosition;
+
+    [SerializeField] private GameObject RedMagicHitEffectPrefab;
+    [SerializeField] private GameObject BlueMagicHitEffectPrefab;
+
     [SerializeField] private GameObject leftSword;
     [SerializeField] private GameObject rightSword;
 
@@ -48,6 +53,11 @@ public class ControllerManager : MonoBehaviour
                 {
                     PoongSound.Play();
                 }
+
+                // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
+                hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
+                Instantiate(RedMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+
                 Destroy(eyeTrackingRayRight.HoveredCube);
                 eyeTrackingRayRight.HoveredCube = null;
             }
@@ -61,6 +71,11 @@ public class ControllerManager : MonoBehaviour
                 {
                     PoongSound.Play();
                 }
+
+                // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
+                hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
+                Instantiate(RedMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+
                 Destroy(eyeTrackingRayRight.HoveredCube);
                 eyeTrackingRayRight.HoveredCube = null;
             }
