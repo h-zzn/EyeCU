@@ -9,6 +9,9 @@ public class EventManager : MonoBehaviour
     [SerializeField] private GameObject[] SpecialOrbSpawner;
 
     private bool eventStarted = false;
+
+    public bool GameClear = false;
+    
     [SerializeField] private float startDelayTime;
     
     [SerializeField] private float BasicSpawnTime;
@@ -16,7 +19,7 @@ public class EventManager : MonoBehaviour
 
     private float Timer = 0;
 
-    private Coroutine EventFlow = null;
+    public Coroutine EventFlow = null;
 
     void Awake()
     {
@@ -43,17 +46,14 @@ public class EventManager : MonoBehaviour
         Timer += Time.deltaTime;
     }
 
-    //첫번�?? ?��벤트 flow
     private IEnumerator EventFlowCoroutine()
     {   
-        //기본 메커?���?? ?���??
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
 
         //"Don't take your eyes off the starry Orb! Put all my energy into your eyes!" It's time to say that
         yield return new WaitForSeconds(7);
 
-        //?���?? orb ?��?�� ?���??
         BasicSpawnStop(true);
         SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop = false;
         while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
@@ -61,7 +61,6 @@ public class EventManager : MonoBehaviour
             yield return null;
         }
         
-        //sword�?? ?�� ?�� ?���?? ?�� ?���??
         StoneSpawnStop(false); 
         yield return new WaitForSeconds(swordTime); 
         
@@ -69,8 +68,6 @@ public class EventManager : MonoBehaviour
         StoneSpawnStop(true); 
         yield return new WaitForSeconds(7); 
         
-
-        //기본 메커?���?? ?���??
         BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
         StoneSpawnStop(false); 
@@ -78,19 +75,18 @@ public class EventManager : MonoBehaviour
         stoneSpawner[1].GetComponent<Spawner>().beat *=3; 
         yield return new WaitForSeconds(BasicSpawnTime-10); 
         
-        yield return new WaitForSeconds(5);
 
-        //게임 종료
         BasicSpawnStop(true); 
         StoneSpawnStop(true); 
         SpecialOrbSpawnAllStop(); 
+        yield return new WaitForSeconds(5);
+        GameClear = true;
         // Reset
         //eventStarted = false;
         //EventFlow = null;
     }
 
 
-    //기본 ?��?��?�� 멈춤 ?���?? 
     public void BasicSpawnStop(bool stop)
     {
         foreach (GameObject spawner in basicOrbSpawner)
@@ -107,7 +103,6 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    //?��?�� ?��?��?�� ?�� 멈춤
     public void SpecialOrbSpawnAllStop()
     {
         foreach (GameObject spawner in SpecialOrbSpawner)
