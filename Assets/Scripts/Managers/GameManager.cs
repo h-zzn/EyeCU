@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,8 +22,6 @@ public class GameManager : MonoBehaviour
     private float Timer = 0;
 
     public Coroutine EventFlow = null;
-
-    private static bool hasDeletedKey = false; 
 
     // final HP 관련
     public Text finalHPText;
@@ -124,8 +123,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator StageClear() 
     {
         if(!PlayerPrefs.HasKey("FinalHP")){
-            finalScore = score;
-            SaveHP(finalScore);
+            finalHP = damagedArea.stageHP;
+            SaveHP(finalHP);
         }
 
         SaveHP(damagedArea.stageHP);
