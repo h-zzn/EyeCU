@@ -24705,6 +24705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageCore
       objectReference: {fileID: 0}
+    - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: stageHP
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: finalHPText
       value: 
@@ -25764,6 +25768,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: RedMagicHitEffectPrefab
+      value: 
+      objectReference: {fileID: 6032810767631624174, guid: c91c2eca494ca5c44b61a95b33108d22, type: 3}
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: BlueMagicHitEffectPrefab
+      value: 
+      objectReference: {fileID: 6032810767631624174, guid: f1becec3bf4f278468622654ec8db926, type: 3}
+    - target: {fileID: 1892974455086078068, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.061
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892974455086078068, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892974455086078068, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -56,7 +56,9 @@ public class ControllerManager : MonoBehaviour
 
                 // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
                 hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
-                Instantiate(RedMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                GameObject redMagicHitInstance = Instantiate(RedMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                redMagicHitInstance.SetActive(true);
+                Destroy(redMagicHitInstance,3f);
 
                 Destroy(eyeTrackingRayRight.HoveredCube);
                 eyeTrackingRayRight.HoveredCube = null;
@@ -74,7 +76,9 @@ public class ControllerManager : MonoBehaviour
 
                 // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
                 hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
-                Instantiate(RedMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                GameObject blueMagicHitInstance = Instantiate(BlueMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                blueMagicHitInstance.SetActive(true);
+                Destroy(blueMagicHitInstance,3f);
 
                 Destroy(eyeTrackingRayRight.HoveredCube);
                 eyeTrackingRayRight.HoveredCube = null;
