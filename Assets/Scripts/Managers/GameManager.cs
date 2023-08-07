@@ -27,10 +27,6 @@ public class GameManager : MonoBehaviour
     public Text finalHPText;
     private int finalHP;
 
-    // 플레이 도중 점수 관련
-    public Text currentScoreText;
-    int score;
-
     private enum StageLevel
     {
         tutorial, 
@@ -52,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        finalHPText.enabled = false;
+
         if (!hasDeletedKey)
         {
             PlayerPrefs.DeleteKey("FinalHP");
@@ -63,17 +61,15 @@ public class GameManager : MonoBehaviour
         if(PlayerPrefs.HasKey("FinalHP")){
             StageClear();
         }
-        else{
-            SetText();
-        }
     }
 
     void Update() 
     {
+        //print("damagedArea.stageHP :"+ damagedArea.stageHP);
         if(damagedArea.stageHP <= 0)
         {
             if(stageOver == null)
-                stageOver = StartCoroutine(StageOver()); 
+                stageOver = StartCoroutine(StageClear());       // 이거 StageOver로 바꾸기
             eventManager.EventFlow = null; 
         }
 
@@ -100,15 +96,6 @@ public class GameManager : MonoBehaviour
 
         Timer += Time.deltaTime;
     }
-    
-    public void GetScore(){
-        score += 100;
-        SetText();
-    }
-
-    public void SetText(){
-        currentScoreText.text = "Score: " + score.ToString();
-    }
 
 
     public IEnumerator StageOver() 
@@ -127,7 +114,10 @@ public class GameManager : MonoBehaviour
             SaveHP(finalHP);
         }
 
-        SaveHP(damagedArea.stageHP);
+        finalHPText.text = finalHP.ToString();
+
+        PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
+
         yield return new WaitForSeconds(2); 
         BGMOff();
         ActiveGameClearWindow();
@@ -152,7 +142,8 @@ public class GameManager : MonoBehaviour
     private void ActiveGameClearWindow()
     {
         Debug.Log("GameClear");
-
+        Debug.Log("damagedArea.stageHP : " + damagedArea.stageHP);
+        finalHPText.enabled = true;
     }
 
     public void GoHome(){
