@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float EventStartDelayTime;
     [SerializeField] private float BasicSpawnTime;
     [SerializeField] private float swordTime;
+
+    [SerializeField] private GameObject explainUI;  // 게임시작설명 UI
 
     private float Timer = 0;
 
@@ -33,7 +36,7 @@ public class EventManager : MonoBehaviour
     public IEnumerator EventFlowCoroutine()
     {   
         //start window 
-        //yield return new WaitForSeconds(EventStartDelayTime); 
+        
 
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
@@ -77,9 +80,10 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
-        //start window 
-        //yield return new WaitForSeconds(EventStartDelayTime); 
-
+        //Game Explain window 
+        explainUI.SetActive(true);
+        yield return new WaitForSeconds(10);
+        explainUI.SetActive(false); 
 
         //마법 오브 제거 방법 window 
         //yield return new WaitForSeconds(5); 
