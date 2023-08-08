@@ -2,74 +2,73 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sound
+[System.Serializable]
+public class AudioData
 {
-    public string name;
+    public string title;
     public AudioClip clip;
 }
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
 
-    static public SoundManager instance;
+    public List<AudioData> bgmList;
+    public List<AudioData> sfxList;
 
-    #region singleton
-    void Awake()
+    private AudioSource bgmSource;
+    private AudioSource sfxSource;
+
+    private Dictionary<string, AudioClip> bgmClips = new Dictionary<string, AudioClip>();
+    private Dictionary<string, AudioClip> sfxClips = new Dictionary<string, AudioClip>();
+
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
 
+            bgmSource = gameObject.AddComponent<AudioSource>();
+            sfxSource = gameObject.AddComponent<AudioSource>();
+
+            foreach (AudioData bgmData in bgmList)
+            {
+                bgmClips[bgmData.title] = bgmData.clip;
+            }
+
+            foreach (AudioData sfxData in sfxList)
+            {
+                sfxClips[sfxData.title] = sfxData.clip;
+            }
         }
         else
         {
             Destroy(gameObject);
         }
     }
-    #endregion singleton
 
-    public AudioSource[] audioSourceEffects;
-    public AudioSource audioSourceBgm;
-
-    public Sound[] effectSounds;
-    public Sound[] bgmSounds;
-
-    public void PlaySE(string _name)
+    public void PlayBGM(string bgmTitle)
     {
-        for (int i=0; i<effectSounds.Length; i++)
+        if (!bgmClips.ContainsKey(bgmTitle))
         {
-            if(_name == effectSounds[i].name)
-            {
-                for (int j=0; j<audioSourceEffects.Length; j++)
-                {
-                    if (!audioSourceEffects[i].isPlaying)
-                    {
-                        audioSourceEffects[j];
-                    }
-                }
-            }
+            Debug.LogError("Invalid BGM title");
+            return;
         }
 
+        bgmSource.clip = bgmClips[bgmTitle];
+        bgmSource.loop = true;
+        bgmSource.Play();
     }
 
-    
-    //매번 활성화 되면 실행. 코루틴 X 
-    void onEnable()
+    public void PlaySFX(string sfxTitle)
     {
+        if (!sfxClips.ContainsKey(sfxTitle))
+        {
+            Debug.LogError("Invalid SFX title");
+            return;
+        }
 
-    
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        sfxSource.PlayOneShot(sfxClips[sfxTitle]);
     }
 }
