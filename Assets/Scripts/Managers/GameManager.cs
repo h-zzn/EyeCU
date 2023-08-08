@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
             SaveHP(finalHP);
         }
 
-        finalHPText.text = finalHP.ToString();
+        // finalHPText.text = finalHP.ToString();
 
         PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
