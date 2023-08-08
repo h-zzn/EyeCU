@@ -15,7 +15,18 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float BasicSpawnTime;
     [SerializeField] private float swordTime;
 
-    [SerializeField] private GameObject explainUI;  // 게임시작설명 UI
+    [SerializeField] private GameObject explainUI; 
+    [SerializeField] private GameObject successUI;  
+    [SerializeField] private GameObject failUI; 
+
+    // tutorial UI 
+    [SerializeField] private GameObject magicObj;  
+    [SerializeField] private GameObject specialObj;  
+    [SerializeField] private GameObject stoneObj; 
+
+    Animator animator;
+    public static bool isDone = false; 
+
 
     private float Timer = 0;
 
@@ -24,19 +35,21 @@ public class EventManager : MonoBehaviour
     void Awake()  
     {
         BasicSpawnStop(true);  
-        SpecialOrbSpawnAllStop();  
+        SpecialOrbSpawnAllStop();
+        animator = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("isDone", isDone);
+
         
     }
 
     public IEnumerator EventFlowCoroutine()
     {   
         //start window 
-        
 
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
@@ -86,6 +99,15 @@ public class EventManager : MonoBehaviour
         explainUI.SetActive(false); 
 
         //마법 오브 제거 방법 window 
+            //step1 UI
+        magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
+        // step1 완료하면 (if)
+            // magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
+            // isDone = true;  // 사라짐
+        yield return new WaitForSeconds(2);
+        Destroy(magicObj.transform.GetChild(0).gameObject);
+        //  isDone = true;
+
         //yield return new WaitForSeconds(5); 
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);

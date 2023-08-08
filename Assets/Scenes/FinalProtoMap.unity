@@ -2726,7 +2726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &126152667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4046,7 +4046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &239976894
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4898,7 +4898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &305929975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23823,7 +23823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1680952699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28003,9 +28003,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: failUI
+      value: 
+      objectReference: {fileID: 569668654}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: magicObj
+      value: 
+      objectReference: {fileID: 1914467621}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: stoneObj
+      value: 
+      objectReference: {fileID: 1939766887}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: explainUI
       value: 
       objectReference: {fileID: 559991547}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: successUI
+      value: 
+      objectReference: {fileID: 478015317}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: specialObj
+      value: 
+      objectReference: {fileID: 1868413350}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: tutorialUI
+      value: 
+      objectReference: {fileID: 1680952698}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: EventStartDelayTime
       value: 5
@@ -28045,7 +28069,7 @@ PrefabInstance:
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: finalHPText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1905633084}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: startDelayTime
       value: 5
