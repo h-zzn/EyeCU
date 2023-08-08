@@ -42,6 +42,8 @@ public class Tracing : MonoBehaviour
         // Check if the object is being gazed upon
         if (IsHovered)
         {
+            
+
             // Increment the hover duration
             hoverDuration += Time.deltaTime;
 
@@ -49,6 +51,9 @@ public class Tracing : MonoBehaviour
             {
                 UngSound.Play();
                 hasAudioPlayed = true; // Set the flag to true to indicate audio has played.
+                
+                // Magic hit effect activate
+
             }
 
             if (hoverDuration >= maxHoverDuration)
@@ -65,6 +70,9 @@ public class Tracing : MonoBehaviour
             {
                 UngSound.Stop();
                 hasAudioPlayed = false; // Reset the flag when the object is no longer hovered.
+
+                // Magic hit effect deactivate
+
             }
         }
     }
