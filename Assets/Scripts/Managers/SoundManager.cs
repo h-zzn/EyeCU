@@ -7,6 +7,7 @@ public class AudioData
 {
     public string title;
     public AudioClip clip;
+    [Range(0f, 1f)] public float volume = 1f; // Volume for each audio clip
 }
 
 public class SoundManager : MonoBehaviour
@@ -56,7 +57,9 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
+        AudioData bgmData = bgmList.Find(data => data.title == bgmTitle);
         bgmSource.clip = bgmClips[bgmTitle];
+        bgmSource.volume = bgmData.volume;
         bgmSource.loop = true;
         bgmSource.Play();
     }
@@ -69,6 +72,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        sfxSource.PlayOneShot(sfxClips[sfxTitle]);
+        AudioData sfxData = sfxList.Find(data => data.title == sfxTitle);
+        sfxSource.PlayOneShot(sfxClips[sfxTitle], sfxData.volume);
     }
 }
