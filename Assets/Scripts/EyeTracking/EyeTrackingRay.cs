@@ -74,6 +74,8 @@ public class EyeTrackingRay : MonoBehaviour
             {
                 EyeTargetingObject = hit.transform.gameObject;
                 EyeTargetingObject.GetComponent<Tracing>().IsHovered = true;
+
+                EyeTargetingObject.GetComponent<Tracing>().HoverPosition = hit.transform.position;
             }
             
             /*
