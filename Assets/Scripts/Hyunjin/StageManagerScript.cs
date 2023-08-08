@@ -44,12 +44,12 @@ public class StageManagerScript : MonoBehaviour
         }
 
         // 완료한 스테이지 비활성화 
-        if(levelat > 0){
-            for(int i = levelat; i<=levelat; i++){
-                stages[i-1].SetActive(false);
-                //successBlock[i-1].SetActive(true);
-            }
-        }
+        // if(levelat > 0){
+        //     for(int i = levelat; i<=levelat; i++){
+        //         stages[i-1].SetActive(false);
+        //         //successBlock[i-1].SetActive(true);
+        //     }
+        // }
     }
 
     public void GoStage(int stageNum){
