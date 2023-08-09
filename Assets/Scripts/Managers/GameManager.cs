@@ -50,17 +50,20 @@ public class GameManager : MonoBehaviour
     {
         finalHPText.enabled = false;
 
-        if (!hasDeletedKey)
-        {
-            PlayerPrefs.DeleteKey("FinalHP");
-            hasDeletedKey = true;
-        }
+        // if (!hasDeletedKey)
+        // {
+        //     print("HasDeletedKey 없어유");
+        //     PlayerPrefs.DeleteKey("FinalHP");
+        //     hasDeletedKey = true;
+        // }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
         if(PlayerPrefs.HasKey("FinalHP")){
             StageClear();
         }
+
+        print("FinalHP 없어유");
     }
 
     void Update() 
@@ -110,11 +113,17 @@ public class GameManager : MonoBehaviour
     public IEnumerator StageClear() 
     {
         if(!PlayerPrefs.HasKey("FinalHP")){
+            print("FinalHP 설정");
             finalHP = damagedArea.stageHP;
             SaveHP(finalHP);
         }
 
-        // finalHPText.text = finalHP.ToString();
+        // print("FinalHP 설정");
+        // finalHP = damagedArea.stageHP;
+        // SaveHP(finalHP);
+
+
+        finalHPText.text = finalHP.ToString();
 
         PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
@@ -151,6 +160,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveHP(int finalHP){         // 점수 데이터 저장
+        print("finalHP 설정했음");
         PlayerPrefs.SetInt("FinalHP", finalHP); // PlayerPrefs.SetInt: 현 컴퓨터내의 레지스트리에 등록한다는 것
     }
 }
