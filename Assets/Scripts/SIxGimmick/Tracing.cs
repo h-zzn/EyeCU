@@ -12,6 +12,7 @@ public class Tracing : MonoBehaviour
     {
         O,
         Z,
+        U
     }
     [SerializeField] private MovementPattern selectedPattern = MovementPattern.O;
 
@@ -42,8 +43,6 @@ public class Tracing : MonoBehaviour
         // Check if the object is being gazed upon
         if (IsHovered)
         {
-            
-
             // Increment the hover duration
             hoverDuration += Time.deltaTime;
 
@@ -79,7 +78,7 @@ public class Tracing : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("TargetPosition"))
+        if (other.gameObject.CompareTag("TargetPosition") && (selectedPattern == MovementPattern.O || selectedPattern == MovementPattern.Z))
         {
             other.gameObject.transform.position += transform.forward * 4;
         }
@@ -134,7 +133,7 @@ public class Tracing : MonoBehaviour
         switch (pattern)
         {
             case MovementPattern.O:
-                mySequence = Quadrant12(0)
+                mySequence = CircleQuadrant12(0)
                     .Append(CircleQuadrant34(1))
                     .Append(CircleQuadrant12(2))
                     .Append(CircleQuadrant34(3));
@@ -145,6 +144,13 @@ public class Tracing : MonoBehaviour
                     .Append(Quadrant34(1))
                     .Append(Quadrant12(2))
                     .Append(Quadrant34(3));
+                break;
+
+            case MovementPattern.U:
+                mySequence = CircleQuadrant12(0)
+                    .Append(CircleQuadrant34(1))
+                    .Append(CircleQuadrant12(2))
+                    .Append(CircleQuadrant34(3));
                 break;
         }
 
