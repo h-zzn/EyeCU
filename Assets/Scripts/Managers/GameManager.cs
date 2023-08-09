@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private Coroutine stageClear = null; 
 
     [SerializeField] private float startDelayTime;
-    [SerializeField] private static bool hasDeletedKey = true; 
+    //[SerializeField] private static bool hasDeletedKey = true; 
 
     private bool eventStarted = false;
 
@@ -23,9 +23,11 @@ public class GameManager : MonoBehaviour
 
     public Coroutine EventFlow = null;
 
-    // final HP ê´?? ¨
+    // final HP ê´€ë ¨
     public Text finalHPText;
     private int finalHP;
+
+    private static bool hasDeletedKey = false;
 
     private enum StageLevel
     {
@@ -50,22 +52,21 @@ public class GameManager : MonoBehaviour
     {
         finalHPText.enabled = false;
 
-        // if (!hasDeletedKey)
-        // {
-        //     print("HasDeletedKey");
-        //     PlayerPrefs.DeleteKey("FinalHP");
-        //     hasDeletedKey = true;
-        // }
+        print("hasDeletedKey = " + hasDeletedKey);
+        print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
+
+
+        if (!hasDeletedKey)
+        {
+            PlayerPrefs.DeleteKey("FinalHP");
+            hasDeletedKey = true;
+        }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
-        /*
         if(PlayerPrefs.HasKey("FinalHP")){
             StageClear();
         }
-        */
-
-        print("FinalHP: "+finalHP);
     }
 
     void Update() 
@@ -114,7 +115,6 @@ public class GameManager : MonoBehaviour
     public IEnumerator StageClear() 
     {
         if(!PlayerPrefs.HasKey("FinalHP")){
-            print("FinalHP");
             finalHP = damagedArea.stageHP;
             SaveHP(finalHP);
         }

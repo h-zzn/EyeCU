@@ -66,6 +66,9 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator EventFlowCoroutine()
     {   
+        if(PlayerPrefs.HasKey("FinalHP")){
+            GameClear = true;
+        }
         
         //start window 
 

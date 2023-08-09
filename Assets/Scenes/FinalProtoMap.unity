@@ -28066,6 +28066,10 @@ PrefabInstance:
       value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: stageLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: finalHPText
       value: 
       objectReference: {fileID: 1905633084}
