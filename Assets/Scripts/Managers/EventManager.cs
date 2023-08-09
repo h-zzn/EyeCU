@@ -16,8 +16,6 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float swordTime;
 
     [SerializeField] private GameObject explainUI; 
-    [SerializeField] private GameObject successUI;  
-    [SerializeField] private GameObject failUI; 
 
     // tutorial UI 관련
     [SerializeField] private GameObject magicObj;  
@@ -66,10 +64,7 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator EventFlowCoroutine()
     {   
-        if(PlayerPrefs.HasKey("FinalHP")){
-            GameClear = true;
-        }
-        
+       
         //start window 
 
         BasicSpawnStop(false);

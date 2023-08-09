@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour
     private Coroutine stageClear = null; 
 
     [SerializeField] private float startDelayTime;
-    //[SerializeField] private static bool hasDeletedKey = true; 
+    //[SerializeField] private static bool hasDeletedKey = true;
+    [SerializeField] private GameObject successUI;  
+    [SerializeField] private GameObject failUI; 
+    [SerializeField] private GameObject starObj; 
 
     private bool eventStarted = false;
 
@@ -146,14 +149,31 @@ public class GameManager : MonoBehaviour
     private void ActiveGameOverWindow()
     {
         Debug.Log("GameOver");
+        failUI.SetActive(true);
 
     }
 
     private void ActiveGameClearWindow()
     {
         Debug.Log("GameClear");
+        //damagedArea.stageHP = 1500;
         Debug.Log("damagedArea.stageHP : " + damagedArea.stageHP);
+        
         finalHPText.enabled = true;
+        successUI.SetActive(true);
+
+        starObj.transform.GetChild(0).gameObject.SetActive(true);   // 성공하면 맨 처음 별은 기본으로 활성화
+
+        // 성취도 관련 
+        if(damagedArea.stageHP >= 1700){
+            starObj.transform.GetChild(1).gameObject.SetActive(true);       
+            starObj.transform.GetChild(2).gameObject.SetActive(true);       // 두번째, 세번째 별 활성화
+        }
+
+        else if(damagedArea.stageHP >= 1000){
+            starObj.transform.GetChild(1).gameObject.SetActive(true);       // 두번째 별 활성화      
+        }
+
     }
 
     public void GoHome(){

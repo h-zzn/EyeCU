@@ -9,6 +9,7 @@ public class StageManagerScript : MonoBehaviour
 {
 
     int levelat; // 현재 스테이지 번호
+    int finalHP; 
     public GameObject stageNumObject;
     public GameObject successGroupObject;
 
@@ -37,6 +38,7 @@ public class StageManagerScript : MonoBehaviour
         
 
         levelat = PlayerPrefs.GetInt("levelReached");
+        finalHP = PlayerPrefs.GetInt("FinalHP");
         
         print(levelat);
         for (int i= levelat+1; i<stages.Length; i++){
@@ -48,6 +50,18 @@ public class StageManagerScript : MonoBehaviour
             for(int i = levelat; i<=levelat; i++){
                 stages[i-1].SetActive(false);
                 successBlock[i-1].SetActive(true);
+
+                successBlock[i+2].transform.GetChild(0).gameObject.SetActive(true);
+
+                if(finalHP >= 1700){
+                    successBlock[i+2].transform.GetChild(1).gameObject.SetActive(true);
+                    successBlock[i+2].transform.GetChild(2).gameObject.SetActive(true);
+                }
+
+                else if(finalHP >= 1000){
+                    successBlock[i+1].transform.GetChild(1).gameObject.SetActive(true);
+                }
+                
             }
         }
     }
