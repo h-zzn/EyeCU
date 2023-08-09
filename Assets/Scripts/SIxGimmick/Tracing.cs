@@ -25,8 +25,9 @@ public class Tracing : MonoBehaviour
     private float hoverDuration = 0f;
     private float maxHoverDuration = 5f; // 5 seconds
     public bool IsHovered { get; set; }
-    public Vector3 HoverPosition { get; set; }
     private bool hasAudioPlayed = false;
+
+    public Vector3 HoverPosition { get; set; }
 
     private void Awake()
     {

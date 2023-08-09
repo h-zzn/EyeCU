@@ -326,6 +326,7 @@ MonoBehaviour:
   movingTime: 1
   HMT: 0.9
   UngSound: {fileID: 5133553497259348437}
+  purpleMagicHitEffect: {fileID: 6655369070691161092, guid: 2c54c8468dc2e7b438d1dc5ea16f9293, type: 3}
 --- !u!82 &5133553497259348437
 AudioSource:
   m_ObjectHideFlags: 0

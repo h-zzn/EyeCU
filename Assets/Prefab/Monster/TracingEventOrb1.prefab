@@ -278,6 +278,7 @@ MonoBehaviour:
   movingTime: 1
   HMT: 1
   UngSound: {fileID: 991384544591951319}
+  purpleMagicHitEffect: {fileID: 6655369070691161092, guid: 2c54c8468dc2e7b438d1dc5ea16f9293, type: 3}
 --- !u!135 &9072556321195170360
 SphereCollider:
   m_ObjectHideFlags: 0

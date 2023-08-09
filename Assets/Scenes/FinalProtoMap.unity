@@ -26008,7 +26008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6759921996704926070, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.66
+      value: -8.1
       objectReference: {fileID: 0}
     - target: {fileID: 6769522945189455541, guid: 4bf3a3e35ff642448aca0d40f399f777, type: 3}
       propertyPath: m_LocalScale.z
@@ -29152,6 +29152,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.003
       objectReference: {fileID: 0}
+    - target: {fileID: 2749088744904952728, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: markerPrefab
+      value: 
+      objectReference: {fileID: 4335391421890740, guid: f88424433667d814f90b425c04eb17a7, type: 3}
+    - target: {fileID: 2749088744904952728, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: hoverMarkerPrefab
+      value: 
+      objectReference: {fileID: 7671737751060084548, guid: 2c54c8468dc2e7b438d1dc5ea16f9293, type: 3}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 1
