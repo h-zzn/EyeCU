@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public Coroutine EventFlow = null;
 
-    // final HP 관련
+    // final HP �??��
     public Text finalHPText;
     private int finalHP;
 
@@ -52,18 +52,20 @@ public class GameManager : MonoBehaviour
 
         // if (!hasDeletedKey)
         // {
-        //     print("HasDeletedKey 없어유");
+        //     print("HasDeletedKey");
         //     PlayerPrefs.DeleteKey("FinalHP");
         //     hasDeletedKey = true;
         // }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
+        /*
         if(PlayerPrefs.HasKey("FinalHP")){
             StageClear();
         }
+        */
 
-        print("FinalHP 없어유");
+        print("FinalHP: "+finalHP);
     }
 
     void Update() 
@@ -72,8 +74,8 @@ public class GameManager : MonoBehaviour
         if(damagedArea.stageHP <= 0)
         {
             if(stageOver == null)
-                stageOver = StartCoroutine(StageClear());       // 이거 StageOver로 바꾸기
-            eventManager.EventFlow = null; 
+                stageOver = StartCoroutine(StageClear());  // StageOver
+            eventManager.EventFlow = null;   
         }
 
         if(damagedArea.stageHP > 0 && eventManager.GameClear == true)
@@ -96,7 +98,6 @@ public class GameManager : MonoBehaviour
                     EventFlow = StartCoroutine(eventManager.EventFlowCoroutine());  
             }
         }
-
         Timer += Time.deltaTime;
     }
 
@@ -113,12 +114,12 @@ public class GameManager : MonoBehaviour
     public IEnumerator StageClear() 
     {
         if(!PlayerPrefs.HasKey("FinalHP")){
-            print("FinalHP 설정");
+            print("FinalHP");
             finalHP = damagedArea.stageHP;
             SaveHP(finalHP);
         }
 
-        // print("FinalHP 설정");
+        // print("FinalHP");
         // finalHP = damagedArea.stageHP;
         // SaveHP(finalHP);
 
@@ -128,15 +129,15 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
         yield return new WaitForSeconds(2); 
-        BGMOff();
-        ActiveGameClearWindow();
+        BGMOff(); 
+        ActiveGameClearWindow(); 
         yield return new WaitForSeconds(5); 
-        GoHome();
+        GoHome(); 
     }
 
     public void BGMOff()
     {
-        if (BGM != null)
+        if(BGM != null)
         {
             BGM.Stop(); 
         }
@@ -159,8 +160,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0); 
     }
 
-    public void SaveHP(int finalHP){         // 점수 데이터 저장
-        print("finalHP 설정했음");
-        PlayerPrefs.SetInt("FinalHP", finalHP); // PlayerPrefs.SetInt: 현 컴퓨터내의 레지스트리에 등록한다는 것
+    public void SaveHP(int finalHP){         
+        print("finalHP");
+        PlayerPrefs.SetInt("FinalHP", finalHP); // PlayerPrefs.SetInt: 
     }
 }

@@ -111,7 +111,7 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
-        //[**** 게임 세계관 explain window****]
+        //[**** 게임 세계관 explain window ****]
         explainUI.SetActive(true);
         yield return new WaitForSeconds(10);
         explainUI.SetActive(false); 
