@@ -50,7 +50,7 @@ public class EyeTrackingRay : MonoBehaviour
         lineRenderer.startColor = rayColorDefaultState;
         lineRenderer.endColor = rayColorDefaultState;
         lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, new Vector3(transform.position.x, transform.position.y, transform.position.z+rayDistance));
+        lineRenderer.SetPosition(1, new Vector3(transform.position.x, transform.position.y, transform.position.z+rayDistance)); //수정 필요
     }
 
     void FixedUpdate()
@@ -61,7 +61,6 @@ public class EyeTrackingRay : MonoBehaviour
 
         if (Physics.Raycast(transform.position, rayCastDirection, out hit, Mathf.Infinity, layersToInclude)) 
         {
-            UnSelect(); // Change this line
             lineRenderer.startColor = rayColorHoverState;
             lineRenderer.endColor = rayColorHoverState;
 
@@ -70,29 +69,27 @@ public class EyeTrackingRay : MonoBehaviour
                 EyeTargetingObject = hit.transform.gameObject;
                 EyeTargetingObject.GetComponent<Cube>().IsHovered = true;
                 HoveredCube = hit.transform.gameObject;
+
+                if(markerSparks.activeSelf == true)
+                    markerSparks.SetActive(false); 
             }
             else if(hit.transform != null && hit.transform.gameObject.CompareTag("MovingOrb"))
             {
                 EyeTargetingObject = hit.transform.gameObject; 
                 EyeTargetingObject.GetComponent<Tracing>().IsHovered = true; 
                 EyeTargetingObject.GetComponent<Tracing>().HoverPosition = hit.transform.position; 
+                
+                if(markerSparks.activeSelf == false)
+                    markerSparks.SetActive(true); 
             }
-            
-            /*
-            var Cube = hit.transform.GetComponent<Cube>();
-            if (Cube != null) // Add a null check here
+            else
             {
-                EyeTargetingObject = Cube;
-                Cube.IsHovered = true;
-            }
+                EyeTargetingObject = null;
+                HoveredCube = null;
 
-            var Tracing = hit.transform.GetComponent<Tracing>();
-            if (Tracing != null) // Add a null check here
-            {
-                EyeTargetingObject = Tracing;
-                Tracing.IsHovered = true;
+                if(markerSparks.activeSelf == true)
+                    markerSparks.SetActive(false);
             }
-            */
 
             SpawnMarker(hit);
         }
@@ -107,29 +104,23 @@ public class EyeTrackingRay : MonoBehaviour
         }
     }
 
-
     void UnSelect()
     {
         if (EyeTargetingObject != null)
         {
             if (EyeTargetingObject.CompareTag("redCube") || EyeTargetingObject.CompareTag("blueCube"))
             {
-                Cube cubeComponent = EyeTargetingObject.GetComponent<Cube>();
-                if (cubeComponent != null)
+                if (EyeTargetingObject.GetComponent<Cube>() != null)
                 {
-                    cubeComponent.IsHovered = false;
+                    EyeTargetingObject.GetComponent<Cube>().IsHovered = false;
                 }
             }
             else if (EyeTargetingObject.CompareTag("MovingOrb"))
             {
-                Tracing tracingComponent = EyeTargetingObject.GetComponent<Tracing>();
-                if (tracingComponent != null)
+                if (EyeTargetingObject.GetComponent<Tracing>() != null)
                 {
-                    tracingComponent.IsHovered = false;
+                    EyeTargetingObject.GetComponent<Tracing>().IsHovered = false;
                 }
-
-                if(markerSparks.activeSelf == false)
-                    markerSparks.SetActive(true); 
             }
 
             EyeTargetingObject = null;

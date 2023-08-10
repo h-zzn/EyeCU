@@ -39,7 +39,9 @@ public class ControllerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BtnDown();
+        if(eyeTrackingRayRight.HoveredCube != null)
+            BtnDown();
+        
         activeSword();
     }
 

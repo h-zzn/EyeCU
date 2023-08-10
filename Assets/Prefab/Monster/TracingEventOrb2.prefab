@@ -323,10 +323,9 @@ MonoBehaviour:
   - {fileID: 6692924988220418928}
   - {fileID: 5325877555548470109}
   - {fileID: 4605568173304688179}
-  movingTime: 1
+  movingTime: 2
   HMT: 0.9
   UngSound: {fileID: 8787895274779312011}
-  purpleMagicHitEffect: {fileID: 6655369070691161092, guid: 2c54c8468dc2e7b438d1dc5ea16f9293, type: 3}
 --- !u!82 &8787895274779312011
 AudioSource:
   m_ObjectHideFlags: 0
