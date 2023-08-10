@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     private static bool hasDeletedKey = false;
 
+    public int HPcontrol;
+
     private enum StageLevel
     {
         tutorial, 
@@ -117,14 +119,15 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StageClear() 
     {
-        if(!PlayerPrefs.HasKey("FinalHP")){
-            finalHP = damagedArea.stageHP;
-            SaveHP(finalHP);
-        }
+        // if(!PlayerPrefs.HasKey("FinalHP")){
+        //     finalHP = damagedArea.stageHP;
+        //     SaveHP(finalHP);
+        // }
+        
 
-        // print("FinalHP");
-        // finalHP = damagedArea.stageHP;
-        // SaveHP(finalHP);
+        //print("FinalHP");
+        finalHP = damagedArea.stageHP;
+        SaveHP(finalHP);
 
 
         finalHPText.text = finalHP.ToString();
@@ -156,7 +159,7 @@ public class GameManager : MonoBehaviour
     private void ActiveGameClearWindow()
     {
         Debug.Log("GameClear");
-        //damagedArea.stageHP = 1500;
+        //damagedArea.stageHP = HPcontrol;
         Debug.Log("damagedArea.stageHP : " + damagedArea.stageHP);
         
         finalHPText.enabled = true;
@@ -180,7 +183,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0); 
     }
 
-    public void SaveHP(int finalHP){         
+    public void SaveHP(int finalHP){ 
+        //finalHP = HPcontrol; bestHP 확인할라구
+        print("BestHP 잇음? " + PlayerPrefs.HasKey("BestHP"));
+        if(finalHP > PlayerPrefs.GetInt("BestHP") || !PlayerPrefs.HasKey("BestHP")){
+            print("set bestHP = " + PlayerPrefs.GetInt("BestHP"));
+            PlayerPrefs.SetInt("BestHP", finalHP);
+        }   
+
         print("finalHP");
         PlayerPrefs.SetInt("FinalHP", finalHP); // PlayerPrefs.SetInt: 
     }
