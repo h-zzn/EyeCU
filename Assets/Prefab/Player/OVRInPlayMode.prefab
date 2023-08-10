@@ -68783,6 +68783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerType: -1
+  RedMagicHitEffectPrefab: {fileID: 6032810767631624174, guid: c91c2eca494ca5c44b61a95b33108d22, type: 3}
+  BlueMagicHitEffectPrefab: {fileID: 6032810767631624174, guid: f1becec3bf4f278468622654ec8db926, type: 3}
   leftSword: {fileID: 5777889304347496251}
   rightSword: {fileID: 8573466451353800702}
   leftEffect: {fileID: 8168930351715308759}
@@ -76577,7 +76579,6 @@ GameObject:
   - component: {fileID: 974775479168970613}
   - component: {fileID: 2092330452845436183}
   - component: {fileID: 7064890394565212221}
-  - component: {fileID: 3928747858872622127}
   m_Layer: 0
   m_Name: LeftEyeInteractor
   m_TagString: Untagged
@@ -76793,27 +76794,6 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &3928747858872622127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6315211931348614359}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d31a575a2d9bf42b5ae87f68a2c7c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  markerPrefab: {fileID: 0}
-  rayDistance: 10
-  rayWidth: 0.01
-  layersToInclude:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  rayColorDefaultState: {r: 0.9811321, g: 0.97627413, b: 0.51370597, a: 0.2}
-  rayColorHoverState: {r: 0.7744359, g: 1, b: 0.5707547, a: 0.20392157}
-  HoveredCube: {fileID: 0}
 --- !u!1 &6317336572791944295
 GameObject:
   m_ObjectHideFlags: 0
@@ -79914,7 +79894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7524759846232796163}
   m_LocalRotation: {x: 0.6144004, y: -0.17475182, z: -0.21138301, w: -0.73979133}
-  m_LocalPosition: {x: -0.032, y: -0.039, z: 0.042}
+  m_LocalPosition: {x: -0.061, y: -0.031, z: -0.003}
   m_LocalScale: {x: 0.6000001, y: 0.6000001, z: 0.6000001}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -123247,7 +123227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d31a575a2d9bf42b5ae87f68a2c7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  markerPrefab: {fileID: 4335391421890740, guid: f88424433667d814f90b425c04eb17a7, type: 3}
+  markerPrefab: {fileID: 0}
   rayDistance: 15
   rayWidth: 100
   layersToInclude:
