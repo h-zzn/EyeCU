@@ -6,6 +6,8 @@ public class EyeTrackingRay : MonoBehaviour
 {
     [SerializeField]
     private GameObject markerPrefab; 
+
+    private GameObject markerSparks;
     
     [SerializeField]
     private float rayDistance = 100.0f;
@@ -34,6 +36,9 @@ public class EyeTrackingRay : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();  
         SetupRay();  
+
+        markerSparks = markerPrefab.transform.GetChild(0).gameObject;
+        markerSparks.SetActive(false);
     }
 
     void SetupRay()
@@ -117,11 +122,14 @@ public class EyeTrackingRay : MonoBehaviour
             }
             else if (EyeTargetingObject.CompareTag("MovingOrb"))
             {
-                TracingEventOrb tracingComponent = EyeTargetingObject.GetComponent<TracingEventOrb>();
+                Tracing tracingComponent = EyeTargetingObject.GetComponent<Tracing>();
                 if (tracingComponent != null)
                 {
                     tracingComponent.IsHovered = false;
                 }
+
+                if(markerSparks.activeSelf == false)
+                    markerSparks.SetActive(true); 
             }
 
             EyeTargetingObject = null;
