@@ -28,6 +28,8 @@ public class Tracing : MonoBehaviour
     public bool IsHovered { get; set; }
     private bool hasAudioPlayed = false;
 
+    public Vector3 HoverPosition { get; set; }
+
     private void Awake()
     {
         IsHovered = false;
