@@ -24,7 +24,7 @@ public class Tracing : MonoBehaviour
     [SerializeField] private float HMT = 1;
     [SerializeField] private AudioSource UngSound;
     private float hoverDuration = 0f;
-    private float maxHoverDuration = 7f; // 5 seconds
+    private float maxHoverDuration = 10f; // 10 seconds
     public bool IsHovered { get; set; }
     private bool hasAudioPlayed = false;
 
