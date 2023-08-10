@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalProtoMap.unity
     guid: 7e056566a219cbf44b72807629583b32
   - enabled: 1
-    path: Assets/Scenes/Hyunjin/MainScene.unity
-    guid: c7039b36f1f36e443ad427037959dbac
+    path: Assets/Scenes/stage2Map.unity
+    guid: 9606927811ed52548931d628bcabb0f8
   - enabled: 1
     path: Assets/Scenes/Hyunjin/Stage1.unity
     guid: 3beee9c217e9ec54396633bd6338946f
