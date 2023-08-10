@@ -5,11 +5,7 @@ using UnityEngine;
 public class EyeTrackingRay : MonoBehaviour
 {
     [SerializeField]
-    private Transform markerPrefab; 
-    
-
-
-    private Transform currentMarker;
+    private GameObject markerPrefab; 
     
     [SerializeField]
     private float rayDistance = 100.0f;
@@ -72,10 +68,9 @@ public class EyeTrackingRay : MonoBehaviour
             }
             else if(hit.transform != null && hit.transform.gameObject.CompareTag("MovingOrb"))
             {
-                EyeTargetingObject = hit.transform.gameObject;
-                EyeTargetingObject.GetComponent<Tracing>().IsHovered = true;
-
-                EyeTargetingObject.GetComponent<Tracing>().HoverPosition = hit.transform.position;
+                EyeTargetingObject = hit.transform.gameObject; 
+                EyeTargetingObject.GetComponent<Tracing>().IsHovered = true; 
+                EyeTargetingObject.GetComponent<Tracing>().HoverPosition = hit.transform.position; 
             }
             
             /*
@@ -94,30 +89,21 @@ public class EyeTrackingRay : MonoBehaviour
             }
             */
 
-            if (currentMarker == null)
-                {
-                    // 표식이 없는 경우 새로 생성
-                    currentMarker = SpawnMarker(hit.point, hit.normal);
-                }
-                else
-                {
-                    // 표식이 이미 있는 경우 위치를 업데이트 
-                    currentMarker.position = hit.point;
-                }
+            SpawnMarker(hit);
         }
         else 
         {
             lineRenderer.startColor = rayColorDefaultState;
             lineRenderer.endColor = rayColorDefaultState;
-            UnSelect(true);
+            UnSelect();
 
-            // Ray가 아무것도 맞지 않은 경우 표식 삭제
+            // Ray가 아무것도 맞지 않은 경우 표식 비활성화
             DestroyMarker();
         }
     }
 
 
-    void UnSelect(bool clear = false)
+    void UnSelect()
     {
         if (EyeTargetingObject != null)
         {
@@ -139,23 +125,29 @@ public class EyeTrackingRay : MonoBehaviour
             }
 
             EyeTargetingObject = null;
-        }
+        }  
     }
 
-    Transform SpawnMarker(Vector3 position, Vector3 normal)
+    void SpawnMarker(RaycastHit hit)
     {
-        // 표식 프리팹을 생성 위치에 생성하고 Rotation 값을 유지
-        Transform marker = Instantiate(markerPrefab, position, Quaternion.FromToRotation(Vector3.up, normal));
-        return marker;
+        if (markerPrefab.activeSelf == false)
+        {
+            // 표식이 없는 경우 생성
+            markerPrefab.SetActive(true);
+        }
+        else
+        {
+            // 표식이 이미 있는 경우 위치를 업데이트 
+            markerPrefab.transform.position = hit.point;
+        }
     }
 
     void DestroyMarker()
     {
-        // 표식이 존재하면 삭제
-        if (currentMarker != null)
+        // 표식이 존재하면 비활성화
+        if (markerPrefab.activeSelf == true)
         {
-            Destroy(currentMarker.gameObject);
-            currentMarker = null;
+            markerPrefab.SetActive(false);
         }
     }
 }
