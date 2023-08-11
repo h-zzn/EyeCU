@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
 
     private static bool hasDeletedKey = false;
 
+    public int HPcontrol;
+
+    int levelReached;
+
     private enum StageLevel
     {
         tutorial, 
@@ -58,18 +62,22 @@ public class GameManager : MonoBehaviour
         print("hasDeletedKey = " + hasDeletedKey);
         print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
 
-
+        // 다시 시작했을 때 Key 삭제해줌, 찐게임에는 없어야함
         if (!hasDeletedKey)
         {
-            PlayerPrefs.DeleteKey("FinalHP");
+            PlayerPrefs.DeleteKey("Stage1BestHP");
+            PlayerPrefs.DeleteKey("Stage2BestHP");
+            PlayerPrefs.DeleteKey("Stage3BestHP");
+            PlayerPrefs.DeleteKey("StageCheckValue");
+
             hasDeletedKey = true;
         }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
-        if(PlayerPrefs.HasKey("FinalHP")){
-            StageClear();
-        }
+        // if(PlayerPrefs.HasKey("FinalHP")){
+        //     StageClear();
+        // }
     }
 
     void Update() 
@@ -117,19 +125,22 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StageClear() 
     {
-        if(!PlayerPrefs.HasKey("FinalHP")){
-            finalHP = damagedArea.stageHP;
-            SaveHP(finalHP);
-        }
+        // if(!PlayerPrefs.HasKey("FinalHP")){
+        //     finalHP = damagedArea.stageHP;
+        //     SaveHP(finalHP);
+        // }
+        
 
-        // print("FinalHP");
-        // finalHP = damagedArea.stageHP;
-        // SaveHP(finalHP);
+        //print("FinalHP");
+        finalHP = damagedArea.stageHP;
+        SaveHP(finalHP);
 
 
         finalHPText.text = finalHP.ToString();
+        levelReached = PlayerPrefs.GetInt("levelReached");  
 
-        PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
+        if(levelReached < SceneManager.GetActiveScene().buildIndex)
+            PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
         yield return new WaitForSeconds(2); 
         BGMOff(); 
@@ -156,7 +167,7 @@ public class GameManager : MonoBehaviour
     private void ActiveGameClearWindow()
     {
         Debug.Log("GameClear");
-        //damagedArea.stageHP = 1500;
+        damagedArea.stageHP = HPcontrol;
         Debug.Log("damagedArea.stageHP : " + damagedArea.stageHP);
         
         finalHPText.enabled = true;
@@ -180,8 +191,32 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0); 
     }
 
-    public void SaveHP(int finalHP){         
-        print("finalHP");
-        PlayerPrefs.SetInt("FinalHP", finalHP); // PlayerPrefs.SetInt: 
+    public void SaveHP(int finalHP){ 
+        finalHP = HPcontrol; //bestHP 확인할라구
+
+        // stage 1일때 
+        if(SceneManager.GetActiveScene().buildIndex == 1){
+            print("stage 1 finalHP 확인: " + finalHP);
+            if(finalHP > PlayerPrefs.GetInt("Stage1BestHP") || !PlayerPrefs.HasKey("Stage1BestHP")){
+                print("set Stage1BestHP = " + PlayerPrefs.GetInt("Stage1BestHP"));
+                PlayerPrefs.SetInt("Stage1BestHP", finalHP);
+            }   
+        }
+
+        // stage 2일때 
+        if(SceneManager.GetActiveScene().buildIndex == 2){
+            if(finalHP > PlayerPrefs.GetInt("Stage2BestHP") || !PlayerPrefs.HasKey("Stage2BestHP")){
+                PlayerPrefs.SetInt("Stage2BestHP", finalHP);
+                print("set Stage2BestHP = " + PlayerPrefs.GetInt("Stage2BestHP"));
+            }   
+        }
+
+        // stage 3일때 
+        if(SceneManager.GetActiveScene().buildIndex == 1){
+            if(finalHP > PlayerPrefs.GetInt("Stage3BestHP") || !PlayerPrefs.HasKey("Stage3BestHP")){
+                print("set Stage3BestHP = " + PlayerPrefs.GetInt("Stage3BestHP"));
+                PlayerPrefs.SetInt("Stage3BestHP", finalHP);
+            }   
+        }
     }
 }

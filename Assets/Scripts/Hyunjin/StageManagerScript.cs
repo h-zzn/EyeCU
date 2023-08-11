@@ -9,9 +9,15 @@ public class StageManagerScript : MonoBehaviour
 {
 
     int levelat; // 현재 스테이지 번호
-    int finalHP; 
+    int stage1BestHP; 
+    int stage2BestHP;
+    int stage3BestHP;
+    int stageCheckValue;
+    
     public GameObject stageNumObject;
     public GameObject successGroupObject;
+
+    public Image blackImg;
 
     private static bool hasDeletedKey = false;
 
@@ -35,33 +41,59 @@ public class StageManagerScript : MonoBehaviour
             successBlock[i] = successGroupObject.transform.GetChild(i).gameObject;
         }
 
-        
 
         levelat = PlayerPrefs.GetInt("levelReached");
-        finalHP = PlayerPrefs.GetInt("FinalHP");
-        
-        print(levelat);
+        stage1BestHP = PlayerPrefs.GetInt("Stage1BestHP");
+        stage2BestHP = PlayerPrefs.GetInt("Stage2BestHP");
+        stage3BestHP = PlayerPrefs.GetInt("Stage3BestHP");
+
+
         for (int i= levelat+1; i<stages.Length; i++){
-            stages[i].SetActive(false);
+            stages[i].SetActive(false);         // 시작할 때 스테이지 비활성화
         }
 
         //완료한 스테이지 비활성화 
         if(levelat > 0){
-            for(int i = levelat; i<=levelat; i++){
-                stages[i-1].SetActive(false);
-                successBlock[i-1].SetActive(true);
+            for(int i = 0; i<levelat; i++){
+                stages[i].SetActive(false);       // 완료한 스테이지 파티클 효과 비활성화
+                successBlock[i].SetActive(true);  // success 오브젝트 활성화             
+            }
+        }
 
-                successBlock[i+2].transform.GetChild(0).gameObject.SetActive(true);
+        // 완료한 스테이지 별 활성화
+        if(levelat >= 1){
+            successBlock[0].transform.GetChild(0).gameObject.SetActive(true); // stage 1 첫번째 별 활성화
 
-                if(finalHP >= 1700){
-                    successBlock[i+2].transform.GetChild(1).gameObject.SetActive(true);
-                    successBlock[i+2].transform.GetChild(2).gameObject.SetActive(true);
+            if(stage1BestHP >= 1000){
+                successBlock[0].transform.GetChild(1).gameObject.SetActive(true);
+
+                if(stage1BestHP >= 1700){
+                    successBlock[0].transform.GetChild(2).gameObject.SetActive(true);
+                }
+            }
+
+            if(levelat>=2){
+                successBlock[1].transform.GetChild(0).gameObject.SetActive(true); // stage 1 첫번째 별 활성화
+
+                if(stage2BestHP >= 1000){
+                    successBlock[1].transform.GetChild(1).gameObject.SetActive(true);
+
+                    if(stage2BestHP >= 1700){
+                        successBlock[1].transform.GetChild(2).gameObject.SetActive(true);
+                    }
                 }
 
-                else if(finalHP >= 1000){
-                    successBlock[i+1].transform.GetChild(1).gameObject.SetActive(true);
+                if(levelat>=3){
+                    successBlock[2].transform.GetChild(0).gameObject.SetActive(true); // stage 3 첫번째 별 활성화
+
+                    if(stage3BestHP >= 1000){
+                        successBlock[2].transform.GetChild(1).gameObject.SetActive(true);
+
+                        if(stage3BestHP >= 1700){
+                            successBlock[2].transform.GetChild(2).gameObject.SetActive(true);
+                        }
+                    }
                 }
-                
             }
         }
     }

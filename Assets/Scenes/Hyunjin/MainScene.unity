@@ -4659,7 +4659,7 @@ Transform:
   - {fileID: 65538985}
   - {fileID: 1783591587}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &415071836
 PrefabInstance:
@@ -7810,14 +7810,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407764712}
     m_Modifications:
-    - target: {fileID: 919132149155446097, guid: cd09cb3f314724b4b97cae44b84272e0, type: 3}
-      propertyPath: m_Name
-      value: granite rock03_lod1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: cd09cb3f314724b4b97cae44b84272e0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd09cb3f314724b4b97cae44b84272e0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7872,6 +7864,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd09cb3f314724b4b97cae44b84272e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd09cb3f314724b4b97cae44b84272e0, type: 3}
+      propertyPath: m_Name
+      value: granite rock03_lod1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd09cb3f314724b4b97cae44b84272e0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8066,7 +8066,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 727717797}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageManagerScript, Assembly-CSharp
         m_MethodName: GoStage
         m_Mode: 3
@@ -8210,52 +8210,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &727717796
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 727717798}
-  - component: {fileID: 727717797}
-  m_Layer: 0
-  m_Name: StageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &727717797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727717796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1cacf68376a70c4e9558850b944cb03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageNumObject: {fileID: 1077710142}
-  successGroupObject: {fileID: 407764711}
---- !u!4 &727717798
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727717796}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 317.22586, y: 62.211998, z: 52.495106}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &729481741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9128,7 +9082,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &773660606
 PrefabInstance:
@@ -9200,14 +9154,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407764712}
     m_Modifications:
-    - target: {fileID: 919132149155446097, guid: 20098c639c6321d48a7c322d29094b28, type: 3}
-      propertyPath: m_Name
-      value: granite rock01_lod1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 20098c639c6321d48a7c322d29094b28, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 20098c639c6321d48a7c322d29094b28, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -9262,6 +9208,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 20098c639c6321d48a7c322d29094b28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20098c639c6321d48a7c322d29094b28, type: 3}
+      propertyPath: m_Name
+      value: granite rock01_lod1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20098c639c6321d48a7c322d29094b28, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11835,7 +11789,7 @@ Transform:
   - {fileID: 704069253}
   - {fileID: 1797145785}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1010366665
 PrefabInstance:
@@ -12425,7 +12379,7 @@ Transform:
   - {fileID: 902952905}
   - {fileID: 685632774}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1079229244
 PrefabInstance:
@@ -13162,7 +13116,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1140603881
 PrefabInstance:
@@ -24196,14 +24150,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407764712}
     m_Modifications:
-    - target: {fileID: 919132149155446097, guid: 32695f33a844be84b8ec6175e54df80f, type: 3}
-      propertyPath: m_Name
-      value: granite rock05_lod3
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 32695f33a844be84b8ec6175e54df80f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32695f33a844be84b8ec6175e54df80f, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -24258,6 +24204,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32695f33a844be84b8ec6175e54df80f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32695f33a844be84b8ec6175e54df80f, type: 3}
+      propertyPath: m_Name
+      value: granite rock05_lod3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32695f33a844be84b8ec6175e54df80f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -33675,6 +33629,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 3}
   m_PrefabInstance: {fileID: 2042757649}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2047044345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2047044346}
+  m_Layer: 0
+  m_Name: stageCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2047044346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047044345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.174797, y: 5.7014337, z: 37.21789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2052506233
 PrefabInstance:
   m_ObjectHideFlags: 0

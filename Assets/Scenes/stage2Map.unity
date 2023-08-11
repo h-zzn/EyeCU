@@ -28398,6 +28398,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1090795640}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: HPcontrol
+      value: 1850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: successUI
       value: 
       objectReference: {fileID: 478015317}
