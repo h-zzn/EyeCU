@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: FS013_Night_Cubemap
   m_Shader: {fileID: 10700, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: 4daf60de510e93a4b82c4717c0cb4688, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
