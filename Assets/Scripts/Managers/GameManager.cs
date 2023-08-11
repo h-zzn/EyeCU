@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         levelReached = PlayerPrefs.GetInt("levelReached");  
 
         if(levelReached < SceneManager.GetActiveScene().buildIndex)
-            PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
+            PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex-1);
 
         yield return new WaitForSeconds(2); 
         BGMOff(); 
@@ -171,16 +171,16 @@ public class GameManager : MonoBehaviour
         finalHPText.enabled = true;
         successUI.SetActive(true);
 
-        starObj.transform.GetChild(0).gameObject.SetActive(true);   // 성공하면 맨 처음 별은 기본으로 활성화
+        starObj.transform.GetChild(3).gameObject.SetActive(true);   // 성공하면 맨 처음 별은 기본으로 활성화
 
         // 성취도 관련 
         if(damagedArea.stageHP >= 1700){
-            starObj.transform.GetChild(1).gameObject.SetActive(true);       
-            starObj.transform.GetChild(2).gameObject.SetActive(true);       // 두번째, 세번째 별 활성화
+            starObj.transform.GetChild(4).gameObject.SetActive(true);       
+            starObj.transform.GetChild(5).gameObject.SetActive(true);       // 두번째, 세번째 별 활성화
         }
 
         else if(damagedArea.stageHP >= 1000){
-            starObj.transform.GetChild(1).gameObject.SetActive(true);       // 두번째 별 활성화      
+            starObj.transform.GetChild(4).gameObject.SetActive(true);       // 두번째 별 활성화      
         }
 
     }

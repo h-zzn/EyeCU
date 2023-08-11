@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Hyunjin/StartScene 1.unity
     guid: 30a23e58feff50b4c9f880578a5b5275
   - enabled: 1
-    path: Assets/Scenes/FinalProtoMap.unity
-    guid: 7e056566a219cbf44b72807629583b32
+    path: Assets/Scenes/Tutorial.unity
+    guid: 3c585e9847fcf7a41a02e52acbaef002
+  - enabled: 1
+    path: Assets/Scenes/Stage1.unity
+    guid: 5c3ee449299bae74e87fb6de7f7c2846
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: 5ca81413fa9d9a445b532cd3cd2cff42
+  - enabled: 1
+    path: Assets/Scenes/Stage3.unity
+    guid: 913cc5c3491185244a7924004b9342b4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 4c1a559d0f1d4ad45b9f061d87ff4c8b, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e267a95fc3213864f9b2ad67294181e3, type: 2}
