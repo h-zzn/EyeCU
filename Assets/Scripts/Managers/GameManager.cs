@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
         }
 
         // stage 3일때 
-        if(SceneManager.GetActiveScene().buildIndex == 1){
+        if(SceneManager.GetActiveScene().buildIndex == 3){
             if(finalHP > PlayerPrefs.GetInt("Stage3BestHP") || !PlayerPrefs.HasKey("Stage3BestHP")){
                 print("set Stage3BestHP = " + PlayerPrefs.GetInt("Stage3BestHP"));
                 PlayerPrefs.SetInt("Stage3BestHP", finalHP);
