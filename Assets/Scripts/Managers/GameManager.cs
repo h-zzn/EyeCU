@@ -129,11 +129,9 @@ public class GameManager : MonoBehaviour
         //     finalHP = damagedArea.stageHP;
         //     SaveHP(finalHP);
         // }
-        
-
         //print("FinalHP");
         finalHP = damagedArea.stageHP;
-        SaveHP(finalHP);
+        SaveHP(finalHP); 
 
 
         finalHPText.text = finalHP.ToString();

@@ -10084,7 +10084,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.08
-      minScalar: 0.03
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19578,7 +19578,7 @@ Transform:
   - {fileID: 4099795349816244}
   - {fileID: 4759250515502598}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &198349230612428568
 ParticleSystem:
