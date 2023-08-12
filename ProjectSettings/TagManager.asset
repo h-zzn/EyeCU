@@ -15,6 +15,7 @@ TagManager:
   - EyeMarker
   - LavaStone
   - IceStone
+  - stage
   layers:
   - Default
   - TransparentFX

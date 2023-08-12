@@ -82,6 +82,10 @@ public class EyeTrackingRay : MonoBehaviour
                 if(markerSparks.activeSelf == false)
                     markerSparks.SetActive(true); 
             }
+            else if(hit.transform != null && hit.transform.gameObject.CompareTag("stage"))
+            {
+                HoveredCube = hit.transform.gameObject;
+            }
             else
             {
                 EyeTargetingObject = null;

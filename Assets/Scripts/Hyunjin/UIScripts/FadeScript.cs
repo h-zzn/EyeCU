@@ -30,7 +30,7 @@ public class FadeScript : MonoBehaviour
 
     IEnumerator FadeCoroutine(){
         float fadeCount = 0; //처음 알파값
-        while(fadeCount < 0.5f){
+        while(fadeCount < 0.7f){
             fadeCount += 0.01f;
             yield return new WaitForSeconds(0.01f);
             blackImg.color = new Color(0, 0, 0, fadeCount);
