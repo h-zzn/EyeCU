@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         if(damagedArea.stageHP <= 0)
         {
             if(stageOver == null)
-                stageOver = StartCoroutine(StageClear());  // StageOver
+                stageOver = StartCoroutine(StageOver());  // StageOver
             eventManager.EventFlow = null;   
         }
 
@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
     private void ActiveGameClearWindow()
     {
         Debug.Log("GameClear");
-        damagedArea.stageHP = HPcontrol;
+        //damagedArea.stageHP = HPcontrol;
         Debug.Log("damagedArea.stageHP : " + damagedArea.stageHP);
         
         finalHPText.enabled = true;
@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveHP(int finalHP){ 
-        finalHP = HPcontrol; //bestHP 확인할라구
+        //finalHP = HPcontrol; //bestHP 확인할라구
 
         // stage 1일때 
         if(SceneManager.GetActiveScene().buildIndex == 1){

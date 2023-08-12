@@ -53,7 +53,6 @@ public class MapManager : MonoBehaviour
                 Debug.Log("!~" + gameStartScriptInstance.gameStartValue);
                 StartCoroutine(FadeInCoroutine());
                 stageObjectGroup.SetActive(true);
-
             } 
         }
         else{

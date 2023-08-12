@@ -11,14 +11,10 @@ public class typingScript : MonoBehaviour
     public TMP_Text dialogText2;
     public TMP_Text dialogText3;
 
-    Animator animator;
-
-    public static bool isDone = false;
-
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+  
 
         if(dialogText2 == null || dialogText3 ==null){
             StartCoroutine(Typing(dialogText.text));
@@ -33,7 +29,7 @@ public class typingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isDone", isDone);
+
     }
 
     IEnumerator Typing(string text){
@@ -78,8 +74,6 @@ public class typingScript : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(3f);
-        isDone = true;
         
         
     }
