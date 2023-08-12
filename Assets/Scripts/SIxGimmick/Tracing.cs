@@ -24,6 +24,8 @@ public class Tracing : MonoBehaviour
     [SerializeField] private float HMT = 1;
     [SerializeField] private AudioSource UngSound;
     [SerializeField] private AudioSource DestroySound;
+    [SerializeField] private GameObject DestroyEffectObject;
+
     private float hoverDuration = 0f;
     private float maxHoverDuration = 10f; // 10 seconds
     public bool IsHovered { get; set; }
@@ -53,16 +55,18 @@ public class Tracing : MonoBehaviour
             {
                 UngSound.Play();
                 hasAudioPlayed = true; // Set the flag to true to indicate audio has played.
-                
-                // Magic hit effect activate
-
             }
 
             if (hoverDuration >= maxHoverDuration)
             {
                 if (transform.parent != null)
                 {
+                    // Play DestroySound
                     DestroySound.Play();
+                    // Instantiate DestroyEffect at the position of the object
+                    GameObject DestroyObjectInstance = Instantiate(DestroyEffectObject, HoverPosition, Quaternion.identity);
+                    // Destroy the instantiated object after 2 seconds
+                    Destroy(DestroyObjectInstance, 2f);
                     Destroy(transform.parent.gameObject);
                 }
             }
@@ -73,9 +77,6 @@ public class Tracing : MonoBehaviour
             {
                 UngSound.Stop();
                 hasAudioPlayed = false; // Reset the flag when the object is no longer hovered.
-
-                // Magic hit effect deactivate
-
             }
         }
     }
