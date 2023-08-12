@@ -5777,7 +5777,7 @@ GameObject:
   - component: {fileID: 266675608}
   m_Layer: 0
   m_Name: dragon
-  m_TagString: Untagged
+  m_TagString: stage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6164,7 +6164,8 @@ MonoBehaviour:
   shakeSpeed: 2
   shakeAmount: 1
   gameStartValue: 0
-  activeObj: {fileID: 0}
+  activeObj: {fileID: 427441800}
+  otherObj: {fileID: 1591881882}
   cam: {fileID: 265534683}
 --- !u!1 &403704591
 GameObject:
@@ -6268,7 +6269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &427441801
 Transform:
   m_ObjectHideFlags: 0
@@ -20105,7 +20106,8 @@ MonoBehaviour:
   shakeSpeed: 2
   shakeAmount: 1
   gameStartValue: 0
-  activeObj: {fileID: 0}
+  activeObj: {fileID: 1591881882}
+  otherObj: {fileID: 427441800}
   cam: {fileID: 265534683}
 --- !u!1 &1988597880
 GameObject:
