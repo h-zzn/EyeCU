@@ -10,12 +10,6 @@ public class FadeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if(fadeControlValue == 0){
             StartCoroutine(FadeCoroutine());
         }
@@ -24,6 +18,12 @@ public class FadeScript : MonoBehaviour
             blackImg.color = new Color(0, 0, 0, 1);
             StartCoroutine(FadeInCoroutine());
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
         
     }
 
