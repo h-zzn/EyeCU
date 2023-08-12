@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 753015699775785471}
   - component: {fileID: 7359157640481010535}
   - component: {fileID: 8486376393170817898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1983622192566246546}
   - component: {fileID: 7273166306927900259}
   - component: {fileID: 6866137840644401998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2277758938068932664}
   - component: {fileID: 3408508165588699808}
   - component: {fileID: 3557041609554671356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 8580648429163656739}
   - component: {fileID: 4371701291252545892}
   - component: {fileID: 3009904903498242440}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 2849938277331866984}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -0.22, y: 1.237, z: 12.24}
-  m_LocalScale: {x: 1, y: 12.299665, z: 1}
+  m_LocalScale: {x: 1, y: 17.818525, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7221736618153780211}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 7019154446083102032}
   - component: {fileID: 5416036426292034388}
   - component: {fileID: 3649562021587574705}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 7079643325683977638}
   - component: {fileID: 4187568954957384035}
   - component: {fileID: 7705212313460143713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7221736618153780211}
   - component: {fileID: 90863859978830256}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpecialOrbSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ Transform:
   - {fileID: 6914933625566023729}
   - {fileID: 3607546243312148115}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &90863859978830256
 MonoBehaviour:
@@ -687,9 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSpawnStop: 1
   SpecialOrbPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 921425815045983877, guid: 0fd0a3847145c514ead20b393bc7a47f, type: 3}
   points:
   - {fileID: 8586713661609232870}
   - {fileID: 7350445507536654960}
@@ -700,7 +698,7 @@ MonoBehaviour:
   - {fileID: 2292616886866916280}
   - {fileID: 6914933625566023729}
   SpecialOrbInterval: 7.5
-  maxNumofSpecialOrb: 3
+  maxNumofSpecialOrb: 2
 --- !u!1 &8125494536692099895
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +711,7 @@ GameObject:
   - component: {fileID: 5163457802490285689}
   - component: {fileID: 2274828208350350259}
   - component: {fileID: 6617022825080117914}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +816,7 @@ GameObject:
   - component: {fileID: 3622803021176799719}
   - component: {fileID: 7206376724903333123}
   - component: {fileID: 7798709927471715342}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +921,7 @@ GameObject:
   - component: {fileID: 8742535539778981845}
   - component: {fileID: 138242152358510286}
   - component: {fileID: 470266264254158850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
