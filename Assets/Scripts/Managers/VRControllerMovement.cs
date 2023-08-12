@@ -39,7 +39,6 @@ public class VRControllerMovement : MonoBehaviour
 
     void BtnDown()
     {
-        Debug.Log("눌렀음");
         if((OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) 
             && eyeTrackingRayRight.HoveredCube != null)
         {
