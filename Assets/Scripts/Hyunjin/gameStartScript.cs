@@ -11,6 +11,7 @@ public class gameStartScript : MonoBehaviour
     public int gameStartValue = 0;
 
     public GameObject activeObj;
+    public GameObject otherObj;
 
     public Transform cam;
 
@@ -19,6 +20,10 @@ public class gameStartScript : MonoBehaviour
         {
             Debug.Log("collision!");
             StartCoroutine(Shake());
+
+            if(otherObj.activeSelf == true){
+                otherObj.SetActive(false);
+            }
             activeObj.SetActive(true);
         }
     }
