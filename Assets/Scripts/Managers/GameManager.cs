@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         levelReached = PlayerPrefs.GetInt("levelReached");  
 
         if(levelReached < SceneManager.GetActiveScene().buildIndex)
-            PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex-1);
+            PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
         yield return new WaitForSeconds(2); 
         BGMOff(); 

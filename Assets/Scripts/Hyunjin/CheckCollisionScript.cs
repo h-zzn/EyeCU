@@ -21,19 +21,19 @@ public class CheckCollisionScript : MonoBehaviour
             Debug.Log("collision!");
 
             if(this.gameObject.name == "Stage1Effect" || this.gameObject.name == "stage1"){
-                FadeOut(2); // stage 1
+                FadeOut(1); // stage 1
             }
 
             if(this.gameObject.name == "Stage2Effect" || this.gameObject.name == "stage2"){
-                FadeOut(3); // stage 2
+                FadeOut(2); // stage 2
             }
 
             if(this.gameObject.name == "Stage3Effect" || this.gameObject.name == "stage3"){
-                FadeOut(4); // stage 3
+                FadeOut(3); // stage 3
             }
             
             if(this.gameObject.name == "dragon"){       //튜토리얼로
-                FadeOut(1); // stage 3
+                FadeOut(4); // stage 3
             }
         }
     }
