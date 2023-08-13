@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.021941978, g: 0.011459374, b: 0.019650692, a: 1}
+  m_IndirectSpecularColor: {r: 0.022107633, g: 0.011648666, b: 0.019674858, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5824,13 +5824,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
+      propertyPath: m_text
+      value: "\uC138\uD06C\uB9AC\uB8E8\uD06C \uCD5C\uCD08\uC758 \uC131\uC804\uC774
+        \uC704\uD5D8\uD558\uB2E4\uACE0 \uD558\uB124!\n\uADF8\uACF3\uC5D0 \uC788\uB294
+        \uD14C\uC544\uB974\uB374\uC758 \uBD88\uC740 \uC0AC\uC218\uD574\uC57C\uD574\n\uC790\uB124\uAC00
+        \uAC00\uC11C \uC9C0\uCF1C\uC8FC\uAC8C\uB098!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
     - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -8804055905104212418, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
+    - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160476819959525041, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_IsActive
       value: 1

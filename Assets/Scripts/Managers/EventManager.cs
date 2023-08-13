@@ -118,27 +118,39 @@ public class EventManager : MonoBehaviour
         //[****ÎßàÎ≤ï ?ò§Î∏? ?†úÍ±? Î∞©Î≤ï window***]
         //step1 UI
         magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
-        // if(step1 øœ∑·«ﬂ¿ª ∂ß ¡∂∞«){
-        //     animator1A.SetBool("isDone", true);  //?Ç¨?ùºÏß?
-        //     yield return new WaitForSeconds(2);
-        //     Destroy(magicObj.transform.GetChild(0).gameObject);
-        // }
+        
+        /*
+        while (!step1 ??)
+        {
+            yield return null;
+        }
+        animator1A.SetBool("isDone", true);  //?Ç¨?ùºÏß?
+        yield return new WaitForSeconds(2);
+        Destroy(magicObj.transform.GetChild(0).gameObject);
+        */
+        
 
         //step2 UI
         magicObj.transform.GetChild(1).gameObject.SetActive(true);    // step2 UI
-        // if(step2 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator1B.SetBool("isDone", true);  //?Ç¨?ùºÏß?
-        //     yield return new WaitForSeconds(2);
-        //     Destroy(magicObj.transform.GetChild(1).gameObject);
-        // }
 
+        /*
+        while (!step2 ??)
+        {
+            yield return null;
+        }
+        animator1B.SetBool("isDone", true);  //?Ç¨?ùºÏß?
+        yield return new WaitForSeconds(2);
+        Destroy(magicObj.transform.GetChild(1).gameObject);
+        */
+        
         //step3 UI
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    // step2 UI
-        // if(step3 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator1C.SetBool("isDone", true);  //?Ç¨?ùºÏß?
-        //     yield return new WaitForSeconds(2);
-        //     Destroy(magicObj.transform.GetChild(2).gameObject);
-        // }
+        // yield return new WaitForSeconds(5); 
+
+        // animator1C.SetBool("isDone", true);  //?Ç¨?ùºÏß?
+        // yield return new WaitForSeconds(2);
+        // Destroy(magicObj.transform.GetChild(2).gameObject);
+     
 
         yield return new WaitForSeconds(20);
  
@@ -152,20 +164,21 @@ public class EventManager : MonoBehaviour
         //[****?äπÎ≥? ?ò§Î∏? ?†úÍ±? Î∞©Î≤ï window***]
         //step1 UI
         specialObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
-        // if(step1 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator2A.SetBool("isDone", true);  // ?Ç¨?ùºÏß?
-        //     yield return new WaitForSeconds(2);
-        //     Destroy(specialObj.transform.GetChild(0).gameObject);
+        // while (!step1 ??)
+        // {
+        //     yield return null;
         // }
-
+        // animator2A.SetBool("isDone", true);  
+        // yield return new WaitForSeconds(2);
+        // Destroy(specialObj.transform.GetChild(0).gameObject);
+        
         //step2 UI
         specialObj.transform.GetChild(1).gameObject.SetActive(true);    // step1 UI
-        // if(step2 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator2B.SetBool("isDone", true);  // ?Ç¨?ùºÏß?
-        //     yield return new WaitForSeconds(2);
-        //     Destroy(specialObj.transform.GetChild(1).gameObject);
-        // }
-        yield return new WaitForSeconds(20);
+        // yield return new WaitForSeconds(3);
+        // animator2B.SetBool("isDone", true);  
+        // yield return new WaitForSeconds(2);
+        // Destroy(specialObj.transform.GetChild(1).gameObject);
+
 
         BasicSpawnStop(true);
         SpecialOrbSpawnAllStop(false); 
@@ -174,26 +187,28 @@ public class EventManager : MonoBehaviour
             yield return null;
         }
 
-        
         //[****?èå?ç©?ù¥ ?†úÍ±? Î∞©Î≤ï window***]
         //step1 UI
         stoneObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
-        // if(step1 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator3A.SetBool("isDone", true);  // ?Ç¨?ùºÏß?
-        //     yield return new WaitForSeconds(2);
-        //     Destroy(stoneObj.transform.GetChild(0).gameObject);
+        // while (!step1 ??)
+        // {
+        //     yield return null; 
         // }
+        // animator3A.SetBool("isDone", true); 
+        // yield return new WaitForSeconds(2);
+        // Destroy(stoneObj.transform.GetChild(0).gameObject);
 
         //step2 UI
         stoneObj.transform.GetChild(01).gameObject.SetActive(true);    // step1 UI
-        // if(step2 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator3B.SetBool("isDone", true);  // ?Ç¨?ùºÏß?
-        //     yield return new WaitForSeconds(2);
-        //     Destroy(stoneObj.transform.GetChild(1).gameObject);
+        // while (!step2 ??)
+        // {
+        //     yield return null; 
         // }
-
-        yield return new WaitForSeconds(20);
-
+        // animator3B.SetBool("isDone", true);  
+        // yield return new WaitForSeconds(2);
+        // Destroy(stoneObj.transform.GetChild(1).gameObject);
+        
+        //????! ??? ?????? ??? ??? ????! ????? ?????!  
         StoneSpawnStop(false); 
         yield return new WaitForSeconds(swordTime); 
         
