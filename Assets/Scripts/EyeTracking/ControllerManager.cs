@@ -24,7 +24,16 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private GameObject rightEffect;
 
     [SerializeField] private AudioSource PoongSound;
-    [SerializeField] private AudioSource ChengSound;   
+    [SerializeField] private AudioSource ChengSound;
+
+    [SerializeField] private float deactivateRedMagicTime = 1f;
+    [SerializeField] private float deactivateBlueMagicTime = 1f;
+
+    private bool redMagicActive = false;
+    private bool blueMagicActive = false;
+
+    private Coroutine redMagicPauseCoroutine; // Coroutine 참조 변수
+    private Coroutine blueMagicPauseCoroutine; // Coroutine 참조 변수
 
     // Start is called before the first frame update
     void Start()
@@ -49,21 +58,57 @@ public class ControllerManager : MonoBehaviour
     {
         if(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
         {
+            // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
             {   
-                if (PoongSound != null)
-                {
-                    PoongSound.Play();
+                if (redMagicActive){
+                    if (PoongSound != null)
+                    {
+                        PoongSound.Play();
+                    }
+
+                    // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
+                    hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
+                    GameObject redMagicHitInstance = Instantiate(RedMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                    redMagicHitInstance.SetActive(true);
+                    Destroy(redMagicHitInstance,3f);
+
+                    Destroy(eyeTrackingRayRight.HoveredCube);
+                    eyeTrackingRayRight.HoveredCube = null;
                 }
+                else
+                {
+                    // // Tik Sound play
+                    // if (TikSound != null)
+                    // {
+                    //     TikSound.Play();
+                    // }
+                    Debug.Log("Red Magic is not active!!!!!!!!!!!!!!!!!!!!!");
+                }
+            }
 
-                // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
-                hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
-                GameObject redMagicHitInstance = Instantiate(RedMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
-                redMagicHitInstance.SetActive(true);
-                Destroy(redMagicHitInstance,3f);
+            // X Wrong
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
+            {
+                // // Wrong Sound play
+                // if (WrongSound != null)
+                // {
+                //     WrongSound.Play();
+                // }
+                Debug.Log("Wrong Sound play!!!!!!!!!!!!!!!!!!!!");
 
-                Destroy(eyeTrackingRayRight.HoveredCube);
-                eyeTrackingRayRight.HoveredCube = null;
+                if (redMagicActive) // redMagicActive가 활성화되어 있을 때
+                {
+                    Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");
+
+                    redMagicActive = false; // 일단 true로 설정
+                    // 1초 뒤에 redMagicActive 다시 false로 변경하는 Coroutine 시작
+                    if (redMagicPauseCoroutine != null)
+                    {
+                        StopCoroutine(redMagicPauseCoroutine); // 기존 Coroutine 중지
+                    }
+                    redMagicPauseCoroutine = StartCoroutine(ActivateRedMagicAfter(deactivateRedMagicTime));
+                }
             }
         }
 
@@ -86,6 +131,22 @@ public class ControllerManager : MonoBehaviour
                 eyeTrackingRayRight.HoveredCube = null;
             }
         }
+    }
+
+    IEnumerator ActivateRedMagicAfter(float second)
+    {
+        yield return new WaitForSeconds(second);
+        redMagicActive = true;
+        
+        Debug.Log("Red Magic Activated!!!!!!!!!!!!!!!!!!");
+    }
+
+    IEnumerator ActivateBlueMagicAfter(float second)
+    {
+        yield return new WaitForSeconds(second);
+        blueMagicActive = true;
+
+        Debug.Log("Blue Magic Activated!!!!!!!!!!!!!!!!!!");
     }
 
     void activeSword()
