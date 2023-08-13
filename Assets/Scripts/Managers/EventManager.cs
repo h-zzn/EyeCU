@@ -119,7 +119,7 @@ public class EventManager : MonoBehaviour
         //step1 UI
         magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
         // if(step1 øœ∑·«ﬂ¿ª ∂ß ¡∂∞«){
-        //     animator1A.SetBool("isDone", true);  // ?Ç¨?ùºÏß?
+        //     animator1A.SetBool("isDone", true);  //?Ç¨?ùºÏß?
         //     yield return new WaitForSeconds(2);
         //     Destroy(magicObj.transform.GetChild(0).gameObject);
         // }
@@ -127,7 +127,7 @@ public class EventManager : MonoBehaviour
         //step2 UI
         magicObj.transform.GetChild(1).gameObject.SetActive(true);    // step2 UI
         // if(step2 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator1B.SetBool("isDone", true);  // ?Ç¨?ùºÏß?
+        //     animator1B.SetBool("isDone", true);  //?Ç¨?ùºÏß?
         //     yield return new WaitForSeconds(2);
         //     Destroy(magicObj.transform.GetChild(1).gameObject);
         // }
@@ -135,7 +135,7 @@ public class EventManager : MonoBehaviour
         //step3 UI
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    // step2 UI
         // if(step3 Ïß??ãú ?ôÑÎ£åÌïòÎ©?){
-        //     animator1C.SetBool("isDone", true);  // ?Ç¨?ùºÏß?
+        //     animator1C.SetBool("isDone", true);  //?Ç¨?ùºÏß?
         //     yield return new WaitForSeconds(2);
         //     Destroy(magicObj.transform.GetChild(2).gameObject);
         // }
