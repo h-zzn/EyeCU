@@ -2188,6 +2188,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
+      propertyPath: m_text
+      value: "\uC774\uB7F0..! \uB9C8\uC744\uC774 \uACF5\uACA9 \uBC1B\uACE0 \uC788\uB2E4\uB124!\n\uB9C8\uC744\uC744
+        \uC9C0\uCF1C\uC8FC\uAC8C!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
