@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteKey("Stage3BestHP");
             PlayerPrefs.DeleteKey("StageCheckValue");
 
-            hasDeletedKey = true;
+            hasDeletedKey = true; 
         }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
@@ -104,14 +104,20 @@ public class GameManager : MonoBehaviour
             // Start a coroutine to handle the event flow
             if(EventFlow == null)
             {
-                if(stageLevel == StageLevel.tutorial)
+                if(stageLevel == StageLevel.tutorial) 
                     EventFlow = StartCoroutine(eventManager.TutorialEventFlow());  
                 else if(stageLevel == StageLevel.stage1)
-                    EventFlow = StartCoroutine(eventManager.EventFlowCoroutine());  
+                    EventFlow = StartCoroutine(eventManager.Stage1EventFlow());  
+                else if(stageLevel == StageLevel.stage2)
+                    EventFlow = StartCoroutine(eventManager.Stage2EventFlow());
+                else if(stageLevel == StageLevel.stage3)
+                    EventFlow = StartCoroutine(eventManager.Stage3EventFlow());
+                else 
+                    EventFlow = StartCoroutine(eventManager.Stage3EventFlow());
             }
         }
         Timer += Time.deltaTime;
-    }
+    } 
 
 
     public IEnumerator StageOver() 

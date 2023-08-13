@@ -9,6 +9,7 @@ public class Cube : MonoBehaviour
 {
     public bool IsHovered { get; set; }
     private Vector3 originVector;
+    [SerializeField] private int moveSpeed = 8; 
 
     void Awake()
     {
@@ -19,10 +20,6 @@ public class Cube : MonoBehaviour
     // Update is called once per farame
     void Update()
     {
-        transform.position += originVector/8;
-        if(!IsHovered)
-        {
-
-        }
+        transform.position += originVector*moveSpeed*Time.deltaTime; 
     }
 }
