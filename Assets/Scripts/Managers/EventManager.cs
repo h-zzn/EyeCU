@@ -36,7 +36,6 @@ public class EventManager : MonoBehaviour
     public Coroutine EventFlow = null;
 
     void Start(){
-        // ?• ?‹ˆë©”ì´?„° ê´?? ¨ ?‚´?š©?“¤?¸?°,, ? œê°? ì¡°ê¸ˆ ?” ?š¨?œ¨? ?œ¼ë¡? ? •ë¦¬í•˜?Š” ë°©ë²•?„ ì°¾ì•„ë³´ê² ?Œ?‹¤ ?…
         animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
         animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
         animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?˜ step3 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
