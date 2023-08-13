@@ -18,13 +18,13 @@ public class EventManager : MonoBehaviour
 
     [SerializeField] private GameObject explainUI; 
 
-    // tutorial UI ê´?? ¨
+    // tutorial UI ï¿½??ï¿½ï¿½
     [SerializeField] private GameObject magicObj;   
     [SerializeField] private GameObject specialObj;   
     [SerializeField] private GameObject stoneObj; 
     [SerializeField] private GameObject finishUI;  
 
-    // Animator ê´?? ¨ 
+    // Animator ï¿½??ï¿½ï¿½ 
     Animator animator1A; 
     Animator animator1B; 
     Animator animator1C; 
@@ -49,13 +49,13 @@ public class EventManager : MonoBehaviour
 
         if(magicObj != null && specialObj != null && stoneObj != null)  
         {
-            animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-            animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-            animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?˜ step3 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-            animator2A = specialObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // speicalObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-            animator2B = specialObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // speicalObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-            animator3A = stoneObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // stoneObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-            animator3B = stoneObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // stoneObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+            animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?ï¿½ï¿½ step1 ?ï¿½ï¿½?ï¿½ï¿½ë©”ì´?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½?
+            animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?ï¿½ï¿½ step2 ?ï¿½ï¿½?ï¿½ï¿½ë©”ì´?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½?
+            animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?ï¿½ï¿½ step3 ?ï¿½ï¿½?ï¿½ï¿½ë©”ì´?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½?
+            animator2A = specialObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // speicalObj?ï¿½ï¿½ step1 ?ï¿½ï¿½?ï¿½ï¿½ë©”ì´?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½?
+            animator2B = specialObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // speicalObj?ï¿½ï¿½ step2 ?ï¿½ï¿½?ï¿½ï¿½ë©”ì´?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½?
+            animator3A = stoneObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // stoneObj?ï¿½ï¿½ step1 ?ï¿½ï¿½?ï¿½ï¿½ë©”ì´?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½?
+            animator3B = stoneObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // stoneObj?ï¿½ï¿½ step2 ?ï¿½ï¿½?ï¿½ï¿½ë©”ì´?ï¿½ï¿½ ï¿½??ï¿½ï¿½?ï¿½ï¿½ï¿½?
 
             animator1A.SetBool("isDone", false);  
             animator1B.SetBool("isDone", false);  
@@ -123,12 +123,12 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
-        //[**** ê²Œì„ ?„¸ê³„ê?? explain window ****] 
+        //[**** ê²Œì„ ?ï¿½ï¿½ê³„ï¿½?? explain window ****] 
         explainUI.SetActive(true);
         yield return new WaitForSeconds(10);
         explainUI.SetActive(false); 
 
-        //[****ë§ˆë²• ?˜¤ë¸? ? œê±? ë°©ë²• window***] 
+        //[****ë§ˆë²• ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ë°©ë²• window***] 
         //step1 UI
         magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI 
         tutorialEvent.magicRedOrb.SetActive(true);
@@ -136,7 +136,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
-        animator1A.SetBool("isDone", true);  //?‚¬?¼ì§? 
+        animator1A.SetBool("isDone", true);  //?ï¿½ï¿½?ï¿½ï¿½ï¿½? 
         yield return new WaitForSeconds(2); 
         magicObj.transform.GetChild(0).gameObject.SetActive(false);
 
@@ -147,7 +147,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null;
         }
-        animator1B.SetBool("isDone", true);  //?‚¬?¼ì§?
+        animator1B.SetBool("isDone", true);  //?ï¿½ï¿½?ï¿½ï¿½ï¿½?
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(1).gameObject.SetActive(false);
         
@@ -155,11 +155,11 @@ public class EventManager : MonoBehaviour
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    // step2 UI
         yield return new WaitForSeconds(5); 
 
-        animator1C.SetBool("isDone", true);  //?‚¬?¼ì§?
+        animator1C.SetBool("isDone", true);  //?ï¿½ï¿½?ï¿½ï¿½ï¿½?
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(2).gameObject.SetActive(false);  
 
-        //[****?Š¹ë³? ?˜¤ë¸? ? œê±? ë°©ë²• window***]
+        //[****?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ë°©ë²• window***]
         //step1 UI
         specialObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
         tutorialEvent.specialOrb.SetActive(true);
@@ -179,7 +179,7 @@ public class EventManager : MonoBehaviour
         specialObj.transform.GetChild(1).gameObject.SetActive(false);
 
 
-        //[****?Œ?©?´ ? œê±? ë°©ë²• window***]
+        //[****?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ï¿½? ë°©ë²• window***]
         //step1 UI
         stoneObj.transform.GetChild(0).gameObject.SetActive(true);     // step1 UI
         tutorialEvent.lavaSwordMission = false;
