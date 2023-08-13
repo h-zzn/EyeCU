@@ -6200,7 +6200,7 @@ PrefabInstance:
       objectReference: {fileID: 1450451287}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stageLevel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: finalHPText
@@ -7111,7 +7111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2460329136019927946}
   m_Layer: 0
-  m_Name: TestPrefab
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
