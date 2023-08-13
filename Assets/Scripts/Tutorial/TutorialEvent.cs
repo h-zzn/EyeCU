@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class TutorialEvent : MonoBehaviour
 {
-    public bool magicRedOrbMission = false;
-    public bool magicBlueOrbMission = false;
+    public bool magicRedOrbMission = false; 
+    public bool magicBlueOrbMission = false; 
 
-    public bool specialOrbMission = false;
+    public bool specialOrbMission = false; 
 
-    public bool stoneSwordMission = false;
-    public bool lavaStoneMission = false;
-    public bool iceStoneMission = false;
+    public bool lavaSwordMission = false; 
+    public bool iceSwordMission = false;
+
+    public bool lavaStoneMission = false; 
+    public bool iceStoneMission = false; 
 
 
-    [SerializeField] private GameObject magicRedOrb; 
-    [SerializeField] private GameObject magicBlueOrb; 
+    [SerializeField] public GameObject magicRedOrb; 
+    [SerializeField] public GameObject magicBlueOrb; 
 
-    [SerializeField] private GameObject specialOrb; 
+    [SerializeField] public GameObject specialOrb; 
 
-    [SerializeField] private GameObject lavaStone; 
-    [SerializeField] private GameObject iceStone; 
+    [SerializeField] public GameObject lavaStone; 
+    [SerializeField] public GameObject iceStone; 
 
 
     void Update()
@@ -38,6 +40,16 @@ public class TutorialEvent : MonoBehaviour
         if(specialOrb == null)
         { 
             specialOrbMission = true;
+        }
+
+        if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
+        {
+            lavaSwordMission = true;
+        }
+
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
+        {
+            iceSwordMission = true;
         }
 
 

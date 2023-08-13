@@ -127,77 +127,81 @@ public class EventManager : MonoBehaviour
         //[****ÎßàÎ≤ï ?ò§Î∏? ?†úÍ±? Î∞©Î≤ï window***] 
         //step1 UI
         magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI 
-        
+        tutorialEvent.magicRedOrb.SetActive(true);
         while (!tutorialEvent.magicRedOrbMission) 
         {
             yield return null; 
         }
         animator1A.SetBool("isDone", true);  //?Ç¨?ùºÏß? 
         yield return new WaitForSeconds(2); 
-        Destroy(magicObj.transform.GetChild(0).gameObject);
+        magicObj.transform.GetChild(0).gameObject.SetActive(false);
 
         //step2 UI
         magicObj.transform.GetChild(1).gameObject.SetActive(true);    // step2 UI
-
-        while (!tutorialEvent.magicRedOrbMission)
+        tutorialEvent.magicBlueOrb.SetActive(true);
+        while(!tutorialEvent.magicRedOrbMission)
         {
             yield return null;
         }
         animator1B.SetBool("isDone", true);  //?Ç¨?ùºÏß?
         yield return new WaitForSeconds(2);
-        Destroy(magicObj.transform.GetChild(1).gameObject);
+        magicObj.transform.GetChild(1).gameObject.SetActive(false);
         
         //step3 UI
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    // step2 UI
-        // yield return new WaitForSeconds(5); 
+        yield return new WaitForSeconds(5); 
 
-        // animator1C.SetBool("isDone", true);  //?Ç¨?ùºÏß?
-        // yield return new WaitForSeconds(2);
-        // Destroy(magicObj.transform.GetChild(2).gameObject);
-      
-        
-        yield return new WaitForSeconds(7);
-        
+        animator1C.SetBool("isDone", true);  //?Ç¨?ùºÏß?
+        yield return new WaitForSeconds(2);
+        magicObj.transform.GetChild(2).gameObject.SetActive(false);  
 
         //[****?äπÎ≥? ?ò§Î∏? ?†úÍ±? Î∞©Î≤ï window***]
         //step1 UI
         specialObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
-        // while (!step1 ??)
-        // {
-        //     yield return null;
-        // }
-        // animator2A.SetBool("isDone", true);  
-        // yield return new WaitForSeconds(2);
-        // Destroy(specialObj.transform.GetChild(0).gameObject);
+        tutorialEvent.specialOrb.SetActive(true);
+        while(!tutorialEvent.specialOrbMission) 
+        {
+            yield return null; 
+        }
+        animator2A.SetBool("isDone", true);  
+        yield return new WaitForSeconds(2);
+        specialObj.transform.GetChild(0).gameObject.SetActive(false);
         
         //step2 UI
         specialObj.transform.GetChild(1).gameObject.SetActive(true);    // step1 UI
-        // yield return new WaitForSeconds(3);
-        // animator2B.SetBool("isDone", true);  
-        // yield return new WaitForSeconds(2);
-        // Destroy(specialObj.transform.GetChild(1).gameObject);
+        yield return new WaitForSeconds(3);
+        animator2B.SetBool("isDone", true);  
+        yield return new WaitForSeconds(2);
+        specialObj.transform.GetChild(1).gameObject.SetActive(false);
 
 
         //[****?èå?ç©?ù¥ ?†úÍ±? Î∞©Î≤ï window***]
         //step1 UI
-        stoneObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
-        // while (!step1 ??)
-        // {
-        //     yield return null; 
-        // }
-        // animator3A.SetBool("isDone", true); 
-        // yield return new WaitForSeconds(2);
-        // Destroy(stoneObj.transform.GetChild(0).gameObject);
+        stoneObj.transform.GetChild(0).gameObject.SetActive(true);     // step1 UI
+        tutorialEvent.lavaSwordMission = false;
+        tutorialEvent.iceSwordMission = false;   
+        yield return new WaitForSeconds(3); //??? ??
+        while (!(tutorialEvent.lavaSwordMission && tutorialEvent.iceSwordMission))
+        {
+            yield return null; 
+        }
+        animator3A.SetBool("isDone", true); 
+        yield return new WaitForSeconds(2);
+        stoneObj.transform.GetChild(0).gameObject.SetActive(false);
 
         //step2 UI
-        stoneObj.transform.GetChild(01).gameObject.SetActive(true);    // step1 UI
-        // while (!step2 ??)
-        // {
-        //     yield return null; 
-        // }
-        // animator3B.SetBool("isDone", true);  
-        // yield return new WaitForSeconds(2);
-        // Destroy(stoneObj.transform.GetChild(1).gameObject);
+        stoneObj.transform.GetChild(01).gameObject.SetActive(true);  
+        tutorialEvent.lavaStone.SetActive(true);
+        tutorialEvent.iceStone.SetActive(true);  // step1 UI
+        while (!(tutorialEvent.lavaStoneMission && tutorialEvent.iceStoneMission))
+        {
+            yield return null; 
+        }
+        animator3B.SetBool("isDone", true);  
+        yield return new WaitForSeconds(2);
+        stoneObj.transform.GetChild(01).gameObject.SetActive(false);
+        
+        
         
         GameClear = true;
         // Reset
