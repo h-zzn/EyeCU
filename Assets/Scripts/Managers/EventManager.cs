@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
@@ -18,24 +19,33 @@ public class EventManager : MonoBehaviour
     [SerializeField] private GameObject explainUI; 
 
     // tutorial UI Í¥??†®
-    [SerializeField] private GameObject magicObj;  
-    [SerializeField] private GameObject specialObj;  
-    [SerializeField] private GameObject stoneObj; 
+    [SerializeField] private GameObject magicObj;   
+    [SerializeField] private GameObject specialObj;   
+    [SerializeField] private GameObject stoneObj;  
 
     // Animator Í¥??†® 
-    Animator animator1A;
-    Animator animator1B;
-    Animator animator1C;
-    Animator animator2A;
-    Animator animator2B;
-    Animator animator3A;
-    Animator animator3B;
+    Animator animator1A; 
+    Animator animator1B; 
+    Animator animator1C; 
+    Animator animator2A; 
+    Animator animator2B; 
+    Animator animator3A; 
+    Animator animator3B; 
 
-    private float Timer = 0;
+    private float Timer = 0; 
 
-    public Coroutine EventFlow = null;
+    public Coroutine EventFlow = null; 
 
-    void Start(){
+    private TutorialEvent tutorialEvent = null; 
+
+
+    void Start()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings-1)
+        {
+           tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>(); 
+        }
+
         animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?ùò step1 ?ï†?ãàÎ©îÏù¥?Ñ∞ Í∞??†∏?ò§Í∏?
         animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?ùò step2 ?ï†?ãàÎ©îÏù¥?Ñ∞ Í∞??†∏?ò§Í∏?
         animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?ùò step3 ?ï†?ãàÎ©îÏù¥?Ñ∞ Í∞??†∏?ò§Í∏?
@@ -65,7 +75,6 @@ public class EventManager : MonoBehaviour
     {   
        
         //start window 
-
         BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
 
@@ -110,38 +119,33 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
-        //[**** Í≤åÏûÑ ?Ñ∏Í≥ÑÍ?? explain window ****]
+        //[**** Í≤åÏûÑ ?Ñ∏Í≥ÑÍ?? explain window ****] 
         explainUI.SetActive(true);
         yield return new WaitForSeconds(10);
         explainUI.SetActive(false); 
 
-        //[****ÎßàÎ≤ï ?ò§Î∏? ?†úÍ±? Î∞©Î≤ï window***]
+        //[****ÎßàÎ≤ï ?ò§Î∏? ?†úÍ±? Î∞©Î≤ï window***] 
         //step1 UI
-        magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
+        magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI 
         
-        /*
-        while (!step1 ??)
+        while (!tutorialEvent.magicRedOrbMission) 
         {
-            yield return null;
+            yield return null; 
         }
-        animator1A.SetBool("isDone", true);  //?Ç¨?ùºÏß?
-        yield return new WaitForSeconds(2);
+        animator1A.SetBool("isDone", true);  //?Ç¨?ùºÏß? 
+        yield return new WaitForSeconds(2); 
         Destroy(magicObj.transform.GetChild(0).gameObject);
-        */
-        
 
         //step2 UI
         magicObj.transform.GetChild(1).gameObject.SetActive(true);    // step2 UI
 
-        /*
-        while (!step2 ??)
+        while (!tutorialEvent.magicRedOrbMission)
         {
             yield return null;
         }
         animator1B.SetBool("isDone", true);  //?Ç¨?ùºÏß?
         yield return new WaitForSeconds(2);
         Destroy(magicObj.transform.GetChild(1).gameObject);
-        */
         
         //step3 UI
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    // step2 UI
@@ -150,14 +154,8 @@ public class EventManager : MonoBehaviour
         // animator1C.SetBool("isDone", true);  //?Ç¨?ùºÏß?
         // yield return new WaitForSeconds(2);
         // Destroy(magicObj.transform.GetChild(2).gameObject);
-     
-
-        yield return new WaitForSeconds(20);
- 
-        BasicSpawnStop(false);
-        yield return new WaitForSeconds(BasicSpawnTime);
-
-        //"Don't take your eyes off the starry Orb! Put all my energy into your eyes!" It's time to say that
+      
+        
         yield return new WaitForSeconds(7);
         
 
@@ -180,13 +178,6 @@ public class EventManager : MonoBehaviour
         // Destroy(specialObj.transform.GetChild(1).gameObject);
 
 
-        BasicSpawnStop(true);
-        SpecialOrbSpawnAllStop(false); 
-        while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
-        {
-            yield return null;
-        }
-
         //[****?èå?ç©?ù¥ ?†úÍ±? Î∞©Î≤ï window***]
         //step1 UI
         stoneObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
@@ -207,26 +198,6 @@ public class EventManager : MonoBehaviour
         // animator3B.SetBool("isDone", true);  
         // yield return new WaitForSeconds(2);
         // Destroy(stoneObj.transform.GetChild(1).gameObject);
-        
-        //????! ??? ?????? ??? ??? ????! ????? ?????!  
-        StoneSpawnStop(false); 
-        yield return new WaitForSeconds(swordTime); 
-        
-        //It's time to let you know that the power of your eyes is back
-        StoneSpawnStop(true); 
-        yield return new WaitForSeconds(7); 
-        
-        BasicSpawnStop(false); 
-        yield return new WaitForSeconds(10); 
-
-        StoneSpawnStop(false); 
-        yield return new WaitForSeconds(BasicSpawnTime-10); 
-        
-
-        BasicSpawnStop(true); 
-        StoneSpawnStop(true); 
-        SpecialOrbSpawnAllStop(true); 
-        yield return new WaitForSeconds(5);
         
         GameClear = true;
         // Reset
