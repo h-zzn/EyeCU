@@ -20084,8 +20084,8 @@ MonoBehaviour:
   movingTime: 1
   HMT: 1
   UngSound: {fileID: 2326176597160202102}
-  DestroySound: {fileID: 7866217395841292855}
-  DestroyEffectObject: {fileID: 6032810767631624174, guid: b93e6f27009c647a19be204287f19be1, type: 3}
+  DestroyVisualEffectObject: {fileID: 6032810767631624174, guid: b93e6f27009c647a19be204287f19be1, type: 3}
+  DestroySoundEffectObject: {fileID: 7354846308910032518, guid: 1a64ed9e014232d48bd91e24667cc96e, type: 3}
 --- !u!135 &8819625532822805110
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -23,8 +23,8 @@ public class Tracing : MonoBehaviour
 
     [SerializeField] private float HMT = 1;
     [SerializeField] private AudioSource UngSound;
-    [SerializeField] private AudioSource DestroySound;
-    [SerializeField] private GameObject DestroyEffectObject;
+    [SerializeField] private GameObject DestroyVisualEffectObject;
+    [SerializeField] private GameObject DestroySoundEffectObject;
 
     private float hoverDuration = 0f;
     private float maxHoverDuration = 10f; // 10 seconds
@@ -61,13 +61,16 @@ public class Tracing : MonoBehaviour
             {
                 if (transform.parent != null)
                 {
-                    // Play DestroySound
-                    DestroySound.Play();
                     // Instantiate DestroyEffect at the position of the object
-                    GameObject DestroyObjectInstance = Instantiate(DestroyEffectObject, HoverPosition, Quaternion.identity);
+                    GameObject DestroyVisualInstance = Instantiate(DestroyVisualEffectObject, HoverPosition, Quaternion.identity);
                     // Destroy the instantiated object after 2 seconds
-                    Destroy(DestroyObjectInstance, 2f);
-                    
+                    Destroy(DestroyVisualInstance, 1f);
+
+                    // Instantiate DestroyEffect at the position of the object
+                    GameObject DestroySoundInstance = Instantiate(DestroySoundEffectObject, HoverPosition, Quaternion.identity);
+                    // Destroy the instantiated object after 2 seconds
+                    Destroy(DestroySoundInstance, 1f);
+
                     Destroy(transform.parent.gameObject);
                 }
             }
