@@ -32235,7 +32235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.32
+      value: -13.61
       objectReference: {fileID: 0}
     - target: {fileID: 458774, guid: 8252519d2c6fd014bb5f75765a8c4fda, type: 3}
       propertyPath: m_LocalRotation.w
@@ -44008,12 +44008,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3318762004738546031, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: m_Volume
-      value: 0.89
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3318762004738546031, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: bea018d1107896846b9e8c28944608d0, type: 3}
+      objectReference: {fileID: 8300000, guid: b07584be7ee442147b4729346bf02ca9, type: 3}
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stageHP
       value: 2000
@@ -44515,14 +44515,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 424059825235472272, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-      propertyPath: m_Pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 424059825235472272, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-      propertyPath: m_Volume
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 1
