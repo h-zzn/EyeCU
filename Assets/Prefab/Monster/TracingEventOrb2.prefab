@@ -327,8 +327,8 @@ MonoBehaviour:
   movingTime: 2
   HMT: 0.9
   UngSound: {fileID: 8787895274779312011}
-  DestroySound: {fileID: 2777044423516493155}
-  DestroyEffectObject: {fileID: 6032810767631624174, guid: b93e6f27009c647a19be204287f19be1, type: 3}
+  DestroyVisualEffectObject: {fileID: 6032810767631624174, guid: b93e6f27009c647a19be204287f19be1, type: 3}
+  DestroySoundEffectObject: {fileID: 7354846308910032518, guid: 1a64ed9e014232d48bd91e24667cc96e, type: 3}
 --- !u!82 &8787895274779312011
 AudioSource:
   m_ObjectHideFlags: 0
