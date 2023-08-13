@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static OVRHaptics;
 
 public class ControllerManager : MonoBehaviour
 {
@@ -26,14 +27,15 @@ public class ControllerManager : MonoBehaviour
     [SerializeField] private AudioSource PoongSound;
     [SerializeField] private AudioSource ChengSound;
 
-    [SerializeField] private float deactivateRedMagicTime = 1f;
-    [SerializeField] private float deactivateBlueMagicTime = 1f;
+    [SerializeField] private float deactivateMagicTime = 1f;
 
-    private bool redMagicActive = false;
-    private bool blueMagicActive = false;
+    private bool redMagicActive = true;
+    private bool blueMagicActive = true;
 
     private Coroutine redMagicPauseCoroutine; // Coroutine 참조 변수
     private Coroutine blueMagicPauseCoroutine; // Coroutine 참조 변수
+
+    public float vibrationDuration = 0.5f; // 햅틱 지속 시간
 
     // Start is called before the first frame update
     void Start()
@@ -56,16 +58,28 @@ public class ControllerManager : MonoBehaviour
 
     void BtnDown()
     {
+        // 오른손 Red Magic
         if(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
         {
             // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
             {   
-                if (redMagicActive){
+                if (redMagicActive){ // 오른손 Red Magic이 사용 가능일 때
                     if (PoongSound != null)
                     {
                         PoongSound.Play();
                     }
+
+                    // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
+                    OVRHapticsClip clip = new OVRHapticsClip();
+                    for (int i = 0; i < Config.SampleRateHz * vibrationDuration; i++)
+                    {
+                        byte sample = (byte)(1.0f * 255);
+                        clip.WriteSample(sample);
+                    }
+
+                    OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
+                    hapticsChannel.Preempt(clip);
 
                     // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
                     hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
@@ -83,52 +97,107 @@ public class ControllerManager : MonoBehaviour
                     // {
                     //     TikSound.Play();
                     // }
-                    Debug.Log("Red Magic is not active!!!!!!!!!!!!!!!!!!!!!");
+                    // Debug.Log("Red Magic is not active!!!!!!!!!!!!!!!!!!!!!");
                 }
             }
 
             // X Wrong
-            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
+            else if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
             {
                 // // Wrong Sound play
                 // if (WrongSound != null)
                 // {
                 //     WrongSound.Play();
                 // }
-                Debug.Log("Wrong Sound play!!!!!!!!!!!!!!!!!!!!");
+                
+                // Debug.Log("Wrong Sound play!!!!!!!!!!!!!!!!!!!!");
 
                 if (redMagicActive) // redMagicActive가 활성화되어 있을 때
                 {
-                    Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");
+                    // Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");
 
-                    redMagicActive = false; // 일단 true로 설정
+                    redMagicActive = false; // redMagic 비활성화
+                    rightEffect.SetActive(false);
                     // 1초 뒤에 redMagicActive 다시 false로 변경하는 Coroutine 시작
                     if (redMagicPauseCoroutine != null)
                     {
                         StopCoroutine(redMagicPauseCoroutine); // 기존 Coroutine 중지
                     }
-                    redMagicPauseCoroutine = StartCoroutine(ActivateRedMagicAfter(deactivateRedMagicTime));
+                    redMagicPauseCoroutine = StartCoroutine(ActivateRedMagicAfter(deactivateMagicTime));
                 }
             }
         }
 
+        // 왼손 Blue Magic
         if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
         {
+            // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
             {
-                if (PoongSound != null)
-                {
-                    PoongSound.Play();
+                if(blueMagicActive){ // 오른손 Blue Magic이 사용 가능일 때
+                    if (PoongSound != null)
+                    {
+                        PoongSound.Play();
+                    }
+
+                    // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
+                    OVRHapticsClip clip = new OVRHapticsClip();
+                    for (int i = 0; i < Config.SampleRateHz * vibrationDuration; i++)
+                    {
+                        byte sample = (byte)(1.0f * 255);
+                        clip.WriteSample(sample);
+                    }
+
+                    OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
+                    hapticsChannel.Preempt(clip);
+
+                    // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
+                    StartCoroutine(StopVibration());
+
+                    // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
+                    hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
+                    GameObject blueMagicHitInstance = Instantiate(BlueMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                    blueMagicHitInstance.SetActive(true);
+                    Destroy(blueMagicHitInstance,3f);
+
+                    Destroy(eyeTrackingRayRight.HoveredCube);
+                    eyeTrackingRayRight.HoveredCube = null;
                 }
+                else
+                {
+                    // // Tik Sound play
+                    // if (TikSound != null)
+                    // {
+                    //     TikSound.Play();
+                    // }
+                    // Debug.Log("Blue Magic is not active!!!!!!!!!!!!!!!!!!!!!");
+                }
+            }
 
-                // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
-                hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
-                GameObject blueMagicHitInstance = Instantiate(BlueMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
-                blueMagicHitInstance.SetActive(true);
-                Destroy(blueMagicHitInstance,3f);
+            // X Wrong
+            else if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
+            {
+                // // Wrong Sound play
+                // if (WrongSound != null)
+                // {
+                //     WrongSound.Play();
+                // }
+                
+                // Debug.Log("Wrong Sound play!!!!!!!!!!!!!!!!!!!!");
 
-                Destroy(eyeTrackingRayRight.HoveredCube);
-                eyeTrackingRayRight.HoveredCube = null;
+                if (blueMagicActive) // blueMagicActive가 활성화되어 있을 때
+                {
+                    // Debug.Log("Wrong Target! : Blue Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");
+
+                    blueMagicActive = false; // blueMagic 비활성화
+                    leftEffect.SetActive(false);
+                    // 1초 뒤에 blueMagicActive 다시 false로 변경하는 Coroutine 시작
+                    if (blueMagicPauseCoroutine != null)
+                    {
+                        StopCoroutine(blueMagicPauseCoroutine); // 기존 Coroutine 중지
+                    }
+                    blueMagicPauseCoroutine = StartCoroutine(ActivateBlueMagicAfter(deactivateMagicTime));
+                }
             }
         }
     }
@@ -137,16 +206,26 @@ public class ControllerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(second);
         redMagicActive = true;
-        
-        Debug.Log("Red Magic Activated!!!!!!!!!!!!!!!!!!");
+        rightEffect.SetActive(true);
+        // Debug.Log("Red Magic Activated!!!!!!!!!!!!!!!!!!");
     }
 
     IEnumerator ActivateBlueMagicAfter(float second)
     {
         yield return new WaitForSeconds(second);
         blueMagicActive = true;
+        leftEffect.SetActive(true);
+        // Debug.Log("Blue Magic Activated!!!!!!!!!!!!!!!!!!");
+    }
 
-        Debug.Log("Blue Magic Activated!!!!!!!!!!!!!!!!!!");
+        private IEnumerator StopVibration()
+    {
+        // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
+        yield return new WaitForSeconds(vibrationDuration);
+
+        // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
+        OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
+        hapticsChannel.Clear();
     }
 
     void activeSword()

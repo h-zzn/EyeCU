@@ -6164,6 +6164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageCore
       objectReference: {fileID: 0}
+    - target: {fileID: 3318762004738546031, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stageHP
       value: 2000

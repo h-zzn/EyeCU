@@ -6697,6 +6697,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageCore
       objectReference: {fileID: 0}
+    - target: {fileID: 3318762004738546031, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318762004738546031, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7fd2d1fa74fbdf541b0097ac72567c2f, type: 3}
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stageHP
       value: 2000
