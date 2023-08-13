@@ -21,7 +21,8 @@ public class EventManager : MonoBehaviour
     // tutorial UI ъ┤??аи
     [SerializeField] private GameObject magicObj;   
     [SerializeField] private GameObject specialObj;   
-    [SerializeField] private GameObject stoneObj;  
+    [SerializeField] private GameObject stoneObj; 
+    [SerializeField] private GameObject finishUI;  
 
     // Animator ъ┤??аи 
     Animator animator1A; 
@@ -139,7 +140,7 @@ public class EventManager : MonoBehaviour
         //step2 UI
         magicObj.transform.GetChild(1).gameObject.SetActive(true);    // step2 UI
         tutorialEvent.magicBlueOrb.SetActive(true);
-        while(!tutorialEvent.magicRedOrbMission)
+        while(!tutorialEvent.magicBlueOrbMission)
         {
             yield return null;
         }
@@ -201,9 +202,12 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
         
-        
+        finishUI.SetActive(true);
+        yield return new WaitForSeconds(5);
+        finishUI.SetActive(false);
         
         GameClear = true;
+        
         // Reset
         //eventStarted = false;
         //EventFlow = null;
