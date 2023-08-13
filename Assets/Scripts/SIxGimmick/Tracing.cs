@@ -67,6 +67,7 @@ public class Tracing : MonoBehaviour
                     GameObject DestroyObjectInstance = Instantiate(DestroyEffectObject, HoverPosition, Quaternion.identity);
                     // Destroy the instantiated object after 2 seconds
                     Destroy(DestroyObjectInstance, 2f);
+                    
                     Destroy(transform.parent.gameObject);
                 }
             }
