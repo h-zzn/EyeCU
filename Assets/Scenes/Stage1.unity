@@ -6211,7 +6211,7 @@ PrefabInstance:
       objectReference: {fileID: 532274679}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: startDelayTime
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6689,7 +6689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7056990054718925823, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: beat
-      value: 1.157143
+      value: 1.735715
       objectReference: {fileID: 0}
     - target: {fileID: 7139963913354458633, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: m_Layer
