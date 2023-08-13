@@ -6030,15 +6030,15 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: magicObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5560215703175420992}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stoneObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8663320222494994164}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: explainUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2143253139576806069}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: successUI
       value: 
@@ -6046,7 +6046,7 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: specialObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5104179227689767704}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: tutorialUI
       value: 
@@ -6098,15 +6098,15 @@ PrefabInstance:
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: failUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 972642795258428301}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: starObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 199191183780822652}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: successUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 312333225164847406}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stageLevel
       value: 0
@@ -6118,6 +6118,10 @@ PrefabInstance:
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: startDelayTime
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711963296510334033, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
