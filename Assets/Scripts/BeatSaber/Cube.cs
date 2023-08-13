@@ -9,7 +9,7 @@ public class Cube : MonoBehaviour
 {
     public bool IsHovered { get; set; }
     private Vector3 originVector;
-    [SerializeField] private int moveSpeed = 8; 
+    private int moveSpeed = 5; 
 
     void Awake()
     {
