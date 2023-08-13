@@ -40,28 +40,31 @@ public class EventManager : MonoBehaviour
     private TutorialEvent tutorialEvent = null; 
 
 
-    void Start()
+    void Start()  
     {
-        if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings-1)
+        if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings-1)  
         {
-           tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>(); 
+           tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();    
         }
 
-        animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-        animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-        animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?˜ step3 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-        animator2A = specialObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // speicalObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-        animator2B = specialObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // speicalObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-        animator3A = stoneObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // stoneObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
-        animator3B = stoneObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // stoneObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+        if(magicObj != null && specialObj != null && stoneObj != null)  
+        {
+            animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+            animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+            animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?˜ step3 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+            animator2A = specialObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // speicalObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+            animator2B = specialObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // speicalObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+            animator3A = stoneObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // stoneObj?˜ step1 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
+            animator3B = stoneObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // stoneObj?˜ step2 ?• ?‹ˆë©”ì´?„° ê°?? ¸?˜¤ê¸?
 
-        animator1A.SetBool("isDone", false);
-        animator1B.SetBool("isDone", false);
-        animator1C.SetBool("isDone", false);
-        animator2A.SetBool("isDone", false);
-        animator2B.SetBool("isDone", false);
-        animator3A.SetBool("isDone", false);
-        animator3B.SetBool("isDone", false);
+            animator1A.SetBool("isDone", false);  
+            animator1B.SetBool("isDone", false);  
+            animator1C.SetBool("isDone", false);  
+            animator2A.SetBool("isDone", false);  
+            animator2B.SetBool("isDone", false);  
+            animator3A.SetBool("isDone", false);  
+            animator3B.SetBool("isDone", false);  
+        }
     }
 
     void Awake()  

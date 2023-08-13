@@ -2335,11 +2335,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
   m_PrefabInstance: {fileID: 1973096232}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &138669709 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5578844902814492740, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-  m_PrefabInstance: {fileID: 434676259}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &139362274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2807,11 +2802,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
   m_PrefabInstance: {fileID: 163704621}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &189264535 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5084701068205500188, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-  m_PrefabInstance: {fileID: 434676259}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &189885593 stripped
 Transform:
@@ -5848,7 +5838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3556863249337489112, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_Name
-      value: Canvas (1)
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 5505750664909698147, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -19589,6 +19579,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c63ea781a273235439e583799176c846, type: 3}
+--- !u!1 &1475764474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3847769912665839241, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
+  m_PrefabInstance: {fileID: 434676259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1480254646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
@@ -20811,11 +20806,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
---- !u!1 &1605100083 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8682826346580531952, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-  m_PrefabInstance: {fileID: 434676259}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1607099802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25040,13 +25030,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: finishUI
+      value: 
+      objectReference: {fileID: 1475764474}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: magicObj
       value: 
-      objectReference: {fileID: 138669709}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stoneObj
       value: 
-      objectReference: {fileID: 1605100083}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: explainUI
       value: 
@@ -25054,7 +25048,7 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: specialObj
       value: 
-      objectReference: {fileID: 189264535}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stoneSpawner.Array.data[0]
       value: 
@@ -25111,6 +25105,10 @@ PrefabInstance:
       propertyPath: finalHPText
       value: 
       objectReference: {fileID: 434676262}
+    - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: startDelayTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
