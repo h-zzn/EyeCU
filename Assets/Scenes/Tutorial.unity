@@ -1501,7 +1501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1838293673264505572, guid: a06530d48fe747d45ba345da70ba1e98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.04
+      value: -10.720002
       objectReference: {fileID: 0}
     - target: {fileID: 1838293673264505572, guid: a06530d48fe747d45ba345da70ba1e98, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5393,7 +5393,8 @@ MonoBehaviour:
   magicRedOrbMission: 0
   magicBlueOrbMission: 0
   specialOrbMission: 0
-  stoneSwordMission: 0
+  lavaSwordMission: 0
+  iceSwordMission: 0
   lavaStoneMission: 0
   iceStoneMission: 0
   magicRedOrb: {fileID: 9179910011775915417}
@@ -19398,7 +19399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654871465210709061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.540001, y: 0.03999996, z: -0.21999931}
+  m_LocalPosition: {x: -6.540001, y: 0.03999996, z: -8.900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40386,7 +40387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179910011775915417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -8.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
