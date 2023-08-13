@@ -26,6 +26,7 @@ public class ControllerManager : MonoBehaviour
 
     [SerializeField] private AudioSource PoongSound;
     [SerializeField] private AudioSource ChengSound;
+    [SerializeField] private AudioSource TikSound;
 
     [SerializeField] private float deactivateMagicTime = 1f;
 
@@ -78,8 +79,10 @@ public class ControllerManager : MonoBehaviour
                         clip.WriteSample(sample);
                     }
 
-                    OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
-                    hapticsChannel.Preempt(clip);
+                    RightChannel.Preempt(clip);
+
+                    // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
+                    StartCoroutine(StopVibration());
 
                     // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
                     hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
@@ -93,11 +96,8 @@ public class ControllerManager : MonoBehaviour
                 else
                 {
                     // // Tik Sound play
-                    // if (TikSound != null)
-                    // {
-                    //     TikSound.Play();
-                    // }
-                    // Debug.Log("Red Magic is not active!!!!!!!!!!!!!!!!!!!!!");
+                    TikSound?.Play();
+                    Debug.Log("Red Magic is not active!!!!!!!!!!!!!!!!!!!!!");
                 }
             }
 
@@ -148,8 +148,7 @@ public class ControllerManager : MonoBehaviour
                         clip.WriteSample(sample);
                     }
 
-                    OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
-                    hapticsChannel.Preempt(clip);
+                    LeftChannel.Preempt(clip);
 
                     // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
                     StartCoroutine(StopVibration());
@@ -165,12 +164,9 @@ public class ControllerManager : MonoBehaviour
                 }
                 else
                 {
-                    // // Tik Sound play
-                    // if (TikSound != null)
-                    // {
-                    //     TikSound.Play();
-                    // }
-                    // Debug.Log("Blue Magic is not active!!!!!!!!!!!!!!!!!!!!!");
+                    // Tik Sound play
+                    TikSound?.Play();
+                    Debug.Log("Blue Magic is not active!!!!!!!!!!!!!!!!!!!!!");
                 }
             }
 

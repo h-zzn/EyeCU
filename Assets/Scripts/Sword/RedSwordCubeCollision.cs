@@ -7,7 +7,6 @@ public class RedSwordCubeCollision : MonoBehaviour
 {
     public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
     public float vibrationDuration = 1.0f; // 햅틱 지속 시간
-
     [SerializeField] private AudioSource SsingSound;
 
     private void OnTriggerEnter(Collider collision)
