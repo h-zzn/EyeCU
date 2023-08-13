@@ -1039,7 +1039,7 @@ MonoBehaviour:
     \uC5B4\uCA4C\uAD6C \uC800\uCA4C\uAD6C \uC131\uC744 \uACF5\uACA9\n\uD558\uB294
     \uB4DC\uB798\uACE4\uC744 \uBB34\uCC14\uB7EC\uB77C \uC5B4\uCA4C\uAD6C \uC800\uCA4C\uAD6C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3ca5639336231a6429523d9fcbeeceff, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
   m_sharedMaterial: {fileID: -563478630274345497, guid: 3ca5639336231a6429523d9fcbeeceff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 3.1486206, z: -624.1434, w: -60.12645}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!23 &123694029
