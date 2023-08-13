@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bc8b04ca985c344bd8536ce7bcf1fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageHP: 1000
+  stageHP: 2000
 --- !u!114 &1797786068356809688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,9 +172,13 @@ MonoBehaviour:
   SpecialOrbSpawner:
   - {fileID: 0}
   GameClear: 0
-  startDelayTime: 5
+  EventStartDelayTime: 5
   BasicSpawnTime: 20
   swordTime: 40
+  explainUI: {fileID: 0}
+  magicObj: {fileID: 0}
+  specialObj: {fileID: 0}
+  stoneObj: {fileID: 0}
 --- !u!114 &6987161686077235573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +192,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGM: {fileID: 3318762004738546031}
+  startDelayTime: 5
+  successUI: {fileID: 0}
+  failUI: {fileID: 0}
+  starObj: {fileID: 0}
+  finalHPText: {fileID: 0}
+  HPcontrol: 0
+  stageLevel: 1
 --- !u!82 &3318762004738546031
 AudioSource:
   m_ObjectHideFlags: 0
