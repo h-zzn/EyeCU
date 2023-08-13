@@ -234,27 +234,27 @@ public class ControllerManager : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
         {
             if (ChengSound != null)
-            {
+            { 
                 ChengSound.Play();
-            }
+            } 
 
             if (rightSword.activeSelf == false)
-            {
+            { 
                 rightSword.SetActive(true);
-            }
+            } 
 
             if (rightEffect.activeSelf == true)
-            {
+            { 
                 rightEffect.SetActive(false);
-            }
+            } 
         }
 
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
         {
-            if (ChengSound != null)
-            {
-                ChengSound.Play();
-            }
+            if (ChengSound != null) 
+            { 
+                ChengSound.Play(); 
+            } 
 
             if (leftSword.activeSelf == false)
             {
