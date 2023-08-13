@@ -280,6 +280,7 @@ MonoBehaviour:
   HMT: 1
   UngSound: {fileID: 991384544591951319}
   DestroySound: {fileID: 9072072381786171952}
+  DestroyEffectObject: {fileID: 6032810767631624174, guid: b93e6f27009c647a19be204287f19be1, type: 3}
 --- !u!135 &9072556321195170360
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -435,8 +436,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dccbd2b9b8b9eaa4e8b2e9ec40f40181, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.702
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
