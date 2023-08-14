@@ -192,6 +192,8 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
+        TrainingDummyGlow glowing = GameObject.Find("training_dummy_mesh").GetComponent<TrainingDummyGlow>();
+
         //[**** 게임 ?��계�?? explain window ****] 
         explainUI.SetActive(true);
         yield return new WaitForSeconds(10);
@@ -205,6 +207,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         animator1A.SetBool("isDone", true);  //?��?���? 
         yield return new WaitForSeconds(2); 
         magicObj.transform.GetChild(0).gameObject.SetActive(false);
@@ -216,6 +219,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null;
         }
+        glowing.SetGlowing();
         animator1B.SetBool("isDone", true);  //?��?���?
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(1).gameObject.SetActive(false);
@@ -228,6 +232,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         yield return new WaitForSeconds(5);
         BasicSpawnStop(true);
         animator1C.SetBool("isDone", true);  
@@ -242,6 +247,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         animator2A.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         specialObj.transform.GetChild(0).gameObject.SetActive(false);
@@ -264,6 +270,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         animator3A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(0).gameObject.SetActive(false);
@@ -276,6 +283,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         animator3B.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
