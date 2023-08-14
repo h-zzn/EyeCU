@@ -18,13 +18,13 @@ public class EventManager : MonoBehaviour
 
     [SerializeField] private GameObject explainUI; 
 
-    // tutorial UI �??��
+    // tutorial UI 
     [SerializeField] private GameObject magicObj;   
     [SerializeField] private GameObject specialObj;   
     [SerializeField] private GameObject stoneObj; 
     [SerializeField] private GameObject finishUI;  
 
-    // Animator �??�� 
+    // Animator 
     Animator animator1A; 
     Animator animator1B; 
     Animator animator1C; 
@@ -37,12 +37,14 @@ public class EventManager : MonoBehaviour
 
     public Coroutine EventFlow = null; 
 
-    private TutorialEvent tutorialEvent = null; 
+    private TutorialEvent tutorialEvent = null;  
 
+    private int TutorialBuildIndex;
 
     void Start()  
     {
-        if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings-1)  
+        TutorialBuildIndex = SceneManager.sceneCountInBuildSettings-1;
+        if(SceneManager.GetActiveScene().buildIndex == TutorialBuildIndex)  
         {
            tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();    
         }
@@ -197,7 +199,7 @@ public class EventManager : MonoBehaviour
 
         //[****마법 ?���? ?���? 방법 window***] 
         //step1 UI
-        magicObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI 
+        magicObj.transform.GetChild(0).gameObject.SetActive(true);    //Magic step1 UI 
         tutorialEvent.magicRedOrb.SetActive(true);
         while (!tutorialEvent.magicRedOrbMission) 
         {
@@ -208,7 +210,7 @@ public class EventManager : MonoBehaviour
         magicObj.transform.GetChild(0).gameObject.SetActive(false);
 
         //step2 UI
-        magicObj.transform.GetChild(1).gameObject.SetActive(true);    // step2 UI
+        magicObj.transform.GetChild(1).gameObject.SetActive(true);    //Magic step2 UI
         tutorialEvent.magicBlueOrb.SetActive(true);
         while(!tutorialEvent.magicBlueOrbMission)
         {
@@ -219,16 +221,22 @@ public class EventManager : MonoBehaviour
         magicObj.transform.GetChild(1).gameObject.SetActive(false);
         
         //step3 UI
-        magicObj.transform.GetChild(2).gameObject.SetActive(true);    // step2 UI
-        yield return new WaitForSeconds(5); 
-
-        animator1C.SetBool("isDone", true);  //?��?���?
+        magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
+        tutorialEvent.magicFailMission = false; 
+        BasicSpawnStop(false);
+        while(!tutorialEvent.magicFailMission) 
+        {
+            yield return null; 
+        }
+        yield return new WaitForSeconds(5);
+        BasicSpawnStop(true);
+        animator1C.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(2).gameObject.SetActive(false);  
 
         //[****?���? ?���? ?���? 방법 window***]
         //step1 UI
-        specialObj.transform.GetChild(0).gameObject.SetActive(true);    // step1 UI
+        specialObj.transform.GetChild(0).gameObject.SetActive(true);    //special step1 UI
         tutorialEvent.specialOrb.SetActive(true);
         while(!tutorialEvent.specialOrbMission) 
         {
@@ -239,7 +247,7 @@ public class EventManager : MonoBehaviour
         specialObj.transform.GetChild(0).gameObject.SetActive(false);
         
         //step2 UI
-        specialObj.transform.GetChild(1).gameObject.SetActive(true);    // step1 UI
+        specialObj.transform.GetChild(1).gameObject.SetActive(true);    //special step2 UI
         yield return new WaitForSeconds(3);
         animator2B.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
@@ -248,7 +256,7 @@ public class EventManager : MonoBehaviour
 
         //[****?��?��?�� ?���? 방법 window***]
         //step1 UI
-        stoneObj.transform.GetChild(0).gameObject.SetActive(true);     // step1 UI
+        stoneObj.transform.GetChild(0).gameObject.SetActive(true);     //stone step1 UI
         tutorialEvent.lavaSwordMission = false;
         tutorialEvent.iceSwordMission = false;   
         yield return new WaitForSeconds(3); //??? ??
@@ -261,7 +269,7 @@ public class EventManager : MonoBehaviour
         stoneObj.transform.GetChild(0).gameObject.SetActive(false);
 
         //step2 UI
-        stoneObj.transform.GetChild(01).gameObject.SetActive(true);  
+        stoneObj.transform.GetChild(01).gameObject.SetActive(true);  //stone step2 UI
         tutorialEvent.lavaStone.SetActive(true);
         tutorialEvent.iceStone.SetActive(true);  // step1 UI
         while (!(tutorialEvent.lavaStoneMission && tutorialEvent.iceStoneMission))
