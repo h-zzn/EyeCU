@@ -5,7 +5,8 @@ using UnityEngine;
 public class TutorialEvent : MonoBehaviour
 {
     public bool magicRedOrbMission = false; 
-    public bool magicBlueOrbMission = false; 
+    public bool magicBlueOrbMission = false;
+    public bool magicFailMission = false;
 
     public bool specialOrbMission = false; 
 
@@ -16,14 +17,20 @@ public class TutorialEvent : MonoBehaviour
     public bool iceStoneMission = false; 
 
 
-    [SerializeField] public GameObject magicRedOrb; 
-    [SerializeField] public GameObject magicBlueOrb; 
+    public GameObject magicRedOrb; 
+    public GameObject magicBlueOrb; 
 
-    [SerializeField] public GameObject specialOrb; 
+    public GameObject specialOrb; 
 
-    [SerializeField] public GameObject lavaStone; 
-    [SerializeField] public GameObject iceStone; 
+    public GameObject lavaStone; 
+    public GameObject iceStone; 
 
+    private ControllerManager controllerManager;
+
+    void Awake()
+    {
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+    }
 
     void Update()
     {
@@ -35,6 +42,10 @@ public class TutorialEvent : MonoBehaviour
         { 
             magicBlueOrbMission = true;
         } 
+        if(controllerManager.blueMagicActive == false || controllerManager.redMagicActive == false)
+        { 
+            magicFailMission = true;
+        }
 
 
         if(specialOrb == null)
