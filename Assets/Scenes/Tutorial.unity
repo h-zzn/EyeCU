@@ -5847,6 +5847,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6973413696058740841, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
+      propertyPath: m_Name
+      value: training_dummy_mesh
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -44552,6 +44556,10 @@ PrefabInstance:
     - target: {fileID: 3807782765943003698, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_fontSizeBase
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807782765943003698, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 318767104
       objectReference: {fileID: 0}
     - target: {fileID: 4193194918420337856, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_IsActive
