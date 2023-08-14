@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public Coroutine EventFlow = null;
 
-    // final HP °ü·Ã
+    // final HP ï¿½ï¿½ï¿½ï¿½
     public Text finalHPText;
     private int finalHP;
 
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         print("hasDeletedKey = " + hasDeletedKey);
         print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
 
-        // ´Ù½Ã ½ÃÀÛÇßÀ» ¶§ Key »èÁ¦ÇØÁÜ, Âð°ÔÀÓ¿¡´Â ¾ø¾î¾ßÇÔ
+        // ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Key ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (!hasDeletedKey)
         {
             PlayerPrefs.DeleteKey("Stage1BestHP");
@@ -85,15 +85,25 @@ public class GameManager : MonoBehaviour
         //print("damagedArea.stageHP :"+ damagedArea.stageHP);
         if(damagedArea.stageHP <= 0)
         {
-            if(stageOver == null)
-                stageOver = StartCoroutine(StageOver());  // StageOver
-            eventManager.EventFlow = null;   
+            if(stageLevel != StageLevel.tutorial){
+                if(stageOver == null)
+                    stageOver = StartCoroutine(StageOver());  // StageOver
+                eventManager.EventFlow = null;  
+            }
+            else{ 
+                GoHome();
+            }
         }
 
         if(damagedArea.stageHP > 0 && eventManager.GameClear == true)
         {
-            if(stageClear == null)
-                stageClear = StartCoroutine(StageClear()); 
+            if(stageLevel != StageLevel.tutorial){
+                if(stageClear == null)
+                    stageClear = StartCoroutine(StageClear()); 
+            }
+            else{ 
+                GoHome();
+            }
         }
 
         // Wait for startDelayTime
@@ -177,16 +187,16 @@ public class GameManager : MonoBehaviour
         finalHPText.enabled = true;
         successUI.SetActive(true);
 
-        starObj.transform.GetChild(3).gameObject.SetActive(true);   // ¼º°øÇÏ¸é ¸Ç Ã³À½ º°Àº ±âº»À¸·Î È°¼ºÈ­
+        starObj.transform.GetChild(3).gameObject.SetActive(true);   // ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
 
-        // ¼ºÃëµµ °ü·Ã 
+        // ï¿½ï¿½ï¿½ëµµ ï¿½ï¿½ï¿½ï¿½ 
         if(damagedArea.stageHP >= 1700){
             starObj.transform.GetChild(4).gameObject.SetActive(true);       
-            starObj.transform.GetChild(5).gameObject.SetActive(true);       // µÎ¹øÂ°, ¼¼¹øÂ° º° È°¼ºÈ­
+            starObj.transform.GetChild(5).gameObject.SetActive(true);       // ï¿½Î¹ï¿½Â°, ï¿½ï¿½ï¿½ï¿½Â° ï¿½ï¿½ È°ï¿½ï¿½È­
         }
 
         else if(damagedArea.stageHP >= 1000){
-            starObj.transform.GetChild(4).gameObject.SetActive(true);       // µÎ¹øÂ° º° È°¼ºÈ­      
+            starObj.transform.GetChild(4).gameObject.SetActive(true);       // ï¿½Î¹ï¿½Â° ï¿½ï¿½ È°ï¿½ï¿½È­      
         }
 
     }
@@ -196,18 +206,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveHP(int finalHP){ 
-        //finalHP = HPcontrol; //bestHP È®ÀÎÇÒ¶ó±¸
+        //finalHP = HPcontrol; //bestHP È®ï¿½ï¿½ï¿½Ò¶ï¿½
 
-        // stage 1ÀÏ¶§ 
+        // stage 1ï¿½Ï¶ï¿½ 
         if(SceneManager.GetActiveScene().buildIndex == 1){
-            print("stage 1 finalHP È®ÀÎ: " + finalHP);
+            print("stage 1 finalHP È®ï¿½ï¿½: " + finalHP);
             if(finalHP > PlayerPrefs.GetInt("Stage1BestHP") || !PlayerPrefs.HasKey("Stage1BestHP")){
                 print("set Stage1BestHP = " + PlayerPrefs.GetInt("Stage1BestHP"));
                 PlayerPrefs.SetInt("Stage1BestHP", finalHP);
             }   
         }
 
-        // stage 2ÀÏ¶§ 
+        // stage 2ï¿½Ï¶ï¿½ 
         if(SceneManager.GetActiveScene().buildIndex == 2){
             if(finalHP > PlayerPrefs.GetInt("Stage2BestHP") || !PlayerPrefs.HasKey("Stage2BestHP")){
                 PlayerPrefs.SetInt("Stage2BestHP", finalHP);
@@ -215,7 +225,7 @@ public class GameManager : MonoBehaviour
             }   
         }
 
-        // stage 3ÀÏ¶§ 
+        // stage 3ï¿½Ï¶ï¿½ 
         if(SceneManager.GetActiveScene().buildIndex == 3){
             if(finalHP > PlayerPrefs.GetInt("Stage3BestHP") || !PlayerPrefs.HasKey("Stage3BestHP")){
                 print("set Stage3BestHP = " + PlayerPrefs.GetInt("Stage3BestHP"));
