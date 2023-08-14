@@ -176,7 +176,7 @@ public class EventManager : MonoBehaviour
         StoneSpawnStop(false); 
         foreach (GameObject spawner in stoneSpawner)
         {
-            spawner.GetComponent<Spawner>().beat *=2;
+            spawner.GetComponent<Spawner>().beat *=2.5f;
         }
         yield return new WaitForSeconds(BasicSpawnTime-10); 
         BasicSpawnStop(true); 
