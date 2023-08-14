@@ -26,6 +26,7 @@ public class StageManagerScript : MonoBehaviour
         if (!hasDeletedKey)
         {
             PlayerPrefs.DeleteKey("levelReached");
+            PlayerPrefs.DeleteKey("knifeActive");
             hasDeletedKey = true;
         }
 
