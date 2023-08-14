@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private AudioSource BGM; 
+    [SerializeField] private float fadeDuration = 2.0f;
 
     private EventManager eventManager; 
     private DamagedArea damagedArea;
@@ -130,14 +131,24 @@ public class GameManager : MonoBehaviour
     } 
 
 
-    public IEnumerator StageOver() 
+    public IEnumerator StageOver()
     {
-        yield return new WaitForSeconds(2); 
-        BGMOff();
+        float startVolume = BGM.volume; // Store the initial volume
+
+        // Fade out the BGM
+        while (BGM.volume > 0)
+        {
+            BGM.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        BGM.Stop(); // Stop the BGM when the fade-out is complete
+
         ActiveGameOverWindow();
-        yield return new WaitForSeconds(5); 
+        yield return new WaitForSeconds(5);
         GoHome();
-    }  
+    }
+
 
     public IEnumerator StageClear() 
     {
@@ -156,8 +167,17 @@ public class GameManager : MonoBehaviour
         if(levelReached < SceneManager.GetActiveScene().buildIndex)
             PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
-        yield return new WaitForSeconds(2); 
-        BGMOff(); 
+        float startVolume = BGM.volume; // Store the initial volume
+
+        // Fade out the BGM
+        while (BGM.volume > 0)
+        {
+            BGM.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        BGM.Stop(); // Stop the BGM when the fade-out is complete
+         
         ActiveGameClearWindow(); 
         yield return new WaitForSeconds(5); 
         GoHome(); 
