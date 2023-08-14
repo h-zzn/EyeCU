@@ -2367,20 +2367,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 292859531876158762, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 681919312538731231, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 369098751
-      objectReference: {fileID: 0}
-    - target: {fileID: 941297283821185661, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-      propertyPath: m_Volume
-      value: 0.506
-      objectReference: {fileID: 0}
-    - target: {fileID: 941297283821185661, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b13f06cc7d30fbb4da302e4c37b9ed92, type: 3}
     - target: {fileID: 953168968857210761, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2399,6 +2387,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
     - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
@@ -2414,28 +2406,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -25.2
       objectReference: {fileID: 0}
-    - target: {fileID: 4820215160362542056, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5505750664909698147, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 5728403496525251412, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888245338873540948, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 16777215
-      objectReference: {fileID: 0}
-    - target: {fileID: 6867690521913643369, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7869316414076017987, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8027452554055673432, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
@@ -6455,6 +6431,10 @@ PrefabInstance:
       propertyPath: finalHPText
       value: 
       objectReference: {fileID: 532274679}
+    - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: fadeDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: startDelayTime
       value: 10
