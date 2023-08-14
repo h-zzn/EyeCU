@@ -4985,6 +4985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicRedOrbMission: 0
   magicBlueOrbMission: 0
+  magicFailMission: 0
   specialOrbMission: 0
   lavaSwordMission: 0
   iceSwordMission: 0
@@ -7339,7 +7340,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179910011775915417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12630,15 +12631,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.42
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.91
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.13
+      value: -12.49
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39304,7 +39305,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654871465210709061}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -44220,6 +44221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3051012895963913108, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3135280300158505813, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -44227,6 +44232,13 @@ PrefabInstance:
     - target: {fileID: 4193194918420337856, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372873059230220737, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
+      propertyPath: m_text
+      value: "\uBE68\uAC04\uC0C9\uC740 \uC624\uB978\uC190, \uD30C\uB780\uC0C9\uC740
+        \uC67C\uC190\n\uC774 \uBC95\uCE59\uC744 \uC5B4\uAE34 \uC190\uC740 1\uCD08
+        \uB3D9\uC548 \uC0AC\uC6A9\uD560 \uC218 \uC5C6\uB2E4\uB124\n\uD55C\uBC88 \uBC18\uB300\uB85C
+        \uD574\uBCF4\uAC8C! \uD638\uB418\uAC8C \uB2F9\uD560 \uAC83\uC774\uC57C"
       objectReference: {fileID: 0}
     - target: {fileID: 5023054297522697062, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_Pivot.x
