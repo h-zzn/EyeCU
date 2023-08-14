@@ -280,12 +280,14 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
         
-        finishUI.SetActive(true);
-        yield return new WaitForSeconds(5);
-        finishUI.SetActive(false);
+        finishUI.SetActive(true); 
+        yield return new WaitForSeconds(5); 
+        finishUI.SetActive(false); 
         
-        GameClear = true;
         
+
+        PlayerPrefs.SetInt("knifeActive", 1);
+        GameClear = true; 
         // Reset
         //eventStarted = false;
         //EventFlow = null;

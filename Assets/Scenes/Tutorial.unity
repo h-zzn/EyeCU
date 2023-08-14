@@ -13054,6 +13054,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackImg: {fileID: 2471327247959021199}
   fadeControlValue: 0
+  startValue: 0
+  startImg: {fileID: 0}
+  title: {fileID: 0}
 --- !u!114 &2912403409131761496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22932,6 +22935,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackImg: {fileID: 1734294649961853533}
   fadeControlValue: 0
+  startValue: 0
+  startImg: {fileID: 0}
+  title: {fileID: 0}
 --- !u!1001 &4043652471799538733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39265,6 +39271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackImg: {fileID: 5888845339531558627}
   fadeControlValue: 1
+  startValue: 0
+  startImg: {fileID: 0}
+  title: {fileID: 0}
 --- !u!65 &8838399066756291696
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44108,7 +44117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3051012895963913108, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3135280300158505813, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_IsActive
