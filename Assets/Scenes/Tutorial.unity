@@ -44546,6 +44546,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 2535071705772192386, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3051012895963913108, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_Name
       value: TutorialUI
@@ -44684,6 +44688,12 @@ PrefabInstance:
     - target: {fileID: 5023054297522697062, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395202160988976329, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
+      propertyPath: m_text
+      value: "\uBCF4\uB77C\uC0C9 \uAD6C\uCCB4\uB97C \uACC4\uC18D \uBC14\uB77C\uBCF4\uAC8C\n\uD131\uC744
+        \uC544\uB798\uB85C \uB2F9\uAE30\uACE0 \uB208\uC744 \uD06C\uAC8C \uB728\uBA74
+        \uD6E8\uC52C \uC798\uB420\uAC78\uC138!"
       objectReference: {fileID: 0}
     - target: {fileID: 5395202160988976329, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_fontSize
