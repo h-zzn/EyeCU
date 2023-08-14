@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     private float Timer = 0;
 
+
     public Coroutine EventFlow = null;
 
     // final HP 관련
@@ -74,6 +75,9 @@ public class GameManager : MonoBehaviour
         }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
+
+        // startObj의 자식 오브젝트에서 AudioSource 컴포넌트 찾기
+
 
         // if(PlayerPrefs.HasKey("FinalHP")){
         //     StageClear();
@@ -179,14 +183,17 @@ public class GameManager : MonoBehaviour
 
         starObj.transform.GetChild(3).gameObject.SetActive(true);   // 성공하면 맨 처음 별은 기본으로 활성화
 
+
         // 성취도 관련 
         if(damagedArea.stageHP >= 1700){
-            starObj.transform.GetChild(4).gameObject.SetActive(true);       
+            starObj.transform.GetChild(4).gameObject.SetActive(true);
             starObj.transform.GetChild(5).gameObject.SetActive(true);       // 두번째, 세번째 별 활성화
+
         }
 
         else if(damagedArea.stageHP >= 1000){
             starObj.transform.GetChild(4).gameObject.SetActive(true);       // 두번째 별 활성화      
+
         }
 
     }
