@@ -24,10 +24,9 @@ public class GameManager : MonoBehaviour
 
     private float Timer = 0;
 
-
     public Coroutine EventFlow = null;
 
-    // final HP 관련
+    // final HP ����
     public Text finalHPText;
     private int finalHP;
 
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour
         print("hasDeletedKey = " + hasDeletedKey);
         print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
 
-        // 다시 시작했을 때 Key 삭제해줌, 찐게임에는 없어야함
+        // �ٽ� �������� �� Key ��������, ����ӿ��� �������
         if (!hasDeletedKey)
         {
             PlayerPrefs.DeleteKey("Stage1BestHP");
@@ -76,9 +75,6 @@ public class GameManager : MonoBehaviour
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
-        // startObj  ㅻ�몄 AudioSource 而댄щ 李얘린
-
-
         // if(PlayerPrefs.HasKey("FinalHP")){
         //     StageClear();
         // }
@@ -89,15 +85,25 @@ public class GameManager : MonoBehaviour
         //print("damagedArea.stageHP :"+ damagedArea.stageHP);
         if(damagedArea.stageHP <= 0)
         {
-            if(stageOver == null)
-                stageOver = StartCoroutine(StageOver());  // StageOver
-            eventManager.EventFlow = null;   
+            if(stageLevel != StageLevel.tutorial){
+                if(stageOver == null)
+                    stageOver = StartCoroutine(StageOver());  // StageOver
+                eventManager.EventFlow = null;  
+            }
+            else{ 
+                GoHome();
+            }
         }
 
         if(damagedArea.stageHP > 0 && eventManager.GameClear == true)
         {
-            if(stageClear == null)
-                stageClear = StartCoroutine(StageClear()); 
+            if(stageLevel != StageLevel.tutorial){
+                if(stageClear == null)
+                    stageClear = StartCoroutine(StageClear()); 
+            }
+            else{ 
+                GoHome();
+            }
         }
 
         // Wait for startDelayTime
@@ -181,16 +187,16 @@ public class GameManager : MonoBehaviour
         finalHPText.enabled = true;
         successUI.SetActive(true);
 
-        starObj.transform.GetChild(3).gameObject.SetActive(true);   // 성공하면 맨 처음 별은 기본으로 활성화
+        starObj.transform.GetChild(3).gameObject.SetActive(true);   // �����ϸ� �� ó�� ���� �⺻���� Ȱ��ȭ
 
-        // 성취도 관련 
+        // ���뵵 ���� 
         if(damagedArea.stageHP >= 1700){
             starObj.transform.GetChild(4).gameObject.SetActive(true);       
-            starObj.transform.GetChild(5).gameObject.SetActive(true);       // 두번째, 세번째 별 활성화
+            starObj.transform.GetChild(5).gameObject.SetActive(true);       // �ι�°, ����° �� Ȱ��ȭ
         }
 
         else if(damagedArea.stageHP >= 1000){
-            starObj.transform.GetChild(4).gameObject.SetActive(true);       // 두번째 별 활성화      
+            starObj.transform.GetChild(4).gameObject.SetActive(true);       // �ι�° �� Ȱ��ȭ      
         }
 
     }
@@ -200,18 +206,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveHP(int finalHP){ 
-        //finalHP = HPcontrol; //bestHP 확인할라구
+        //finalHP = HPcontrol; //bestHP Ȯ���Ҷ�
 
-        // stage 1일때 
+        // stage 1�϶� 
         if(SceneManager.GetActiveScene().buildIndex == 1){
-            print("stage 1 finalHP 확인: " + finalHP);
+            print("stage 1 finalHP Ȯ��: " + finalHP);
             if(finalHP > PlayerPrefs.GetInt("Stage1BestHP") || !PlayerPrefs.HasKey("Stage1BestHP")){
                 print("set Stage1BestHP = " + PlayerPrefs.GetInt("Stage1BestHP"));
                 PlayerPrefs.SetInt("Stage1BestHP", finalHP);
             }   
         }
 
-        // stage 2일때 
+        // stage 2�϶� 
         if(SceneManager.GetActiveScene().buildIndex == 2){
             if(finalHP > PlayerPrefs.GetInt("Stage2BestHP") || !PlayerPrefs.HasKey("Stage2BestHP")){
                 PlayerPrefs.SetInt("Stage2BestHP", finalHP);
@@ -219,7 +225,7 @@ public class GameManager : MonoBehaviour
             }   
         }
 
-        // stage 3일때 
+        // stage 3�϶� 
         if(SceneManager.GetActiveScene().buildIndex == 3){
             if(finalHP > PlayerPrefs.GetInt("Stage3BestHP") || !PlayerPrefs.HasKey("Stage3BestHP")){
                 print("set Stage3BestHP = " + PlayerPrefs.GetInt("Stage3BestHP"));

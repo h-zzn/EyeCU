@@ -15,10 +15,20 @@ public class gameStartScript : MonoBehaviour
 
     public Transform cam;
 
+    private MeshCollider knifeMeshCollider;
+
+
+    void Start(){
+        knifeMeshCollider = GameObject.Find("knife").GetComponent<MeshCollider>();
+
+        if(PlayerPrefs.HasKey("knifeActive")){
+            knifeMeshCollider.enabled = true;
+        }
+    }
+
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))
         {
-            Debug.Log("collision!");
             StartCoroutine(Shake());
 
             activeObj.SetActive(true);
@@ -26,7 +36,6 @@ public class gameStartScript : MonoBehaviour
             if(otherObj.activeSelf == true){
                 otherObj.SetActive(false);
             }
-
             
         }
     }
