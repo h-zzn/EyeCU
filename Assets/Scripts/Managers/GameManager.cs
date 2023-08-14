@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public Coroutine EventFlow = null;
 
-    // final HP ê´€ë ¨
+    // final HP °ü·Ã
     public Text finalHPText;
     private int finalHP;
 
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         print("hasDeletedKey = " + hasDeletedKey);
         print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
 
-        // ë‹¤ì‹œ ì‹œìž‘í–ˆì„ ë•Œ Key ì‚­ì œí•´ì¤Œ, ì°ê²Œìž„ì—ëŠ” ì—†ì–´ì•¼í•¨
+        // ´Ù½Ã ½ÃÀÛÇßÀ» ¶§ Key »èÁ¦ÇØÁÜ, Âð°ÔÀÓ¿¡´Â ¾ø¾î¾ßÇÔ
         if (!hasDeletedKey)
         {
             PlayerPrefs.DeleteKey("Stage1BestHP");
@@ -177,16 +177,16 @@ public class GameManager : MonoBehaviour
         finalHPText.enabled = true;
         successUI.SetActive(true);
 
-        starObj.transform.GetChild(3).gameObject.SetActive(true);   // ì„±ê³µí•˜ë©´ ë§¨ ì²˜ìŒ ë³„ì€ ê¸°ë³¸ìœ¼ë¡œ í™œì„±í™”
+        starObj.transform.GetChild(3).gameObject.SetActive(true);   // ¼º°øÇÏ¸é ¸Ç Ã³À½ º°Àº ±âº»À¸·Î È°¼ºÈ­
 
-        // ì„±ì·¨ë„ ê´€ë ¨ 
+        // ¼ºÃëµµ °ü·Ã 
         if(damagedArea.stageHP >= 1700){
             starObj.transform.GetChild(4).gameObject.SetActive(true);       
-            starObj.transform.GetChild(5).gameObject.SetActive(true);       // ë‘ë²ˆì§¸, ì„¸ë²ˆì§¸ ë³„ í™œì„±í™”
+            starObj.transform.GetChild(5).gameObject.SetActive(true);       // µÎ¹øÂ°, ¼¼¹øÂ° º° È°¼ºÈ­
         }
 
         else if(damagedArea.stageHP >= 1000){
-            starObj.transform.GetChild(4).gameObject.SetActive(true);       // ë‘ë²ˆì§¸ ë³„ í™œì„±í™”      
+            starObj.transform.GetChild(4).gameObject.SetActive(true);       // µÎ¹øÂ° º° È°¼ºÈ­      
         }
 
     }
@@ -196,18 +196,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveHP(int finalHP){ 
-        //finalHP = HPcontrol; //bestHP í™•ì¸í• ë¼êµ¬
+        //finalHP = HPcontrol; //bestHP È®ÀÎÇÒ¶ó±¸
 
-        // stage 1ì¼ë•Œ 
+        // stage 1ÀÏ¶§ 
         if(SceneManager.GetActiveScene().buildIndex == 1){
-            print("stage 1 finalHP í™•ì¸: " + finalHP);
+            print("stage 1 finalHP È®ÀÎ: " + finalHP);
             if(finalHP > PlayerPrefs.GetInt("Stage1BestHP") || !PlayerPrefs.HasKey("Stage1BestHP")){
                 print("set Stage1BestHP = " + PlayerPrefs.GetInt("Stage1BestHP"));
                 PlayerPrefs.SetInt("Stage1BestHP", finalHP);
             }   
         }
 
-        // stage 2ì¼ë•Œ 
+        // stage 2ÀÏ¶§ 
         if(SceneManager.GetActiveScene().buildIndex == 2){
             if(finalHP > PlayerPrefs.GetInt("Stage2BestHP") || !PlayerPrefs.HasKey("Stage2BestHP")){
                 PlayerPrefs.SetInt("Stage2BestHP", finalHP);
@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
             }   
         }
 
-        // stage 3ì¼ë•Œ 
+        // stage 3ÀÏ¶§ 
         if(SceneManager.GetActiveScene().buildIndex == 3){
             if(finalHP > PlayerPrefs.GetInt("Stage3BestHP") || !PlayerPrefs.HasKey("Stage3BestHP")){
                 print("set Stage3BestHP = " + PlayerPrefs.GetInt("Stage3BestHP"));
