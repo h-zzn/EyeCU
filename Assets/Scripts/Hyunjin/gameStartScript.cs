@@ -32,7 +32,7 @@ public class gameStartScript : MonoBehaviour
     void Update(){
         if(!PlayerPrefs.HasKey("knifeActive"))
             timer += Time.deltaTime;
-            if(timer > 20.0f){
+            if(timer > 10.0f){
                 bookMeshCollider.enabled = true;
                 //print("book");
             }

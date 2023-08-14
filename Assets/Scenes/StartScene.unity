@@ -17187,6 +17187,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 551893736923002917, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: _trackingOriginType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877344342051068354, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961433911868543929, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2035183284888818214, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
       propertyPath: m_Name
       value: YoungJo'sEye
@@ -17195,6 +17207,18 @@ PrefabInstance:
       propertyPath: blackImg
       value: 
       objectReference: {fileID: 491622350}
+    - target: {fileID: 5517406596831902604, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679739083033463631, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864634984715555278, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6438377372398793691, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -17205,7 +17229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6438377372398793691, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.89
+      value: 6.015
       objectReference: {fileID: 0}
     - target: {fileID: 6438377372398793691, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17238,6 +17262,10 @@ PrefabInstance:
     - target: {fileID: 6438377372398793691, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494847161094833914, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7365511441380549139, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
       propertyPath: markerPrefab
@@ -17840,7 +17868,7 @@ MonoBehaviour:
   m_text: "\uB9C8\uBC95\uACFC \uAC80\uC758 \uB300\uB959 \uD14C\uC544\uB974\uB374.\n\n\uC2E0\uBE44\uD55C
     \uBAA8\uC2B5\uC758 \uB3D9\uBB3C\uB4E4\uACFC \uC0AC\uB78C\uC774 \uACF5\uC874\uD558\uB294
     \uC2E0\uBE44\uD55C \uC138\uC0C1\uC774\uB77C\uB124.\n\n\uC5EC\uB7EC \uC655\uAD6D\uB4E4\uC774
-    \uC874\uC7AC\uD558\uC9C0\uB9CC \uC2E0\uC131 \uC655\uAD6D \u2018**\uC138\uD06C\uB9AC\uB8E8\uD06C**\u2019\uB294
+    \uC874\uC7AC\uD558\uC9C0\uB9CC \uC2E0\uC131 \uC655\uAD6D \u2018\uC138\uD06C\uB9AC\uB8E8\uD06C\u2019\uB294
     \uADF8 \uC911\uC5D0\uC11C\uB3C4 \uD2B9\uBCC4\uD558\uB2E4\uB124.\r\n\n\uC624\uB798\uC804
     \uC2E0\uC131 \uC655\uAD6D \u2018\uC138\uD06C\uB9AC\uB8E8\uD06C\u2019\uAC00 \uC874\uC7AC\uD558\uAC8C
     \uB41C \uC804\uC124\uC744 \uB4E3\uAC8C \uB41C\uB2E4\uBA74 \uB2E4\uB4E4 \uC2E0\uC758
@@ -28820,8 +28848,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739552806}
   m_LocalRotation: {x: -0, y: -0.8920811, z: -0, w: 0.4518754}
-  m_LocalPosition: {x: 35.05, y: 4.46, z: 33.264}
-  m_LocalScale: {x: 0.8965102, y: 0.8965102, z: 0.8965102}
+  m_LocalPosition: {x: 35.05, y: 4.4218, z: 33.264}
+  m_LocalScale: {x: 0.8965102, y: 1.3355312, z: 0.8965102}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1969522374}

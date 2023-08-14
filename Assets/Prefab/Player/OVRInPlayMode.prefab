@@ -68897,7 +68897,7 @@ Transform:
   - {fileID: 8068705810569230131}
   - {fileID: 3930215984911050192}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393476222726514362
 MonoBehaviour:
@@ -68922,6 +68922,8 @@ MonoBehaviour:
   ChengSound: {fileID: 7218666717082086326}
   TikSound: {fileID: 424059825235472272}
   deactivateMagicTime: 1
+  redMagicActive: 1
+  blueMagicActive: 1
   vibrationDuration: 0.5
 --- !u!82 &7977265096230928998
 AudioSource:
@@ -70682,6 +70684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeafffc45464184b983c314a916d8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordType: 1
   startSlicePoint: {fileID: 3518053805100503845}
   endSlicePoint: {fileID: 7193459972245717258}
   velocityEstimator: {fileID: 8333599071059638296}
@@ -117306,6 +117309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeafffc45464184b983c314a916d8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordType: 0
   startSlicePoint: {fileID: 5249497236085207030}
   endSlicePoint: {fileID: 217146980093907868}
   velocityEstimator: {fileID: 1253795981439575964}

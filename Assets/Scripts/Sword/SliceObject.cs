@@ -5,6 +5,13 @@ using EzySlice;
 
 public class SliceObject : MonoBehaviour
 {
+    private enum SwordType
+    {
+        Red,
+        Blue
+    }
+
+    [SerializeField] private SwordType swordType;
 
     public Transform startSlicePoint;
     public Transform endSlicePoint;
@@ -28,9 +35,22 @@ public class SliceObject : MonoBehaviour
             GameObject target = hit.transform.gameObject;
             Slice(target);
         }
-
-
     }
+
+    // private void OnTriggerEnter(Collider collision)
+    // {
+    //     if(swordType == SwordType.Red && collision.gameObject.CompareTag("LavaStone"))
+    //     {
+    //         GameObject target = collision.transform.gameObject;
+    //         Slice(target);
+    //     }
+    //     else if(swordType == SwordType.Blue && collision.gameObject.CompareTag("IceStone"))
+    //     {
+    //         GameObject target = collision.transform.gameObject;
+    //         Slice(target);
+    //     }
+    // }
+
     public void Slice(GameObject target)
     {
         Vector3 velocity = velocityEstimator.GetVelocityEstimate();

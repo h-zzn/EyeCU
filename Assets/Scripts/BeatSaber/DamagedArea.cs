@@ -55,15 +55,10 @@ public class DamagedArea : MonoBehaviour
 
         // Set the intensity of the Vignette of the Post Processing Volume to the current stageHP
         vignette.intensity.Override(normalizedHP * normalizedHP);
-
-        // Print the current stageHP and the intensity of the Vignette
-        Debug.Log("StageHP: " + stageHP);
-        Debug.Log("Intensity: " + vignette.intensity.value);
     }
 
     IEnumerator Shake()
     {
-        Debug.Log("Hit Shake!!!!!!!!!!!");
         Vector3 originPosition = cam.localPosition;
         float elapsedTime = 0.0f;
 
