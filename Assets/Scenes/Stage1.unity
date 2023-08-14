@@ -6412,6 +6412,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798227152}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: StarSFX
+      value: 
+      objectReference: {fileID: 2031230572}
+    - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: starObj
       value: 
       objectReference: {fileID: 2034224127}
@@ -6444,6 +6448,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+--- !u!82 &2031230572 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3213253778894077806, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+  m_PrefabInstance: {fileID: 2031230571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2034224127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 181964823875373688, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}

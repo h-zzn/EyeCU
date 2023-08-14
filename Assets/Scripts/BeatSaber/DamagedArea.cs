@@ -16,7 +16,7 @@ public class DamagedArea : MonoBehaviour
     [SerializeField] private float hitShakeSpeed = 2.0f;
     [SerializeField] private float hitShakeAmount = 1.5f;
 
-    [SerializeField] private Transform cam;
+    private Transform cam;
 
     void Awake()
     {
