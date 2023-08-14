@@ -16,13 +16,26 @@ public class gameStartScript : MonoBehaviour
     public Transform cam;
 
     private MeshCollider knifeMeshCollider;
+    private MeshCollider bookMeshCollider;
+
+    float timer = 0.0f;
 
 
     void Start(){
         knifeMeshCollider = GameObject.Find("knife").GetComponent<MeshCollider>();
+        bookMeshCollider = GameObject.Find("book").GetComponent<MeshCollider>();
 
         if(PlayerPrefs.HasKey("knifeActive")){
             knifeMeshCollider.enabled = true;
+            bookMeshCollider.enabled = true;
+        }
+    }
+
+    void Update(){
+        timer += Time.deltaTime;
+        if(timer > 20.0f){
+            bookMeshCollider.enabled = true;
+            print("book");
         }
     }
 
