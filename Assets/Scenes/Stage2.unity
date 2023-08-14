@@ -43047,7 +43047,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 0
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -44261,6 +44261,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 71560053}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: StarSFX
+      value: 
+      objectReference: {fileID: 2094405263}
+    - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: starObj
       value: 
       objectReference: {fileID: 71560054}
@@ -44305,6 +44309,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+--- !u!82 &2094405263 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3213253778894077806, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+  m_PrefabInstance: {fileID: 2094405262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2111133615
 PrefabInstance:
   m_ObjectHideFlags: 0

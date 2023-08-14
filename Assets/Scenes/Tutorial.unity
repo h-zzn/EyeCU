@@ -6758,6 +6758,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 972642795258428301}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: StarSFX
+      value: 
+      objectReference: {fileID: 2031230572}
+    - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: starObj
       value: 
       objectReference: {fileID: 199191183780822652}
@@ -6786,6 +6790,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+--- !u!82 &2031230572 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3213253778894077806, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+  m_PrefabInstance: {fileID: 2031230571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2043411834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7335,6 +7344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1ff4c8388845f4b8e2e8106e38fab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!222 &431120839997924432
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18360,7 +18370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082193765476862447}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.706, y: -0.19000006, z: -16.555}
+  m_LocalPosition: {x: -3.706, y: -0.19000006, z: -16.286995}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28853,6 +28863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1ff4c8388845f4b8e2e8106e38fab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!199 &5482857571437203665
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -38864,7 +38875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920770055747640783}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.398, y: -0.1400001, z: -16.508007}
+  m_LocalPosition: {x: -2.398, y: -0.1400001, z: -16.24}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39173,6 +39184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1ff4c8388845f4b8e2e8106e38fab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1001 &7688531204794948735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39408,6 +39420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1ff4c8388845f4b8e2e8106e38fab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!224 &7855856620799892474
 RectTransform:
   m_ObjectHideFlags: 0

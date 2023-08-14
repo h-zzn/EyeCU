@@ -65,6 +65,7 @@ public class MapManager : MonoBehaviour
         isMapActive = true;
         mapActiveValue = 1;
         PlayerPrefs.SetInt("mapActived", mapActiveValue);
+        Color finalColor = objectMaterial.color;
 
         float elapsedTime = 0f;
 
@@ -79,6 +80,6 @@ public class MapManager : MonoBehaviour
             yield return null;
         }
 
-        objectMaterial.color = targetColor; // 알파값을 확실히 1로 설정 (경우에 따라 부동소수점 오류가 있을 수 있음)
+        objectMaterial.color = finalColor; // 알파값을 확실히 1로 설정 (경우에 따라 부동소수점 오류가 있을 수 있음)
     }
 }
