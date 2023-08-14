@@ -25,15 +25,16 @@ public class FadeScript : MonoBehaviour
             StartCoroutine(FadeInCoroutine());
         }
 
-        if(startValue != 0){
-            if(!hasDeletedKey){
-                startImg.color = new Color(0, 0, 0, 1);
-                //title.color = new Color(0, 0, 0, 0);
-                StartCoroutine(StartSceneFadeCoroutine());
+        StartCoroutine(StartSceneFadeCoroutine());
+        // if(startValue != 0){
+        //     if(!hasDeletedKey){
+        //         startImg.color = new Color(0, 0, 0, 1);
+        //         //title.color = new Color(0, 0, 0, 0);
+        //         StartCoroutine(StartSceneFadeCoroutine());
 
-                hasDeletedKey = true; 
-            }
-        }
+        //         hasDeletedKey = true; 
+        //     }
+        // }
     }
 
     // Update is called once per frame
