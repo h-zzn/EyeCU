@@ -21,6 +21,8 @@ public class gameStartScript : MonoBehaviour
         knifeMeshCollider = GameObject.Find("knife").GetComponent<MeshCollider>();
         bookMeshCollider = GameObject.Find("book").GetComponent<MeshCollider>();
 
+        print("나이프 키 = "  + PlayerPrefs.GetInt("knifeActive"));
+
         if(PlayerPrefs.HasKey("knifeActive")){
             knifeMeshCollider.enabled = true;
             bookMeshCollider.enabled = true;
@@ -28,11 +30,12 @@ public class gameStartScript : MonoBehaviour
     }
 
     void Update(){
-        timer += Time.deltaTime;
-        if(timer > 20.0f){
-            bookMeshCollider.enabled = true;
-            print("book");
-        }
+        if(!PlayerPrefs.HasKey("knifeActive"))
+            timer += Time.deltaTime;
+            if(timer > 20.0f){
+                bookMeshCollider.enabled = true;
+                //print("book");
+            }
     }
 
     private void OnTriggerEnter(Collider other){

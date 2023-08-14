@@ -192,6 +192,9 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
+        PlayerPrefs.SetInt("knifeActive", 1);
+        print("나이프 키2 = "  + PlayerPrefs.GetInt("knifeActive"));
+
         TrainingDummyGlow glowing = GameObject.Find("training_dummy_mesh").GetComponent<TrainingDummyGlow>();
 
         //[**** 게임 ?��계�?? explain window ****] 
@@ -297,8 +300,6 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(5); 
         finishUI.SetActive(false); 
         
-        
-
         PlayerPrefs.SetInt("knifeActive", 1);
         GameClear = true; 
         // Reset

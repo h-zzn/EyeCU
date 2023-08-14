@@ -16,6 +16,9 @@ public class FadeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // startImg.color = new Color(0, 0, 0, 1);
+        // StartCoroutine(StartSceneFadeCoroutine());
+
         if(fadeControlValue == 0){
             StartCoroutine(FadeCoroutine());
         }
@@ -25,16 +28,18 @@ public class FadeScript : MonoBehaviour
             StartCoroutine(FadeInCoroutine());
         }
 
-        StartCoroutine(StartSceneFadeCoroutine());
-        // if(startValue != 0){
-        //     if(!hasDeletedKey){
-        //         startImg.color = new Color(0, 0, 0, 1);
-        //         //title.color = new Color(0, 0, 0, 0);
-        //         StartCoroutine(StartSceneFadeCoroutine());
+        
 
-        //         hasDeletedKey = true; 
-        //     }
-        // }
+        
+        if(startValue != 0){
+            if(!hasDeletedKey){
+                startImg.color = new Color(0, 0, 0, 1);
+                //title.color = new Color(0, 0, 0, 0);
+                StartCoroutine(StartSceneFadeCoroutine());
+
+                hasDeletedKey = true; 
+            }
+        }
     }
 
     // Update is called once per frame
