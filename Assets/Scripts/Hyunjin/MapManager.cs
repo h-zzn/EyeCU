@@ -28,8 +28,6 @@ public class MapManager : MonoBehaviour
             isMapActive = true;
         }
         
-        //print("mapActiveValue" + mapActiveValue);
-
         objectMaterial = GetComponent<Renderer>().material;
         initialColor = objectMaterial.color;
 
@@ -47,10 +45,9 @@ public class MapManager : MonoBehaviour
     
     void Update(){
         if(!PlayerPrefs.HasKey("mapActived")){
-        //StartCoroutine(FadeInCoroutine());
-            //Debug.Log("!!~" + gameStartScriptInstance.gameStartValue);
+            print("mapActiveValue" + mapActiveValue);
+            Debug.Log("!!~" + gameStartScriptInstance.gameStartValue);
             if(gameStartScriptInstance.gameStartValue == 1){
-                Debug.Log("!~" + gameStartScriptInstance.gameStartValue);
                 StartCoroutine(FadeInCoroutine());
                 stageObjectGroup.SetActive(true);
             } 

@@ -21,10 +21,13 @@ public class gameStartScript : MonoBehaviour
             Debug.Log("collision!");
             StartCoroutine(Shake());
 
+            activeObj.SetActive(true);
+
             if(otherObj.activeSelf == true){
                 otherObj.SetActive(false);
             }
-            activeObj.SetActive(true);
+
+            
         }
     }
 

@@ -30,8 +30,8 @@ public class ControllerManager : MonoBehaviour
 
     [SerializeField] private float deactivateMagicTime = 1f;
 
-    private bool redMagicActive = true;
-    private bool blueMagicActive = true;
+    public bool redMagicActive = true;
+    public bool blueMagicActive = true;
 
     private Coroutine redMagicPauseCoroutine; // Coroutine 참조 변수
     private Coroutine blueMagicPauseCoroutine; // Coroutine 참조 변수
@@ -65,7 +65,7 @@ public class ControllerManager : MonoBehaviour
             // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
             {   
-                if (redMagicActive){ // 오른손 Red Magic이 사용 가능일 때
+                if (redMagicActive){ // 오른손 Red Magic이 사용 가능일 때 
                     if (PoongSound != null)
                     {
                         PoongSound.Play();
@@ -95,31 +95,18 @@ public class ControllerManager : MonoBehaviour
                 }
                 else
                 {
-                    // // Tik Sound play
                     TikSound?.Play();
-                    Debug.Log("Red Magic is not active!!!!!!!!!!!!!!!!!!!!!");
                 }
-            }
-
-            // X Wrong
-            else if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
+            }  
+            else if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube")) // X Wrong
             {
-                // // Wrong Sound play
-                // if (WrongSound != null)
-                // {
-                //     WrongSound.Play();
-                // }
-                
-                // Debug.Log("Wrong Sound play!!!!!!!!!!!!!!!!!!!!");
-
                 if (redMagicActive) // redMagicActive가 활성화되어 있을 때
                 {
-                    // Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");
-
+                    // Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!"); 
                     redMagicActive = false; // redMagic 비활성화
                     rightEffect.SetActive(false);
                     // 1초 뒤에 redMagicActive 다시 false로 변경하는 Coroutine 시작
-                    if (redMagicPauseCoroutine != null)
+                    if(redMagicPauseCoroutine != null)
                     {
                         StopCoroutine(redMagicPauseCoroutine); // 기존 Coroutine 중지
                     }
@@ -166,25 +153,13 @@ public class ControllerManager : MonoBehaviour
                 {
                     // Tik Sound play
                     TikSound?.Play();
-                    Debug.Log("Blue Magic is not active!!!!!!!!!!!!!!!!!!!!!");
                 }
             }
-
-            // X Wrong
-            else if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
+            else if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube")) // X Wrong
             {
-                // // Wrong Sound play
-                // if (WrongSound != null)
-                // {
-                //     WrongSound.Play();
-                // }
-                
-                // Debug.Log("Wrong Sound play!!!!!!!!!!!!!!!!!!!!");
-
-                if (blueMagicActive) // blueMagicActive가 활성화되어 있을 때
+                if (blueMagicActive) // blueMagicActive가 활성화되어 있을 때  
                 {
-                    // Debug.Log("Wrong Target! : Blue Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");
-
+                    // Debug.Log("Wrong Target! : Blue Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");  
                     blueMagicActive = false; // blueMagic 비활성화
                     leftEffect.SetActive(false);
                     // 1초 뒤에 blueMagicActive 다시 false로 변경하는 Coroutine 시작
