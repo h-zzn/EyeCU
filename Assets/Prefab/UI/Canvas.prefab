@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "5\uCD08 \uB4A4 \uADC0\uD658"
+  m_text: "\uC7A0\uC2DC \uD6C4 \uADC0\uD658"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
   m_sharedMaterial: {fileID: -8804055905104212418, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
@@ -1456,7 +1456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "5\uCD08 \uB4A4 \uADC0\uD658"
+  m_text: "\uC7A0\uC2DC \uD6C4 \uADC0\uD658"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
   m_sharedMaterial: {fileID: -8804055905104212418, guid: 9f061d07830d6d1478608a71cc16c7ac, type: 2}
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -338,6 +338,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: b13f06cc7d30fbb4da302e4c37b9ed92, type: 3}
+    - target: {fileID: 953168968857210761, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1602251683246900982, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
       propertyPath: m_text
       value: "\uAD11\uC0B0 \uB9C8\uC744 \uADF8\uB77C\uB514\uC6C0\uC5D0 \uAD34\uBB3C\uB4E4\uC774
