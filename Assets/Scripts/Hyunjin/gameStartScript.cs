@@ -9,6 +9,8 @@ public class gameStartScript : MonoBehaviour
     public GameObject activeObj;
     public GameObject otherObj;
 
+    public GameObject MAP_UI;
+
     public Transform cam;
 
     private MeshCollider knifeMeshCollider;
@@ -42,7 +44,7 @@ public class gameStartScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             activeObj.SetActive(true);
-
+            MAP_UI.SetActive(false);
             if(otherObj.activeSelf == true){
                 otherObj.SetActive(false);
             }
