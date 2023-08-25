@@ -23,12 +23,12 @@ public class StageManagerScript : MonoBehaviour
 
     private void Start()
     {
-        if (!hasDeletedKey)
-        {
-            PlayerPrefs.DeleteKey("levelReached");
-            PlayerPrefs.DeleteKey("knifeActive");
-            hasDeletedKey = true;
-        }
+        // if (!hasDeletedKey)
+        // {
+        //     PlayerPrefs.DeleteKey("levelReached");
+        //     PlayerPrefs.DeleteKey("knifeActive");
+        //     hasDeletedKey = true;
+        // }
 
         GameObject[] stages = new GameObject[stageNumObject.transform.childCount];
         for (int i = 0; i < stageNumObject.transform.childCount; i++)

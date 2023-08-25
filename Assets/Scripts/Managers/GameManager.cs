@@ -64,15 +64,15 @@ public class GameManager : MonoBehaviour
         print("hasDeletedKey = " + hasDeletedKey);
         print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
 
-        if (!hasDeletedKey)
-        {
-            PlayerPrefs.DeleteKey("Stage1BestHP");
-            PlayerPrefs.DeleteKey("Stage2BestHP");
-            PlayerPrefs.DeleteKey("Stage3BestHP");
-            PlayerPrefs.DeleteKey("StageCheckValue");
+        // if (!hasDeletedKey)
+        // {
+        //     PlayerPrefs.DeleteKey("Stage1BestHP");
+        //     PlayerPrefs.DeleteKey("Stage2BestHP");
+        //     PlayerPrefs.DeleteKey("Stage3BestHP");
+        //     PlayerPrefs.DeleteKey("StageCheckValue");
 
-            hasDeletedKey = true; 
-        }
+        //     hasDeletedKey = true; 
+        // }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
