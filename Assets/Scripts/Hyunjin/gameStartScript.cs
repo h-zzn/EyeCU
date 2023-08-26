@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class gameStartScript : MonoBehaviour
 {    
-    public float shakeTime = 1.0f;
-    public float shakeSpeed = 2.0f;
-    public float shakeAmount = 1.0f;
-
     public int gameStartValue = 0;
 
     public GameObject activeObj;
@@ -16,21 +12,35 @@ public class gameStartScript : MonoBehaviour
     public Transform cam;
 
     private MeshCollider knifeMeshCollider;
+    private MeshCollider bookMeshCollider;
+
+    float timer = 0.0f;
 
 
     void Start(){
         knifeMeshCollider = GameObject.Find("knife").GetComponent<MeshCollider>();
+        bookMeshCollider = GameObject.Find("book").GetComponent<MeshCollider>();
+
+        print("나이프 키 = "  + PlayerPrefs.GetInt("knifeActive"));
 
         if(PlayerPrefs.HasKey("knifeActive")){
             knifeMeshCollider.enabled = true;
+            bookMeshCollider.enabled = true;
         }
+    }
+
+    void Update(){
+        if(!PlayerPrefs.HasKey("knifeActive"))
+            timer += Time.deltaTime;
+            if(timer > 10.0f){
+                bookMeshCollider.enabled = true;
+                //print("book");
+            }
     }
 
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(Shake());
-
             activeObj.SetActive(true);
 
             if(otherObj.activeSelf == true){
@@ -38,23 +48,5 @@ public class gameStartScript : MonoBehaviour
             }
             
         }
-    }
-
-    IEnumerator Shake(){
-        gameStartValue = 1;
-        Debug.Log("Shake~");
-        Vector3 originPosition = cam.localPosition;
-        float elapsedTime = 0.0f;
-
-        while(elapsedTime < shakeTime){
-            Vector3 randomPoint = originPosition + Random.insideUnitSphere * shakeAmount;
-            cam.localPosition = Vector3.Lerp(cam.localPosition, randomPoint, Time.deltaTime * shakeSpeed);
-
-            yield return null;
-
-            elapsedTime += Time.deltaTime;
-        }
-
-        cam.localPosition = originPosition;
     }
 }

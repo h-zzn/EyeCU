@@ -51,13 +51,13 @@ public class EventManager : MonoBehaviour
 
         if(magicObj != null && specialObj != null && stoneObj != null)  
         {
-            animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?�� step1 ?��?��메이?�� �??��?���?
-            animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?�� step2 ?��?��메이?�� �??��?���?
-            animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?�� step3 ?��?��메이?�� �??��?���?
-            animator2A = specialObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // speicalObj?�� step1 ?��?��메이?�� �??��?���?
-            animator2B = specialObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // speicalObj?�� step2 ?��?��메이?�� �??��?���?
-            animator3A = stoneObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // stoneObj?�� step1 ?��?��메이?�� �??��?���?
-            animator3B = stoneObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // stoneObj?�� step2 ?��?��메이?�� �??��?���?
+            animator1A = magicObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // magicObj?�� step1 ?��?��메이?�� �???��?���??
+            animator1B = magicObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // magicObj?�� step2 ?��?��메이?�� �???��?���??
+            animator1C = magicObj.transform.GetChild(2).gameObject.GetComponent<Animator>();  // magicObj?�� step3 ?��?��메이?�� �???��?���??
+            animator2A = specialObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // speicalObj?�� step1 ?��?��메이?�� �???��?���??
+            animator2B = specialObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // speicalObj?�� step2 ?��?��메이?�� �???��?���??
+            animator3A = stoneObj.transform.GetChild(0).gameObject.GetComponent<Animator>();  // stoneObj?�� step1 ?��?��메이?�� �???��?���??
+            animator3B = stoneObj.transform.GetChild(1).gameObject.GetComponent<Animator>();  // stoneObj?�� step2 ?��?��메이?�� �???��?���??
 
             animator1A.SetBool("isDone", false);  
             animator1B.SetBool("isDone", false);  
@@ -176,7 +176,7 @@ public class EventManager : MonoBehaviour
         StoneSpawnStop(false); 
         foreach (GameObject spawner in stoneSpawner)
         {
-            spawner.GetComponent<Spawner>().beat *=2;
+            spawner.GetComponent<Spawner>().beat *=2.5f;
         }
         yield return new WaitForSeconds(BasicSpawnTime-10); 
         BasicSpawnStop(true); 
@@ -192,56 +192,69 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
+        PlayerPrefs.SetInt("knifeActive", 1);
+        print("나이프 키2 = "  + PlayerPrefs.GetInt("knifeActive"));
+
+        TrainingDummyGlow glowing = GameObject.Find("training_dummy_mesh").GetComponent<TrainingDummyGlow>();
+
         //[**** 게임 ?��계�?? explain window ****] 
-        explainUI.SetActive(true);
-        yield return new WaitForSeconds(10);
+        explainUI.SetActive(true);  
+        yield return new WaitForSeconds(10);  
         explainUI.SetActive(false); 
 
-        //[****마법 ?���? ?���? 방법 window***] 
+        //[****마법 ?���?? ?���?? 방법 window***] 
         //step1 UI
         magicObj.transform.GetChild(0).gameObject.SetActive(true);    //Magic step1 UI 
-        tutorialEvent.magicRedOrb.SetActive(true);
+        yield return new WaitForSeconds(3); 
+        tutorialEvent.magicRedOrb.SetActive(true);  
         while (!tutorialEvent.magicRedOrbMission) 
         {
             yield return null; 
         }
-        animator1A.SetBool("isDone", true);  //?��?���? 
+        glowing.SetGlowing();
+        animator1A.SetBool("isDone", true);  //?��?���?? 
         yield return new WaitForSeconds(2); 
         magicObj.transform.GetChild(0).gameObject.SetActive(false);
 
         //step2 UI
         magicObj.transform.GetChild(1).gameObject.SetActive(true);    //Magic step2 UI
+        yield return new WaitForSeconds(3);
         tutorialEvent.magicBlueOrb.SetActive(true);
         while(!tutorialEvent.magicBlueOrbMission)
         {
             yield return null;
         }
-        animator1B.SetBool("isDone", true);  //?��?���?
+        glowing.SetGlowing();
+        animator1B.SetBool("isDone", true);  //?��?���??
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(1).gameObject.SetActive(false);
         
         //step3 UI
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
+        yield return new WaitForSeconds(5); 
         tutorialEvent.magicFailMission = false; 
         BasicSpawnStop(false);
         while(!tutorialEvent.magicFailMission) 
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         yield return new WaitForSeconds(5);
         BasicSpawnStop(true);
         animator1C.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(2).gameObject.SetActive(false);  
 
-        //[****?���? ?���? ?���? 방법 window***]
+        //[****?���?? ?���?? ?���?? 방법 window***]
         //step1 UI
         specialObj.transform.GetChild(0).gameObject.SetActive(true);    //special step1 UI
+        yield return new WaitForSeconds(8);
         tutorialEvent.specialOrb.SetActive(true);
         while(!tutorialEvent.specialOrbMission) 
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         animator2A.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         specialObj.transform.GetChild(0).gameObject.SetActive(false);
@@ -254,38 +267,39 @@ public class EventManager : MonoBehaviour
         specialObj.transform.GetChild(1).gameObject.SetActive(false);
 
 
-        //[****?��?��?�� ?���? 방법 window***]
+        //[****?��?��?�� ?���?? 방법 window***]
         //step1 UI
         stoneObj.transform.GetChild(0).gameObject.SetActive(true);     //stone step1 UI
+        yield return new WaitForSeconds(3); 
         tutorialEvent.lavaSwordMission = false;
-        tutorialEvent.iceSwordMission = false;   
-        yield return new WaitForSeconds(3); //??? ??
+        tutorialEvent.iceSwordMission = false; 
         while (!(tutorialEvent.lavaSwordMission && tutorialEvent.iceSwordMission))
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         animator3A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(0).gameObject.SetActive(false);
 
         //step2 UI
         stoneObj.transform.GetChild(01).gameObject.SetActive(true);  //stone step2 UI
+        yield return new WaitForSeconds(8); 
         tutorialEvent.lavaStone.SetActive(true);
-        tutorialEvent.iceStone.SetActive(true);  // step1 UI
+        tutorialEvent.iceStone.SetActive(true);  
         while (!(tutorialEvent.lavaStoneMission && tutorialEvent.iceStoneMission))
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         animator3B.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
         
         finishUI.SetActive(true); 
-        yield return new WaitForSeconds(5); 
+        yield return new WaitForSeconds(12); 
         finishUI.SetActive(false); 
         
-        
-
         PlayerPrefs.SetInt("knifeActive", 1);
         GameClear = true; 
         // Reset

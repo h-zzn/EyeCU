@@ -53,7 +53,7 @@ public class typingScript : MonoBehaviour
         
         foreach (char letter in text1.ToCharArray()){
             dialogText.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         yield return new WaitForSeconds(3f);
@@ -61,7 +61,7 @@ public class typingScript : MonoBehaviour
         
         foreach (char letter in text2.ToCharArray()){
             dialogText2.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         
@@ -71,7 +71,7 @@ public class typingScript : MonoBehaviour
         
         foreach (char letter in text3.ToCharArray()){
             dialogText3.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         

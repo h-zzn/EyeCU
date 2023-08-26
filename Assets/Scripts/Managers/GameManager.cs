@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private AudioSource BGM; 
+    [SerializeField] private AudioSource StarSFX;
+    [SerializeField] private float fadeDuration = 2.0f;
 
     private EventManager eventManager; 
     private DamagedArea damagedArea;
@@ -62,16 +64,15 @@ public class GameManager : MonoBehaviour
         print("hasDeletedKey = " + hasDeletedKey);
         print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
 
-        // �ٽ� �������� �� Key ��������, ����ӿ��� �������
-        if (!hasDeletedKey)
-        {
-            PlayerPrefs.DeleteKey("Stage1BestHP");
-            PlayerPrefs.DeleteKey("Stage2BestHP");
-            PlayerPrefs.DeleteKey("Stage3BestHP");
-            PlayerPrefs.DeleteKey("StageCheckValue");
+        // if (!hasDeletedKey)
+        // {
+        //     PlayerPrefs.DeleteKey("Stage1BestHP");
+        //     PlayerPrefs.DeleteKey("Stage2BestHP");
+        //     PlayerPrefs.DeleteKey("Stage3BestHP");
+        //     PlayerPrefs.DeleteKey("StageCheckValue");
 
-            hasDeletedKey = true; 
-        }
+        //     hasDeletedKey = true; 
+        // }
 
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
@@ -130,14 +131,24 @@ public class GameManager : MonoBehaviour
     } 
 
 
-    public IEnumerator StageOver() 
+    public IEnumerator StageOver()
     {
-        yield return new WaitForSeconds(2); 
-        BGMOff();
+        float startVolume = BGM.volume; // Store the initial volume
+
+        // Fade out the BGM
+        while (BGM.volume > 0)
+        {
+            BGM.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        BGM.Stop(); // Stop the BGM when the fade-out is complete
+
         ActiveGameOverWindow();
-        yield return new WaitForSeconds(5); 
+        yield return new WaitForSeconds(5);
         GoHome();
-    }  
+    }
+
 
     public IEnumerator StageClear() 
     {
@@ -156,8 +167,17 @@ public class GameManager : MonoBehaviour
         if(levelReached < SceneManager.GetActiveScene().buildIndex)
             PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
-        yield return new WaitForSeconds(2); 
-        BGMOff(); 
+        float startVolume = BGM.volume; // Store the initial volume
+
+        // Fade out the BGM
+        while (BGM.volume > 0)
+        {
+            BGM.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        BGM.Stop(); // Stop the BGM when the fade-out is complete
+         
         ActiveGameClearWindow(); 
         yield return new WaitForSeconds(5); 
         GoHome(); 
@@ -180,25 +200,9 @@ public class GameManager : MonoBehaviour
 
     private void ActiveGameClearWindow()
     {
-        Debug.Log("GameClear");
-        //damagedArea.stageHP = HPcontrol;
-        Debug.Log("damagedArea.stageHP : " + damagedArea.stageHP);
-        
         finalHPText.enabled = true;
         successUI.SetActive(true);
-
-        starObj.transform.GetChild(3).gameObject.SetActive(true);   // �����ϸ� �� ó�� ���� �⺻���� Ȱ��ȭ
-
-        // ���뵵 ���� 
-        if(damagedArea.stageHP >= 1700){
-            starObj.transform.GetChild(4).gameObject.SetActive(true);       
-            starObj.transform.GetChild(5).gameObject.SetActive(true);       // �ι�°, ����° �� Ȱ��ȭ
-        }
-
-        else if(damagedArea.stageHP >= 1000){
-            starObj.transform.GetChild(4).gameObject.SetActive(true);       // �ι�° �� Ȱ��ȭ      
-        }
-
+        StartCoroutine(ActiveStar());
     }
 
     public void GoHome(){
@@ -213,14 +217,14 @@ public class GameManager : MonoBehaviour
             print("stage 1 finalHP Ȯ��: " + finalHP);
             if(finalHP > PlayerPrefs.GetInt("Stage1BestHP") || !PlayerPrefs.HasKey("Stage1BestHP")){
                 print("set Stage1BestHP = " + PlayerPrefs.GetInt("Stage1BestHP"));
-                PlayerPrefs.SetInt("Stage1BestHP", finalHP);
+                PlayerPrefs.SetInt("Stage1BestHP", finalHP); 
             }   
         }
 
         // stage 2�϶� 
         if(SceneManager.GetActiveScene().buildIndex == 2){
             if(finalHP > PlayerPrefs.GetInt("Stage2BestHP") || !PlayerPrefs.HasKey("Stage2BestHP")){
-                PlayerPrefs.SetInt("Stage2BestHP", finalHP);
+                PlayerPrefs.SetInt("Stage2BestHP", finalHP); 
                 print("set Stage2BestHP = " + PlayerPrefs.GetInt("Stage2BestHP"));
             }   
         }
@@ -229,8 +233,29 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == 3){
             if(finalHP > PlayerPrefs.GetInt("Stage3BestHP") || !PlayerPrefs.HasKey("Stage3BestHP")){
                 print("set Stage3BestHP = " + PlayerPrefs.GetInt("Stage3BestHP"));
-                PlayerPrefs.SetInt("Stage3BestHP", finalHP);
+                PlayerPrefs.SetInt("Stage3BestHP", finalHP); 
             }   
+        }
+    }
+
+    private IEnumerator ActiveStar()
+    {
+        starObj.transform.GetChild(3).gameObject.SetActive(true);  
+        yield return new WaitForSeconds(2.37f);
+        StarSFX.Play();
+
+        if(damagedArea.stageHP >= 1700){
+            starObj.transform.GetChild(4).gameObject.SetActive(true); 
+            starObj.transform.GetChild(5).gameObject.SetActive(true); 
+            yield return new WaitForSeconds(1.03f);
+            StarSFX.Play();
+            yield return new WaitForSeconds(0.99f);
+            StarSFX.Play();
+        }
+        else if(damagedArea.stageHP >= 1000){
+            starObj.transform.GetChild(4).gameObject.SetActive(true);   
+            yield return new WaitForSeconds(1.03f);
+            StarSFX.Play();
         }
     }
 }

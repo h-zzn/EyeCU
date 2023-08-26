@@ -9,7 +9,7 @@ public class Cube : MonoBehaviour
 {
     public bool IsHovered { get; set; }
     private Vector3 originVector;
-    private int moveSpeed = 5; 
+    public int moveSpeed = 5; 
 
     void Awake()
     {

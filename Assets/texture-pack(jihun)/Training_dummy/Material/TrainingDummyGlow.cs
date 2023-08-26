@@ -9,6 +9,8 @@ public class TrainingDummyGlow : MonoBehaviour
     // Normal Material
     [SerializeField] private Material normalMaterial;
 
+    [SerializeField] private GameObject good;
+
     // Get the skinned mesh renderer
     private SkinnedMeshRenderer skinnedMeshRenderer;
 
@@ -28,10 +30,12 @@ public class TrainingDummyGlow : MonoBehaviour
         if (isGlowing)
         {
             skinnedMeshRenderer.material = successMaterial;
+            good.SetActive(true);
         }
         else
         {
             skinnedMeshRenderer.material = normalMaterial;
+            good.SetActive(false);
         }
     }
 
@@ -40,11 +44,13 @@ public class TrainingDummyGlow : MonoBehaviour
     {
         isGlowing = true;
         Invoke("SetNotGlowing", glowTime);
+        
     }
 
     // Set the glowing off
     private void SetNotGlowing()
     {
         isGlowing = false;
+        
     }
 }
