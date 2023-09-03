@@ -64,16 +64,6 @@ public class GameManager : MonoBehaviour
         print("hasDeletedKey = " + hasDeletedKey);
         print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
 
-        // if (!hasDeletedKey)
-        // {
-        //     PlayerPrefs.DeleteKey("Stage1BestHP");
-        //     PlayerPrefs.DeleteKey("Stage2BestHP");
-        //     PlayerPrefs.DeleteKey("Stage3BestHP");
-        //     PlayerPrefs.DeleteKey("StageCheckValue");
-
-        //     hasDeletedKey = true; 
-        // }
-
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
         // if(PlayerPrefs.HasKey("FinalHP")){
@@ -88,14 +78,14 @@ public class GameManager : MonoBehaviour
         {
             if(stageLevel != StageLevel.tutorial){
                 if(stageOver == null)
-                    stageOver = StartCoroutine(StageOver());  // StageOver
+                    stageOver = StartCoroutine(StageOver());  // StageOver 
                 eventManager.EventFlow = null;  
             }
             else{ 
                 GoHome();
             }
         }
-
+        
         if(damagedArea.stageHP > 0 && eventManager.GameClear == true)
         {
             if(stageLevel != StageLevel.tutorial){
@@ -105,6 +95,10 @@ public class GameManager : MonoBehaviour
             else{ 
                 GoHome();
             }
+        }
+        else if(stageLevel == StageLevel.tutorial)
+        {
+            damagedArea.stageHP = 2000;
         }
 
         // Wait for startDelayTime

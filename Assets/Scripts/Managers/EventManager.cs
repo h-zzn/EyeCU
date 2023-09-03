@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
+    public int EnemyHP = 1000;
+
     [SerializeField] private GameObject[] basicOrbSpawner;
     [SerializeField] private GameObject[] stoneSpawner;
     [SerializeField] private GameObject[] SpecialOrbSpawner;
@@ -47,6 +49,7 @@ public class EventManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == TutorialBuildIndex)  
         {
            tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();    
+           EnemyHP = 250;
         }
 
         if(magicObj != null && specialObj != null && stoneObj != null)  
@@ -74,6 +77,17 @@ public class EventManager : MonoBehaviour
         BasicSpawnStop(true);  
         StoneSpawnStop(true); 
         SpecialOrbSpawnAllStop(true);
+    }   
+
+    void Update()
+    {
+        if(EnemyHP <= 0 && GameClear == false)
+        {
+            BasicSpawnStop(true); 
+            StoneSpawnStop(true); 
+            SpecialOrbSpawnAllStop(true); 
+            GameClear = true;
+        }
     }
 
 
@@ -100,10 +114,16 @@ public class EventManager : MonoBehaviour
             spawner.GetComponent<Spawner>().beat *=3;
         }
         yield return new WaitForSeconds(BasicSpawnTime); 
+        
+        
+        while (EnemyHP > 0) 
+        {
+            yield return null; 
+        }
+
         BasicSpawnStop(true); 
         StoneSpawnStop(true); 
-        yield return new WaitForSeconds(5);
-        
+        yield return new WaitForSeconds(8); 
         GameClear = true;
         // Reset
         //eventStarted = false;
@@ -139,11 +159,17 @@ public class EventManager : MonoBehaviour
             spawner.GetComponent<Spawner>().beat *=3;
         }
         yield return new WaitForSeconds(BasicSpawnTime-10); 
+        
+        while (EnemyHP > 0) 
+        {
+            yield return null; 
+        }
+
         BasicSpawnStop(true); 
         StoneSpawnStop(true); 
         SpecialOrbSpawnAllStop(true); 
-        yield return new WaitForSeconds(5);
-        
+        yield return new WaitForSeconds(8);
+
         GameClear = true;
         // Reset
         //eventStarted = false;
@@ -179,11 +205,16 @@ public class EventManager : MonoBehaviour
             spawner.GetComponent<Spawner>().beat *=2.5f;
         }
         yield return new WaitForSeconds(BasicSpawnTime-10); 
+        
+        while (EnemyHP > 0) 
+        {
+            yield return null; 
+        }
+
         BasicSpawnStop(true); 
         StoneSpawnStop(true); 
         SpecialOrbSpawnAllStop(true); 
-        yield return new WaitForSeconds(5);
-        
+        yield return new WaitForSeconds(8);
         GameClear = true;
         // Reset
         //eventStarted = false;
@@ -282,7 +313,6 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(0).gameObject.SetActive(false);
 
-        //step2 UI
         stoneObj.transform.GetChild(01).gameObject.SetActive(true);  //stone step2 UI
         yield return new WaitForSeconds(8); 
         tutorialEvent.lavaStone.SetActive(true);
@@ -296,10 +326,34 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
         
+
+        //Attack EnemyHP tutorial
+        //EnemyHP step1 UI
+        magicObj.transform.GetChild(2).gameObject.SetActive(true);    //EnemyHP step1 UI
+        yield return new WaitForSeconds(5); 
+        tutorialEvent.magicFailMission = false; 
+        BasicSpawnStop(false); 
+        StoneSpawnStop(false); 
+        foreach (GameObject spawner in stoneSpawner)
+        {
+            spawner.GetComponent<Spawner>().beat *=2.5f;
+        }
+        while(EnemyHP > 0) 
+        {   
+            yield return null; 
+        }
+        glowing.SetGlowing();
+        yield return new WaitForSeconds(5);
+        BasicSpawnStop(true);
+        animator1C.SetBool("isDone", true);  
+        yield return new WaitForSeconds(2);
+        magicObj.transform.GetChild(2).gameObject.SetActive(false);  
+
+
         finishUI.SetActive(true); 
         yield return new WaitForSeconds(12); 
         finishUI.SetActive(false); 
-        
+   
         PlayerPrefs.SetInt("knifeActive", 1);
         GameClear = true; 
         // Reset
