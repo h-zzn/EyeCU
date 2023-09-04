@@ -8,9 +8,7 @@ public class EventManager : MonoBehaviour
 {
     public int EnemyHP = 1000;
 
-    [SerializeField] private GameObject[] basicOrbSpawner;
-    [SerializeField] private GameObject[] stoneSpawner;
-    [SerializeField] private GameObject[] SpecialOrbSpawner;
+    private SpawnManager spawnManager;
 
     public bool GameClear = false;
     
@@ -77,6 +75,8 @@ public class EventManager : MonoBehaviour
         BasicSpawnStop(true);  
         StoneSpawnStop(true); 
         SpecialOrbSpawnAllStop(true);
+
+        spawnManager = GameObject.Find("Spawner").GetComponent<SpawnManager>();
     }   
 
     void Update()
@@ -109,9 +109,9 @@ public class EventManager : MonoBehaviour
         BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
         StoneSpawnStop(false); 
-        foreach (GameObject spawner in stoneSpawner)
+        foreach (GameObject spawner in spawnManager.stoneSpawner)
         {
-            spawner.GetComponent<Spawner>().beat *=3;
+            spawner.GetComponent<Spawner>().beat *=3; 
         }
         yield return new WaitForSeconds(BasicSpawnTime); 
         
@@ -140,7 +140,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         SpecialOrbSpawnAllStop(false); 
-        while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
+        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
         {
             yield return null;
         }
@@ -154,7 +154,7 @@ public class EventManager : MonoBehaviour
         BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
         StoneSpawnStop(false); 
-        foreach (GameObject spawner in stoneSpawner)
+        foreach (GameObject spawner in spawnManager.stoneSpawner)
         {
             spawner.GetComponent<Spawner>().beat *=3;
         }
@@ -186,7 +186,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         SpecialOrbSpawnAllStop(false); 
-        while (!SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
+        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
         {
             yield return null;
         }
@@ -200,7 +200,7 @@ public class EventManager : MonoBehaviour
         BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
         StoneSpawnStop(false); 
-        foreach (GameObject spawner in stoneSpawner)
+        foreach (GameObject spawner in spawnManager.stoneSpawner)
         {
             spawner.GetComponent<Spawner>().beat *=2.5f;
         }
@@ -334,7 +334,7 @@ public class EventManager : MonoBehaviour
         tutorialEvent.magicFailMission = false; 
         BasicSpawnStop(false); 
         StoneSpawnStop(false); 
-        foreach (GameObject spawner in stoneSpawner)
+        foreach (GameObject spawner in spawnManager.stoneSpawner)
         {
             spawner.GetComponent<Spawner>().beat *=2.5f;
         }
@@ -359,38 +359,38 @@ public class EventManager : MonoBehaviour
         // Reset
         //eventStarted = false;
         //EventFlow = null;
-    }
+    } 
 
-    public void BasicSpawnStop(bool stop)
+    public void BasicSpawnStop(bool stop)  
     {
-        if(basicOrbSpawner.Length != 0)
+        if(spawnManager.basicOrbSpawner.Length != 0)
         {
-            foreach (GameObject spawner in basicOrbSpawner)
+            foreach (GameObject spawner in spawnManager.basicOrbSpawner)
             {
                 spawner.GetComponent<Spawner>().isSpawnStop = stop;
             }
         }
-    }
+    } 
 
     public void StoneSpawnStop(bool stop)
     {
-        if(stoneSpawner.Length != 0)
+        if(spawnManager.stoneSpawner.Length != 0)  
         {
-            foreach (GameObject spawner in stoneSpawner)
+            foreach (GameObject spawner in spawnManager.stoneSpawner)
             {
                 spawner.GetComponent<Spawner>().isSpawnStop = stop;
             }
-        }
-    }
+        } 
+    } 
 
     public void SpecialOrbSpawnAllStop(bool stop)
     {
-        if(SpecialOrbSpawner.Length != 0)
+        if(spawnManager.SpecialOrbSpawner.Length != 0)  
         {
-            foreach (GameObject spawner in SpecialOrbSpawner)
+            foreach (GameObject spawner in spawnManager.SpecialOrbSpawner)
             {
                 spawner.GetComponent<SpecialOrbSpawner>().isSpawnStop = stop;
             }
-        }
-    }
+        } 
+    } 
 }

@@ -6,15 +6,15 @@ using DG.Tweening;
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
-public class Tracing : MonoBehaviour
+public class Tracing : MonoBehaviour 
 {
-    public enum MovementPattern
+    public enum MovementPattern 
     {
         O,
         Z,
         U
     }
-    [SerializeField] private MovementPattern selectedPattern = MovementPattern.O;
+    [SerializeField] private MovementPattern selectedPattern = MovementPattern.O; 
 
     public GameObject[] targets;
     private Sequence mySequence;

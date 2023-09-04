@@ -6,17 +6,27 @@ public class Spawner : MonoBehaviour
 {
     public bool isSpawnStop = true;
 
-    public GameObject[] cubes;
-    public Transform[] points;
-    public float beat = (60/130)*2;
-    private float coolTime = 0;
+    public GameObject[] cubes; 
+    public Transform[] points; 
+    public float beat = (60/130)*2; 
+    private float coolTime = 0;  
+
+    public float OrbSpeed = 1;  
+
+    private void Start()
+    {
+        foreach (GameObject spawnObject in cubes) 
+        {
+            spawnObject.GetComponent<Cube>().moveSpeed *= OrbSpeed; 
+        }   
+    }
 
     void Update()
     {
         if(!isSpawnStop)
         {
-            spawnOrb();
-        }
+            spawnOrb(); 
+        }   
     }
 
     public void spawnOrb()

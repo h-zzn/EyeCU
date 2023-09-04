@@ -60102,6 +60102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2460329134768956467}
+  - component: {fileID: 8094331084273957059}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -60109,3 +60110,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8094331084273957059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8094331084273957058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4443d7ce8540c34ab7864393180c72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicOrbSpawner:
+  - {fileID: 877311451}
+  - {fileID: 877311450}
+  stoneSpawner:
+  - {fileID: 877311448}
+  - {fileID: 877311447}
+  SpecialOrbSpawner:
+  - {fileID: 877311446}
+  basicOrbSpeed: 1
+  basicOrbSpawnBeat: 1
+  stoneSpeed: 1
+  stoneSpawnBeat: 1
+  SpecialOrbSpeed: 1
+  SpecialOrbSpawnInterval: 1

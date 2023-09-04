@@ -7028,7 +7028,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925537749473030837, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_Name
-      value: StoneSpawnerer
+      value: StoneSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 925537749473030837, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_Layer
