@@ -16,8 +16,8 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float BasicSpawnTime;
     [SerializeField] private float swordTime;
 
-    [SerializeField] private GameObject explainUI; 
 
+    [SerializeField] private GameObject explainUI; 
     // tutorial UI 
     [SerializeField] private GameObject magicObj;   
     [SerializeField] private GameObject specialObj;   
@@ -72,47 +72,42 @@ public class EventManager : MonoBehaviour
 
     void Awake()  
     {
-        BasicSpawnStop(true);  
-        StoneSpawnStop(true); 
-        SpecialOrbSpawnAllStop(true);
-
-        spawnManager = GameObject.Find("Spawner").GetComponent<SpawnManager>();
+        spawnManager = this.GetComponent<SpawnManager>();
+        spawnManager.BasicSpawnStop(true);  
+        spawnManager.StoneSpawnStop(true); 
+        spawnManager.SpecialOrbSpawnAllStop(true);
     }   
 
     void Update()
     {
         if(EnemyHP <= 0 && GameClear == false)
         {
-            BasicSpawnStop(true); 
-            StoneSpawnStop(true); 
-            SpecialOrbSpawnAllStop(true); 
+            spawnManager.BasicSpawnStop(true); 
+            spawnManager.StoneSpawnStop(true); 
+            spawnManager.SpecialOrbSpawnAllStop(true); 
             GameClear = true;
         }
     }
 
-
     public IEnumerator Stage1EventFlow()
     {   
         //start window 
-        BasicSpawnStop(false);
+        spawnManager.BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
-        BasicSpawnStop(true);
+        spawnManager.BasicSpawnStop(true);
 
         yield return new WaitForSeconds(3);
         
-        StoneSpawnStop(false); 
+        spawnManager.StoneSpawnStop(false); 
         yield return new WaitForSeconds(swordTime); 
-        StoneSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
 
         yield return new WaitForSeconds(3);
 
-        BasicSpawnStop(false); 
+        spawnManager.BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
-        StoneSpawnStop(false); 
-        foreach (GameObject spawner in spawnManager.stoneSpawner)
-        {
-            spawner.GetComponent<Spawner>().beat *=3; 
-        }
+        spawnManager.StoneSpawnStop(false);
+        spawnManager.stoneSpawnInterval *= 3f;
         yield return new WaitForSeconds(BasicSpawnTime); 
         
         
@@ -121,8 +116,8 @@ public class EventManager : MonoBehaviour
             yield return null; 
         }
 
-        BasicSpawnStop(true); 
-        StoneSpawnStop(true); 
+        spawnManager.BasicSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
         yield return new WaitForSeconds(8); 
         GameClear = true;
         // Reset
@@ -133,31 +128,28 @@ public class EventManager : MonoBehaviour
     public IEnumerator Stage2EventFlow()
     {   
         //start window 
-        BasicSpawnStop(false);
-        yield return new WaitForSeconds(BasicSpawnTime);
-        BasicSpawnStop(true);
+        spawnManager.BasicSpawnStop(false); 
+        yield return new WaitForSeconds(BasicSpawnTime); 
+        spawnManager.BasicSpawnStop(true);  
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3); 
 
-        SpecialOrbSpawnAllStop(false); 
-        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
+        spawnManager.SpecialOrbSpawnAllStop(false);  
+        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop) 
         {
-            yield return null;
+            yield return null; 
         }
 
-        StoneSpawnStop(false); 
+        spawnManager.StoneSpawnStop(false); 
         yield return new WaitForSeconds(swordTime); 
-        StoneSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3); 
         
-        BasicSpawnStop(false); 
+        spawnManager.BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
-        StoneSpawnStop(false); 
-        foreach (GameObject spawner in spawnManager.stoneSpawner)
-        {
-            spawner.GetComponent<Spawner>().beat *=3;
-        }
+        spawnManager.StoneSpawnStop(false);
+        spawnManager.stoneSpawnInterval *= 2.5f;
         yield return new WaitForSeconds(BasicSpawnTime-10); 
         
         while (EnemyHP > 0) 
@@ -165,9 +157,9 @@ public class EventManager : MonoBehaviour
             yield return null; 
         }
 
-        BasicSpawnStop(true); 
-        StoneSpawnStop(true); 
-        SpecialOrbSpawnAllStop(true); 
+        spawnManager.BasicSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
+        spawnManager.SpecialOrbSpawnAllStop(true); 
         yield return new WaitForSeconds(8);
 
         GameClear = true;
@@ -179,31 +171,28 @@ public class EventManager : MonoBehaviour
     public IEnumerator Stage3EventFlow()
     {   
         //start window 
-        BasicSpawnStop(false);
+        spawnManager.BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
-        BasicSpawnStop(true);
+        spawnManager.BasicSpawnStop(true);
 
         yield return new WaitForSeconds(3);
 
-        SpecialOrbSpawnAllStop(false); 
+        spawnManager.SpecialOrbSpawnAllStop(false); 
         while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
         {
             yield return null;
         }
 
-        StoneSpawnStop(false); 
+        spawnManager.StoneSpawnStop(false); 
         yield return new WaitForSeconds(swordTime); 
-        StoneSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
 
         yield return new WaitForSeconds(3); 
         
-        BasicSpawnStop(false); 
+        spawnManager.BasicSpawnStop(false); 
         yield return new WaitForSeconds(10); 
-        StoneSpawnStop(false); 
-        foreach (GameObject spawner in spawnManager.stoneSpawner)
-        {
-            spawner.GetComponent<Spawner>().beat *=2.5f;
-        }
+        spawnManager.StoneSpawnStop(false);
+        spawnManager.stoneSpawnInterval *= 2.5f;
         yield return new WaitForSeconds(BasicSpawnTime-10); 
         
         while (EnemyHP > 0) 
@@ -211,9 +200,9 @@ public class EventManager : MonoBehaviour
             yield return null; 
         }
 
-        BasicSpawnStop(true); 
-        StoneSpawnStop(true); 
-        SpecialOrbSpawnAllStop(true); 
+        spawnManager.BasicSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
+        spawnManager.SpecialOrbSpawnAllStop(true); 
         yield return new WaitForSeconds(8);
         GameClear = true;
         // Reset
@@ -264,14 +253,14 @@ public class EventManager : MonoBehaviour
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
         yield return new WaitForSeconds(5); 
         tutorialEvent.magicFailMission = false; 
-        BasicSpawnStop(false);
+        spawnManager.BasicSpawnStop(false);
         while(!tutorialEvent.magicFailMission) 
         {
             yield return null; 
         }
         glowing.SetGlowing();
         yield return new WaitForSeconds(5);
-        BasicSpawnStop(true);
+        spawnManager.BasicSpawnStop(true);
         animator1C.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(2).gameObject.SetActive(false);  
@@ -321,10 +310,10 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
-        glowing.SetGlowing();
+        glowing.SetGlowing(); 
         animator3B.SetBool("isDone", true);  
-        yield return new WaitForSeconds(2);
-        stoneObj.transform.GetChild(01).gameObject.SetActive(false);
+        yield return new WaitForSeconds(2);  
+        stoneObj.transform.GetChild(01).gameObject.SetActive(false);  
         
 
         //Attack EnemyHP tutorial
@@ -332,19 +321,16 @@ public class EventManager : MonoBehaviour
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    //EnemyHP step1 UI
         yield return new WaitForSeconds(5); 
         tutorialEvent.magicFailMission = false; 
-        BasicSpawnStop(false); 
-        StoneSpawnStop(false); 
-        foreach (GameObject spawner in spawnManager.stoneSpawner)
-        {
-            spawner.GetComponent<Spawner>().beat *=2.5f;
-        }
-        while(EnemyHP > 0) 
+        spawnManager.BasicSpawnStop(false); 
+        spawnManager.StoneSpawnStop(false);
+        spawnManager.stoneSpawnInterval *= 2.5f;
+        while (EnemyHP > 0) 
         {   
             yield return null; 
         }
         glowing.SetGlowing();
         yield return new WaitForSeconds(5);
-        BasicSpawnStop(true);
+        spawnManager.BasicSpawnStop(true);
         animator1C.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(2).gameObject.SetActive(false);  
@@ -359,38 +345,5 @@ public class EventManager : MonoBehaviour
         // Reset
         //eventStarted = false;
         //EventFlow = null;
-    } 
-
-    public void BasicSpawnStop(bool stop)  
-    {
-        if(spawnManager.basicOrbSpawner.Length != 0)
-        {
-            foreach (GameObject spawner in spawnManager.basicOrbSpawner)
-            {
-                spawner.GetComponent<Spawner>().isSpawnStop = stop;
-            }
-        }
-    } 
-
-    public void StoneSpawnStop(bool stop)
-    {
-        if(spawnManager.stoneSpawner.Length != 0)  
-        {
-            foreach (GameObject spawner in spawnManager.stoneSpawner)
-            {
-                spawner.GetComponent<Spawner>().isSpawnStop = stop;
-            }
-        } 
-    } 
-
-    public void SpecialOrbSpawnAllStop(bool stop)
-    {
-        if(spawnManager.SpecialOrbSpawner.Length != 0)  
-        {
-            foreach (GameObject spawner in spawnManager.SpecialOrbSpawner)
-            {
-                spawner.GetComponent<SpecialOrbSpawner>().isSpawnStop = stop;
-            }
-        } 
     } 
 }

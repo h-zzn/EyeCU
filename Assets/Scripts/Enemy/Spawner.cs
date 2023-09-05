@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] cubes; 
     public Transform[] points; 
-    public float beat = (60/130)*2; 
+    public float Interval = (60/130)*2; 
     private float coolTime = 0;  
 
     public float OrbSpeed = 1;  
@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
 
     public void spawnOrb()
     {
-        if(coolTime > beat) 
+        if(coolTime > Interval) 
         {
             GameObject cube = Instantiate(cubes[Random.Range(0,cubes.Length)],points[Random.Range(0,points.Length)]);
             cube.transform.localPosition = Vector3.zero;

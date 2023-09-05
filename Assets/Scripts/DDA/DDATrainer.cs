@@ -7,10 +7,16 @@ using Unity.MLAgents.Actuators;
 
 public class DDATrainer : Agent
 {
+    
+    private SpawnManager spawnManager;
+    private EventManager eventManager; 
+    private DamagedArea damagedArea;
 
-    void Start()
+    void Awake()
     {
-        
+        eventManager = this.transform.GetComponent<EventManager>(); 
+        damagedArea = this.transform.GetComponent<DamagedArea>();
+        spawnManager = this.GetComponent<SpawnManager>();
     }
 
     public override void OnEpisodeBegin()
@@ -27,27 +33,24 @@ public class DDATrainer : Agent
     public float forceMultiplier = 10;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {    
-    	// Agent가 Target쪽으로 이동하기 위해 X, Z축으로의 Force를 정의
-        Vector3 controlSignal = Vector3.zero;
-        controlSignal.x = actionBuffers.ContinuousActions[0];
-        controlSignal.z = actionBuffers.ContinuousActions[1];
-        // rBody.AddForce(controlSignal * forceMultiplier);
+        spawnManager.basicOrbSpeed = actionBuffers.ContinuousActions[0];
+        spawnManager.basicOrbSpawnInterval = actionBuffers.ContinuousActions[1];
+        spawnManager.stoneSpeed = actionBuffers.ContinuousActions[2];
+        spawnManager.stoneSpawnInterval = actionBuffers.ContinuousActions[3];
+        spawnManager.SpecialOrbSpeed = actionBuffers.ContinuousActions[4];
+        spawnManager.SpecialOrbSpawnInterval = actionBuffers.ContinuousActions[5];
 
-        // Agent와 Target사이의 거리를 측정
-        float distanceToTarget = 0.1f;
-
-        // Target에 도달하는 경우 (거리가 1.42보다 작은 경우) Episode 종료
-        if (distanceToTarget < 1.42)
-        {
+        if (damagedArea.stageHP > 1000 && eventManager.GameClear == true)
+        { 
             SetReward(1.0f);
             EndEpisode();
         }
-
-        // 플랫폼 밖으로 나가면 Episode 종료
-        if (this.transform.localPosition.y < 0)
+        else if (damagedArea.stageHP < 0 || eventManager.GameClear == true)
         {
-            EndEpisode();
+            EndEpisode(); 
         }
+        // 플랫폼 밖으로 나가면 Episode 종료
+
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
