@@ -16,6 +16,7 @@ TagManager:
   - LavaStone
   - IceStone
   - stage
+  - SamplesInfoPanel
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Sliceable_L
   - Sliceable
   - PostProcessing
-  - 
+  - nolight
   - 
   - 
   - 
