@@ -9,14 +9,17 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Foliage
   m_Shader: {fileID: 4800000, guid: b9708e343f2ee8b4cb9316b7d659d81f, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -139,10 +142,10 @@ Material:
     - _alpha: 0.1
     - _alpha1: 0.55
     - _colorVariationTiling: 0.1
-    - _cutout_Close: 0.6
-    - _cutout_FadeDistance: 50
-    - _cutout_Far: 0.4
-    - _dither: 0.15
+    - _cutout_Close: 0
+    - _cutout_FadeDistance: 78.5
+    - _cutout_Far: 0.197
+    - _dither: 0
     - _isGrass: 0
     - _windSpeed: 0.15
     - _windTiling: 0.15
@@ -154,7 +157,7 @@ Material:
     - _ColorVariation_B: {r: 5.3403134, g: 2.82187, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tint: {r: 0.69088095, g: 0.8117647, b: 0.64705884, a: 0}
+    - _Tint: {r: 0.17295595, g: 0.6603774, b: 0, a: 0}
     - _Transmission: {r: 1, g: 1, b: 1, a: 0}
     - _highlight: {r: 0.10359532, g: 0.103773594, b: 0.027901389, a: 0}
     - _windDirection: {r: 0.2, g: 0.25, b: 0.2, a: 0}
