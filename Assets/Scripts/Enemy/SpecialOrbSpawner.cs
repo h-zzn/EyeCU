@@ -12,7 +12,8 @@ public class SpecialOrbSpawner : MonoBehaviour
 
     private float coolTime = 0;
 
-    [SerializeField] private float SpecialOrbInterval = 5;
+    public float SpecialOrbSpeed = 1;
+    public float SpecialOrbInterval = 5;
 
     [SerializeField] private int maxNumofSpecialOrb = 3;
     private List<GameObject> Orbs = new List<GameObject>();
@@ -21,6 +22,14 @@ public class SpecialOrbSpawner : MonoBehaviour
     void Awake()
     {
         coolTime = SpecialOrbInterval;
+    }
+
+    private void Start()
+    {
+        foreach (GameObject spawnObject in SpecialOrbPrefab)
+        {
+            spawnObject.GetComponent<Tracing>().movingTime /= SpecialOrbSpeed;
+        }
     }
 
     // Update is called once per frame

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5930844394448909753}
   - component: {fileID: 1797786068356809688}
   - component: {fileID: 6987161686077235573}
+  - component: {fileID: 7293493386429357652}
   - component: {fileID: 3318762004738546031}
   - component: {fileID: 3213253778894077806}
   m_Layer: 0
@@ -168,15 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2560958f9ff11be4c951869076f48683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicOrbSpawner:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  stoneSpawner:
-  - {fileID: 0}
-  - {fileID: 0}
-  SpecialOrbSpawner:
-  - {fileID: 0}
+  EnemyHP: 1000
   GameClear: 0
   EventStartDelayTime: 5
   BasicSpawnTime: 20
@@ -208,6 +201,27 @@ MonoBehaviour:
   finalHPText: {fileID: 0}
   HPcontrol: 0
   stageLevel: 1
+--- !u!114 &7293493386429357652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703002612201535467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4443d7ce8540c34ab7864393180c72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicOrbSpawner: []
+  stoneSpawner: []
+  SpecialOrbSpawner: []
+  basicOrbSpeed: 1
+  basicOrbSpawnBeat: 1
+  stoneSpeed: 1
+  stoneSpawnBeat: 1
+  SpecialOrbSpeed: 1
+  SpecialOrbSpawnInterval: 1
 --- !u!82 &3318762004738546031
 AudioSource:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeafffc45464184b983c314a916d8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordType: 0
   startSlicePoint: {fileID: 1883693256}
   endSlicePoint: {fileID: 1171333135}
   velocityEstimator: {fileID: 1171333136}
@@ -629,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeafffc45464184b983c314a916d8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordType: 0
   startSlicePoint: {fileID: 98846398}
   endSlicePoint: {fileID: 1232719565}
   velocityEstimator: {fileID: 1232719566}
@@ -1467,7 +1469,7 @@ Transform:
   - {fileID: 1559196165}
   - {fileID: 1225803960}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780701388 stripped
 GameObject:
@@ -6184,23 +6186,6 @@ Transform:
   m_Father: {fileID: 5979406468573187905}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1570348124586900955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9020165295997193276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: c511565251a818e42aead2029c9dbad1, type: 2}
-  isGlobal: 0
-  blendDistance: 50
-  weight: 1
-  priority: 0
 --- !u!4 &1572921696521051952
 Transform:
   m_ObjectHideFlags: 0
@@ -7798,6 +7783,8 @@ MonoBehaviour:
   movingTime: 1
   HMT: 1
   UngSound: {fileID: 3560711704250227126}
+  DestroyVisualEffectObject: {fileID: 0}
+  DestroySoundEffectObject: {fileID: 0}
 --- !u!4 &2089978002438291533
 Transform:
   m_ObjectHideFlags: 0
@@ -36994,7 +36981,7 @@ Transform:
   - {fileID: 4650089066630153090}
   - {fileID: 8797002599593758714}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3613436500813045749
 GameObject:
@@ -44274,6 +44261,11 @@ MonoBehaviour:
   rightEffect: {fileID: 5905436350821029602}
   PoongSound: {fileID: 3954531176755519427}
   ChengSound: {fileID: 4050208226212404140}
+  TikSound: {fileID: 0}
+  deactivateMagicTime: 1
+  redMagicActive: 1
+  blueMagicActive: 1
+  vibrationDuration: 0.5
 --- !u!4 &6126650622892642588
 Transform:
   m_ObjectHideFlags: 0
@@ -52519,7 +52511,7 @@ GameObject:
   - component: {fileID: 1524497467532686956}
   - component: {fileID: 4208367441620374016}
   - component: {fileID: 7947735920735064447}
-  - component: {fileID: 1570348124586900955}
+  - component: {fileID: 9020165295997193277}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -52527,6 +52519,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9020165295997193277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020165295997193276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 0
+  priority: 0
+  blendDistance: 50
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: f908fad0f84639d4a925fe96d24e813b, type: 2}
 --- !u!1 &9021408112360503295
 GameObject:
   m_ObjectHideFlags: 0

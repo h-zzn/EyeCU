@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26224086, g: 0.7011422, b: 0.8317982, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3300,7 +3300,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -6005,7 +6005,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -6343,11 +6343,11 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: magicObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1866130034}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stoneObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1866130030}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: explainUI
       value: 
@@ -6463,6 +6463,10 @@ PrefabInstance:
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: startDelayTime
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711963296510334033, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8046650600821684447, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7253,6 +7257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2460329136019927946}
+  - component: {fileID: 8094331083392118652}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -7260,3 +7265,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8094331083392118652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8094331083392118651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4443d7ce8540c34ab7864393180c72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicOrbSpawner:
+  - {fileID: 1866130034}
+  stoneSpawner:
+  - {fileID: 1866130030}
+  SpecialOrbSpawner: []
+  basicOrbSpeed: 1
+  basicOrbSpawnInterval: 1.735715
+  stoneSpeed: 1
+  stoneSpawnInterval: 1
+  SpecialOrbSpeed: 1
+  SpecialOrbSpawnInterval: 1
