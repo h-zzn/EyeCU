@@ -2587,7 +2587,7 @@ GameObject:
   - component: {fileID: 7274397118111983981}
   - component: {fileID: 5457478850603519233}
   - component: {fileID: 2276503965970632318}
-  - component: {fileID: 7210611210155713242}
+  - component: {fileID: 3607538457174388269}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -2669,7 +2669,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &7210611210155713242
+--- !u!114 &3607538457174388269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2678,14 +2678,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 933885001815823165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: c511565251a818e42aead2029c9dbad1, type: 2}
-  isGlobal: 0
+  m_IsGlobal: 0
+  priority: 0
   blendDistance: 50
   weight: 1
-  priority: 0
+  sharedProfile: {fileID: 11400000, guid: f908fad0f84639d4a925fe96d24e813b, type: 2}
 --- !u!1 &935720986452921948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,12 +2828,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerType: -1
+  RedMagicHitEffectPrefab: {fileID: 0}
+  BlueMagicHitEffectPrefab: {fileID: 0}
   leftSword: {fileID: 7709583291316727351}
   rightSword: {fileID: 6432664790183955818}
   leftEffect: {fileID: 6400192300422484787}
   rightEffect: {fileID: 2317495940374682742}
   PoongSound: {fileID: 5132576192805486786}
   ChengSound: {fileID: 5327469263130543277}
+  TikSound: {fileID: 0}
+  deactivateMagicTime: 1
+  redMagicActive: 1
+  blueMagicActive: 1
+  vibrationDuration: 0.5
 --- !u!82 &5132576192805486786
 AudioSource:
   m_ObjectHideFlags: 0

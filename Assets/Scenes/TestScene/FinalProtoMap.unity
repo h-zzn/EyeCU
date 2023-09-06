@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08558715, g: 0.18905303, b: 0.43228, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12765,7 +12765,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -20169,7 +20169,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -20557,11 +20557,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 3}
   m_PrefabInstance: {fileID: 296951800}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1680952698 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6756208126891943994, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-  m_PrefabInstance: {fileID: 9021836042504949355}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1685497245 stripped
 Transform:
@@ -22241,11 +22236,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 3}
   m_PrefabInstance: {fileID: 994568552}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1868413350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5084701068205500188, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-  m_PrefabInstance: {fileID: 9021836042504949355}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1872446028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22988,11 +22978,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 3}
   m_PrefabInstance: {fileID: 213922927}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1914467621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5578844902814492740, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-  m_PrefabInstance: {fileID: 9021836042504949355}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1916059169
 GameObject:
   m_ObjectHideFlags: 0
@@ -23226,11 +23211,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
   m_PrefabInstance: {fileID: 645887307}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1939766887 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8682826346580531952, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
-  m_PrefabInstance: {fileID: 9021836042504949355}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1939914289 stripped
 Transform:
@@ -23927,11 +23907,11 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: magicObj
       value: 
-      objectReference: {fileID: 1914467621}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stoneObj
       value: 
-      objectReference: {fileID: 1939766887}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: explainUI
       value: 
@@ -23943,11 +23923,11 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: specialObj
       value: 
-      objectReference: {fileID: 1868413350}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: tutorialUI
       value: 
-      objectReference: {fileID: 1680952698}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: EventStartDelayTime
       value: 5

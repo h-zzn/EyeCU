@@ -3278,17 +3278,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000012711248052, guid: db0765e6c54e2234d9644377794d9ce6, type: 3}
   m_PrefabInstance: {fileID: 521953322}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &528173679 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1419564688098605827, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-  m_PrefabInstance: {fileID: 2143618531}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &530071173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14821,7 +14810,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -15107,6 +15096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881347903}
   - component: {fileID: 881347902}
+  - component: {fileID: 881347904}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -15191,6 +15181,29 @@ Transform:
   m_Father: {fileID: 1916059170}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 50, y: 692.1, z: 0}
+--- !u!114 &881347904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881347901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &884880368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34382,7 +34395,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -44279,7 +44292,7 @@ PrefabInstance:
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: postProcessingVolumeObject
       value: 
-      objectReference: {fileID: 528173679}
+      objectReference: {fileID: 0}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: failUI
       value: 
@@ -59729,43 +59742,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1100006
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.02
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.24512482
+      value: -6.58
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.102533944
+      value: -0.08477209
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.020614557
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99167174
+      value: 0.9964004
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.07515963
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 8.818
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 191.692
+      value: 189.726
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -1.477
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7056990054718925823, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: isSpawnStop
@@ -60017,35 +60030,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.73
+      value: -4.46
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.87999994
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.7299995
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.1024802
+      value: 0.102326274
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.0056146057
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99473506
+      value: 0.993241
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.054498777
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 6.281
       objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 7c9ae48a11d6c774d9e808b90a8233a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -60102,6 +60115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2460329134768956467}
+  - component: {fileID: 8094331084273957059}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -60109,3 +60123,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8094331084273957059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8094331084273957058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4443d7ce8540c34ab7864393180c72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicOrbSpawner:
+  - {fileID: 877311451}
+  - {fileID: 877311450}
+  stoneSpawner:
+  - {fileID: 877311448}
+  - {fileID: 877311447}
+  SpecialOrbSpawner:
+  - {fileID: 877311446}
+  basicOrbSpeed: 1
+  basicOrbSpawnInterval: 1.735715
+  stoneSpeed: 1
+  stoneSpawnInterval: 1
+  SpecialOrbSpeed: 1
+  SpecialOrbSpawnInterval: 1

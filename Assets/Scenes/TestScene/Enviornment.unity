@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4687749, g: 0.4561078, b: 0.45722485, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12429,7 +12429,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -19627,7 +19627,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -35758,23 +35758,6 @@ Transform:
   m_Father: {fileID: 9076141733911685863}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4234807645760837757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5918258615623690650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: c511565251a818e42aead2029c9dbad1, type: 2}
-  isGlobal: 0
-  blendDistance: 50
-  weight: 1
-  priority: 0
 --- !u!4 &4241216168829483670
 Transform:
   m_ObjectHideFlags: 0
@@ -40552,12 +40535,12 @@ GameObject:
   - component: {fileID: 4190575332452570058}
   - component: {fileID: 1542746434519381926}
   - component: {fileID: 4702875009395963097}
-  - component: {fileID: 4234807645760837757}
   - component: {fileID: 5918258615623690655}
   - component: {fileID: 5918258615623690654}
   - component: {fileID: 5918258615623690653}
   - component: {fileID: 5918258615623690652}
   - component: {fileID: 5918258615623690651}
+  - component: {fileID: 5918258615623690656}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -40890,6 +40873,23 @@ MonoBehaviour:
   shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
   shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
   shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
+--- !u!114 &5918258615623690656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918258615623690650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 0
+  priority: 0
+  blendDistance: 50
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: f908fad0f84639d4a925fe96d24e813b, type: 2}
 --- !u!1 &5920099269155403003
 GameObject:
   m_ObjectHideFlags: 0
@@ -47513,6 +47513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerType: 1
   vibrationDuration: 1
+  SsingSound: {fileID: 0}
 --- !u!4 &8383893111757133082
 Transform:
   m_ObjectHideFlags: 0
@@ -48719,6 +48720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerType: 2
   vibrationDuration: 1
+  SsingSound: {fileID: 0}
 --- !u!4 &8759648777044788984
 Transform:
   m_ObjectHideFlags: 0
@@ -49100,6 +49102,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerType: 0
+  RedMagicHitEffectPrefab: {fileID: 0}
+  BlueMagicHitEffectPrefab: {fileID: 0}
+  leftSword: {fileID: 0}
+  rightSword: {fileID: 0}
+  leftEffect: {fileID: 0}
+  rightEffect: {fileID: 0}
+  PoongSound: {fileID: 0}
+  ChengSound: {fileID: 0}
+  TikSound: {fileID: 0}
+  deactivateMagicTime: 1
+  redMagicActive: 1
+  blueMagicActive: 1
   vibrationDuration: 1
 --- !u!1 &8928257344795936458
 GameObject:
