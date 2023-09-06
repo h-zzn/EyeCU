@@ -13,6 +13,8 @@ public class Spawner : MonoBehaviour
 
     public float OrbSpeed = 1;  
 
+    public int numOfBasicOrb = 0;
+
     private void Start()
     {
         foreach (GameObject spawnObject in cubes) 
@@ -37,6 +39,7 @@ public class Spawner : MonoBehaviour
             cube.transform.localPosition = Vector3.zero;
             cube.transform.Rotate(transform.forward);
             coolTime = 0;
+            numOfBasicOrb += 1;
         }       
         coolTime += Time.deltaTime;
     }

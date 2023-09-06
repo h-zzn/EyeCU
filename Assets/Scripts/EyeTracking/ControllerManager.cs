@@ -38,6 +38,8 @@ public class ControllerManager : MonoBehaviour
 
     public float vibrationDuration = 0.5f; // 햅틱 지속 시간
 
+    public int MissingPoint = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +104,7 @@ public class ControllerManager : MonoBehaviour
             {
                 if (redMagicActive) // redMagicActive가 활성화되어 있을 때
                 {
+                    MissingPoint += 1;
                     // Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!"); 
                     redMagicActive = false; // redMagic 비활성화
                     rightEffect.SetActive(false);
@@ -159,6 +162,7 @@ public class ControllerManager : MonoBehaviour
             {
                 if (blueMagicActive) // blueMagicActive가 활성화되어 있을 때  
                 {
+                    MissingPoint += 1;
                     // Debug.Log("Wrong Target! : Blue Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");  
                     blueMagicActive = false; // blueMagic 비활성화
                     leftEffect.SetActive(false);

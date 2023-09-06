@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     public float SpecialOrbSpeed = 1; 
     public float SpecialOrbSpawnInterval = 1; 
 
-
+    public int totalNumOfBasicOrb = 0;
     
 
     void Awake()
@@ -32,11 +32,14 @@ public class SpawnManager : MonoBehaviour
 
     public void SetEnemyComponents()
     {
+        int NumOfBasicOrb = 0;
         foreach (GameObject spawner in basicOrbSpawner)
         {
             spawner.GetComponent<Spawner>().OrbSpeed = basicOrbSpeed;
             spawner.GetComponent<Spawner>().Interval = basicOrbSpawnInterval;
+            NumOfBasicOrb += spawner.GetComponent<Spawner>().numOfBasicOrb;
         }
+        totalNumOfBasicOrb = NumOfBasicOrb;
 
         foreach (GameObject spawner in stoneSpawner)
         {
@@ -44,7 +47,7 @@ public class SpawnManager : MonoBehaviour
             spawner.GetComponent<Spawner>().Interval = stoneSpawnInterval;
         }
 
-        foreach (GameObject spawner in stoneSpawner)
+        foreach (GameObject spawner in stoneSpawner) 
         {
             spawner.GetComponent<SpecialOrbSpawner>().SpecialOrbSpeed = SpecialOrbSpeed;
             spawner.GetComponent<SpecialOrbSpawner>().SpecialOrbInterval = SpecialOrbSpawnInterval;
