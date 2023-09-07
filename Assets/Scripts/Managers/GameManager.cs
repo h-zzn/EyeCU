@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
         stage3, 
         stage4, 
         stage5, 
-        stage6
+        stage6,
+        stageDDA
     }
 
     [SerializeField] private StageLevel stageLevel;
@@ -140,7 +141,7 @@ public class GameManager : MonoBehaviour
 
         ActiveGameOverWindow();
         yield return new WaitForSeconds(5);
-        GoHome();
+        GoHome(); 
     }
 
 
@@ -199,8 +200,16 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ActiveStar());
     }
 
-    public void GoHome(){
-        SceneManager.LoadScene(0); 
+    public void GoHome()
+    {
+        if(stageLevel == StageLevel.stageDDA)
+        {
+            SceneManager.LoadScene("StageDDA"); 
+        }
+        else
+        {
+            SceneManager.LoadScene(0); 
+        }       
     }
 
     public void SaveHP(int finalHP){ 
@@ -229,7 +238,7 @@ public class GameManager : MonoBehaviour
                 print("set Stage3BestHP = " + PlayerPrefs.GetInt("Stage3BestHP"));
                 PlayerPrefs.SetInt("Stage3BestHP", finalHP); 
             }   
-        }
+        } 
     }
 
     private IEnumerator ActiveStar()
