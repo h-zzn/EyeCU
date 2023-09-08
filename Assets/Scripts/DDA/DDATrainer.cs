@@ -4,59 +4,105 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using UnityEngine.SceneManagement; 
 
 public class DDATrainer : Agent
 {
     
     private SpawnManager spawnManager;
     private EventManager eventManager; 
-    private DamagedArea damagedArea;
+    private DamagedArea damagedArea; 
 
-    void Awake()
+    private int MissingPoint;
+
+    private int OriginStageHP;
+    private int OriginEnemyHP;
+
+
+    private void Awake()
     {
         eventManager = this.transform.GetComponent<EventManager>(); 
         damagedArea = this.transform.GetComponent<DamagedArea>();
         spawnManager = this.GetComponent<SpawnManager>();
-    }
 
-    public override void OnEpisodeBegin()
-    {
-    	
+        MissingPoint = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>().MissingPoint;
+
+        OriginStageHP = damagedArea.stageHP;
+        OriginEnemyHP = eventManager.EnemyHP;
     }
 
     public override void CollectObservations(VectorSensor sensor)  
     {
         // 정보 수집
-        sensor.AddObservation(1);
+        sensor.AddObservation(damagedArea.stageHP);
+        sensor.AddObservation(eventManager.EnemyHP);
+
+        sensor.AddObservation(spawnManager.basicOrbSpeed);
+        sensor.AddObservation(spawnManager.basicOrbSpawnInterval);
+        sensor.AddObservation(spawnManager.stoneSpeed);
+        sensor.AddObservation(spawnManager.stoneSpawnInterval);
+        sensor.AddObservation(spawnManager.SpecialOrbSpeed);
+        sensor.AddObservation(spawnManager.SpecialOrbSpawnInterval);
     }
 
-    public float forceMultiplier = 10;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {    
         spawnManager.basicOrbSpeed = actionBuffers.ContinuousActions[0];
         spawnManager.basicOrbSpawnInterval = actionBuffers.ContinuousActions[1];
-        spawnManager.stoneSpeed = actionBuffers.ContinuousActions[2];
+        spawnManager.stoneSpeed = actionBuffers.ContinuousActions[2]; 
         spawnManager.stoneSpawnInterval = actionBuffers.ContinuousActions[3];
         spawnManager.SpecialOrbSpeed = actionBuffers.ContinuousActions[4];
         spawnManager.SpecialOrbSpawnInterval = actionBuffers.ContinuousActions[5];
-
-        if (damagedArea.stageHP > 1000 && eventManager.GameClear == true)
-        { 
-            SetReward(1.0f);
-            EndEpisode();
-        }
-        else if (damagedArea.stageHP < 0 || eventManager.GameClear == true)
-        {
-            EndEpisode(); 
-        }
-        // 플랫폼 밖으로 나가면 Episode 종료
-
     }
 
-    public override void Heuristic(in ActionBuffers actionsOut)
+    public void EndMLAgent()
     {
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = Input.GetAxis("Horizontal");
-        continuousActionsOut[1] = Input.GetAxis("Vertical");
+        if (eventManager.GameClear == true)
+        {
+            ReviewEnding();
+            EndEpisode();
+        }
+
+        if(damagedArea.stageHP < 0)
+        {
+            SetReward(-10.0f); 
+            EndEpisode(); 
+        }
+    }
+
+    private void ReviewEnding()
+    {
+        if (damagedArea.stageHP <= 200)
+        {
+            AddReward(-5.0f);
+        }
+        else if(damagedArea.stageHP <= 500)
+        {
+            AddReward(-2.0f);
+        }
+
+        if (damagedArea.stageHP >= 1800)
+        {
+            AddReward(-5.0f);
+        }
+        else if(damagedArea.stageHP >= 1500)
+        {
+            AddReward(-2.0f);
+        }
+
+        if(MissingPoint > spawnManager.totalNumOfBasicOrb/10)
+        {
+            AddReward(2.0f);
+        }
+
+        if(MissingPoint > spawnManager.totalNumOfBasicOrb/2)
+        {
+            AddReward(-2.0f); 
+        }
+
+        if (damagedArea.stageHP > OriginStageHP/2 && damagedArea.stageHP < 1500)
+        {
+            AddReward(10.0f);
+        }
     }
 }

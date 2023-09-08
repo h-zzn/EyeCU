@@ -346,4 +346,47 @@ public class EventManager : MonoBehaviour
         //eventStarted = false;
         //EventFlow = null;
     } 
+
+    public IEnumerator StageDDAEventFlow() 
+    {   
+        //start window 
+        spawnManager.BasicSpawnStop(false); 
+        yield return new WaitForSeconds(BasicSpawnTime); 
+        spawnManager.BasicSpawnStop(true);  
+
+        yield return new WaitForSeconds(3); 
+
+        spawnManager.SpecialOrbSpawnAllStop(false);  
+        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop) 
+        {
+            yield return null; 
+        }
+
+        spawnManager.StoneSpawnStop(false); 
+        yield return new WaitForSeconds(swordTime); 
+        spawnManager.StoneSpawnStop(true); 
+
+        yield return new WaitForSeconds(3); 
+        
+        spawnManager.BasicSpawnStop(false); 
+        yield return new WaitForSeconds(10); 
+        spawnManager.StoneSpawnStop(false);
+        spawnManager.stoneSpawnInterval *= 2.5f;
+        yield return new WaitForSeconds(BasicSpawnTime-10); 
+        
+        while (EnemyHP > 0) 
+        {
+            yield return null; 
+        }
+
+        spawnManager.BasicSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
+        spawnManager.SpecialOrbSpawnAllStop(true); 
+        yield return new WaitForSeconds(8);
+    
+        GameClear = true;
+        // Reset
+        //eventStarted = false;
+        //EventFlow = null;
+    }
 }
