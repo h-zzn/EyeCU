@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal; // URP의 네임스페이스 추가
+using UnityEngine.Rendering.PostProcessing; // Post-processing에 관련된 네임스페이스 추가
+
 
 public class DamagedArea : MonoBehaviour
 {
     public int stageHP = 2000; 
     // Assign Post Processing Volume from the Scene
-    [SerializeField] private PostProcessVolume postProcessingVolumeObject;
-    private Vignette vignette;
+    [SerializeField] private Volume postProcessingVolumeObject;
+    private UnityEngine.Rendering.Universal.Vignette vignette;
 
     private float normalizedHP;
 
@@ -16,13 +19,7 @@ public class DamagedArea : MonoBehaviour
     [SerializeField] private float hitShakeSpeed = 2.0f;
     [SerializeField] private float hitShakeAmount = 1.5f;
 
-    [SerializeField] private GameObject HPGauge;
-    [SerializeField] private GameObject HPMaterialObj;
-
     private Transform cam;
-
-    private Renderer HPGaugeRenderer;
-    private List<Material> HPMaterials;
 
     void Awake()
     {
@@ -30,14 +27,9 @@ public class DamagedArea : MonoBehaviour
         cam = GameObject.Find("OVRInPlayMode").transform;
 
         // Scene에서 PostProcessVolume을 가져옴
-        // postProcessingVolumeObject = GameObject.Find("Post Processing").GetComponent<PostProcessVolume>(); 
-        // // PostProcessVolume에서 Vignette 설정 값을 가져옴
-        // postProcessingVolumeObject.profile.TryGetSettings(out vignette);
-
-        // HPGauge의 Renderer를 가져오고 Material 리스트를 설정
-        HPGaugeRenderer = HPGauge.GetComponent<Renderer>();
-        HPMaterials = new List<Material>(HPMaterialObj.GetComponent<Renderer>().materials);
-
+        postProcessingVolumeObject = GameObject.Find("Post Processing").GetComponent<Volume>(); 
+        // PostProcessVolume에서 Vignette 설정 값을 가져옴
+        postProcessingVolumeObject.profile.TryGet(out vignette);
     }
 
 
@@ -59,56 +51,6 @@ public class DamagedArea : MonoBehaviour
                 StartCoroutine(Shake());
                 Destroy(other.transform.parent.gameObject); 
             }
-        }
-
-        //stageHP 에 따라 HP 게이지 조절
-
-        if(stageHP > 1900){
-            HPGaugeRenderer.material = HPMaterials[0];
-        }
-
-        else if(stageHP >= 1900){
-            HPGaugeRenderer.material = HPMaterials[1];
-        }
-
-        else if(stageHP >= 1700){
-            HPGaugeRenderer.material = HPMaterials[2];
-        }
-
-        else if(stageHP >= 1500){
-            HPGaugeRenderer.material = HPMaterials[3];
-        }
-
-        else if(stageHP >= 1300){
-            HPGaugeRenderer.material = HPMaterials[4];
-        }
-
-        else if(stageHP >= 1100){
-            HPGaugeRenderer.material = HPMaterials[5];
-        }
-
-        else if(stageHP >= 900){
-            HPGaugeRenderer.material = HPMaterials[6]; 
-        }
-
-        else if(stageHP >= 700){
-            HPGaugeRenderer.material = HPMaterials[7];
-        }
-
-        else if(stageHP >= 500){
-            HPGaugeRenderer.material = HPMaterials[8]; 
-        }
-
-        else if(stageHP >= 300){
-            HPGaugeRenderer.material = HPMaterials[9];  
-        }
-
-        else if(stageHP >= 100){
-            HPGaugeRenderer.material = HPMaterials[10];
-        }
-
-        else{
-            HPGaugeRenderer.material = HPMaterials[11];
         }
 
         // Calculate the normalized HP
