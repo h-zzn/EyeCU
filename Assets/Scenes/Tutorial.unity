@@ -6930,7 +6930,7 @@ PrefabInstance:
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: postProcessingVolumeObject
       value: 
-      objectReference: {fileID: 7688531204794948736}
+      objectReference: {fileID: 0}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: failUI
       value: 
@@ -13415,7 +13415,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   - {fileID: 2100000, guid: ec194b84f7a17fd419c28602be23444f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -39428,17 +39428,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
---- !u!114 &7688531204794948736 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1419564688098605827, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-  m_PrefabInstance: {fileID: 7688531204794948735}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7792704428079560139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39768,6 +39757,7 @@ MonoBehaviour:
   stoneSpawnInterval: 1
   SpecialOrbSpeed: 1
   SpecialOrbSpawnInterval: 1
+  totalNumOfBasicOrb: 0
 --- !u!33 &8330875389064174039
 MeshFilter:
   m_ObjectHideFlags: 0
