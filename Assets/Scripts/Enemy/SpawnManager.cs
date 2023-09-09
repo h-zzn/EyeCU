@@ -47,7 +47,7 @@ public class SpawnManager : MonoBehaviour
             spawner.GetComponent<Spawner>().Interval = stoneSpawnInterval;
         }
 
-        foreach (GameObject spawner in stoneSpawner) 
+        foreach (GameObject spawner in SpecialOrbSpawner) 
         {
             spawner.GetComponent<SpecialOrbSpawner>().SpecialOrbSpeed = SpecialOrbSpeed;
             spawner.GetComponent<SpecialOrbSpawner>().SpecialOrbInterval = SpecialOrbSpawnInterval;
