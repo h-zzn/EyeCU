@@ -28,7 +28,7 @@ public class SpecialOrbSpawner : MonoBehaviour
     {
         foreach (GameObject spawnObject in SpecialOrbPrefab)
         {
-            spawnObject.GetComponent<Tracing>().movingTime /= SpecialOrbSpeed;
+            spawnObject.transform.GetChild(0).GetComponent<Tracing>().movingTime /= SpecialOrbSpeed;
         }
     }
 

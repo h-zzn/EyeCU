@@ -672,6 +672,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1433053694}
     m_Modifications:
+    - target: {fileID: 1078036533426127203, guid: 6bc674b3353c8c4409e6296658998682, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7847797148965847804, guid: 6bc674b3353c8c4409e6296658998682, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 8369986445441330527, guid: 6bc674b3353c8c4409e6296658998682, type: 3}
       propertyPath: m_Name
       value: Tower2 (1)
@@ -2988,6 +2996,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1433053694}
     m_Modifications:
+    - target: {fileID: 1078036533426127203, guid: 6bc674b3353c8c4409e6296658998682, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 7847797148965847804, guid: 6bc674b3353c8c4409e6296658998682, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 8369986445441330527, guid: 6bc674b3353c8c4409e6296658998682, type: 3}
       propertyPath: m_Name
       value: Tower2
@@ -3820,6 +3836,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1433053694}
     m_Modifications:
+    - target: {fileID: 20658598523666711, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 1234188421399673084, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3864,10 +3884,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1494678644483000709, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 3071371447648346478, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 3719120710699536579, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
       propertyPath: m_Name
       value: Tower1_A
       objectReference: {fileID: 0}
+    - target: {fileID: 8565747492650914148, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 8663320353406342195, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11215,6 +11251,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 954677647894875648, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 2035183284888818214, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
       propertyPath: m_Name
       value: YoungJo'sEye
@@ -11267,6 +11307,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852127847083660620, guid: 26cdef4f4b0353340b503facd32f80f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14994,6 +15038,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1433053694}
     m_Modifications:
+    - target: {fileID: 20658598523666711, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 1234188421399673084, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -15038,10 +15086,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1494678644483000709, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 3071371447648346478, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 3719120710699536579, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
       propertyPath: m_Name
       value: Tower1_A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565747492650914148, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 8663320353406342195, guid: f47beff3889d4744cb3bae894e8ab668, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15395,7 +15459,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16413,6 +16477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Gate_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8317785356857192589, guid: 314d8309ecc37b841991fa5ae0997742, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18486,6 +18554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower2A
       objectReference: {fileID: 0}
+    - target: {fileID: 737471409553174519, guid: ef2893773df02174087f4aeaedb7774c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 914105714278058175, guid: ef2893773df02174087f4aeaedb7774c, type: 3}
       propertyPath: m_RootOrder
       value: -1
