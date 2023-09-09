@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal; // URP의 네임스페이스 추가
+using UnityEngine.Rendering.PostProcessing; // Post-processing에 관련된 네임스페이스 추가
+
 
 public class DamagedArea : MonoBehaviour
 {
     public int stageHP = 2000; 
     // Assign Post Processing Volume from the Scene
-    [SerializeField] private PostProcessVolume postProcessingVolumeObject;
-    private Vignette vignette;
+    [SerializeField] private Volume postProcessingVolumeObject;
+    private UnityEngine.Rendering.Universal.Vignette vignette;
 
     private float normalizedHP;
 
@@ -24,9 +27,9 @@ public class DamagedArea : MonoBehaviour
         cam = GameObject.Find("OVRInPlayMode").transform;
 
         // Scene에서 PostProcessVolume을 가져옴
-        postProcessingVolumeObject = GameObject.Find("Post Processing").GetComponent<PostProcessVolume>(); 
+        postProcessingVolumeObject = GameObject.Find("Post Processing").GetComponent<Volume>(); 
         // PostProcessVolume에서 Vignette 설정 값을 가져옴
-        postProcessingVolumeObject.profile.TryGetSettings(out vignette);
+        postProcessingVolumeObject.profile.TryGet(out vignette);
     }
 
 
