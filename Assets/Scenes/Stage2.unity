@@ -45063,6 +45063,10 @@ PrefabInstance:
       propertyPath: m_HDR
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: controllerType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -45110,6 +45114,10 @@ PrefabInstance:
     - target: {fileID: 5274578547673623769, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_Name
       value: OVRInPlayMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356390845564278333, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: controllerType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7203393804157476185, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_Enabled
