@@ -7,11 +7,11 @@ public class HandEffectCollision : MonoBehaviour
 {
     public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
     public float vibrationDuration = 2.0f; // 햅틱 지속 시간
-    public GameObject skillOrb; // "skill" 오브젝트를 저장할 리스트
+    public GameObject skillCircle; // "skill" 오브젝트를 저장할 리스트
 
     private void Start()
     {
-        skillOrb.SetActive(false);
+        skillCircle.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,8 +38,8 @@ public class HandEffectCollision : MonoBehaviour
             DeactivateChildren(this.gameObject);
 
             // 활성화되지 않은 "skill" 오브젝트를 찾아서 활성화
-            
-            skillOrb.SetActive(true);
+
+            skillCircle.SetActive(true);
         }
     }
 

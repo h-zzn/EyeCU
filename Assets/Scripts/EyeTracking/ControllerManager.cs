@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using static OVRHaptics;
 
@@ -39,6 +40,19 @@ public class ControllerManager : MonoBehaviour
     public float vibrationDuration = 0.5f; // 햅틱 지속 시간
 
     public int MissingPoint = 0;
+    private int skillEnergyPoint = 0;
+
+    [SerializeField] private GameObject SkillGauge;
+    [SerializeField] private GameObject SkillMaterialObj;
+
+    private Renderer SkillGaugeRenderer;
+
+    private List<Material> SkillMaterials;
+
+    private void Awake()
+    {
+        SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +62,8 @@ public class ControllerManager : MonoBehaviour
         
         //eyeTrackingRayLeft = LeftEyeInteractor.GetComponent<EyeTrackingRay>();
         eyeTrackingRayRight = RightEyeInteractor.GetComponent<EyeTrackingRay>();
+
+        SkillGaugeRenderer = SkillGauge.GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -57,6 +73,60 @@ public class ControllerManager : MonoBehaviour
             BtnDown();
         
         activeSword();
+
+        chargeSkillGauge();
+    }
+
+    private void chargeSkillGauge()
+    {
+        if (skillEnergyPoint < 100)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[0];
+        }
+        else if (skillEnergyPoint <= 100)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[1];
+        }
+        else if (skillEnergyPoint <= 300)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[2];
+        }
+        else if (skillEnergyPoint <= 500)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[3];
+        }
+        else if (skillEnergyPoint <= 700)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[4];
+        }
+        else if (skillEnergyPoint <= 900)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[5];
+        }
+        else if (skillEnergyPoint <= 1100)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[6];
+        }
+        else if (skillEnergyPoint <= 1300)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[7];
+        }
+        else if (skillEnergyPoint <= 1500)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[8];
+        }
+        else if (skillEnergyPoint <= 1700)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[9];
+        }
+        else if (skillEnergyPoint <= 1900)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[10];
+        }
+        else
+        {
+            SkillGaugeRenderer.material = SkillMaterials[11];
+        }
     }
 
     void BtnDown()
@@ -68,6 +138,9 @@ public class ControllerManager : MonoBehaviour
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
             {   
                 if (redMagicActive){ // 오른손 Red Magic이 사용 가능일 때 
+
+                    skillEnergyPoint += 100;
+
                     if (PoongSound != null)
                     {
                         PoongSound.Play();
@@ -105,6 +178,7 @@ public class ControllerManager : MonoBehaviour
                 if (redMagicActive) // redMagicActive가 활성화되어 있을 때
                 {
                     MissingPoint += 1;
+                    skillEnergyPoint -= 100;
                     // Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!"); 
                     redMagicActive = false; // redMagic 비활성화
                     rightEffect.SetActive(false);
@@ -125,6 +199,8 @@ public class ControllerManager : MonoBehaviour
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
             {
                 if(blueMagicActive){ // 오른손 Blue Magic이 사용 가능일 때
+                    skillEnergyPoint += 100;
+
                     if (PoongSound != null)
                     {
                         PoongSound.Play();
@@ -163,6 +239,7 @@ public class ControllerManager : MonoBehaviour
                 if (blueMagicActive) // blueMagicActive가 활성화되어 있을 때  
                 {
                     MissingPoint += 1;
+                    skillEnergyPoint -= 100;
                     // Debug.Log("Wrong Target! : Blue Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");  
                     blueMagicActive = false; // blueMagic 비활성화
                     leftEffect.SetActive(false);
