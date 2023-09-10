@@ -76315,6 +76315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a15be3c8f96724abef368e310d1821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerType: 0
+  vibrationDuration: 2
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81683,6 +81685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a15be3c8f96724abef368e310d1821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerType: 0
+  vibrationDuration: 2
 --- !u!54 &3446604728373209257
 Rigidbody:
   m_ObjectHideFlags: 0
