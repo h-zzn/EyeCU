@@ -7,6 +7,12 @@ public class HandEffectCollision : MonoBehaviour
 {
     public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
     public float vibrationDuration = 2.0f; // 햅틱 지속 시간
+    public GameObject skillOrb; // "skill" 오브젝트를 저장할 리스트
+
+    private void Start()
+    {
+        skillOrb.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,20 +37,29 @@ public class HandEffectCollision : MonoBehaviour
             // Deactivate children of this GameObject
             DeactivateChildren(this.gameObject);
 
-            // Deactivate children of the colliding GameObject
-            DeactivateChildren(other.gameObject);
+            // 활성화되지 않은 "skill" 오브젝트를 찾아서 활성화
+            
+            skillOrb.SetActive(true);
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("HandEffect"))
-        {
-            ReactivateChildren(this.gameObject);
 
-            ReactivateChildren(other.gameObject);
-        }
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("HandEffect"))
+    //     {
+    //         ReactivateChildren(this.gameObject);
+
+    //         // 비활성화된 "skill" 오브젝트를 다시 비활성화
+    //         foreach (var skillObject in skillObjects)
+    //         {
+    //             if (skillObject.activeSelf)
+    //             {
+    //                 skillObject.SetActive(false);
+    //             }
+    //         }
+    //     }
+    // }
 
     private void DeactivateChildren(GameObject parent)
     {

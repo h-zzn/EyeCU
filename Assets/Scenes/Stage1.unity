@@ -2917,6 +2917,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4996371086125650, guid: 87d1d734739f10440b2bdbb449c09a9e, type: 3}
   m_PrefabInstance: {fileID: 931998395}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &987523168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9144986196249016360, guid: 6e6d96fc065ad8641a2bad964c1583b9, type: 3}
+  m_PrefabInstance: {fileID: 896982922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &989588338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6551,7 +6556,7 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: specialObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 987523168}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: tutorialUI
       value: 
@@ -6627,7 +6632,7 @@ PrefabInstance:
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: postProcessingVolumeObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2099779600}
     - target: {fileID: 6987161686077235573, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: failUI
       value: 
@@ -6664,6 +6669,22 @@ PrefabInstance:
       propertyPath: startDelayTime
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: stoneSpawner.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: basicOrbSpawner.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: stoneSpawner.Array.data[0]
+      value: 
+      objectReference: {fileID: 1866130030}
+    - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: basicOrbSpawner.Array.data[0]
+      value: 
+      objectReference: {fileID: 1866130034}
     - target: {fileID: 7711963296510334033, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -7001,6 +7022,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4237626469908324, guid: af46e0e24402dfa49aea336191bc47ab, type: 3}
   m_PrefabInstance: {fileID: 2059690503}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2099779600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2377142079274669962, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 7688531204794948735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2139737203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7614,7 +7646,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2460329136019927946}
-  - component: {fileID: 8094331083392118652}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -7622,27 +7653,3 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8094331083392118652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8094331083392118651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4443d7ce8540c34ab7864393180c72e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicOrbSpawner:
-  - {fileID: 1866130034}
-  stoneSpawner:
-  - {fileID: 1866130030}
-  SpecialOrbSpawner: []
-  basicOrbSpeed: 1
-  basicOrbSpawnInterval: 1.735715
-  stoneSpeed: 1
-  stoneSpawnInterval: 1
-  SpecialOrbSpeed: 1
-  SpecialOrbSpawnInterval: 1
-  totalNumOfBasicOrb: 0
