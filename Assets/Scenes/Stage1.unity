@@ -1143,6 +1143,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
+--- !u!1 &475473930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6237000517705618059, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
+  m_PrefabInstance: {fileID: 475473929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &475473931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5963335018829832833, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
+  m_PrefabInstance: {fileID: 475473929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &492036940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7428,6 +7438,14 @@ PrefabInstance:
       propertyPath: m_HDR
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: SkillGauge
+      value: 
+      objectReference: {fileID: 475473931}
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: SkillMaterialObj
+      value: 
+      objectReference: {fileID: 475473930}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 1
