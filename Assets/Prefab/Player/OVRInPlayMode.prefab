@@ -68955,6 +68955,8 @@ MonoBehaviour:
   blueMagicActive: 1
   vibrationDuration: 0.5
   MissingPoint: 0
+  SkillGauge: {fileID: 0}
+  SkillMaterialObj: {fileID: 0}
 --- !u!82 &7977265096230928998
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76315,8 +76317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a15be3c8f96724abef368e310d1821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerType: 0
   vibrationDuration: 2
+  skillCircle: {fileID: 0}
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81680,13 +81682,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7889350068768342980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73a15be3c8f96724abef368e310d1821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerType: 0
   vibrationDuration: 2
+  skillCircle: {fileID: 0}
 --- !u!54 &3446604728373209257
 Rigidbody:
   m_ObjectHideFlags: 0

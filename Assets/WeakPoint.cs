@@ -8,7 +8,6 @@ public class WeakPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        
-        
             // PlayerController와 충돌했을 때, OnWeakPointHit 함수를 호출하여 enemy의 hp를 감소시킴
             enemy.OnWeakPointHit(isPrimaryController);
         
