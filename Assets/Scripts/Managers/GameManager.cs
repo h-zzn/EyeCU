@@ -70,19 +70,24 @@ public class GameManager : MonoBehaviour
         // if(PlayerPrefs.HasKey("FinalHP")){
         //     StageClear();
         // }
+        if (stageLevel != StageLevel.tutorial)
+        {
+            Invoke("AutoHealingHP", 2f);
+        }
     }
 
     void Update() 
     {
         //print("damagedArea.stageHP :"+ damagedArea.stageHP);
-        if(damagedArea.stageHP <= 0)
+        if (damagedArea.stageHP <= 0)
         {
             if(stageLevel != StageLevel.tutorial){
                 if(stageOver == null)
                     stageOver = StartCoroutine(StageOver());  // StageOver 
                 eventManager.EventFlow = null;  
             }
-            else{ 
+            else
+            { 
                 GoHome();
             }
         }
@@ -259,6 +264,18 @@ public class GameManager : MonoBehaviour
             starObj.transform.GetChild(4).gameObject.SetActive(true);   
             yield return new WaitForSeconds(1.03f);
             StarSFX.Play();
+        }
+    }
+
+    private void AutoHealingHP()
+    {
+        if (damagedArea.stageHP <= 1800)
+        {
+            damagedArea.stageHP += 200;
+        }
+        else
+        {
+            damagedArea.stageHP = 2000;
         }
     }
 }

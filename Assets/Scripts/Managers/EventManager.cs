@@ -382,7 +382,7 @@ public class EventManager : MonoBehaviour
         
         yield return new WaitForSeconds(3); 
         animator5B.SetBool("isDone", true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2); 
         SkillUI.transform.GetChild(1).gameObject.SetActive(false); 
         SkillUI.transform.GetChild(2).gameObject.SetActive(true);  // Skill step3 UI
         yield return new WaitForSeconds(3); 
