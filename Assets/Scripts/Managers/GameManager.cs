@@ -277,5 +277,6 @@ public class GameManager : MonoBehaviour
         {
             damagedArea.stageHP = 2000;
         }
+        Invoke("AutoHealingHP", 2f);
     }
 }
