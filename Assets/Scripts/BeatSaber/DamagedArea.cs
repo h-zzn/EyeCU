@@ -44,27 +44,7 @@ public class DamagedArea : MonoBehaviour
 
     }
 
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube") || other.gameObject.CompareTag("LavaStone") || other.gameObject.CompareTag("IceStone"))
-        {
-            stageHP -= 100;
-            // Shake the camera
-            StartCoroutine(Shake());
-            Destroy(other.gameObject); 
-        }
-        else if(other.gameObject.CompareTag("MovingOrb"))
-        {
-            if (other.transform.parent != null)
-            {
-                stageHP -= 500;
-                // Shake the camera
-                StartCoroutine(Shake());
-                Destroy(other.transform.parent.gameObject); 
-            }
-        }
-        
+    void Update(){
         //stageHP 에 따라 HP 게이지 조절
 
         if(stageHP > 1900){
@@ -102,6 +82,28 @@ public class DamagedArea : MonoBehaviour
         }
         else{
             HPGaugeRenderer.material = HPMaterials[11];
+        }
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube") || other.gameObject.CompareTag("LavaStone") || other.gameObject.CompareTag("IceStone"))
+        {
+            stageHP -= 100;
+            // Shake the camera
+            StartCoroutine(Shake());
+            Destroy(other.gameObject); 
+        }
+        else if(other.gameObject.CompareTag("MovingOrb"))
+        {
+            if (other.transform.parent != null)
+            {
+                stageHP -= 500;
+                // Shake the camera
+                StartCoroutine(Shake());
+                Destroy(other.transform.parent.gameObject); 
+            }
         }
 
         // Calculate the normalized HP
