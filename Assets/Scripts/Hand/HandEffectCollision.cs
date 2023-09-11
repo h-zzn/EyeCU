@@ -5,18 +5,26 @@ using static OVRHaptics;
 
 public class HandEffectCollision : MonoBehaviour
 {
-    public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
     public float vibrationDuration = 2.0f; // 햅틱 지속 시간
     public GameObject skillCircle; // "skill" 오브젝트를 저장할 리스트
+    private bool canUseSkill = false;
+    private bool hasCollided = false;
 
     private void Start()
     {
         skillCircle.SetActive(false);
+        StartCoroutine(EnableCollisionAfterDelay());
+    }
+
+    private IEnumerator EnableCollisionAfterDelay()
+    {
+        yield return new WaitForSeconds(10.0f);
+        canUseSkill = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("HandEffect"))
+        if (canUseSkill && !hasCollided && other.CompareTag("HandEffect"))
         {
             Debug.Log("Collision Detected with: " + other.name);
 
@@ -28,18 +36,21 @@ public class HandEffectCollision : MonoBehaviour
                 clip.WriteSample(sample);
             }
 
-            OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
-            hapticsChannel.Preempt(clip);
+            LeftChannel.Preempt(clip);
+            RightChannel.Preempt(clip);
 
             // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
             StartCoroutine(StopVibration());
 
             // Deactivate children of this GameObject
             DeactivateChildren(this.gameObject);
+            DeactivateChildren(other.gameObject);
 
             // 활성화되지 않은 "skill" 오브젝트를 찾아서 활성화
 
             skillCircle.SetActive(true);
+
+            hasCollided = true;
         }
     }
 
@@ -84,7 +95,7 @@ public class HandEffectCollision : MonoBehaviour
         yield return new WaitForSeconds(vibrationDuration);
 
         // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
-        OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
-        hapticsChannel.Clear();
+        LeftChannel.Clear();
+        RightChannel.Clear();
     }
 }
