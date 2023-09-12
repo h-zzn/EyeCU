@@ -33,9 +33,13 @@ public class Tracing : MonoBehaviour
 
     public Vector3 HoverPosition { get; set; }
 
+    public ControllerManager controllerManager;
+
     private void Awake()
     {
         IsHovered = false;
+
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
     }
 
     private void Update()
@@ -72,6 +76,8 @@ public class Tracing : MonoBehaviour
                     Destroy(DestroySoundInstance, 1f);
 
                     Destroy(transform.parent.gameObject);
+
+                    controllerManager.skillEnergyPoint += controllerManager.attackPoint*8; 
                 }
             }
         }

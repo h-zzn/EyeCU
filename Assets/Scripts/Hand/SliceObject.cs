@@ -20,10 +20,13 @@ public class SliceObject : MonoBehaviour
 
     public Material crossSectionMaterial;
     public float cutForce = 2000f ;
-    // Start is called before the first frame update
+
+    public ControllerManager controllerManager; 
+
+    // Start is called before the first frame update 
     void Start()
     {
-        
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>(); 
     }
      
     // Update is called once per frame
@@ -58,21 +61,22 @@ public class SliceObject : MonoBehaviour
         planeNormal.Normalize();
         SlicedHull hull = target.Slice(endSlicePoint.position, planeNormal);
 
+        
         if(hull != null)
         {
             GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
-            SetupSlicedComponent(upperHull);
+            SetupSlicedComponent(upperHull); 
             ChangeLayer(upperHull);
-            DestroyAfterDelay(upperHull,2f);
-            
+            DestroyAfterDelay(upperHull,2f); 
 
             GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
-            SetupSlicedComponent(lowerHull);
+            SetupSlicedComponent(lowerHull); 
             ChangeLayer(lowerHull);
-            DestroyAfterDelay(lowerHull,2f);
-
+            DestroyAfterDelay(lowerHull,2f); 
 
             Destroy(target);
+
+            controllerManager.skillEnergyPoint += controllerManager.attackPoint; 
         }
     }
 
