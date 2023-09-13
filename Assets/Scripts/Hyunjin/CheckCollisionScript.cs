@@ -32,8 +32,8 @@ public class CheckCollisionScript : MonoBehaviour
                 FadeOut(3); // stage 3
             }
             
-            if(this.gameObject.name == "dragon"){       //튜토리얼로
-                FadeOut(4); // stage 3
+            if(this.gameObject.name == "tutorialObj"){       //튜토리얼로
+                FadeOut(4); // tutorial
             }
         }
     }

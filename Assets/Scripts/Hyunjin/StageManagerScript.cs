@@ -56,7 +56,8 @@ public class StageManagerScript : MonoBehaviour
         //완료한 스테이지 비활성화 
         if(levelat > 0){
             for(int i = 0; i<levelat; i++){
-                stages[i].SetActive(false);       // 완료한 스테이지 파티클 효과 비활성화
+                if(stages[i].gameObject.name != "tutorialObj")
+                    stages[i].SetActive(false);       // 완료한 스테이지 파티클 효과 비활성화
                 successBlock[i].SetActive(true);  // success 오브젝트 활성화             
             }
         }
