@@ -24,7 +24,7 @@ public class gameStartScript : MonoBehaviour
 
 
     void Start(){
-        //PlayerPrefs.DeleteKey("knifeActive"); 
+        PlayerPrefs.DeleteKey("knifeActive"); 
         canvasAnimator = canvasObj.transform.gameObject.GetComponent<Animator>();
         canvasAnimator.SetBool("isStory", false);  // true로 바꾸기
 
