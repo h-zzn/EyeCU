@@ -25,10 +25,15 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if(!isSpawnStop)
+        if (!isSpawnStop)
         {
-            spawnOrb(); 
-        }   
+
+            spawnOrb();
+        }
+        else 
+        {
+            
+        }
     }
 
     public void spawnOrb()

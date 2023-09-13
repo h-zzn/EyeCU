@@ -72,7 +72,7 @@ public class MapManager : MonoBehaviour
         while (elapsedTime < fadeInDuration)
         {
             float t = elapsedTime / fadeInDuration;
-            Color newColor = Color.Lerp(initialColor, targetColor, t);
+            Color newColor = Color.Lerp(initialColor, objectMaterial.color, t);
             newColor.a = Mathf.Lerp(0f, 1f, t); // 알파값을 서서히 증가시킴
             objectMaterial.color = newColor;
 
