@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     int levelReached;
 
+    public ControllerManager controllerManager;
+
     private enum StageLevel
     {
         tutorial, 
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
         eventManager = this.transform.GetComponent<EventManager>(); 
         damagedArea = this.transform.GetComponent<DamagedArea>();
     }
@@ -70,19 +73,32 @@ public class GameManager : MonoBehaviour
         // if(PlayerPrefs.HasKey("FinalHP")){
         //     StageClear();
         // }
+        if (stageLevel == StageLevel.tutorial)
+        {
+            Invoke("AutoHealingHP", 2f);
+        }
+        else if (stageLevel == StageLevel.stage1)
+        {
+            controllerManager.attackPoint /= 2;
+        }
+        else if (stageLevel == StageLevel.stage1)
+        {
+            controllerManager.attackPoint /= 4; 
+        }
     }
 
     void Update() 
     {
         //print("damagedArea.stageHP :"+ damagedArea.stageHP);
-        if(damagedArea.stageHP <= 0)
+        if (damagedArea.stageHP <= 0)
         {
             if(stageLevel != StageLevel.tutorial){
                 if(stageOver == null)
                     stageOver = StartCoroutine(StageOver());  // StageOver 
                 eventManager.EventFlow = null;  
             }
-            else{ 
+            else
+            { 
                 GoHome();
             }
         }
@@ -96,10 +112,6 @@ public class GameManager : MonoBehaviour
             else{ 
                 GoHome();
             }
-        }
-        else if(stageLevel == StageLevel.tutorial)
-        {
-            damagedArea.stageHP = 2000;
         }
 
         // Wait for startDelayTime
@@ -260,5 +272,18 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1.03f);
             StarSFX.Play();
         }
+    }
+
+    private void AutoHealingHP()
+    {
+        if (damagedArea.stageHP <= 1800)
+        {
+            damagedArea.stageHP += 200;
+        }
+        else
+        {
+            damagedArea.stageHP = 2000;
+        }
+        Invoke("AutoHealingHP", 2f);
     }
 }

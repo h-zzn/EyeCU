@@ -40,7 +40,8 @@ public class ControllerManager : MonoBehaviour
     public float vibrationDuration = 0.5f; // 햅틱 지속 시간
 
     public int MissingPoint = 0;
-    private int skillEnergyPoint = 0;
+    public int skillEnergyPoint = 0;
+    public int attackPoint = 100;
 
     [SerializeField] private GameObject SkillGauge;
     [SerializeField] private GameObject SkillMaterialObj;
@@ -139,7 +140,7 @@ public class ControllerManager : MonoBehaviour
             {   
                 if (redMagicActive){ // 오른손 Red Magic이 사용 가능일 때 
 
-                    skillEnergyPoint += 100;
+                    skillEnergyPoint += 50;
 
                     if (PoongSound != null)
                     {
@@ -199,7 +200,7 @@ public class ControllerManager : MonoBehaviour
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
             {
                 if(blueMagicActive){ // 오른손 Blue Magic이 사용 가능일 때
-                    skillEnergyPoint += 100;
+                    skillEnergyPoint += 50;
 
                     if (PoongSound != null)
                     {

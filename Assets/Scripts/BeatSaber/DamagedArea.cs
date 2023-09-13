@@ -44,6 +44,11 @@ public class DamagedArea : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        //stageHP 에 따라 HP 게이지 조절
+        chargingHPGauge();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -63,45 +68,6 @@ public class DamagedArea : MonoBehaviour
                 StartCoroutine(Shake());
                 Destroy(other.transform.parent.gameObject); 
             }
-        }
-        
-        //stageHP 에 따라 HP 게이지 조절
-
-        if(stageHP > 1900){
-            HPGaugeRenderer.material = HPMaterials[0];
-        }
-        else if(stageHP >= 1900){ 
-            HPGaugeRenderer.material = HPMaterials[1];
-        }
-        else if(stageHP >= 1700){
-            HPGaugeRenderer.material = HPMaterials[2];
-        }
-        else if(stageHP >= 1500){
-            HPGaugeRenderer.material = HPMaterials[3];
-        }
-        else if(stageHP >= 1300){
-            HPGaugeRenderer.material = HPMaterials[4];
-        }
-        else if(stageHP >= 1100){
-            HPGaugeRenderer.material = HPMaterials[5];
-        }
-        else if(stageHP >= 900){
-            HPGaugeRenderer.material = HPMaterials[6]; 
-        }
-        else if(stageHP >= 700){
-            HPGaugeRenderer.material = HPMaterials[7];
-        }
-        else if(stageHP >= 500){
-            HPGaugeRenderer.material = HPMaterials[8]; 
-        }
-        else if(stageHP >= 300){
-            HPGaugeRenderer.material = HPMaterials[9];  
-        }
-        else if(stageHP >= 100){
-            HPGaugeRenderer.material = HPMaterials[10];
-        }
-        else{
-            HPGaugeRenderer.material = HPMaterials[11];
         }
 
         // Calculate the normalized HP
@@ -127,5 +93,57 @@ public class DamagedArea : MonoBehaviour
         }
 
         cam.localPosition = originPosition;
+    }
+
+    void chargingHPGauge()
+    {
+        if (stageHP > 1900)
+        {
+            HPGaugeRenderer.material = HPMaterials[0];
+        }
+        else if (stageHP >= 1900)
+        {
+            HPGaugeRenderer.material = HPMaterials[1];
+        }
+        else if (stageHP >= 1700)
+        {
+            HPGaugeRenderer.material = HPMaterials[2];
+        }
+        else if (stageHP >= 1500)
+        {
+            HPGaugeRenderer.material = HPMaterials[3];
+        }
+        else if (stageHP >= 1300)
+        {
+            HPGaugeRenderer.material = HPMaterials[4];
+        }
+        else if (stageHP >= 1100)
+        {
+            HPGaugeRenderer.material = HPMaterials[5];
+        }
+        else if (stageHP >= 900)
+        {
+            HPGaugeRenderer.material = HPMaterials[6];
+        }
+        else if (stageHP >= 700)
+        {
+            HPGaugeRenderer.material = HPMaterials[7];
+        }
+        else if (stageHP >= 500)
+        {
+            HPGaugeRenderer.material = HPMaterials[8];
+        }
+        else if (stageHP >= 300)
+        {
+            HPGaugeRenderer.material = HPMaterials[9];
+        }
+        else if (stageHP >= 100)
+        {
+            HPGaugeRenderer.material = HPMaterials[10];
+        }
+        else
+        {
+            HPGaugeRenderer.material = HPMaterials[11];
+        }
     }
 }
