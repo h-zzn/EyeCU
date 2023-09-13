@@ -119,14 +119,14 @@ public class EventManager : MonoBehaviour
     public IEnumerator Stage1EventFlow()
     {   
         //start window 
-        spawnManager.BasicSpawnStop(false);
-        yield return new WaitForSeconds(BasicSpawnTime);
-        spawnManager.BasicSpawnStop(true);
+        spawnManager.BasicSpawnStop(false); 
+        yield return new WaitForSeconds(BasicSpawnTime);  
+        spawnManager.BasicSpawnStop(true); 
 
         yield return new WaitForSeconds(3);
         
         spawnManager.StoneSpawnStop(false); 
-        yield return new WaitForSeconds(swordTime); 
+        yield return new WaitForSeconds(swordTime);  
         spawnManager.StoneSpawnStop(true); 
 
         yield return new WaitForSeconds(3);
@@ -135,13 +135,12 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(10); 
         spawnManager.StoneSpawnStop(false);
         spawnManager.stoneSpawnInterval *= 3f;
-        yield return new WaitForSeconds(BasicSpawnTime); 
+        yield return new WaitForSeconds(BasicSpawnTime);  
         
-        
-        while (EnemyHP > 0) 
+        while (EnemyHP > 0)  
         {
             yield return null; 
-        }
+        } 
 
         spawnManager.BasicSpawnStop(true); 
         spawnManager.StoneSpawnStop(true); 
@@ -276,22 +275,6 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(1).gameObject.SetActive(false);
         
-        //step3 UI
-        magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
-        yield return new WaitForSeconds(5); 
-        tutorialEvent.magicFailMission = false; 
-        spawnManager.BasicSpawnStop(false);
-        while(!tutorialEvent.magicFailMission) 
-        {
-            yield return null; 
-        }
-        glowing.SetGlowing();
-        yield return new WaitForSeconds(5);
-        spawnManager.BasicSpawnStop(true);
-        animator1C.SetBool("isDone", true);  
-        yield return new WaitForSeconds(2);
-        magicObj.transform.GetChild(2).gameObject.SetActive(false);  
-
         //[****?���?? ?���?? ?���?? 방법 window***]
         //step1 UI
         specialObj.transform.GetChild(0).gameObject.SetActive(true);    //special step1 UI
@@ -340,9 +323,8 @@ public class EventManager : MonoBehaviour
         glowing.SetGlowing(); 
         animator3B.SetBool("isDone", true);  
         yield return new WaitForSeconds(2);  
-        stoneObj.transform.GetChild(01).gameObject.SetActive(false);  
-        
-        
+        stoneObj.transform.GetChild(01).gameObject.SetActive(false);
+
         //[*** HP 설명 window ***]
         HPUI.SetActive(true); 
         //HPUI.transform.GetChild(0).gameObject.SetActive(true);     // HP step1 UI
@@ -366,7 +348,23 @@ public class EventManager : MonoBehaviour
         animator4C.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         HPUI.transform.GetChild(2).gameObject.SetActive(false);   
-        HPUI.SetActive(false); 
+        HPUI.SetActive(false);
+
+        //[잘못 눌렀을 경우 게이지 감소 및 패널티 설명]
+        magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
+        yield return new WaitForSeconds(5);
+        tutorialEvent.magicFailMission = false;
+        spawnManager.BasicSpawnStop(false);
+        while (!tutorialEvent.magicFailMission)
+        {
+            yield return null;
+        }
+        glowing.SetGlowing();
+        yield return new WaitForSeconds(5);
+        spawnManager.BasicSpawnStop(true);
+        animator1C.SetBool("isDone", true);
+        yield return new WaitForSeconds(2);
+        magicObj.transform.GetChild(2).gameObject.SetActive(false);
 
         //[*** Skill 설명 window ***]
         SkillUI.SetActive(true); 

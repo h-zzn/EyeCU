@@ -11,6 +11,8 @@ public class SliceObject : MonoBehaviour
         Blue
     }
 
+    private Vector3 OriginPosition;
+
     [SerializeField] private SwordType swordType;
 
     public Transform startSlicePoint;
@@ -26,12 +28,16 @@ public class SliceObject : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
+        OriginPosition = this.transform.position;
+
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>(); 
     }
      
     // Update is called once per frame
     void FixedUpdate()
     {
+        this.transform.position = OriginPosition;
+
         bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out RaycastHit hit, sliceableLayer);
         if (hasHit)
         {
