@@ -7096,6 +7096,14 @@ PrefabInstance:
       propertyPath: beat
       value: 1.735715
       objectReference: {fileID: 0}
+    - target: {fileID: 7056990054718925823, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
+      propertyPath: cubes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056990054718925823, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
+      propertyPath: cubes.Array.data[2]
+      value: 
+      objectReference: {fileID: 8996436200413609872, guid: 4189143776587ff478329fe8e45c285e, type: 3}
     - target: {fileID: 7139963913354458633, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: m_Layer
       value: 3

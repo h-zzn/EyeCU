@@ -18,6 +18,7 @@ public class ControllerManager : MonoBehaviour
 
     [SerializeField] private GameObject RedMagicHitEffectPrefab;
     [SerializeField] private GameObject BlueMagicHitEffectPrefab;
+    [SerializeField] private GameObject TaegukMagicHitEffectPrefab;
 
     [SerializeField] private GameObject leftSword;
     [SerializeField] private GameObject rightSword;
@@ -132,8 +133,52 @@ public class ControllerManager : MonoBehaviour
 
     void BtnDown()
     {
-        // 오른손 Red Magic
-        if(OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
+        {
+            if (eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("TaegukCube"))
+            {
+                if (redMagicActive && blueMagicActive)
+                { // 오른손 Red Magic이 사용 가능일 때 
+
+                    skillEnergyPoint += 50;
+
+                    if (PoongSound != null)
+                    {
+                        PoongSound.Play();
+                    }
+
+                    // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
+                    OVRHapticsClip clip = new OVRHapticsClip();
+                    for (int i = 0; i < Config.SampleRateHz * vibrationDuration; i++)
+                    {
+                        byte sample = (byte)(1.0f * 255);
+                        clip.WriteSample(sample);
+                    }
+
+                    RightChannel.Preempt(clip);
+                    LeftChannel.Preempt(clip);
+
+                    // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
+                    StartCoroutine(StopVibration());
+
+                    // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
+                    hitEffectPosition = eyeTrackingRayRight.HoveredCube.transform.position;
+                    GameObject TaegukMagicHitInstance = Instantiate(TaegukMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                    TaegukMagicHitInstance.SetActive(true);
+                    Destroy(TaegukMagicHitInstance, 3f);
+
+                    Destroy(eyeTrackingRayRight.HoveredCube);
+                    eyeTrackingRayRight.HoveredCube = null;
+                }
+                else
+                {
+                    TikSound?.Play();
+                }
+            }
+        }
+
+            // 오른손 Red Magic
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
         {
             // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))

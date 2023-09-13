@@ -18,6 +18,7 @@ TagManager:
   - stage
   - SamplesInfoPanel
   - HandEffect
+  - TaegukCube
   layers:
   - Default
   - TransparentFX
