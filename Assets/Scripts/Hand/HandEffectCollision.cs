@@ -12,7 +12,7 @@ public class HandEffectCollision : MonoBehaviour
 
     private void Start()
     {
-        skillCircle.SetActive(false);
+        skillCircle.SetActive(false); 
         StartCoroutine(EnableCollisionAfterDelay());
     }
 

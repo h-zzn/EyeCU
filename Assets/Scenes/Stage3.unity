@@ -6554,6 +6554,10 @@ PrefabInstance:
       propertyPath: SkillMaterialObj
       value: 
       objectReference: {fileID: 3140174876788162237}
+    - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: skillCircle
+      value: 
+      objectReference: {fileID: 7688531204794948737}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6602,6 +6606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRInPlayMode
       objectReference: {fileID: 0}
+    - target: {fileID: 5356390845564278333, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: skillCircle
+      value: 
+      objectReference: {fileID: 7688531204794948737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6610,6 +6618,11 @@ PrefabInstance:
 --- !u!20 &7688531204794948736 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 791997421801663777, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 7688531204794948735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7688531204794948737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1871341393516388923, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
   m_PrefabInstance: {fileID: 7688531204794948735}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8094331083392118651
