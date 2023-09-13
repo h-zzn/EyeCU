@@ -5064,6 +5064,7 @@ Transform:
   - {fileID: 3450951058075452122}
   - {fileID: 527590255941268713}
   - {fileID: 1056821793000345108}
+  - {fileID: 5202946151241622014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -20086,6 +20087,7 @@ MonoBehaviour:
   UngSound: {fileID: 2326176597160202102}
   DestroyVisualEffectObject: {fileID: 6032810767631624174, guid: b93e6f27009c647a19be204287f19be1, type: 3}
   DestroySoundEffectObject: {fileID: 7354846308910032518, guid: 1a64ed9e014232d48bd91e24667cc96e, type: 3}
+  controllerManager: {fileID: 0}
 --- !u!135 &8819625532822805110
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25308,3 +25310,69 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1001 &8585782300179821322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3897028874006920269}
+    m_Modifications:
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544765851453346551, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+      propertyPath: m_Name
+      value: TracingOrbEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+--- !u!4 &5202946151241622014 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4544765851453346548, guid: efe9a1f6da487684c8c624ae693bbd29, type: 3}
+  m_PrefabInstance: {fileID: 8585782300179821322}
+  m_PrefabAsset: {fileID: 0}
