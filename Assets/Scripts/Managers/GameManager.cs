@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         }
         else if (stageLevel == StageLevel.stage1)
         {
-            controllerManager.attackPoint /= 4; 
+            controllerManager.attackPoint /= 2; 
         }
     }
 

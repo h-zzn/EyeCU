@@ -4979,6 +4979,18 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: stoneSpawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: basicOrbSpawnInterval
+      value: 2.603573
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: SpecialOrbSpawnInterval
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293493386429357652, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stoneSpawner.Array.size
       value: 3
       objectReference: {fileID: 0}
