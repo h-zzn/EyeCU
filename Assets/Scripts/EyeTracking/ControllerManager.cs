@@ -6,6 +6,8 @@ using static OVRHaptics;
 
 public class ControllerManager : MonoBehaviour
 {
+    private Vector3 OriginPosition;
+
     private GameObject LeftEyeInteractor;
     private GameObject RightEyeInteractor;
 
@@ -59,6 +61,8 @@ public class ControllerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        OriginPosition = this.transform.position;
+
         //LeftEyeInteractor = GameObject.Find("LeftEyeInteractor");
         RightEyeInteractor = GameObject.Find("RightEyeInteractor");
         
@@ -71,7 +75,9 @@ public class ControllerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(eyeTrackingRayRight.HoveredCube != null)
+        this.transform.position = OriginPosition;
+
+        if (eyeTrackingRayRight.HoveredCube != null)
             BtnDown();
         
         activeSword();
