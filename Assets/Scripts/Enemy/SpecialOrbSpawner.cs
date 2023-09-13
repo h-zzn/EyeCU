@@ -36,18 +36,22 @@ public class SpecialOrbSpawner : MonoBehaviour
     void Update()
     {
         if (!isSpawnStop)
-        {   
+        {
             spawnSpecialOrb();
-            
-            if(Orbs.Count == maxNumofSpecialOrb) 
+
+            if (Orbs.Count == maxNumofSpecialOrb)
             {
-                if(Orbs.All(orb => orb == null)) 
+                if (Orbs.All(orb => orb == null))
                 {
                     isSpawnStop = true;
                     resetAllValue();
                 }
             }
-        }    
+        }
+        else
+        {
+
+        }
     }
 
     public void spawnSpecialOrb()
