@@ -146,7 +146,7 @@ public class ControllerManager : MonoBehaviour
                 if (redMagicActive && blueMagicActive)
                 { // 오른손 Red Magic이 사용 가능일 때 
 
-                    skillEnergyPoint += 50;
+                    skillEnergyPoint += 100;
 
                     if (PoongSound != null)
                     {

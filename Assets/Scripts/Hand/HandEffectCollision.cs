@@ -10,21 +10,19 @@ public class HandEffectCollision : MonoBehaviour
     private bool canUseSkill = false;
     private bool hasCollided = false;
 
+    public ControllerManager controllerManager;
+
     private void Start()
     {
         skillCircle.SetActive(false); 
-        StartCoroutine(EnableCollisionAfterDelay());
+
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
     }
 
-    private IEnumerator EnableCollisionAfterDelay()
-    {
-        yield return new WaitForSeconds(10.0f);
-        canUseSkill = true;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (canUseSkill && !hasCollided && other.CompareTag("HandEffect"))
+        if (controllerManager.attackPoint >= 2000 && !hasCollided && other.CompareTag("HandEffect"))
         {
             Debug.Log("Collision Detected with: " + other.name);
 
