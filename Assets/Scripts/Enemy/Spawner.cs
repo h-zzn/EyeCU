@@ -14,6 +14,12 @@ public class Spawner : MonoBehaviour
     public float OrbSpeed = 1;  
 
     public int numOfBasicOrb = 0;
+    
+    // Magic Circles
+    [SerializeField] private List<GameObject> regMagicCircles;
+    private bool isRegMagicCircleActive = false;
+    [SerializeField] private List<GameObject> stoneMagicCircles;
+    private bool isStoneMagicCircleActive = false;
 
     private void Start()
     {
@@ -27,12 +33,16 @@ public class Spawner : MonoBehaviour
     {
         if (!isSpawnStop)
         {
-
+            if(!isRegMagicCircleActive){
+                activateRegMagicCircle();
+            }
             spawnOrb();
         }
         else 
         {
-            
+            if(isRegMagicCircleActive){
+                deactivateRegMagicCircle();
+            }
         }
     }
 
@@ -48,4 +58,51 @@ public class Spawner : MonoBehaviour
         }       
         coolTime += Time.deltaTime;
     }
+
+    // Activate Regular Magic Cirle
+    public void activateRegMagicCircle()
+    {
+        isRegMagicCircleActive = true;
+        foreach (GameObject magicCircle in regMagicCircles)
+        {
+            if (magicCircle != null)
+            {
+                magicCircle.SetActive(true);
+            }
+        }
+    }
+
+    // Deactivate Regular Magic Cirle
+    public void deactivateRegMagicCircle()
+    {
+        isRegMagicCircleActive = false;
+
+        foreach (GameObject magicCircle in regMagicCircles)
+        {
+            if (magicCircle != null)
+            {
+                magicCircle.SetActive(false);
+            }
+        }
+    }
+
+    // // Activate Stone Magic Cirle
+    // public void activateStoneMagicCircle()
+    // {
+    //     if (stoneMagicCircles != null)
+    //     {
+    //         isStoneMagicCircleActive = true;
+    //         stoneMagicCircle.SetActive(true);
+    //     }
+    // }
+
+    // // Deactivate Stone Magic Cirle
+    // public void deactivateStoneMagicCircle()
+    // {
+    //     if (stoneMagicCircles != null)
+    //     {
+    //         isStoneMagicCircleActive = false;
+    //         stoneMagicCircle.SetActive(false);
+    //     }
+    // }
 }

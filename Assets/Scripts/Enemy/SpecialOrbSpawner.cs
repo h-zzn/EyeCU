@@ -48,10 +48,6 @@ public class SpecialOrbSpawner : MonoBehaviour
                 }
             }
         }
-        else
-        {
-
-        }
     }
 
     public void spawnSpecialOrb()
@@ -73,4 +69,6 @@ public class SpecialOrbSpawner : MonoBehaviour
         coolTime = SpecialOrbInterval;
         Orbs.Clear();
     }
+
+
 }
