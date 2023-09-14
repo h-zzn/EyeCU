@@ -10,7 +10,7 @@ public class HandEffectCollision : MonoBehaviour
     private bool canUseSkill = false;
     private bool hasCollided = false;
 
-    public ControllerManager controllerManager;
+    private ControllerManager controllerManager;
 
     private void Start()
     {
