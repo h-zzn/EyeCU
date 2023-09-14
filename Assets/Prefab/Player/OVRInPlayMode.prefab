@@ -68989,8 +68989,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerType: -1
-  RedMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 9c77289840851bb41a8210e03a9d364d, type: 3}
-  BlueMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 383fceec0193e2845ae332437d684462, type: 3}
+  RedMagicHitEffectPrefab: {fileID: 8441111138654954413, guid: a64dc6bd5d0fbf04cae9539cfbedfa7a, type: 3}
+  BlueMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 9c77289840851bb41a8210e03a9d364d, type: 3}
   TaegukMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 2e3dfcfa695ec1443a72ab87837e8fb5, type: 3}
   leftSword: {fileID: 5777889304347496251}
   rightSword: {fileID: 8573466451353800702}
@@ -69008,6 +69008,7 @@ MonoBehaviour:
   attackPoint: 100
   SkillGauge: {fileID: 0}
   SkillMaterialObj: {fileID: 0}
+  handEffectCollision: {fileID: 3328971601575479314}
 --- !u!82 &7977265096230928998
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76371,7 +76372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vibrationDuration: 2
   skillCircle: {fileID: 1871341393516388923}
-  controllerManager: {fileID: 0}
+  canUseSkill: 0
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0

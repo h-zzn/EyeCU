@@ -53,12 +53,14 @@ public class ControllerManager : MonoBehaviour
 
     private List<Material> SkillMaterials;
 
-    private void Awake()
+    public HandEffectCollision handEffectCollision;
+
+
+    private void Awake() 
     {
         SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         OriginPosition = this.transform.position;
@@ -72,16 +74,17 @@ public class ControllerManager : MonoBehaviour
         SkillGaugeRenderer = SkillGauge.GetComponent<Renderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        this.transform.position = OriginPosition;
+        this.transform.position = OriginPosition; 
 
-        if (eyeTrackingRayRight.HoveredCube != null)
-            BtnDown();
-        
+        if(eyeTrackingRayRight.HoveredCube != null) 
+        {
+            AttackBasicOrbBtnDown();
+            ActiveSkillBtnDown();
+        }
+
         activeSword();
-
         chargeSkillGauge();
     }
 
@@ -131,15 +134,30 @@ public class ControllerManager : MonoBehaviour
         {
             SkillGaugeRenderer.material = SkillMaterials[10];
         }
-        else
+        else if (skillEnergyPoint <= 1950)
         {
-            SkillGaugeRenderer.material = SkillMaterials[11];
+            SkillGaugeRenderer.material = SkillMaterials[10];
+        }
+        else 
+        {
+            SkillGaugeRenderer.material = SkillMaterials[11]; 
+            skillEnergyPoint = 2000; //스킬게이지가 2000을 넘어가면 2000으로 고정
+
+            //여기에 스킬 게이지 반짝이 기능 넣어줘야함 to 현진
         }
     }
 
-    void BtnDown()
+    private void ActiveSkillBtnDown()
     {
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
+        if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
+        {
+            //스킬 이후 버튼 눌러서 어케 되는지 여기에 넣어야 함
+        }
+    }
+
+    private void AttackBasicOrbBtnDown()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             if (eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("TaegukCube"))
             {
@@ -183,8 +201,8 @@ public class ControllerManager : MonoBehaviour
             }
         }
 
-            // 오른손 Red Magic
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
+        // 오른손 Red Magic
+        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
@@ -245,7 +263,7 @@ public class ControllerManager : MonoBehaviour
         }
 
         // 왼손 Blue Magic
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && eyeTrackingRayRight.HoveredCube != null)
+        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
@@ -322,7 +340,7 @@ public class ControllerManager : MonoBehaviour
         // Debug.Log("Blue Magic Activated!!!!!!!!!!!!!!!!!!");
     }
 
-        private IEnumerator StopVibration()
+    private IEnumerator StopVibration()
     {
         // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
         yield return new WaitForSeconds(vibrationDuration);
@@ -332,7 +350,7 @@ public class ControllerManager : MonoBehaviour
         hapticsChannel.Clear();
     }
 
-    void activeSword()
+    private void activeSword()
     {
         //sword ON effect off
         if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
