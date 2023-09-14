@@ -157,6 +157,8 @@ MonoBehaviour:
   hitShakeTime: 0.2
   hitShakeSpeed: 2
   hitShakeAmount: 1.5
+  HPGauge: {fileID: 0}
+  HPMaterialObj: {fileID: 0}
 --- !u!114 &1797786068356809688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,11 +176,15 @@ MonoBehaviour:
   EventStartDelayTime: 5
   BasicSpawnTime: 20
   swordTime: 40
+  OVRInteractionObj: {fileID: 0}
   explainUI: {fileID: 0}
   magicObj: {fileID: 0}
   specialObj: {fileID: 0}
   stoneObj: {fileID: 0}
+  HPUI: {fileID: 0}
+  SkillUI: {fileID: 0}
   finishUI: {fileID: 0}
+  gaugeObj: {fileID: 0}
 --- !u!114 &6987161686077235573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +206,7 @@ MonoBehaviour:
   starObj: {fileID: 0}
   finalHPText: {fileID: 0}
   HPcontrol: 0
+  controllerManager: {fileID: 0}
   stageLevel: 1
 --- !u!114 &7293493386429357652
 MonoBehaviour:
@@ -213,15 +220,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4443d7ce8540c34ab7864393180c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicOrbSpawner: []
-  stoneSpawner: []
-  SpecialOrbSpawner: []
+  basicOrbSpawner:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  stoneSpawner:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SpecialOrbSpawner:
+  - {fileID: 0}
   basicOrbSpeed: 1
-  basicOrbSpawnInterval: 1.735715
+  basicOrbSpawnInterval: 2.603573
   stoneSpeed: 1
-  stoneSpawnInterval: 1
+  stoneSpawnInterval: 3
   SpecialOrbSpeed: 1
-  SpecialOrbSpawnInterval: 1
+  SpecialOrbSpawnInterval: 7.5
   totalNumOfBasicOrb: 0
 --- !u!82 &3318762004738546031
 AudioSource:

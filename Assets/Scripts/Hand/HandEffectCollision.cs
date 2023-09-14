@@ -52,29 +52,10 @@ public class HandEffectCollision : MonoBehaviour
         }
     }
 
-
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     if (other.CompareTag("HandEffect"))
-    //     {
-    //         ReactivateChildren(this.gameObject);
-
-    //         // 비활성화된 "skill" 오브젝트를 다시 비활성화
-    //         foreach (var skillObject in skillObjects)
-    //         {
-    //             if (skillObject.activeSelf)
-    //             {
-    //                 skillObject.SetActive(false);
-    //             }
-    //         }
-    //     }
-    // }
-
     private void DeactivateChildren(GameObject parent)
     {
         foreach (Transform child in parent.transform)
         {
-            Debug.Log("Deactivating: " + child.name);
             child.gameObject.SetActive(false);
         }
     }
