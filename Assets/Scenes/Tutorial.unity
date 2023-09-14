@@ -41905,11 +41905,11 @@ PrefabInstance:
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: RedMagicHitEffectPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2652936054558877957, guid: 383fceec0193e2845ae332437d684462, type: 3}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: BlueMagicHitEffectPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2652936054558877957, guid: 9c77289840851bb41a8210e03a9d364d, type: 3}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 3
