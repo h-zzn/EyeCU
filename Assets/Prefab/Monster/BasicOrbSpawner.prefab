@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6296064793119209080}
   - component: {fileID: 7056990054718925823}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BasicOrbSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,9 +26,10 @@ Transform:
   m_GameObject: {fileID: 925537749473030837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.25, y: 0.54, z: 97.98}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.2669}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9144153067670814133}
   - {fileID: 1356233068961179850}
   - {fileID: 6566342259092441139}
   - {fileID: 2843514504767914103}
@@ -47,7 +48,7 @@ Transform:
   - {fileID: 1635845340307076462}
   - {fileID: 1568078015947985563}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7056990054718925823
 MonoBehaviour:
@@ -82,7 +83,14 @@ MonoBehaviour:
   - {fileID: 7389743485015166104}
   - {fileID: 8250867151110104345}
   - {fileID: 1635845340307076462}
-  beat: 1.542857
+  Interval: 0
+  OrbSpeed: 1
+  numOfBasicOrb: 0
+  regMagicCircles:
+  - {fileID: 0}
+  - {fileID: 9144153067670814128}
+  - {fileID: 0}
+  stoneMagicCircles: []
 --- !u!1 &1137717508075655795
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +103,7 @@ GameObject:
   - component: {fileID: 55247304907512128}
   - component: {fileID: 1007181077878213620}
   - component: {fileID: 86322623348404680}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +210,7 @@ GameObject:
   - component: {fileID: 5866732706710266708}
   - component: {fileID: 4347324499547122965}
   - component: {fileID: 2471638820601334957}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +247,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797367569962858218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -307,7 +315,7 @@ GameObject:
   - component: {fileID: 2650028069386304541}
   - component: {fileID: 7191741284462114467}
   - component: {fileID: 718000624782255378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +352,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2193106488818276884}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -412,7 +420,7 @@ GameObject:
   - component: {fileID: 8435654529798512937}
   - component: {fileID: 5556863642794846304}
   - component: {fileID: 1810749665301045346}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +457,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2845785291842688886}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -517,7 +525,7 @@ GameObject:
   - component: {fileID: 389026837511423268}
   - component: {fileID: 8326648981373632258}
   - component: {fileID: 164771099154419196}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +562,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3652746003343081761}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -622,7 +630,7 @@ GameObject:
   - component: {fileID: 159168411005149683}
   - component: {fileID: 700648658961446373}
   - component: {fileID: 7559100926503636610}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +667,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561334357489072266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -727,7 +735,7 @@ GameObject:
   - component: {fileID: 7575599523354444051}
   - component: {fileID: 5293628696724460361}
   - component: {fileID: 7253797029533773880}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +772,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5673878915712407072}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -832,7 +840,7 @@ GameObject:
   - component: {fileID: 2411135049621738124}
   - component: {fileID: 6755067436232144559}
   - component: {fileID: 1927180196683481699}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +877,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5698535431566226088}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -937,7 +945,7 @@ GameObject:
   - component: {fileID: 2438748230782457745}
   - component: {fileID: 3962321184299708112}
   - component: {fileID: 6744227910336246005}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +982,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7139963913354458633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1042,7 +1050,7 @@ GameObject:
   - component: {fileID: 6108850567035252436}
   - component: {fileID: 6908145116647852050}
   - component: {fileID: 1372918344768525148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1079,7 +1087,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7320443040697615103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1147,7 +1155,7 @@ GameObject:
   - component: {fileID: 4239778823816140187}
   - component: {fileID: 2326808011574673933}
   - component: {fileID: 4560631147726618239}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1184,7 +1192,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7353298485957535670}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1252,7 +1260,7 @@ GameObject:
   - component: {fileID: 7515832692648615941}
   - component: {fileID: 8868598439940025893}
   - component: {fileID: 5189452683834643623}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1289,7 +1297,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033169135853362924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1357,7 +1365,7 @@ GameObject:
   - component: {fileID: 7249959312523701149}
   - component: {fileID: 5880601974914099002}
   - component: {fileID: 2653718591878527234}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1402,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8580241988294959516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1462,7 +1470,7 @@ GameObject:
   - component: {fileID: 1638694897829510108}
   - component: {fileID: 7178100817657091377}
   - component: {fileID: 5128048421505634199}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1499,7 +1507,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8723417749656514847}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1567,7 +1575,7 @@ GameObject:
   - component: {fileID: 7775302115184840512}
   - component: {fileID: 924480188906174680}
   - component: {fileID: 1287012674529727603}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1612,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8758891741579354438}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1672,7 +1680,7 @@ GameObject:
   - component: {fileID: 7428236093142543586}
   - component: {fileID: 6053121770864187769}
   - component: {fileID: 180315820262840726}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,7 +1717,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8916334680662535607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1777,7 +1785,7 @@ GameObject:
   - component: {fileID: 4548950970617626593}
   - component: {fileID: 8869829004888623191}
   - component: {fileID: 26659729105071747}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1814,7 +1822,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9028212119867251729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1870,3 +1878,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1288400153272198773
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6296064793119209080}
+    m_Modifications:
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.173
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.745
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.0059896866
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0059896642
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7070814
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7070814
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180.971
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910405, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+      propertyPath: m_Name
+      value: RegMagicCircle1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+--- !u!1 &9144153067670814128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8000609384302910405, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+  m_PrefabInstance: {fileID: 1288400153272198773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9144153067670814133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8000609384302910400, guid: 8c80585032492da4aa78b9a58d634adb, type: 3}
+  m_PrefabInstance: {fileID: 1288400153272198773}
+  m_PrefabAsset: {fileID: 0}
