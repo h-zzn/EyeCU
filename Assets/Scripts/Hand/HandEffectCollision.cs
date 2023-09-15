@@ -97,7 +97,7 @@ public class HandEffectCollision : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
 
-            controllerManager.skillEnergyPoint -= 1000; //나중에 고칠 예정 일단 즉발형 스킬 
+            controllerManager.skillEnergyPoint -= 500; //나중에 고칠 예정 일단 즉발형 스킬 
 
             if (controllerManager.skillEnergyPoint < 100)
             {
