@@ -183,6 +183,7 @@ public class ControllerManager : MonoBehaviour
             SkillAtaackGauge += 1;
             Animator dragonAnimator = GetComponent<Animator>();
             dragonAnimator.SetBool("okay", true);
+            dragonAnimator.SetBool("attacked", false);
 
             if (SkillAtaackGauge >= 20)
             {
