@@ -55,7 +55,7 @@ public class ControllerManager : MonoBehaviour
 
     public HandEffectCollision handEffectCollision;
 
-    private  EventManager eventManager;
+    public EventManager eventManager;
 
     private int SkillAtaackGauge = 0;
 
@@ -178,26 +178,27 @@ public class ControllerManager : MonoBehaviour
     private void ActiveSkillBtnDown()
     {
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
-    {
-        // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
-        SkillAtaackGauge += 1;
-        Animator dragonAnimator = GetComponent<Animator>();
-        dragonAnimator.SetBool("okay", true);
-
-        if (SkillAtaackGauge >= 20)
         {
-            SkillAtaackGauge = 0;
-            eventManager.EnemyHP -= 400;
+            // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
+            SkillAtaackGauge += 1;
+            Animator dragonAnimator = GetComponent<Animator>();
+            dragonAnimator.SetBool("okay", true);
 
-            dragonAnimator.SetBool("attacked", true);
-            dragonAnimator.SetBool("okay", false);
+            if (SkillAtaackGauge >= 20)
+            {
+                SkillAtaackGauge = 0;
+                eventManager.EnemyHP -= 400;
 
-            
-            dragonAnimator.SetBool("attacked", false);
-            dragonAnimator.SetBool("attacked", true);
+                dragonAnimator.SetBool("attacked", true);
+                dragonAnimator.SetBool("okay", false);
+
+
+                dragonAnimator.SetBool("attacked", false);
+                dragonAnimator.SetBool("attacked", true);
+            }
         }
     }
-}
+
 
     private void AttackBasicOrbBtnDown()
     {

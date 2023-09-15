@@ -15,7 +15,7 @@ public class HandEffectCollision : MonoBehaviour
     private DeleteEnemyAttack deleteEnemyAttack; 
 
 
-    public Coroutine reduceSkillCoroutine = null;
+    public Coroutine reduceSkillCoroutine = null; 
 
 
     private void Start()
@@ -82,6 +82,8 @@ public class HandEffectCollision : MonoBehaviour
 
         deleteEnemyAttack.StartCoroutine("DeleteAll");
 
+        controllerManager.eventManager.EnemyHP -= 400; 
+
         //시각 변화 함수 만들어서 넣어줘요 (예시. 드레곤의 약점만 강조되고 다른 것들은 흑백) +용석
     }
 
@@ -91,7 +93,7 @@ public class HandEffectCollision : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
 
-            controllerManager.skillEnergyPoint -= 100;
+            controllerManager.skillEnergyPoint -= 1000; //나중에 고칠 예정 일단 즉발형 스킬 
 
             if (controllerManager.skillEnergyPoint < 100)
             {
@@ -100,7 +102,7 @@ public class HandEffectCollision : MonoBehaviour
         }
 
         canUseSkill = false;
-
+        reduceSkillCoroutine = null;
         //시각 변화 사라지고 원래로 돌려주는 함수 넣어줘요 +용석
     }
 
