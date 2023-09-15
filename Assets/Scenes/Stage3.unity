@@ -4272,7 +4272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: EnemyHP
-      value: 800
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: finishUI
