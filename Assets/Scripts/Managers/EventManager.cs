@@ -54,6 +54,7 @@ public class EventManager : MonoBehaviour
     private int TutorialBuildIndex;
 
     private DeleteEnemyAttack deleteEnemyAttack;
+    private ControllerManager controllerManager;
 
     void Start()  
     {
@@ -62,8 +63,8 @@ public class EventManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == TutorialBuildIndex)  
         {
            tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();
-
-           deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
+            controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+            deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
            EnemyHP = 250;
         }
 
@@ -353,11 +354,16 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(3); 
         animator4B.SetBool("isDone", true);
         yield return new WaitForSeconds(2);
-        HPUI.transform.GetChild(1).gameObject.SetActive(false); 
-        HPUI.transform.GetChild(2).gameObject.SetActive(true);  // HP step3 UI
-        yield return new WaitForSeconds(3); 
-        // HP 꽉 차게 조절
+        HPUI.transform.GetChild(1).gameObject.SetActive(false);
         OVRInteractionObj.SetActive(true);  // 손 다시 쓸 수 있게 
+
+        HPUI.transform.GetChild(2).gameObject.SetActive(true);  // MP step1 UI
+        yield return new WaitForSeconds(3);
+        // MP 조금 차면 클리어
+        while (!tutorialEvent.HPMission)
+        {
+            yield return null;
+        }
         animator4C.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         HPUI.transform.GetChild(2).gameObject.SetActive(false);   
@@ -366,47 +372,40 @@ public class EventManager : MonoBehaviour
         //[잘못 눌렀을 경우 게이지 감소 및 패널티 설명]
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
         yield return new WaitForSeconds(5);
-        tutorialEvent.magicFailMission = false;
+        tutorialEvent.magicFailMission = false; 
         spawnManager.BasicSpawnStop(false);
-        while (!tutorialEvent.magicFailMission)
+        while (!tutorialEvent.MPMission)
         {
             yield return null;
         }
         glowing.SetGlowing();
         yield return new WaitForSeconds(5);
         spawnManager.BasicSpawnStop(true);
+        deleteEnemyAttack.StartCoroutine("DeleteAll"); 
         animator1C.SetBool("isDone", true);
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(2).gameObject.SetActive(false);
 
         //[*** Skill 설명 window ***]
-        SkillUI.SetActive(true); 
+        SkillUI.SetActive(true);
         //SkillUI.transform.GetChild(0).gameObject.SetActive(true);     // Skill step1 UI
         // 부수고 스킬 차는 애니메이션
-        // 스킬 게이지 다 차는 코드
-
+        controllerManager.skillEnergyPoint = 2000;
         yield return new WaitForSeconds(3); 
         animator5A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         SkillUI.transform.GetChild(0).gameObject.SetActive(false);   
         SkillUI.transform.GetChild(1).gameObject.SetActive(true);     // Skill step2 UI
-        
+        while (!tutorialEvent.skillActivateMission)  
+        {
+            yield return null; 
+        }
         yield return new WaitForSeconds(3); 
         animator5B.SetBool("isDone", true);
         yield return new WaitForSeconds(2); 
-        SkillUI.transform.GetChild(1).gameObject.SetActive(false); 
-        SkillUI.transform.GetChild(2).gameObject.SetActive(true);  // Skill step3 UI
-        yield return new WaitForSeconds(3); 
-
-        // 스킬 구현 후 완성
+        SkillUI.transform.GetChild(1).gameObject.SetActive(false);  
+        yield return new WaitForSeconds(3);  
         
-        while (EnemyHP > 0) 
-        {   
-            yield return null; 
-        }
-         
-
-
         // finish UI 
         finishUI.SetActive(true); 
         yield return new WaitForSeconds(12); 

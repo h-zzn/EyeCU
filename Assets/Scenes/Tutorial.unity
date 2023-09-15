@@ -6719,7 +6719,7 @@ MonoBehaviour:
   skillActivateMission: 0
   magicRedOrb: {fileID: 9179910011775915417}
   magicBlueOrb: {fileID: 1654871465210709061}
-  magicTaegukOrb: {fileID: 0}
+  magicTaegukOrb: {fileID: 2796468941506519391}
   specialOrb: {fileID: 496268663}
   lavaStone: {fileID: 920770055747640783}
   iceStone: {fileID: 1082193765476862447}
