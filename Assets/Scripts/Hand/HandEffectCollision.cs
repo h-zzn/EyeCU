@@ -27,9 +27,13 @@ public class HandEffectCollision : MonoBehaviour
         deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
     }
 
+    private void Update() {
+        Debug.Log(controllerManager.skillEnergyPoint);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (controllerManager.attackPoint >= 2000 && other.CompareTag("HandEffect"))
+        if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
         {
             // Deactivate children of this GameObject
             DeactivateChildren(this.gameObject);
@@ -41,7 +45,7 @@ public class HandEffectCollision : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (controllerManager.attackPoint >= 2000 && other.CompareTag("HandEffect"))
+        if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
         {
             if(SKillTriggerDuration <= 3)
             {
@@ -56,7 +60,7 @@ public class HandEffectCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (controllerManager.attackPoint >= 2000 && other.CompareTag("HandEffect"))
+        if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
         {
             SKillTriggerDuration = 0;
 
