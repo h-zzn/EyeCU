@@ -4646,10 +4646,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPosition
       objectReference: {fileID: 0}
-    - target: {fileID: 1517291290737599648, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
-      propertyPath: RotationModule.curve.scalar
-      value: 0.62831855
-      objectReference: {fileID: 0}
     - target: {fileID: 6296064793119209080, guid: 170f233a234aba74cb2fb15a6cad8aca, type: 3}
       propertyPath: m_RootOrder
       value: -1
