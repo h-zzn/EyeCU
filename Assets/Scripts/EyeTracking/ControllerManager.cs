@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using static OVRHaptics;
+using static OVRHaptics; 
 
 public class ControllerManager : MonoBehaviour
 {
@@ -53,12 +53,18 @@ public class ControllerManager : MonoBehaviour
 
     private List<Material> SkillMaterials;
 
-    public HandEffectCollision handEffectCollision;
+    private HandEffectCollision handEffectCollision;
+
+    private  EventManager eventManager;
+
+    private int SkillAtaackGauge = 0;
 
 
     private void Awake() 
     {
-        SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials);
+        SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials); 
+
+        eventManager = GameObject.Find("StageCore").GetComponent<EventManager>(); 
     }
 
     void Start()
@@ -152,6 +158,13 @@ public class ControllerManager : MonoBehaviour
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
             //스킬 이후 버튼 눌러서 어케 되는지 여기에 넣어야 함
+            SkillAtaackGauge += 1;
+
+            if (SkillAtaackGauge >= 20)
+            {
+               SkillAtaackGauge = 0;
+               eventManager.EnemyHP -= 400;
+            }       
         }
     }
 
