@@ -6,30 +6,37 @@ public class TutorialEvent : MonoBehaviour
 {
     public bool magicRedOrbMission = false; 
     public bool magicBlueOrbMission = false;
-    public bool magicFailMission = false;
+    public bool magicTaegukOrbMission = false;
 
     public bool specialOrbMission = false; 
 
     public bool lavaSwordMission = false; 
     public bool iceSwordMission = false;
 
-    public bool lavaStoneMission = false; 
-    public bool iceStoneMission = false; 
+    public bool lavaStoneMission = false;  
+    public bool iceStoneMission = false;
 
+    public bool HPMission = false;
+    public bool MPMission = false;
+    public bool magicFailMission = false;
+    public bool skillActivateMission = false;
 
-    public GameObject magicRedOrb; 
-    public GameObject magicBlueOrb; 
+    public GameObject magicRedOrb;  
+    public GameObject magicBlueOrb;
+    public GameObject magicTaegukOrb;
 
-    public GameObject specialOrb; 
+    public GameObject specialOrb;  
 
-    public GameObject lavaStone; 
-    public GameObject iceStone; 
+    public GameObject lavaStone;   
+    public GameObject iceStone;  
 
-    private ControllerManager controllerManager;
+    private ControllerManager controllerManager; 
+    private DamagedArea damagedArea;
 
     void Awake()
     {
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+        damagedArea = GameObject.Find("StageCore").transform.GetComponent<DamagedArea>();
     }
 
     void Update()
@@ -41,12 +48,12 @@ public class TutorialEvent : MonoBehaviour
         if(magicBlueOrb == null)
         { 
             magicBlueOrbMission = true;
-        } 
-        if(controllerManager.blueMagicActive == false || controllerManager.redMagicActive == false)
-        { 
-            magicFailMission = true;
         }
-
+        if (magicTaegukOrb == null)
+        {
+            magicTaegukOrbMission = true;
+        }
+        
 
         if(specialOrb == null)
         { 
@@ -71,6 +78,24 @@ public class TutorialEvent : MonoBehaviour
         if(iceStone == null)
         { 
             iceStoneMission = true;
+        }
+
+
+        if(damagedArea.stageHP <= 1900)
+        {
+            HPMission = true; 
+        }
+        if(controllerManager.skillEnergyPoint >= 200)
+        {
+            MPMission = true; 
+        }
+        if (controllerManager.blueMagicActive == false || controllerManager.redMagicActive == false)
+        {
+            magicFailMission = true; 
+        }
+        if( controllerManager.handEffectCollision.canUseSkill == true)
+        {
+            skillActivateMission = true;
         }
     }
 }

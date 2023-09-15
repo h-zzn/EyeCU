@@ -53,7 +53,7 @@ public class ControllerManager : MonoBehaviour
 
     private List<Material> SkillMaterials;
 
-    private HandEffectCollision handEffectCollision;
+    public HandEffectCollision handEffectCollision;
 
     private  EventManager eventManager;
 
@@ -156,7 +156,7 @@ public class ControllerManager : MonoBehaviour
 
             //여기에 스킬 게이지 반짝이 기능 넣어줘야함 to 현진
             if(BlinkSkillGauge==null) 
-                BlinkSkillGauge=StartCoroutine(ChangeSkillMaterial());
+                BlinkSkillGauge = StartCoroutine(ChangeSkillMaterial());
 
         }
     }
