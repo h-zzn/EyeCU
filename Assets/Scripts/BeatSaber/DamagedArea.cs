@@ -22,9 +22,9 @@ public class DamagedArea : MonoBehaviour
     [SerializeField] private GameObject HPGauge;
     [SerializeField] private GameObject HPMaterialObj;
 
-    private Renderer HPGaugeRenderer;
+    private Renderer HPGaugeRenderer; 
 
-    private List<Material> HPMaterials;
+    private List<Material> HPMaterials; 
 
     private Transform cam;
 
@@ -36,11 +36,11 @@ public class DamagedArea : MonoBehaviour
         // Scene에서 PostProcessVolume을 가져옴
         postProcessingVolumeObject = GameObject.Find("Post Processing").GetComponent<Volume>(); 
         // PostProcessVolume에서 Vignette 설정 값을 가져옴
-        postProcessingVolumeObject.profile.TryGet(out vignette);
+        postProcessingVolumeObject.profile.TryGet(out vignette); 
 
         // HPGauge의 Renderer를 가져오고 Material 리스트를 설정
-        HPGaugeRenderer = HPGauge.GetComponent<Renderer>();
-        HPMaterials = new List<Material>(HPMaterialObj.GetComponent<Renderer>().materials);
+        HPGaugeRenderer = HPGauge.GetComponent<Renderer>(); 
+        HPMaterials = new List<Material>(HPMaterialObj.GetComponent<Renderer>().materials); 
 
     }
 

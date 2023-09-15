@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     public ControllerManager controllerManager;
 
+    private DeleteEnemyAttack deleteEnemyAttack;
+
     private enum StageLevel
     {
         tutorial, 
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+        deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
         eventManager = this.transform.GetComponent<EventManager>(); 
         damagedArea = this.transform.GetComponent<DamagedArea>();
     }
@@ -79,7 +82,7 @@ public class GameManager : MonoBehaviour
         }
         else if (stageLevel == StageLevel.stage1)
         {
-            controllerManager.attackPoint /= 2;
+            controllerManager.attackPoint /= 2; 
         }
         else if (stageLevel == StageLevel.stage1)
         {
@@ -95,10 +98,11 @@ public class GameManager : MonoBehaviour
             if(stageLevel != StageLevel.tutorial){
                 if(stageOver == null)
                     stageOver = StartCoroutine(StageOver());  // StageOver 
+                deleteEnemyAttack.StartCoroutine("DeleteAll"); 
                 eventManager.EventFlow = null;  
             }
             else
-            { 
+            {   
                 GoHome();
             }
         }
@@ -109,7 +113,8 @@ public class GameManager : MonoBehaviour
                 if(stageClear == null)
                     stageClear = StartCoroutine(StageClear()); 
             }
-            else{ 
+            else
+            { 
                 GoHome();
             }
         }

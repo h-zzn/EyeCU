@@ -446,6 +446,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4682952893640444, guid: f274f0fb5e5bc294ca9a0ff4cf1f0ff7, type: 3}
   m_PrefabInstance: {fileID: 94303142}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &122782006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7328454174921344792, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+  m_PrefabInstance: {fileID: 2031230571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dee41e94fa055419957d0593ac93ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &123587357
 GameObject:
   m_ObjectHideFlags: 0
@@ -51839,6 +51850,10 @@ PrefabInstance:
       propertyPath: SkillMaterialObj
       value: 
       objectReference: {fileID: 6237000517896644175}
+    - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: deleteEnemyAttack
+      value: 
+      objectReference: {fileID: 122782006}
     - target: {fileID: 4424150521968170366, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_RootOrder
       value: 3
