@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using static OVRHaptics;
+using static OVRHaptics; 
 
 public class ControllerManager : MonoBehaviour
 {
@@ -55,10 +55,19 @@ public class ControllerManager : MonoBehaviour
 
     public HandEffectCollision handEffectCollision;
 
+    public EventManager eventManager;
+
+    private int SkillAtaackGauge = 0;
+
+    private bool isSkilled;
+
+    private Coroutine BlinkSkillGauge = null;
 
     private void Awake() 
     {
-        SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials);
+        SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials); 
+
+        eventManager = GameObject.Find("StageCore").GetComponent<EventManager>(); 
     }
 
     void Start()
@@ -72,6 +81,7 @@ public class ControllerManager : MonoBehaviour
         eyeTrackingRayRight = RightEyeInteractor.GetComponent<EyeTrackingRay>();
 
         SkillGaugeRenderer = SkillGauge.GetComponent<Renderer>();
+        isSkilled = false;
     }
 
     void Update()
@@ -136,24 +146,59 @@ public class ControllerManager : MonoBehaviour
         }
         else if (skillEnergyPoint <= 1950)
         {
-            SkillGaugeRenderer.material = SkillMaterials[10];
+            SkillGaugeRenderer.material = SkillMaterials[11];
         }
         else 
         {
-            SkillGaugeRenderer.material = SkillMaterials[11]; 
+            //SkillGaugeRenderer.material = SkillMaterials[11]; 
             skillEnergyPoint = 2000; //스킬게이지가 2000을 넘어가면 2000으로 고정
 
+
             //여기에 스킬 게이지 반짝이 기능 넣어줘야함 to 현진
+            if(BlinkSkillGauge==null) 
+                BlinkSkillGauge = StartCoroutine(ChangeSkillMaterial());
+
         }
     }
+
+    private IEnumerator ChangeSkillMaterial()
+    {
+        while(handEffectCollision.canUseSkill == false)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[11];
+            yield return new WaitForSeconds(1f);
+            SkillGaugeRenderer.material = SkillMaterials[0];
+            yield return new WaitForSeconds(1f);
+        }
+
+        BlinkSkillGauge = null;
+    }
+    
 
     private void ActiveSkillBtnDown()
     {
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
-            //스킬 이후 버튼 눌러서 어케 되는지 여기에 넣어야 함
+            // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
+            SkillAtaackGauge += 1;
+            Animator dragonAnimator = GetComponent<Animator>();
+            dragonAnimator.SetBool("okay", true);
+
+            if (SkillAtaackGauge >= 20)
+            {
+                SkillAtaackGauge = 0;
+                eventManager.EnemyHP -= 400;
+
+                dragonAnimator.SetBool("attacked", true);
+                dragonAnimator.SetBool("okay", false);
+
+
+                dragonAnimator.SetBool("attacked", false);
+                dragonAnimator.SetBool("attacked", true);
+            }
         }
     }
+
 
     private void AttackBasicOrbBtnDown()
     {
