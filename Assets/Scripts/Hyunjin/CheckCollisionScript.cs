@@ -18,8 +18,6 @@ public class CheckCollisionScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("collision!");
-
             if(this.gameObject.name == "Stage1Effect" || this.gameObject.name == "stage1"){
                 FadeOut(1); // stage 1
             }

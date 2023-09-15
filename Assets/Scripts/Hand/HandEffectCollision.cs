@@ -47,7 +47,7 @@ public class HandEffectCollision : MonoBehaviour
     {
         if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
         {
-            if(SKillTriggerDuration <= 3)
+            if(SKillTriggerDuration <= 2)
             {
                 SKillTriggerDuration += Time.deltaTime;
             }
@@ -86,7 +86,7 @@ public class HandEffectCollision : MonoBehaviour
 
         deleteEnemyAttack.StartCoroutine("DeleteAll");
 
-        controllerManager.eventManager.EnemyHP -= 400; 
+        controllerManager.eventManager.EnemyHP -= 600; 
 
         //시각 변화 함수 만들어서 넣어줘요 (예시. 드레곤의 약점만 강조되고 다른 것들은 흑백) +용석
     }

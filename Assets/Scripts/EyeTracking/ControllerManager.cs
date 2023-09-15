@@ -187,7 +187,7 @@ public class ControllerManager : MonoBehaviour
             if (SkillAtaackGauge >= 20)
             {
                 SkillAtaackGauge = 0;
-                eventManager.EnemyHP -= 400;
+                eventManager.EnemyHP -= 500;
 
                 dragonAnimator.SetBool("attacked", true);
                 dragonAnimator.SetBool("okay", false);
