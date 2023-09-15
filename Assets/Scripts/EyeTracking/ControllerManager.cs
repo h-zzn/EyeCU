@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using static OVRHaptics; 
 
@@ -210,7 +209,7 @@ public class ControllerManager : MonoBehaviour
                 if (redMagicActive && blueMagicActive)
                 { // 오른손 Red Magic이 사용 가능일 때 
 
-                    skillEnergyPoint += 100;
+                    skillEnergyPoint += attackPoint;
 
                     if (PoongSound != null)
                     {
@@ -255,7 +254,7 @@ public class ControllerManager : MonoBehaviour
             {   
                 if (redMagicActive){ // 오른손 Red Magic이 사용 가능일 때 
 
-                    skillEnergyPoint += 50;
+                    skillEnergyPoint += attackPoint;
 
                     if (PoongSound != null)
                     {
@@ -315,7 +314,7 @@ public class ControllerManager : MonoBehaviour
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
             {
                 if(blueMagicActive){ // 오른손 Blue Magic이 사용 가능일 때
-                    skillEnergyPoint += 50;
+                    skillEnergyPoint += attackPoint;
 
                     if (PoongSound != null)
                     {

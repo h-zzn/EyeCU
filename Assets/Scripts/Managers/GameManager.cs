@@ -80,13 +80,13 @@ public class GameManager : MonoBehaviour
         {
             Invoke("AutoHealingHP", 2f);
         }
-        else if (stageLevel == StageLevel.stage1)
+        else if (stageLevel == StageLevel.stage2)
         {
-            controllerManager.attackPoint /= 2; 
+            controllerManager.attackPoint /= 2;
         }
-        else if (stageLevel == StageLevel.stage1)
+        else if(stageLevel == StageLevel.stage3)
         {
-            controllerManager.attackPoint /= 2; 
+            controllerManager.attackPoint /= 2;
         }
     }
 
