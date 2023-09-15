@@ -17,9 +17,7 @@ public class HandEffectCollision : MonoBehaviour
 
     public Coroutine reduceSkillCoroutine = null;
 
-    public AudioClip skillTrigger;
-
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource skillTriggerAudioSource;
 
 
     private void Start()
@@ -29,8 +27,6 @@ public class HandEffectCollision : MonoBehaviour
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
 
         deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
-
-        audioSource = gameObject.AddComponent<AudioSource>(); 
     }
 
 
@@ -153,7 +149,6 @@ public class HandEffectCollision : MonoBehaviour
 
     private void PlaySkillTriggerSound()
     {
-        audioSource.clip = skillTrigger;
-        audioSource.Play();
+        skillTriggerAudioSource.Play();
     }
 }
