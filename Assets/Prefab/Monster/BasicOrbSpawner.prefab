@@ -1899,6 +1899,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5577919464782880592, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 0.62831855
+      objectReference: {fileID: 0}
     - target: {fileID: 5577919464910396776, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
       propertyPath: stopAction
       value: 3
