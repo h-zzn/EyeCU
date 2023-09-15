@@ -59,6 +59,9 @@ public class ControllerManager : MonoBehaviour
 
     private int SkillAtaackGauge = 0;
 
+    private bool isSkilled;
+
+    private Coroutine BlinkSkillGauge = null;
 
     private void Awake() 
     {
@@ -78,6 +81,7 @@ public class ControllerManager : MonoBehaviour
         eyeTrackingRayRight = RightEyeInteractor.GetComponent<EyeTrackingRay>();
 
         SkillGaugeRenderer = SkillGauge.GetComponent<Renderer>();
+        isSkilled = false;
     }
 
     void Update()
@@ -142,16 +146,34 @@ public class ControllerManager : MonoBehaviour
         }
         else if (skillEnergyPoint <= 1950)
         {
-            SkillGaugeRenderer.material = SkillMaterials[10];
+            SkillGaugeRenderer.material = SkillMaterials[11];
         }
         else 
         {
-            SkillGaugeRenderer.material = SkillMaterials[11]; 
+            //SkillGaugeRenderer.material = SkillMaterials[11]; 
             skillEnergyPoint = 2000; //스킬게이지가 2000을 넘어가면 2000으로 고정
 
+
             //여기에 스킬 게이지 반짝이 기능 넣어줘야함 to 현진
+            if(BlinkSkillGauge==null) 
+                BlinkSkillGauge=StartCoroutine(ChangeSkillMaterial());
+
         }
     }
+
+    private IEnumerator ChangeSkillMaterial()
+    {
+        while(handEffectCollision.canUseSkill == false)
+        {
+            SkillGaugeRenderer.material = SkillMaterials[11];
+            yield return new WaitForSeconds(1f);
+            SkillGaugeRenderer.material = SkillMaterials[0];
+            yield return new WaitForSeconds(1f);
+        }
+
+        BlinkSkillGauge = null;
+    }
+    
 
     private void ActiveSkillBtnDown()
     {
