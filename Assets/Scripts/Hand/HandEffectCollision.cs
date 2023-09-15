@@ -15,7 +15,11 @@ public class HandEffectCollision : MonoBehaviour
     private DeleteEnemyAttack deleteEnemyAttack; 
 
 
-    public Coroutine reduceSkillCoroutine = null; 
+    public Coroutine reduceSkillCoroutine = null;
+
+    public AudioClip skillTrigger;
+
+    private AudioSource audioSource;
 
 
     private void Start()
@@ -25,6 +29,8 @@ public class HandEffectCollision : MonoBehaviour
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
 
         deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
+
+        audioSource = gameObject.AddComponent<AudioSource>(); 
     }
 
     private void Update() {
@@ -40,6 +46,7 @@ public class HandEffectCollision : MonoBehaviour
             DeactivateChildren(other.gameObject);
 
             StartVibration();
+            PlaySkillTriggerSound();
         }
     }
 
@@ -145,5 +152,11 @@ public class HandEffectCollision : MonoBehaviour
         // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
         LeftChannel.Clear();
         RightChannel.Clear();
+    }
+
+    private void PlaySkillTriggerSound()
+    {
+        audioSource.clip = skillTrigger;
+        audioSource.Play();
     }
 }
