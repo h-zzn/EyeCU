@@ -64,14 +64,22 @@ public class TutorialEvent : MonoBehaviour
         {
             lavaSwordMission = true;
         }
+        else
+        {
+            lavaSwordMission = false;
+        }
 
         if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
         {
             iceSwordMission = true;
         }
+        else
+        {
+            iceSwordMission = false;
+        }
 
 
-        if(lavaStone == null)
+        if (lavaStone == null)
         { 
             lavaStoneMission = true;
         }
@@ -88,6 +96,10 @@ public class TutorialEvent : MonoBehaviour
         if(controllerManager.skillEnergyPoint >= 200)
         {
             MPMission = true; 
+        }
+        else
+        {
+            MPMission = false;
         }
         if (controllerManager.blueMagicActive == false || controllerManager.redMagicActive == false)
         {

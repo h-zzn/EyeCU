@@ -307,8 +307,6 @@ public class EventManager : MonoBehaviour
         //step1 UI
         stoneObj.transform.GetChild(0).gameObject.SetActive(true);     //stone step1 UI
         yield return new WaitForSeconds(3); 
-        tutorialEvent.lavaSwordMission = false;
-        tutorialEvent.iceSwordMission = false; 
         while (!(tutorialEvent.lavaSwordMission && tutorialEvent.iceSwordMission))
         {
             yield return null; 
@@ -333,6 +331,7 @@ public class EventManager : MonoBehaviour
 
 
         //[*** HP 설명 window ***]
+        controllerManager.skillEnergyPoint = 0;
         HPUI.SetActive(true); 
         //HPUI.transform.GetChild(0).gameObject.SetActive(true);     // HP step1 UI
         gaugeObj.transform.gameObject.SetActive(true);
@@ -348,9 +347,9 @@ public class EventManager : MonoBehaviour
         {
             yield return null;
         }
+        spawnManager.BasicSpawnStop(true);
         deleteEnemyAttack.StartCoroutine("DeleteAll"); 
-        spawnManager.BasicSpawnStop(true); 
-
+        
         yield return new WaitForSeconds(3); 
         animator4B.SetBool("isDone", true);
         yield return new WaitForSeconds(2);
@@ -359,22 +358,26 @@ public class EventManager : MonoBehaviour
 
         HPUI.transform.GetChild(2).gameObject.SetActive(true);  // MP step1 UI
         yield return new WaitForSeconds(3);
+        controllerManager.skillEnergyPoint = 0;
         // MP 조금 차면 클리어
-        while (!tutorialEvent.HPMission)
+        spawnManager.BasicSpawnStop(false);
+        while (!tutorialEvent.MPMission)
         {
             yield return null;
         }
         animator4C.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
+        spawnManager.BasicSpawnStop(true);
+        deleteEnemyAttack.StartCoroutine("DeleteAll");
         HPUI.transform.GetChild(2).gameObject.SetActive(false);   
         HPUI.SetActive(false);
 
         //[잘못 눌렀을 경우 게이지 감소 및 패널티 설명]
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
         yield return new WaitForSeconds(5);
-        tutorialEvent.magicFailMission = false; 
+        
         spawnManager.BasicSpawnStop(false);
-        while (!tutorialEvent.MPMission)
+        while (!tutorialEvent.magicFailMission)
         {
             yield return null;
         }
@@ -390,11 +393,13 @@ public class EventManager : MonoBehaviour
         SkillUI.SetActive(true);
         //SkillUI.transform.GetChild(0).gameObject.SetActive(true);     // Skill step1 UI
         // 부수고 스킬 차는 애니메이션
+        SkillUI.transform.GetChild(0).gameObject.SetActive(true);
         controllerManager.skillEnergyPoint = 2000;
         yield return new WaitForSeconds(3); 
         animator5A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         SkillUI.transform.GetChild(0).gameObject.SetActive(false);   
+        yield return new WaitForSeconds(2);
         SkillUI.transform.GetChild(1).gameObject.SetActive(true);     // Skill step2 UI
         while (!tutorialEvent.skillActivateMission)  
         {
