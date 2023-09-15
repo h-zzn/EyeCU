@@ -12,6 +12,8 @@ public class HandEffectCollision : MonoBehaviour
     public bool canUseSkill = false;
 
     private ControllerManager controllerManager;
+    [SerializeField] private DeleteEnemyAttack deleteEnemyAttack;
+
 
     public Coroutine reduceSkillCoroutine = null;
 
@@ -74,7 +76,9 @@ public class HandEffectCollision : MonoBehaviour
         if (reduceSkillCoroutine == null)
         {
             reduceSkillCoroutine = StartCoroutine("reduceSkillGauge");  
-        } 
+        }
+
+        deleteEnemyAttack.StartCoroutine("DeleteAll");
 
         //시각 변화 함수 만들어서 넣어줘요 (예시. 드레곤의 약점만 강조되고 다른 것들은 흑백) +용석
     }

@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
                 else if(stageLevel == StageLevel.stage1)
                     EventFlow = StartCoroutine(eventManager.Stage1EventFlow());  
                 else if(stageLevel == StageLevel.stage2)
-                    EventFlow = StartCoroutine(eventManager.Stage2EventFlow());
+                    EventFlow = StartCoroutine(eventManager.Stage2EventFlow()); 
                 else if(stageLevel == StageLevel.stage3)
                     EventFlow = StartCoroutine(eventManager.Stage3EventFlow());
                 else 
