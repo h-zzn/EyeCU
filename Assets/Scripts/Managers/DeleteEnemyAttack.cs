@@ -30,11 +30,11 @@ public class DeleteEnemyAttack : MonoBehaviour
 
     private IEnumerator DeleteAll()
     {
-        Vector3 targetPosition = OriginPosition + new Vector3(0f, 0f, 100f); // ÀÌµ¿ÇÒ ¸ñÇ¥ À§Ä¡
+        Vector3 targetPosition = OriginPosition + new Vector3(0f, 0f, 100f); // ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡
 
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(transform.localPosition, targetPosition);
-        float journeyTime = 10f; // ÀÌµ¿ÇÏ´Â µ¥ °É¸®´Â ½Ã°£ (ÃÊ)
+        float journeyTime = 10f; // ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ (ï¿½ï¿½)
 
         while (Time.time - startTime < journeyTime)
         {
@@ -44,8 +44,8 @@ public class DeleteEnemyAttack : MonoBehaviour
             yield return null;
         }
 
-        // ÀÌµ¿ÀÌ ¿Ï·áµÇ¸é ¿ø·¡ À§Ä¡·Î µ¹¾Æ°¨
-        transform.localPosition = OriginPosition;
+        // ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½
+        this.transform.localPosition = OriginPosition;
     }
 
 }
