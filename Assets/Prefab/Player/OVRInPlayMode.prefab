@@ -28116,8 +28116,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2953496584208401769}
-  m_LocalRotation: {x: -0.17726593, y: -0.7871537, z: 0.30798426, w: 0.5040947}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0686, y: -0.0083, z: -0.0008}
   m_LocalScale: {x: 0.2, y: 0.20000002, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28129,7 +28129,7 @@ Transform:
   - {fileID: 2948271816542982549}
   m_Father: {fileID: 1401105292866224554}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 17.827, y: -108.5, z: 38.266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &3042424328076326781
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -69009,6 +69009,7 @@ MonoBehaviour:
   SkillGauge: {fileID: 0}
   SkillMaterialObj: {fileID: 0}
   handEffectCollision: {fileID: 3328971601575479314}
+  eventManager: {fileID: 0}
 --- !u!82 &7977265096230928998
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76373,7 +76374,6 @@ MonoBehaviour:
   SKillTriggerDuration: 0
   skillCircle: {fileID: 1871341393516388923}
   canUseSkill: 0
-  deleteEnemyAttack: {fileID: 0}
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -97167,8 +97167,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8168930351715308759}
-  m_LocalRotation: {x: 0.91047597, y: 0.13592263, z: 0.28013915, w: 0.27217767}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0686, y: 0.0083, z: 0.0008}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.20000002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -97180,7 +97180,7 @@ Transform:
   - {fileID: 8163739944081195051}
   m_Father: {fileID: 8952919174108663261}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 155.199, y: -40.05, z: -26.145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8329952249728558787
 ParticleSystem:
   m_ObjectHideFlags: 0
