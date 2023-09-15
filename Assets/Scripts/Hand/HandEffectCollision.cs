@@ -12,7 +12,7 @@ public class HandEffectCollision : MonoBehaviour
     public bool canUseSkill = false;
 
     private ControllerManager controllerManager;
-    [SerializeField] private DeleteEnemyAttack deleteEnemyAttack;
+    private DeleteEnemyAttack deleteEnemyAttack; 
 
 
     public Coroutine reduceSkillCoroutine = null;
@@ -23,6 +23,8 @@ public class HandEffectCollision : MonoBehaviour
         skillCircle.SetActive(false); 
 
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+
+        deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
     }
 
     private void OnTriggerEnter(Collider other)
