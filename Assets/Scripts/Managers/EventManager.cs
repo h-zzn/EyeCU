@@ -63,8 +63,8 @@ public class EventManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == TutorialBuildIndex)  
         {
            tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();
-            controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
-            deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
+           controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+           deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
            EnemyHP = 250;
         }
 
@@ -305,6 +305,8 @@ public class EventManager : MonoBehaviour
 
         //[****?��?��?�� ?���?? 방법 window***]
         //step1 UI
+        tutorialEvent.lavaSwordMission = false;
+        tutorialEvent.iceSwordMission = false;
         stoneObj.transform.GetChild(0).gameObject.SetActive(true);     //stone step1 UI
         yield return new WaitForSeconds(3); 
         while (!(tutorialEvent.lavaSwordMission && tutorialEvent.iceSwordMission))
@@ -347,6 +349,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null;
         }
+        glowing.SetGlowing();
         spawnManager.BasicSpawnStop(true);
         deleteEnemyAttack.StartCoroutine("DeleteAll"); 
         
@@ -365,6 +368,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null;
         }
+        glowing.SetGlowing();
         animator4C.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         spawnManager.BasicSpawnStop(true);
@@ -405,6 +409,7 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
+        glowing.SetGlowing();
         yield return new WaitForSeconds(3); 
         animator5B.SetBool("isDone", true);
         yield return new WaitForSeconds(2); 

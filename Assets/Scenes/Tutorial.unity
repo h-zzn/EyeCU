@@ -55572,6 +55572,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4372873059230220737, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
+      propertyPath: m_text
+      value: "\uBE68\uAC04\uC0C9\uC740 \uC624\uB978\uC190, \uD30C\uB780\uC0C9\uC740
+        \uC67C\uC190..\n\uD55C\uBC88 \uBC18\uB300\uB85C \uD574\uBCF4\uAC8C! \uD638\uB418\uAC8C
+        \uB2F9\uD560 \uAC83\uC774\uC57C\n(\uC2A4\uD0AC \uAC8C\uC774\uC9C0 \uAC10\uC18C,
+        \uBB34\uB825\uD654 1\uCD08)"
+      objectReference: {fileID: 0}
     - target: {fileID: 5023054297522697062, guid: 8833a0235d2d22844a552d6c00ae84f2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
