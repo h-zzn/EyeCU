@@ -18,6 +18,13 @@ public class SpecialOrbSpawner : MonoBehaviour
     [SerializeField] private int maxNumofSpecialOrb = 3;
     private List<GameObject> Orbs = new List<GameObject>();
 
+
+    // Magic Circles
+    [SerializeField] private GameObject magicCircle;
+    [SerializeField] private bool isMagicCircleActive = false;
+
+    private ParticleSystem magicCircleParticleSystem;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,6 +37,9 @@ public class SpecialOrbSpawner : MonoBehaviour
         {
             spawnObject.transform.GetChild(0).GetComponent<Tracing>().movingTime /= SpecialOrbSpeed;
         }
+
+        // Get Particle System of Magic Circle
+        magicCircleParticleSystem = magicCircle.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -37,6 +47,11 @@ public class SpecialOrbSpawner : MonoBehaviour
     {
         if (!isSpawnStop)
         {
+            if (!isMagicCircleActive)
+            {
+                activateMagicCircle();
+            }
+
             spawnSpecialOrb();
 
             if (Orbs.Count == maxNumofSpecialOrb)
@@ -46,6 +61,13 @@ public class SpecialOrbSpawner : MonoBehaviour
                     isSpawnStop = true;
                     resetAllValue();
                 }
+            }
+        }
+        else
+        {
+            if (isMagicCircleActive)
+            {
+                deactivateMagicCircle();
             }
         }
     }
@@ -70,5 +92,27 @@ public class SpecialOrbSpawner : MonoBehaviour
         Orbs.Clear();
     }
 
+    // Activate Regular Magic Cirle
+    public void activateMagicCircle()
+    {
+        isMagicCircleActive = true;
 
+        if (magicCircle != null)
+        {
+            // Start Particle System
+            magicCircleParticleSystem.Play();
+        }
+    }
+
+    // Deactivate Regular Magic Cirle
+    public void deactivateMagicCircle()
+    {
+        isMagicCircleActive = false;
+
+        if (magicCircle != null)
+        {
+            // Stop Particle System
+            magicCircleParticleSystem.Stop();
+        }
+    }
 }

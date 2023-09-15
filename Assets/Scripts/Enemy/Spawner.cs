@@ -16,32 +16,35 @@ public class Spawner : MonoBehaviour
     public int numOfBasicOrb = 0;
     
     // Magic Circles
-    [SerializeField] private List<GameObject> regMagicCircles;
-    private bool isRegMagicCircleActive = false;
-    [SerializeField] private List<GameObject> stoneMagicCircles;
-    private bool isStoneMagicCircleActive = false;
+    [SerializeField] private GameObject magicCircle;
+    [SerializeField] private bool isMagicCircleActive = false;
+
+    private ParticleSystem magicCircleParticleSystem;
 
     private void Start()
     {
         foreach (GameObject spawnObject in cubes) 
         {
             spawnObject.GetComponent<Cube>().moveSpeed *= OrbSpeed; 
-        }   
+        }
+
+        // Get Particle System of Magic Circle
+        magicCircleParticleSystem = magicCircle.GetComponent<ParticleSystem>();
     }
 
     void Update()
     {
         if (!isSpawnStop)
         {
-            if(!isRegMagicCircleActive){
-                activateRegMagicCircle();
+            if(!isMagicCircleActive){
+                activateMagicCircle();
             }
             spawnOrb();
         }
         else 
         {
-            if(isRegMagicCircleActive){
-                deactivateRegMagicCircle();
+            if(isMagicCircleActive){
+                deactivateMagicCircle();
             }
         }
     }
@@ -60,49 +63,26 @@ public class Spawner : MonoBehaviour
     }
 
     // Activate Regular Magic Cirle
-    public void activateRegMagicCircle()
+    public void activateMagicCircle()
     {
-        isRegMagicCircleActive = true;
-        foreach (GameObject magicCircle in regMagicCircles)
+        isMagicCircleActive = true;
+        
+        if (magicCircle != null)
         {
-            if (magicCircle != null)
-            {
-                magicCircle.SetActive(true);
-            }
+            // Start Particle System
+            magicCircleParticleSystem.Play();
         }
     }
 
     // Deactivate Regular Magic Cirle
-    public void deactivateRegMagicCircle()
+    public void deactivateMagicCircle()
     {
-        isRegMagicCircleActive = false;
+        isMagicCircleActive = false;
 
-        foreach (GameObject magicCircle in regMagicCircles)
+        if (magicCircle != null)
         {
-            if (magicCircle != null)
-            {
-                magicCircle.SetActive(false);
-            }
+            // Stop Particle System
+            magicCircleParticleSystem.Stop();
         }
     }
-
-    // // Activate Stone Magic Cirle
-    // public void activateStoneMagicCircle()
-    // {
-    //     if (stoneMagicCircles != null)
-    //     {
-    //         isStoneMagicCircleActive = true;
-    //         stoneMagicCircle.SetActive(true);
-    //     }
-    // }
-
-    // // Deactivate Stone Magic Cirle
-    // public void deactivateStoneMagicCircle()
-    // {
-    //     if (stoneMagicCircles != null)
-    //     {
-    //         isStoneMagicCircleActive = false;
-    //         stoneMagicCircle.SetActive(false);
-    //     }
-    // }
 }

@@ -86,9 +86,8 @@ MonoBehaviour:
   Interval: 0
   OrbSpeed: 1
   numOfBasicOrb: 0
-  regMagicCircles:
-  - {fileID: 3990646153357271093}
-  stoneMagicCircles: []
+  magicCircle: {fileID: 3990646153357271093}
+  isMagicCircleActive: 0
 --- !u!1 &1137717508075655795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,6 +1883,78 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6296064793119209080}
     m_Modifications:
+    - target: {fileID: 5577919464490899299, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577919464490899299, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577919464782880592, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577919464782880592, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577919464910396776, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577919464910396776, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577919464972881503, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577919464972881503, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667109426904143377, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667109426904143377, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667109428211016550, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667109428211016550, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958716757225089379, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958716757225089379, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958716758077819839, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958716758077819839, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384191634987, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384191634987, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8000609384302910400, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1938,6 +2009,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8000609384302910405, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910407, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609384302910407, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609386023531299, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000609386023531299, guid: 571d33262f3334249a2a6ec8ef539b88, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
