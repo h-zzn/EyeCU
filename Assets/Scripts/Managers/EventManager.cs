@@ -53,12 +53,17 @@ public class EventManager : MonoBehaviour
 
     private int TutorialBuildIndex;
 
+    private DeleteEnemyAttack deleteEnemyAttack;
+
     void Start()  
     {
         TutorialBuildIndex = SceneManager.sceneCountInBuildSettings-1;
+
         if(SceneManager.GetActiveScene().buildIndex == TutorialBuildIndex)  
         {
-           tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();    
+           tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();
+
+           deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
            EnemyHP = 250;
         }
 
@@ -277,9 +282,9 @@ public class EventManager : MonoBehaviour
         
         //[****?���?? ?���?? ?���?? 방법 window***]
         //step1 UI
-        specialObj.transform.GetChild(0).gameObject.SetActive(true);    //special step1 UI
-        yield return new WaitForSeconds(8);
-        tutorialEvent.specialOrb.SetActive(true);
+        specialObj.transform.GetChild(0).gameObject.SetActive(true);    //special step1 UI 
+        yield return new WaitForSeconds(8); 
+        tutorialEvent.specialOrb.SetActive(true);  
         while(!tutorialEvent.specialOrbMission) 
         {
             yield return null; 
@@ -325,6 +330,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2);  
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
 
+
         //[*** HP 설명 window ***]
         HPUI.SetActive(true); 
         //HPUI.transform.GetChild(0).gameObject.SetActive(true);     // HP step1 UI
@@ -335,8 +341,15 @@ public class EventManager : MonoBehaviour
         HPUI.transform.GetChild(0).gameObject.SetActive(false);   
         HPUI.transform.GetChild(1).gameObject.SetActive(true);     // HP step2 UI
 
-        OVRInteractionObj.SetActive(false);     // 손 못 쓰게
-        
+        OVRInteractionObj.SetActive(false);     // 손 못 쓰게 
+        spawnManager.BasicSpawnStop(false);
+        while (!tutorialEvent.HPMission)
+        {
+            yield return null;
+        }
+        deleteEnemyAttack.StartCoroutine("DeleteAll"); 
+        spawnManager.BasicSpawnStop(true); 
+
         yield return new WaitForSeconds(3); 
         animator4B.SetBool("isDone", true);
         yield return new WaitForSeconds(2);
@@ -344,7 +357,7 @@ public class EventManager : MonoBehaviour
         HPUI.transform.GetChild(2).gameObject.SetActive(true);  // HP step3 UI
         yield return new WaitForSeconds(3); 
         // HP 꽉 차게 조절
-        OVRInteractionObj.SetActive(true);  // 손 다시 쓸 수 있게
+        OVRInteractionObj.SetActive(true);  // 손 다시 쓸 수 있게 
         animator4C.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         HPUI.transform.GetChild(2).gameObject.SetActive(false);   
@@ -386,7 +399,6 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(3); 
 
         // 스킬 구현 후 완성
-        
         
         while (EnemyHP > 0) 
         {   

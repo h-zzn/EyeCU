@@ -68968,9 +68968,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3169287357351077028}
   - {fileID: 1871341393516388920}
   - {fileID: 4271939955076244527}
+  - {fileID: 3169287357351077028}
   - {fileID: 8068705810569230131}
   - {fileID: 3930215984911050192}
   m_Father: {fileID: 0}
@@ -68989,7 +68989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerType: -1
-  RedMagicHitEffectPrefab: {fileID: 8441111138654954413, guid: a64dc6bd5d0fbf04cae9539cfbedfa7a, type: 3}
+  RedMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 383fceec0193e2845ae332437d684462, type: 3}
   BlueMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 9c77289840851bb41a8210e03a9d364d, type: 3}
   TaegukMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 2e3dfcfa695ec1443a72ab87837e8fb5, type: 3}
   leftSword: {fileID: 5777889304347496251}
@@ -70750,9 +70750,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 771036545942236654}
   - {fileID: 3518053805100503845}
   - {fileID: 7193459972245717258}
+  - {fileID: 771036545942236654}
   m_Father: {fileID: 4737043637408523549}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76370,9 +76370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a15be3c8f96724abef368e310d1821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrationDuration: 2
+  SKillTriggerDuration: 0
   skillCircle: {fileID: 1871341393516388923}
   canUseSkill: 0
+  deleteEnemyAttack: {fileID: 0}
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0
