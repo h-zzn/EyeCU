@@ -33,9 +33,6 @@ public class HandEffectCollision : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>(); 
     }
 
-    private void Update() {
-        Debug.Log(controllerManager.skillEnergyPoint);
-    }
 
     private void OnTriggerEnter(Collider other)
     {
