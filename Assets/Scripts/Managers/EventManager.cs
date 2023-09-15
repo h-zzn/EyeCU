@@ -56,6 +56,7 @@ public class EventManager : MonoBehaviour
     void Start()  
     {
         TutorialBuildIndex = SceneManager.sceneCountInBuildSettings-1;
+
         if(SceneManager.GetActiveScene().buildIndex == TutorialBuildIndex)  
         {
            tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();    
@@ -386,7 +387,6 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(3); 
 
         // 스킬 구현 후 완성
-        
         
         while (EnemyHP > 0) 
         {   

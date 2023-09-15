@@ -69075,6 +69075,7 @@ MonoBehaviour:
   attackPoint: 100
   SkillGauge: {fileID: 0}
   SkillMaterialObj: {fileID: 0}
+  handEffectCollision: {fileID: 3328971601575479314}
 --- !u!82 &7977265096230928998
 AudioSource:
   m_ObjectHideFlags: 0
