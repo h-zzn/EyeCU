@@ -296,9 +296,8 @@ MonoBehaviour:
   Interval: 0
   OrbSpeed: 1
   numOfBasicOrb: 0
-  regMagicCircles:
-  - {fileID: 1602531819912577431}
-  stoneMagicCircles: []
+  magicCircle: {fileID: 1602531819912577431}
+  isMagicCircleActive: 0
 --- !u!1 &1069493025194497826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,12 +1883,100 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6296064793119209080}
     m_Modifications:
+    - target: {fileID: 2023249518487050227, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023249518487050227, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023249518558708932, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023249518558708932, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023249518943997647, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023249518943997647, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023249519168866044, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023249519168866044, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294966069998942922, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294966069998942922, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294966070772436925, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294966070772436925, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737858954364332651, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737858954364332651, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597974235732890131, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597974235732890131, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502220135792257679, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502220135792257679, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502220137116645255, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502220137116645255, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4502220137496871529, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
       propertyPath: m_Name
       value: StoneMagicCircle
       objectReference: {fileID: 0}
     - target: {fileID: 4502220137496871529, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502220137496871531, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502220137496871531, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4502220137496871532, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
@@ -1934,6 +2021,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4502220137496871532, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128750946398890508, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128750946398890508, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564240164672075672, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: stopAction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564240164672075672, guid: 378a290fef46b92448d9781bbcca61e9, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
