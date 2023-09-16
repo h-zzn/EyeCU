@@ -7,12 +7,12 @@ public class gameStartScript : MonoBehaviour
     public int gameStartValue = 0;
 
     public GameObject activeObj;
-    public GameObject otherObj;
+    //public GameObject otherObj;
 
     public Transform cam;
 
-    private MeshCollider knifeMeshCollider;
-    private MeshCollider bookMeshCollider;
+    // private MeshCollider knifeMeshCollider;
+    // private MeshCollider bookMeshCollider;
 
     [SerializeField] private GameObject canvasObj;
 
@@ -29,15 +29,16 @@ public class gameStartScript : MonoBehaviour
         canvasAnimator.SetBool("isStory", true);  // true로 바꾸기
 
 
-        knifeMeshCollider = GameObject.Find("knife").GetComponent<MeshCollider>();
+        //knifeMeshCollider = GameObject.Find("knife").GetComponent<MeshCollider>();
         //bookMeshCollider = GameObject.Find("book").GetComponent<MeshCollider>();
 
         print("나이프 키 = "  + PlayerPrefs.GetInt("knifeActive"));
 
         if(PlayerPrefs.HasKey("knifeActive")){  // 튜토리얼을 완료했다면
-            knifeMeshCollider.enabled = true;
+            //knifeMeshCollider.enabled = true;
             //bookMeshCollider.enabled = true;
             canvasAnimator.SetBool("isStory", false);
+
         }
     }
 
@@ -54,10 +55,6 @@ public class gameStartScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             activeObj.SetActive(true);
-
-            if(otherObj.activeSelf == true){
-                otherObj.SetActive(false);
-            }
             
         }
     }

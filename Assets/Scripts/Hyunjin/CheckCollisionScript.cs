@@ -18,6 +18,9 @@ public class CheckCollisionScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(this.gameObject.name == "NextButton"){
+                
+            }
             if(this.gameObject.name == "Stage1Effect" || this.gameObject.name == "stage1"){
                 FadeOut(1); // stage 1
             }
@@ -30,7 +33,7 @@ public class CheckCollisionScript : MonoBehaviour
                 FadeOut(3); // stage 3
             }
             
-            if(this.gameObject.name == "TutorialObj"){       //튜토리얼로
+            if(this.gameObject.name == "tutorialEffect"){       //튜토리얼로
                 FadeOut(4); // tutorial
             }
         }
