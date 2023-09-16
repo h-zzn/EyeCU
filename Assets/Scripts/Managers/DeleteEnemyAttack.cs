@@ -10,6 +10,8 @@ public class DeleteEnemyAttack : MonoBehaviour
     void Start()
     {
         OriginPosition = this.transform.localPosition;
+
+        StartCoroutine("DeleteAll");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,11 +31,11 @@ public class DeleteEnemyAttack : MonoBehaviour
 
     private IEnumerator DeleteAll()
     {
-        Vector3 targetPosition = OriginPosition + new Vector3(0f, 0f, 100f); // �̵��� ��ǥ ��ġ
+        Vector3 targetPosition = OriginPosition + new Vector3(-250f, 0f, 0f); // �̵��� ��ǥ ��ġ
 
         float startTime = Time.time;
         float journeyLength = Vector3.Distance(transform.localPosition, targetPosition);
-        float journeyTime = 10f; // �̵��ϴ� �� �ɸ��� �ð� (��)
+        float journeyTime = 8f; // �̵��ϴ� �� �ɸ��� �ð� (��)
 
         while (Time.time - startTime < journeyTime)
         {
