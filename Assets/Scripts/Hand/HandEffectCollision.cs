@@ -17,8 +17,6 @@ public class HandEffectCollision : MonoBehaviour
 
     public Coroutine reduceSkillCoroutine = null;
 
-    [SerializeField] private AudioSource skillTriggerAudioSource;
-
 
     private void Start()
     {
@@ -39,7 +37,6 @@ public class HandEffectCollision : MonoBehaviour
             DeactivateChildren(other.gameObject);
 
             StartVibration();
-            PlaySkillTriggerSound();
         }
     }
 
@@ -86,8 +83,6 @@ public class HandEffectCollision : MonoBehaviour
 
         deleteEnemyAttack.StartCoroutine("DeleteAll");
 
-        controllerManager.eventManager.EnemyHP -= 600; 
-
         //시각 변화 함수 만들어서 넣어줘요 (예시. 드레곤의 약점만 강조되고 다른 것들은 흑백) +용석
     }
 
@@ -97,7 +92,7 @@ public class HandEffectCollision : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
 
-            controllerManager.skillEnergyPoint -= 500; //나중에 고칠 예정 일단 즉발형 스킬 
+            controllerManager.skillEnergyPoint -= 100; //나중에 고칠 예정 일단 즉발형 스킬 
 
             if (controllerManager.skillEnergyPoint < 100)
             {
@@ -145,10 +140,5 @@ public class HandEffectCollision : MonoBehaviour
         // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
         LeftChannel.Clear();
         RightChannel.Clear();
-    }
-
-    private void PlaySkillTriggerSound()
-    {
-        skillTriggerAudioSource.Play();
     }
 }
