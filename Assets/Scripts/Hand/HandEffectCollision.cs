@@ -19,6 +19,7 @@ public class HandEffectCollision : MonoBehaviour
 
     public Coroutine reduceSkillCoroutine = null;
 
+    private Collider otherCollider;
 
     private void Start()
     {
@@ -43,6 +44,8 @@ public class HandEffectCollision : MonoBehaviour
             RightPurpleEffect.SetActive(true);
 
             StartVibration();
+
+            otherCollider = other;
         }
     }
 
@@ -68,6 +71,8 @@ public class HandEffectCollision : MonoBehaviour
             SkillTriggerDuration = 0;
 
             StopVibration();
+
+            otherCollider = null;
 
           //ReactivateChildren(this.gameObject); 
           //ReactivateChildren(other.gameObject); 
@@ -112,6 +117,12 @@ public class HandEffectCollision : MonoBehaviour
 
         LeftPurpleEffect.SetActive(false);
         RightPurpleEffect.SetActive(false);
+
+        ReactivateChildren(this.gameObject); 
+        if (otherCollider!=null)
+        {
+            ReactivateChildren(otherCollider.gameObject);
+        }
     }
 
     private void DeactivateChildren(GameObject parent)
