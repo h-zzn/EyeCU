@@ -344,6 +344,8 @@ public class EventManager : MonoBehaviour
         HPUI.transform.GetChild(1).gameObject.SetActive(true);     // HP step2 UI
 
         OVRInteractionObj.SetActive(false);     // 손 못 쓰게 
+        controllerManager.redMagicActive = false;
+        controllerManager.blueMagicActive = false;
         spawnManager.BasicSpawnStop(false);
         while (!tutorialEvent.HPMission)
         {
@@ -357,7 +359,9 @@ public class EventManager : MonoBehaviour
         animator4B.SetBool("isDone", true);
         yield return new WaitForSeconds(2);
         HPUI.transform.GetChild(1).gameObject.SetActive(false);
-        OVRInteractionObj.SetActive(true);  // 손 다시 쓸 수 있게 
+        OVRInteractionObj.SetActive(true);  // 손 다시 쓸 수 있게
+        controllerManager.redMagicActive = true;
+        controllerManager.blueMagicActive = true; 
 
         HPUI.transform.GetChild(2).gameObject.SetActive(true);  // MP step1 UI
         yield return new WaitForSeconds(3);
