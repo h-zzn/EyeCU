@@ -9,6 +9,9 @@ public class CheckCollisionScript : MonoBehaviour
     StageManagerScript stageManager;  
     public Image blackImg;
 
+    public GameObject setObj;
+    
+
     private void Start()
     {
         stageManager = FindObjectOfType<StageManagerScript>();
@@ -19,7 +22,7 @@ public class CheckCollisionScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if(this.gameObject.name == "NextButton"){
-                
+                setObj.SetActive(true);
             }
             if(this.gameObject.name == "Stage1Effect" || this.gameObject.name == "stage1"){
                 FadeOut(1); // stage 1

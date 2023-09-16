@@ -15,6 +15,7 @@ public class VRControllerMovement : MonoBehaviour
     public OVRInput.Controller controllerType; // 컨트롤러 종류 선택
 
     [SerializeField] private AudioSource selectSound;
+    [SerializeField] private GameObject setObj;
     [SerializeField] private Image blackImg;
 
     StageManagerScript stageManager;  
@@ -49,6 +50,10 @@ public class VRControllerMovement : MonoBehaviour
                     selectSound.Play();
                 }
 
+                if(eyeTrackingRayRight.HoveredCube.gameObject.name == "NextButton"){       //튜토리얼로
+                    setObj.SetActive(true);
+                }
+
                 if(eyeTrackingRayRight.HoveredCube.gameObject.name == "Stage1Effect" || eyeTrackingRayRight.HoveredCube.gameObject.name == "stage1"){
                     FadeOut(1); // stage 1
                 }
@@ -61,7 +66,7 @@ public class VRControllerMovement : MonoBehaviour
                     FadeOut(3); // stage 3
                 }
                 
-                if(eyeTrackingRayRight.HoveredCube.gameObject.name == "dragon"){       //튜토리얼로
+                if(eyeTrackingRayRight.HoveredCube.gameObject.name == "tutorialEffect"){       //튜토리얼로
                     FadeOut(4); // stage 3
                 }
 
