@@ -5,9 +5,11 @@ using static OVRHaptics;
 
 public class HandEffectCollision : MonoBehaviour
 {
-    public float SKillTriggerDuration;
+    public float SkillTriggerDuration;
 
     public GameObject skillCircle; // "skill"시작을 알리는 오브젝트를 저장할 리스트
+    public GameObject LeftPurpleEffect;
+    public GameObject RightPurpleEffect;
 
     public bool canUseSkill = false;
 
@@ -20,7 +22,9 @@ public class HandEffectCollision : MonoBehaviour
 
     private void Start()
     {
-        skillCircle.SetActive(false); 
+        skillCircle.SetActive(false);
+        LeftPurpleEffect.SetActive(false);
+        RightPurpleEffect.SetActive(false);
 
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
 
@@ -35,6 +39,8 @@ public class HandEffectCollision : MonoBehaviour
             // Deactivate children of this GameObject
             DeactivateChildren(this.gameObject);
             DeactivateChildren(other.gameObject);
+            LeftPurpleEffect.SetActive(true);
+            RightPurpleEffect.SetActive(true);
 
             StartVibration();
         }
@@ -44,9 +50,9 @@ public class HandEffectCollision : MonoBehaviour
     {
         if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
         {
-            if(SKillTriggerDuration <= 2)
+            if(SkillTriggerDuration <= 1)
             {
-                SKillTriggerDuration += Time.deltaTime;
+                SkillTriggerDuration += Time.deltaTime;
             }
             else if (canUseSkill == false)
             {
@@ -59,12 +65,12 @@ public class HandEffectCollision : MonoBehaviour
     {
         if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
         {
-            SKillTriggerDuration = 0;
+            SkillTriggerDuration = 0;
 
             StopVibration();
 
-            ReactivateChildren(this.gameObject); 
-            ReactivateChildren(other.gameObject); 
+          //ReactivateChildren(this.gameObject); 
+          //ReactivateChildren(other.gameObject); 
         }
     }
 
@@ -103,6 +109,9 @@ public class HandEffectCollision : MonoBehaviour
         canUseSkill = false;
         reduceSkillCoroutine = null;
         //시각 변화 사라지고 원래로 돌려주는 함수 넣어줘요 +용석
+
+        LeftPurpleEffect.SetActive(false);
+        RightPurpleEffect.SetActive(false);
     }
 
     private void DeactivateChildren(GameObject parent)
