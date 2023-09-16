@@ -76374,7 +76374,6 @@ MonoBehaviour:
   SKillTriggerDuration: 0
   skillCircle: {fileID: 1871341393516388923}
   canUseSkill: 0
-  skillTrigger: {fileID: 0}
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0

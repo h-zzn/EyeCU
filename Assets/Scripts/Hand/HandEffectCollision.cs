@@ -17,8 +17,6 @@ public class HandEffectCollision : MonoBehaviour
 
     public Coroutine reduceSkillCoroutine = null;
 
-    [SerializeField] private AudioSource skillTriggerAudioSource;
-
 
     private void Start()
     {
@@ -39,7 +37,6 @@ public class HandEffectCollision : MonoBehaviour
             DeactivateChildren(other.gameObject);
 
             StartVibration();
-            PlaySkillTriggerSound();
         }
     }
 
@@ -143,10 +140,5 @@ public class HandEffectCollision : MonoBehaviour
         // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
         LeftChannel.Clear();
         RightChannel.Clear();
-    }
-
-    private void PlaySkillTriggerSound()
-    {
-        skillTriggerAudioSource.Play();
     }
 }
