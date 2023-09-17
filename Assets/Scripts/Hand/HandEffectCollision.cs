@@ -14,7 +14,8 @@ public class HandEffectCollision : MonoBehaviour
     public bool canUseSkill = false;
 
     private ControllerManager controllerManager;
-    private DeleteEnemyAttack deleteEnemyAttack; 
+    private DeleteEnemyAttack deleteEnemyAttack;
+    private SpawnManager spawnManager;
 
 
     public Coroutine reduceSkillCoroutine = null;
@@ -23,6 +24,7 @@ public class HandEffectCollision : MonoBehaviour
 
     private void Start()
     {
+
         skillCircle.SetActive(false);
         LeftPurpleEffect.SetActive(false);
         RightPurpleEffect.SetActive(false);
@@ -30,6 +32,8 @@ public class HandEffectCollision : MonoBehaviour
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
 
         deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
+
+        spawnManager = GameObject.Find("StageCore").GetComponent<SpawnManager>();
     }
 
 
@@ -91,6 +95,10 @@ public class HandEffectCollision : MonoBehaviour
         {
             reduceSkillCoroutine = StartCoroutine("reduceSkillGauge");  
         }
+
+        spawnManager.BasicSpawnStop(true);
+        spawnManager.StoneSpawnStop(true);
+        spawnManager.SpecialOrbSpawnAllStop(true);
 
         deleteEnemyAttack.StartCoroutine("DeleteAll");
 
