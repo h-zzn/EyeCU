@@ -99,7 +99,12 @@ public class TutorialEvent : MonoBehaviour
         {
             magicFailMission = true; 
         }
-        if( controllerManager.handEffectCollision.canUseSkill == true)
+        else
+        {
+            magicFailMission = false;
+        }
+
+        if(controllerManager.handEffectCollision.canUseSkill == true)
         {
             skillActivateMission = true;
         }
