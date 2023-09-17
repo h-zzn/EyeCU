@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour
         finalHPText.text = finalHP.ToString();
         levelReached = PlayerPrefs.GetInt("levelReached");  
 
-        if(levelReached < SceneManager.GetActiveScene().buildIndex)
+        if(levelReached < SceneManager.GetActiveScene().buildIndex && SceneManager.GetActiveScene().buildIndex!=4)
             PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
         float startVolume = BGM.volume; // Store the initial volume
