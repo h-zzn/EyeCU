@@ -385,10 +385,10 @@ public class EventManager : MonoBehaviour
         magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
         yield return new WaitForSeconds(5);
         
-        spawnManager.BasicSpawnStop(false);
+        spawnManager.BasicSpawnStop(false); 
         while (!tutorialEvent.magicFailMission)
         {
-            yield return null;
+            yield return null; 
         }
         glowing.SetGlowing();
         yield return new WaitForSeconds(5);
