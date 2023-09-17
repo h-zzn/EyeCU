@@ -17,9 +17,9 @@ public class ControllerManager : MonoBehaviour
 
     Vector3 hitEffectPosition;
 
-    [SerializeField] private GameObject RedMagicHitEffectPrefab;
-    [SerializeField] private GameObject BlueMagicHitEffectPrefab;
-    [SerializeField] private GameObject TaegukMagicHitEffectPrefab;
+    public GameObject RedMagicHitEffectPrefab;
+    public GameObject BlueMagicHitEffectPrefab;
+    public GameObject TaegukMagicHitEffectPrefab;
 
     [SerializeField] private GameObject leftSword;
     [SerializeField] private GameObject rightSword;
