@@ -21,14 +21,21 @@ public class StageManagerScript : MonoBehaviour
 
     private static bool hasDeletedKey = false;
 
+    [SerializeField] private GameObject canvasObj;
+
+    //canvas Animator
+    Animator canvasAnimator;
+
     private void Start()
     {
         // if (!hasDeletedKey)
         // {
         //     PlayerPrefs.DeleteKey("levelReached");
-        //     PlayerPrefs.DeleteKey("knifeActive");
+        //     //PlayerPrefs.DeleteKey("knifeActive");
         //     hasDeletedKey = true;
         // }
+        //PlayerPrefs.DeleteKey("knifeActive"); 
+        canvasAnimator = canvasObj.transform.gameObject.GetComponent<Animator>();
 
         GameObject[] stages = new GameObject[stageNumObject.transform.childCount];
         for (int i = 0; i < stageNumObject.transform.childCount; i++)
@@ -44,6 +51,7 @@ public class StageManagerScript : MonoBehaviour
 
 
         levelat = PlayerPrefs.GetInt("levelReached");
+        Debug.Log("찐 levelat = " + levelat);
         stage1BestHP = PlayerPrefs.GetInt("Stage1BestHP");
         stage2BestHP = PlayerPrefs.GetInt("Stage2BestHP");
         stage3BestHP = PlayerPrefs.GetInt("Stage3BestHP");
@@ -51,21 +59,27 @@ public class StageManagerScript : MonoBehaviour
         if(PlayerPrefs.HasKey("knifeActive")){  // 튜토리얼을 완료했다면
             //knifeMeshCollider.enabled = true;
             //bookMeshCollider.enabled = true;
-            //canvasAnimator.SetBool("isStory", false);         
+            canvasAnimator.SetBool("isStory", false);         
             stages[0].SetActive(false);
         }
 
+        else{
+            canvasAnimator.SetBool("isStory", true);  // true로 바꾸기
+        }
 
-        for (int i= levelat+1; i<stages.Length; i++){
-            stages[i+1].SetActive(false);         // 시작할 때 스테이지 비활성화 /////////////////////////////////////////////////////////////////////////// 나중에 수정
+
+        for (int i= levelat+2; i<stages.Length; i++){
+            stages[i].SetActive(false);         // 시작할 때 스테이지 비활성화 /////////////////////////////////////////////////////////////////////////// 나중에 수정
         }
 
         //완료한 스테이지 비활성화 
         if(levelat > 0){
             for(int i = 0; i<levelat; i++){
-                successBlock[i].SetActive(true);  // success 오브젝트 활성화             
+                successBlock[i].SetActive(true);  // success 오브젝트 활성화 
+                stages[i+1].SetActive(false);            
             }
         }
+
 
         // 완료한 스테이지 별 활성화
         if(levelat >= 1){

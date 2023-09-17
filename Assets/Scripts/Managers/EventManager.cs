@@ -244,6 +244,7 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
+
         PlayerPrefs.SetInt("knifeActive", 1);
         print("나이프 키2 = "  + PlayerPrefs.GetInt("knifeActive"));
 
