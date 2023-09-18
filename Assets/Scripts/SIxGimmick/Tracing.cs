@@ -52,7 +52,6 @@ public class Tracing : MonoBehaviour
         // Check if the object is being gazed upon
         if (IsHovered)
         {
-            Debug.Log("ddddddddddddddddddddddddddddd");
             // Increment the hover duration
             hoverDuration += Time.deltaTime;
 
