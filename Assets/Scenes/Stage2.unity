@@ -44008,6 +44008,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000010281450330, guid: 46b49871773764447a894bbb1c459502, type: 3}
   m_PrefabInstance: {fileID: 2031279381}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2042936393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9103182702445477940, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+  m_PrefabInstance: {fileID: 2094405262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2051845340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44454,6 +44459,10 @@ PrefabInstance:
       propertyPath: SpecialOrbSpawner.Array.data[1]
       value: 
       objectReference: {fileID: 877311447}
+    - target: {fileID: 7328454174921344792, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 2042936393}
     - target: {fileID: 7711963296510334033, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -149,7 +149,8 @@ public class EventManager : MonoBehaviour
         } 
 
         spawnManager.BasicSpawnStop(true); 
-        spawnManager.StoneSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true);
+        spawnManager.SpecialOrbSpawnAllStop(true); 
         yield return new WaitForSeconds(8); 
         GameClear = true;
         // Reset
@@ -354,7 +355,7 @@ public class EventManager : MonoBehaviour
         }
         glowing.SetGlowing();
         spawnManager.BasicSpawnStop(true);
-        deleteEnemyAttack.StartCoroutine("DeleteAll"); 
+        deleteEnemyAttack.DeleteAll(); 
         
         yield return new WaitForSeconds(3); 
         animator4B.SetBool("isDone", true);
@@ -377,7 +378,7 @@ public class EventManager : MonoBehaviour
         animator4C.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         spawnManager.BasicSpawnStop(true);
-        deleteEnemyAttack.StartCoroutine("DeleteAll");
+        deleteEnemyAttack.DeleteAll();
         HPUI.transform.GetChild(2).gameObject.SetActive(false);   
         HPUI.SetActive(false);
 
@@ -393,7 +394,7 @@ public class EventManager : MonoBehaviour
         glowing.SetGlowing();
         yield return new WaitForSeconds(5);
         spawnManager.BasicSpawnStop(true);
-        deleteEnemyAttack.StartCoroutine("DeleteAll"); 
+        deleteEnemyAttack.DeleteAll(); 
         animator1C.SetBool("isDone", true);
         yield return new WaitForSeconds(2);
         magicObj.transform.GetChild(2).gameObject.SetActive(false);
