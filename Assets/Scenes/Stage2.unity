@@ -44276,7 +44276,7 @@ PrefabInstance:
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: HPGauge
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2143618534}
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stageHP
       value: 2000
@@ -44284,7 +44284,7 @@ PrefabInstance:
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: HPMaterialObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2143618532}
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: hitShakeAmount
       value: 1.5
@@ -44400,13 +44400,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3269573949413600846, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7638743580658751720, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
 --- !u!82 &2094405263 stripped
 AudioSource:
@@ -44877,22 +44871,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-      propertyPath: SkillGauge
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-      propertyPath: SkillMaterialObj
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-      propertyPath: RedMagicHitEffectPrefab
-      value: 
-      objectReference: {fileID: 2652936054558877957, guid: 383fceec0193e2845ae332437d684462, type: 3}
-    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
-      propertyPath: BlueMagicHitEffectPrefab
-      value: 
-      objectReference: {fileID: 2652936054558877957, guid: 9c77289840851bb41a8210e03a9d364d, type: 3}
     - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: skillTrigger
       value: 
@@ -44956,9 +44934,19 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+--- !u!1 &2143618532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5044947370102355327, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 2143618531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &2143618533 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 791997421801663777, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 2143618531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2143618534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7374937974073260705, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
   m_PrefabInstance: {fileID: 2143618531}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2143619946

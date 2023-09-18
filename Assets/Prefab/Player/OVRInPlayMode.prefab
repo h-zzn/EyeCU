@@ -69041,8 +69041,8 @@ MonoBehaviour:
   MissingPoint: 0
   skillEnergyPoint: 0
   attackPoint: 100
-  SkillGauge: {fileID: 0}
-  SkillMaterialObj: {fileID: 0}
+  SkillGauge: {fileID: 9007712374849698202}
+  SkillMaterialObj: {fileID: 8740802816579520912}
   handEffectCollision: {fileID: 3328971601575479314}
   eventManager: {fileID: 0}
 --- !u!82 &7977265096230928998
@@ -124621,6 +124621,16 @@ PrefabInstance:
 --- !u!4 &5173502037961385648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
+  m_PrefabInstance: {fileID: 3441831162139482907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8740802816579520912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6237000517705618059, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
+  m_PrefabInstance: {fileID: 3441831162139482907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9007712374849698202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5963335018829832833, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
   m_PrefabInstance: {fileID: 3441831162139482907}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3908029050280602993

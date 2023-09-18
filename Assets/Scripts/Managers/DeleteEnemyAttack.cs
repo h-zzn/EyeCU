@@ -13,9 +13,7 @@ public class DeleteEnemyAttack : MonoBehaviour
 
     void Start()
     {
-        OriginPosition = this.transform.localPosition;  
-         
-        DeleteAll();  
+        OriginPosition = this.transform.localPosition;    
 
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();  
     }
@@ -51,12 +49,15 @@ public class DeleteEnemyAttack : MonoBehaviour
 
     public void DeleteAll()
     {
-        float journeyTime = 5f; // 이동 시간 (초)
+        if (targetPosition != null)
+        {
+            float journeyTime = 5f; // 이동 시간 (초)
 
-        // DoTween을 사용하여 움직임을 처리
-        transform.DOLocalMove(targetPosition.position, journeyTime).SetEase(Ease.Linear);  
+            // DoTween을 사용하여 움직임을 처리
+            transform.DOLocalMove(targetPosition.localPosition, journeyTime).SetEase(Ease.Linear);
 
-        // 이동이 완료되면 초기 위치로 되돌리기
-        transform.DOLocalMove(OriginPosition, 0f);  
+            // 이동이 완료되면 초기 위치로 되돌리기
+            transform.DOLocalMove(OriginPosition, 0f); 
+        }
     }
 }
