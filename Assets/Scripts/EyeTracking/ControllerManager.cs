@@ -166,7 +166,7 @@ public class ControllerManager : MonoBehaviour
         {
             SkillGaugeRenderer.material = SkillMaterials[11];
             yield return new WaitForSeconds(1f);
-            SkillGaugeRenderer.material = SkillMaterials[10];
+            SkillGaugeRenderer.material = SkillMaterials[12];
             yield return new WaitForSeconds(1f);
         }
 
