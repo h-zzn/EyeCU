@@ -100,7 +100,7 @@ public class HandEffectCollision : MonoBehaviour
         spawnManager.StoneSpawnStop(true);
         spawnManager.SpecialOrbSpawnAllStop(true);
 
-        deleteEnemyAttack.StartCoroutine("DeleteAll");
+        deleteEnemyAttack.DeleteAll();
 
         //시각 변화 함수 만들어서 넣어줘요 (예시. 드레곤의 약점만 강조되고 다른 것들은 흑백) +용석
     }
