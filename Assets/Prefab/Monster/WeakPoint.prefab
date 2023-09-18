@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4337773004953852}
   - component: {fileID: 198382856455990498}
   - component: {fileID: 199708151283089344}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4909,7 +4909,7 @@ GameObject:
   - component: {fileID: 4317306493834218}
   - component: {fileID: 198353140752631172}
   - component: {fileID: 199723879339717866}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WeakPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4923,7 +4923,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519330845117178}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4931,7 +4931,7 @@ Transform:
   - {fileID: 4316068051346778}
   - {fileID: 4337773004953852}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &198353140752631172
 ParticleSystem:
@@ -9809,7 +9809,7 @@ GameObject:
   - component: {fileID: 4316068051346778}
   - component: {fileID: 198642371601348630}
   - component: {fileID: 199853344250875948}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
