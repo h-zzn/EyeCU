@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2854597620786420490}
   - component: {fileID: 8430552413929755764}
   - component: {fileID: 3406277502893750206}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SkillText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7496293830807993771}
   - component: {fileID: 7646648037723856454}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 5010938049081092059}
   - component: {fileID: 2550701877581425660}
   - component: {fileID: 2115395326938309852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 4923819268291170315}
   - component: {fileID: 8784355315902084330}
   - component: {fileID: 1918730860495991527}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Skill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 4665779675395811918}
   - component: {fileID: 5538459323458205625}
   - component: {fileID: 6972576514231431465}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HPtext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 5377628745483397316}
   - component: {fileID: 3294538199642945111}
   - component: {fileID: 3970235213629089563}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SkillMaterial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 7318080365257823176}
   - component: {fileID: 8440510394342402443}
   - component: {fileID: 2992145244706325653}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HPMaterial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
