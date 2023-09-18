@@ -56,7 +56,7 @@ public class ControllerManager : MonoBehaviour
 
     public EventManager eventManager;
 
-    private int SkillAtaackGauge = 0;
+    private int SkillAnimaGauge = 0;
 
     private bool isSkilled;
 
@@ -179,16 +179,15 @@ public class ControllerManager : MonoBehaviour
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
             // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
-            SkillAtaackGauge += 1;
+            eventManager.EnemyHP -= 5;
+
             Animator dragonAnimator = GetComponent<Animator>();
             dragonAnimator.SetBool("okay", true);
             dragonAnimator.SetBool("attacked", false);
 
-            if (SkillAtaackGauge >= 20)
-            {
-                SkillAtaackGauge = 0;
-                eventManager.EnemyHP -= 500;
 
+            if (SkillAnimaGauge >= 15)
+            {
                 dragonAnimator.SetBool("attacked", true);
                 dragonAnimator.SetBool("okay", false);
 
