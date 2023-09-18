@@ -2598,91 +2598,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013735795762, guid: 5eb9966c8253a3649970e935258ad8d2, type: 3}
   m_PrefabInstance: {fileID: 351984368}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &405180935
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3142680870253612355, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_Name
-      value: Gauge
-      objectReference: {fileID: 0}
-    - target: {fileID: 3142680870253612355, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -45.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9877021
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.15634823
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 17.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
---- !u!1 &405180936 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7620257505046457956, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-  m_PrefabInstance: {fileID: 405180935}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &405180937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5303793643136311738, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-  m_PrefabInstance: {fileID: 405180935}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &405180938 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6237000517705618059, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-  m_PrefabInstance: {fileID: 405180935}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &405180939 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5963335018829832833, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-  m_PrefabInstance: {fileID: 405180935}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &406725721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14602,11 +14517,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010281450330, guid: 46b49871773764447a894bbb1c459502, type: 3}
   m_PrefabInstance: {fileID: 787530811}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &798670662 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3142680870253612355, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
-  m_PrefabInstance: {fileID: 405180935}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &837973192
 PrefabInstance:
@@ -44282,7 +44192,7 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: HPUI
       value: 
-      objectReference: {fileID: 405180937}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: failUI
       value: 
@@ -44294,7 +44204,7 @@ PrefabInstance:
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: gaugeObj
       value: 
-      objectReference: {fileID: 798670662}
+      objectReference: {fileID: 0}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: magicObj
       value: 
@@ -44366,7 +44276,7 @@ PrefabInstance:
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: HPGauge
       value: 
-      objectReference: {fileID: 405180937}
+      objectReference: {fileID: 0}
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stageHP
       value: 2000
@@ -44374,7 +44284,7 @@ PrefabInstance:
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: HPMaterialObj
       value: 
-      objectReference: {fileID: 405180936}
+      objectReference: {fileID: 0}
     - target: {fileID: 5930844394448909753, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: hitShakeAmount
       value: 1.5
@@ -44970,11 +44880,11 @@ PrefabInstance:
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: SkillGauge
       value: 
-      objectReference: {fileID: 405180939}
+      objectReference: {fileID: 0}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: SkillMaterialObj
       value: 
-      objectReference: {fileID: 405180938}
+      objectReference: {fileID: 0}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: RedMagicHitEffectPrefab
       value: 
