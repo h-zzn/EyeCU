@@ -123,7 +123,8 @@ public class EventManager : MonoBehaviour
     }
 
     public IEnumerator Stage1EventFlow()
-    {   
+    {
+        yield return new WaitForSeconds(2);
         //start window 
         spawnManager.BasicSpawnStop(false); 
         yield return new WaitForSeconds(BasicSpawnTime);  
@@ -159,7 +160,8 @@ public class EventManager : MonoBehaviour
     }
 
     public IEnumerator Stage2EventFlow()
-    {   
+    {
+        yield return new WaitForSeconds(2);
         //start window 
         spawnManager.BasicSpawnStop(false); 
         yield return new WaitForSeconds(BasicSpawnTime); 
@@ -202,7 +204,8 @@ public class EventManager : MonoBehaviour
     }
 
     public IEnumerator Stage3EventFlow()
-    {   
+    {
+        yield return new WaitForSeconds(2);
         //start window 
         spawnManager.BasicSpawnStop(false);
         yield return new WaitForSeconds(BasicSpawnTime);
@@ -245,7 +248,6 @@ public class EventManager : MonoBehaviour
 
     public IEnumerator TutorialEventFlow()
     {   
-
         PlayerPrefs.SetInt("knifeActive", 1);
         print("나이프 키2 = "  + PlayerPrefs.GetInt("knifeActive"));
 

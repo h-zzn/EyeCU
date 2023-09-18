@@ -28,7 +28,9 @@ public class EyeTrackingRay : MonoBehaviour
 
     private GameObject EyeTargetingObject;
 
-    public GameObject HoveredCube = null; 
+    public GameObject HoveredCube = null;
+
+    private GameObject TracingOrb = null;
 
 
     // Start is called before the first frame update
@@ -75,7 +77,8 @@ public class EyeTrackingRay : MonoBehaviour
             }
             else if(hit.transform != null && hit.transform.gameObject.CompareTag("MovingOrb"))
             {
-                EyeTargetingObject = hit.transform.gameObject; 
+                EyeTargetingObject = hit.transform.gameObject;
+                TracingOrb = EyeTargetingObject;
                 EyeTargetingObject.GetComponent<Tracing>().IsHovered = true; 
                 EyeTargetingObject.GetComponent<Tracing>().HoverPosition = hit.transform.position; 
                 
@@ -88,6 +91,9 @@ public class EyeTrackingRay : MonoBehaviour
             }
             else
             {
+                if(TracingOrb != null) 
+                    TracingOrb.GetComponent<Tracing>().IsHovered = false;
+                
                 EyeTargetingObject = null;
                 HoveredCube = null;
 

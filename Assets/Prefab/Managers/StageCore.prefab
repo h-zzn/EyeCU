@@ -224,11 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicOrbSpawner:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   stoneSpawner:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   SpecialOrbSpawner:
   - {fileID: 0}
