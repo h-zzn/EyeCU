@@ -118,7 +118,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emission: 3
+    - _Emission: 5
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -141,7 +141,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1.270559, g: 1.8170652, b: 6.264151, a: 1}
+    - _Color: {r: 8.363133, g: 5.7369785, b: 0, a: 1}
     - _DistortionScrollXYPowerZ: {r: 0.15, g: 0.1, b: 0.2, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowTiling: {r: 0.5, g: 0.5, b: 0, a: 0}

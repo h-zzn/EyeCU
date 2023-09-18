@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 47e5112dec5fd6742b068650748c9b99, type: 3}
+        m_Texture: {fileID: 2800000, guid: 23dba1e36ed993745b1c995a5a7633d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
@@ -119,14 +119,14 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emission: 30
+    - _Emission: 0.2
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Opacity: 30
+    - _Opacity: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -137,7 +137,7 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _Usecenterglow: 0
-    - _Usedepth: 0
+    - _Usedepth: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -148,13 +148,13 @@ Material:
     - Vector4_c8ae401309cf466ca985bab53041fb80: {r: 1, g: 1, b: 0, a: 0}
     - Vector4_d1e969e8684044fba0ff84dec78c4cb2: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 2.670157, g: 1.7958438, b: 0, a: 1}
     - _DistortionScrollXYPowerZ: {r: -0.5, g: -0.5, b: 0.01, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowTiling: {r: 2, g: 2, b: 0, a: 0}
     - _MainTexTiling: {r: 1, g: 1, b: 0, a: 0}
     - _MaskTiling: {r: 1, g: 1, b: 0, a: 0}
-    - _NoiseTiling: {r: 0.25, g: 0.25, b: 0.34, a: 0.36}
+    - _NoiseTiling: {r: 0.25, g: 0.25, b: 0.38, a: 0.36}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpeedMainTexUVNoiseZW: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
