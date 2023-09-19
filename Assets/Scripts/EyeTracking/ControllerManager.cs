@@ -192,7 +192,7 @@ public class ControllerManager : MonoBehaviour
 
                 if (SkillAnimaGauge >= 15) 
                 {
-                    SkillAnimaGauge == 0;
+                    SkillAnimaGauge = 0;
 
                     Drake.SetBool("attacked", true);
                     Drake.SetBool("okay", false);
