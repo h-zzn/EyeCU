@@ -35,6 +35,7 @@ public class ControllerManager : MonoBehaviour
 
     public bool redMagicActive = true;
     public bool blueMagicActive = true;
+    public bool dragonIsAttacked = false;
 
     private Coroutine redMagicPauseCoroutine; // Coroutine 참조 변수
     private Coroutine blueMagicPauseCoroutine; // Coroutine 참조 변수
@@ -90,9 +91,9 @@ public class ControllerManager : MonoBehaviour
         if(eyeTrackingRayRight.HoveredCube != null) 
         {
             AttackBasicOrbBtnDown();  
-            ActiveSkillBtnDown(); 
+            
         }
-        
+        ActiveSkillBtnDown(); 
 
         activeSword();
         chargeSkillGauge();
@@ -175,33 +176,16 @@ public class ControllerManager : MonoBehaviour
     }
     
 
-    private void ActiveSkillBtnDown()
+    public void ActiveSkillBtnDown()
     {
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
-            if (eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("WeakPoint"))
-            {
-                // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
-                eventManager.EnemyHP -= 10; 
-                SkillAnimaGauge += 1;
+            dragonIsAttacked = false;
 
-                Animator Drake = GetComponent<Animator>();
-                Drake.SetBool("okay", true);
-                Drake.SetBool("attacked", false);
+            // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
+            eventManager.EnemyHP -= 10;
 
-
-                if (SkillAnimaGauge >= 15) 
-                {
-                    SkillAnimaGauge = 0;
-
-                    Drake.SetBool("attacked", true);
-                    Drake.SetBool("okay", false);
-
-
-                    Drake.SetBool("attacked", false);
-                    Drake.SetBool("attacked", true);
-                }
-            }
+            dragonIsAttacked = true;
         }
     }
 
