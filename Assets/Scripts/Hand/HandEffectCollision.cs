@@ -48,23 +48,9 @@ public class HandEffectCollision : MonoBehaviour
             RightPurpleEffect.SetActive(true);
 
             StartVibration();
+            ActiveSkill();
 
             otherCollider = other;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
-        {
-            if(SkillTriggerDuration <= 1)
-            {
-                SkillTriggerDuration += Time.deltaTime;
-            }
-            else if (canUseSkill == false)
-            {
-                ActiveSkill();
-            }
         }
     }
 
@@ -99,11 +85,11 @@ public class HandEffectCollision : MonoBehaviour
             reduceSkillCoroutine = StartCoroutine("reduceSkillGauge");  
         }
 
-        spawnManager.BasicSpawnStop(true);
-        spawnManager.StoneSpawnStop(true);
-        spawnManager.SpecialOrbSpawnAllStop(true);
+        spawnManager.BasicSpawnStop(true); 
+        spawnManager.StoneSpawnStop(true); 
+        spawnManager.SpecialOrbSpawnAllStop(true); 
 
-        deleteEnemyAttack.DeleteAll();
+        deleteEnemyAttack.StartCoroutine("DeleteAll"); 
 
         //시각 변화 함수 만들어서 넣어줘요 (예시. 드레곤의 약점만 강조되고 다른 것들은 흑백) +용석
     }
@@ -114,7 +100,7 @@ public class HandEffectCollision : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
 
-            controllerManager.skillEnergyPoint -= 200; //나중에 고칠 예정 일단 즉발형 스킬 
+            controllerManager.skillEnergyPoint -= 200; 
 
             if (controllerManager.skillEnergyPoint < 100)
             {
@@ -130,6 +116,8 @@ public class HandEffectCollision : MonoBehaviour
         RightPurpleEffect.SetActive(false);
 
         spawnManager.activeSkill = false; 
+
+        skillCircle.SetActive(false);
 
         ReactivateChildren(this.gameObject); 
         if (otherCollider!=null)

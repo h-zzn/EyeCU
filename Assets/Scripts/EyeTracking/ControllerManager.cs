@@ -89,9 +89,10 @@ public class ControllerManager : MonoBehaviour
 
         if(eyeTrackingRayRight.HoveredCube != null) 
         {
-            AttackBasicOrbBtnDown();
-            ActiveSkillBtnDown();
+            AttackBasicOrbBtnDown();  
+            
         }
+        ActiveSkillBtnDown(); 
 
         activeSword();
         chargeSkillGauge();
@@ -179,7 +180,7 @@ public class ControllerManager : MonoBehaviour
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
             // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
-            eventManager.EnemyHP -= 5;
+            eventManager.EnemyHP -= 10; 
 
             Animator dragonAnimator = GetComponent<Animator>();
             dragonAnimator.SetBool("okay", true);
