@@ -5,11 +5,12 @@ using UnityEngine;
 public class Dragon_Animation_Controll : MonoBehaviour
 {
     public bool dragonIsAttacked;
+    Animator dragonAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        Animator dragonAnimator = GetComponent<Animator>();
+        dragonAnimator = GetComponent<Animator>();
         dragonAnimator.SetBool("okay", true);
         dragonAnimator.SetBool("attacked", false);
     }
@@ -17,7 +18,6 @@ public class Dragon_Animation_Controll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Animator dragonAnimator = GetComponent<Animator>();
         if (dragonIsAttacked)
         {
             dragonAnimator.SetBool("attacked", true);

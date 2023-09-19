@@ -92,6 +92,7 @@ public class ControllerManager : MonoBehaviour
         {
             AttackBasicOrbBtnDown();  
             
+            
         }
         ActiveSkillBtnDown(); 
 
@@ -180,12 +181,19 @@ public class ControllerManager : MonoBehaviour
     {
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
-            dragonIsAttacked = false;
-
             // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
             eventManager.EnemyHP -= 10;
+            SkillAnimaGauge += 1;
 
-            dragonIsAttacked = true;
+            if(SkillAnimaGauge >= 10)
+            {
+                SkillAnimaGauge = 0;
+                dragonIsAttacked = true;
+            }
+            else if(SkillAnimaGauge >= 8)
+            {
+                dragonIsAttacked = false;
+            }
         }
     }
 
