@@ -92,9 +92,9 @@ public class ControllerManager : MonoBehaviour
         {
             AttackBasicOrbBtnDown();  
             
-            
+            ActiveSkillBtnDown(); 
         }
-        ActiveSkillBtnDown(); 
+        
 
         activeSword();
         chargeSkillGauge();
@@ -181,18 +181,21 @@ public class ControllerManager : MonoBehaviour
     {
         if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
-            // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
-            eventManager.EnemyHP -= 10;
-            SkillAnimaGauge += 1;
+            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("WeakPoint"))
+            {
+                // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
+                eventManager.EnemyHP -= 10;
+                SkillAnimaGauge += 1;
 
-            if(SkillAnimaGauge >= 10)
-            {
-                SkillAnimaGauge = 0;
-                dragonIsAttacked = true;
-            }
-            else if(SkillAnimaGauge >= 8)
-            {
-                dragonIsAttacked = false;
+                if(SkillAnimaGauge >= 10)
+                {
+                    SkillAnimaGauge = 0;
+                    dragonIsAttacked = true;
+                }
+                else if(SkillAnimaGauge >= 8)
+                {
+                    dragonIsAttacked = false;
+                }
             }
         }
     }
