@@ -182,19 +182,19 @@ public class ControllerManager : MonoBehaviour
             // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
             eventManager.EnemyHP -= 10; 
 
-            Animator dragonAnimator = GetComponent<Animator>();
-            dragonAnimator.SetBool("okay", true);
-            dragonAnimator.SetBool("attacked", false);
+            Animator Drake = GetComponent<Animator>();
+            Drake.SetBool("okay", true);
+            Drake.SetBool("attacked", false);
 
 
             if (SkillAnimaGauge >= 15)
             {
-                dragonAnimator.SetBool("attacked", true);
-                dragonAnimator.SetBool("okay", false);
+                Drake.SetBool("attacked", true);
+                Drake.SetBool("okay", false);
 
 
-                dragonAnimator.SetBool("attacked", false);
-                dragonAnimator.SetBool("attacked", true);
+                Drake.SetBool("attacked", false);
+                Drake.SetBool("attacked", true);
             }
         }
     }
