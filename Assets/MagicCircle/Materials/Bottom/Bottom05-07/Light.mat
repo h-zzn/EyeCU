@@ -114,11 +114,11 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depthpower: 1
+    - _Depthpower: 500
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emission: 3
+    - _Emission: 6
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0

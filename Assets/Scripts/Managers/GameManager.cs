@@ -6,21 +6,19 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource BGM; 
+    [SerializeField] private AudioSource BGM;
     [SerializeField] private AudioSource StarSFX;
     [SerializeField] private float fadeDuration = 2.0f;
-
-    private EventManager eventManager; 
+    private EventManager eventManager;
     private DamagedArea damagedArea;
 
     private Coroutine stageOver = null;
-    private Coroutine stageClear = null; 
+    private Coroutine stageClear = null;
 
     [SerializeField] private float startDelayTime;
-    //[SerializeField] private static bool hasDeletedKey = true;
-    [SerializeField] private GameObject successUI;  
-    [SerializeField] private GameObject failUI; 
-    [SerializeField] private GameObject starObj; 
+    [SerializeField] private GameObject successUI;
+    [SerializeField] private GameObject failUI;
+    [SerializeField] private GameObject starObj;
 
     private bool eventStarted = false;
 
@@ -28,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public Coroutine EventFlow = null;
 
-    // final HP ����
     public Text finalHPText;
     private int finalHP;
 
@@ -44,12 +41,12 @@ public class GameManager : MonoBehaviour
 
     private enum StageLevel
     {
-        tutorial, 
-        stage1, 
-        stage2, 
-        stage3, 
-        stage4, 
-        stage5, 
+        tutorial,
+        stage1,
+        stage2,
+        stage3,
+        stage4,
+        stage5,
         stage6,
         stageDDA
     }
@@ -60,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
         deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
-        eventManager = this.transform.GetComponent<EventManager>(); 
+        eventManager = this.transform.GetComponent<EventManager>();
         damagedArea = this.transform.GetComponent<DamagedArea>();
     }
 
@@ -68,14 +65,8 @@ public class GameManager : MonoBehaviour
     {
         finalHPText.enabled = false;
 
-        print("hasDeletedKey = " + hasDeletedKey);
-        print("hasFinalHP = " + PlayerPrefs.HasKey("FinalHP"));
-
         finalHP = PlayerPrefs.GetInt("FinalHP");
 
-        // if(PlayerPrefs.HasKey("FinalHP")){
-        //     StageClear();
-        // }
         if (stageLevel == StageLevel.tutorial)
         {
             Invoke("AutoHealingHP", 2f);
@@ -84,9 +75,24 @@ public class GameManager : MonoBehaviour
         {
             controllerManager.attackPoint /= 2;
         }
-        else if(stageLevel == StageLevel.stage3)
+        else if (stageLevel == StageLevel.stage3)
         {
             controllerManager.attackPoint /= 2;
+        }
+
+        // Start BGM after a 3-second delay
+        StartCoroutine(PlayBGMWithDelay(3.0f));
+    }
+
+    // Coroutine to play BGM with a delay
+    private IEnumerator PlayBGMWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Play the BGM
+        if (BGM != null)
+        {
+            BGM.Play();
         }
     }
 
