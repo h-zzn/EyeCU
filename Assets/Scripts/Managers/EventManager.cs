@@ -126,21 +126,21 @@ public class EventManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         //start window 
-        spawnManager.BasicSpawnStop(false); 
+        spawnManager.activeBasicOrb = true;
         yield return new WaitForSeconds(BasicSpawnTime);  
-        spawnManager.BasicSpawnStop(true); 
+        spawnManager.activeBasicOrb = false;
 
         yield return new WaitForSeconds(3);
         
-        spawnManager.StoneSpawnStop(false); 
+        spawnManager.activeStone = true;
         yield return new WaitForSeconds(swordTime);  
-        spawnManager.StoneSpawnStop(true); 
+        spawnManager.activeStone = false;
 
         yield return new WaitForSeconds(3);
 
-        spawnManager.BasicSpawnStop(false); 
+        spawnManager.activeBasicOrb = true;
         yield return new WaitForSeconds(10); 
-        spawnManager.StoneSpawnStop(false);
+        spawnManager.activeStone = true;
         spawnManager.stoneSpawnInterval *= 3f;
         yield return new WaitForSeconds(BasicSpawnTime);  
         
@@ -149,9 +149,9 @@ public class EventManager : MonoBehaviour
             yield return null; 
         } 
 
-        spawnManager.BasicSpawnStop(true); 
-        spawnManager.StoneSpawnStop(true);
-        spawnManager.SpecialOrbSpawnAllStop(true); 
+        spawnManager.activeBasicOrb = false;
+        spawnManager.activeStone = false;
+        spawnManager.activeSpecialOrb = false; 
         yield return new WaitForSeconds(8); 
         GameClear = true;
         // Reset

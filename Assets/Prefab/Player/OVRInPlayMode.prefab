@@ -66737,7 +66737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4490487663826116312}
   - component: {fileID: 3572401861998601872}
-  - component: {fileID: 8622507931296486558}
+  - component: {fileID: 8733503274626523158}
   m_Layer: 3
   m_Name: RightEyeAnchor
   m_TagString: Untagged
@@ -66811,7 +66811,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &8622507931296486558
+--- !u!114 &8733503274626523158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67038,7 +67038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3169287357351077028}
   - component: {fileID: 791997421801663777}
-  - component: {fileID: 4842220125745430146}
+  - component: {fileID: 6763131135963069888}
   m_Layer: 3
   m_Name: Camera_UI
   m_TagString: Untagged
@@ -67112,7 +67112,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &4842220125745430146
+--- !u!114 &6763131135963069888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69009,7 +69009,7 @@ Transform:
   - {fileID: 3930215984911050192}
   - {fileID: 5173502037961385648}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393476222726514362
 MonoBehaviour:
@@ -123056,7 +123056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4181321826416081820}
   - component: {fileID: 7203393804157476185}
-  - component: {fileID: 2524048340248502819}
+  - component: {fileID: 3964385038283266533}
   m_Layer: 3
   m_Name: LeftEyeAnchor
   m_TagString: MainCamera
@@ -123130,7 +123130,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &2524048340248502819
+--- !u!114 &3964385038283266533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124553,6 +124553,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gauge
       objectReference: {fileID: 0}
+    - target: {fileID: 3294538199642945111, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294538199642945111, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
+      propertyPath: m_Materials.Array.data[12]
+      value: 
+      objectReference: {fileID: 2100000, guid: a72871045a781ee4c8f2b635aae15704, type: 2}
     - target: {fileID: 7496293830807993771, guid: 3fbb94c11d6ff63438a705a2e23836cb, type: 3}
       propertyPath: m_RootOrder
       value: -1

@@ -18,7 +18,14 @@ public class SpawnManager : MonoBehaviour
     public float SpecialOrbSpawnInterval = 1; 
 
     public int totalNumOfBasicOrb = 0;
+
+    public bool activeBasicOrb = false;
+    public bool activeStone = false;
+    public bool activeSpecialOrb = false;
     
+    public bool activeSkill = false;
+
+
 
     void Awake()
     {
@@ -28,6 +35,8 @@ public class SpawnManager : MonoBehaviour
     void FixedUpdate()
     {
         SetEnemyComponents();  
+        
+        realtimeControllAllSpawner();
     }
 
     public void SetEnemyComponents()
@@ -53,6 +62,45 @@ public class SpawnManager : MonoBehaviour
             spawner.GetComponent<SpecialOrbSpawner>().SpecialOrbInterval = SpecialOrbSpawnInterval;
         }
     }
+
+    private void realtimeControllAllSpawner()
+    {
+        if(activeSkill == false)
+        {
+            if(activeBasicOrb == true)
+            {
+                BasicSpawnStop(false); 
+            }
+            else
+            {
+                BasicSpawnStop(true); 
+            }
+
+            if(activeStone == true)
+            {
+                StoneSpawnStop(false); 
+            }
+            else
+            {
+                StoneSpawnStop(true); 
+            }
+
+            if(activeSpecialOrb == true)
+            {
+                SpecialOrbSpawnAllStop(false); 
+            }
+            else
+            {
+                SpecialOrbSpawnAllStop(true); 
+            }
+        }
+        else
+        {
+            BasicSpawnStop(true); 
+            StoneSpawnStop(true); 
+            SpecialOrbSpawnAllStop(true); 
+        }
+    } 
 
     public void BasicSpawnStop(bool stop)  
     {

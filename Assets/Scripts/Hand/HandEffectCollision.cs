@@ -86,6 +86,9 @@ public class HandEffectCollision : MonoBehaviour
     private void ActiveSkill() 
     {
         canUseSkill = true;
+
+        spawnManager.activeSkill = true; 
+
         StopVibration();
        
         //활성화되지 않은 "skill" 오브젝트를 찾아서 활성화
@@ -111,7 +114,7 @@ public class HandEffectCollision : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
 
-            controllerManager.skillEnergyPoint -= 100; //나중에 고칠 예정 일단 즉발형 스킬 
+            controllerManager.skillEnergyPoint -= 200; //나중에 고칠 예정 일단 즉발형 스킬 
 
             if (controllerManager.skillEnergyPoint < 100)
             {
@@ -125,6 +128,8 @@ public class HandEffectCollision : MonoBehaviour
 
         LeftPurpleEffect.SetActive(false);
         RightPurpleEffect.SetActive(false);
+
+        spawnManager.activeSkill = false; 
 
         ReactivateChildren(this.gameObject); 
         if (otherCollider!=null)
