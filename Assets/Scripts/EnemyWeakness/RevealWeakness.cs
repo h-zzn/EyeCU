@@ -7,6 +7,8 @@ public class RevealWeakness : MonoBehaviour
     [SerializeField] private Material transparentMaterial;
     private Material originalMaterial;
 
+    [SerializeField] private GameObject weaknessObject;
+
     public bool isTransparent = false;
     
     // LayerMask originalCullingMask;
@@ -20,6 +22,9 @@ public class RevealWeakness : MonoBehaviour
     {
         // 현재 오브젝트의 Material 컴포넌트 가져와 저장
         originalMaterial = GetComponent<Renderer>().material;
+
+        // Weakness 오브젝트 비활성화
+        weaknessObject.SetActive(false);
 
         // // 현재 카메라 컴포넌트 가져오기
         // camera = GetComponent<Camera>();
@@ -41,5 +46,8 @@ public class RevealWeakness : MonoBehaviour
     {
         // 현재 오브젝트의 Material 컴포넌트를 투명한 Material로 변경
         GetComponent<Renderer>().material = transparentMaterial;
+
+        // Weakness 오브젝트 활성화
+        weaknessObject.SetActive(true);
     }
 }
