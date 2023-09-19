@@ -93,9 +93,9 @@ public class Tracing : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("TargetPosition") && (selectedPattern == MovementPattern.O || selectedPattern == MovementPattern.Z))
+        if (other.gameObject.CompareTag("TargetPosition") && (selectedPattern == MovementPattern.O || selectedPattern == MovementPattern.Z))  
         {
-            other.gameObject.transform.position += transform.forward * 4;
+            other.gameObject.transform.position += transform.forward * 4;  
         }
     }
 
