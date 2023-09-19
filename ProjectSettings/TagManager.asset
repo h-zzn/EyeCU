@@ -19,6 +19,7 @@ TagManager:
   - SamplesInfoPanel
   - HandEffect
   - TaegukCube
+  - WeakPoint
   layers:
   - Default
   - TransparentFX
