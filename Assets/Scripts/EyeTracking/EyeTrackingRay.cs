@@ -7,7 +7,7 @@ public class EyeTrackingRay : MonoBehaviour
     [SerializeField]
     private GameObject markerPrefab; 
 
-    private GameObject markerSparks;
+    public GameObject markerSparks;
     
     [SerializeField]
     private float rayDistance = 100.0f;
@@ -85,6 +85,13 @@ public class EyeTrackingRay : MonoBehaviour
                 if(markerSparks.activeSelf == false)
                     markerSparks.SetActive(true); 
             }
+            else if(hit.transform != null && hit.transform.gameObject.CompareTag("WeakPoint"))
+            {
+                HoveredCube = hit.transform.gameObject;
+                
+                if(markerSparks.activeSelf == false)
+                    markerSparks.SetActive(true); 
+            }
             else if(hit.transform != null && hit.transform.gameObject.CompareTag("stage"))
             {
                 HoveredCube = hit.transform.gameObject;
@@ -132,6 +139,7 @@ public class EyeTrackingRay : MonoBehaviour
                     EyeTargetingObject.GetComponent<Tracing>().IsHovered = false;
                 }
             }
+            
 
             EyeTargetingObject = null;
         }  

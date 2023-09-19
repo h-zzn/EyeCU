@@ -48,6 +48,7 @@ public class ControllerManager : MonoBehaviour
 
     [SerializeField] private GameObject SkillGauge;
     [SerializeField] private GameObject SkillMaterialObj;
+    [SerializeField] private GameObject SkillMagicHitEffectPrefab;
 
     private Renderer SkillGaugeRenderer;
 
@@ -67,7 +68,7 @@ public class ControllerManager : MonoBehaviour
     {
         SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials); 
 
-        eventManager = GameObject.Find("StageCore").GetComponent<EventManager>(); 
+        eventManager = GameObject.Find("StageCore").GetComponent<EventManager>();
     }
 
     void Start()
@@ -179,9 +180,10 @@ public class ControllerManager : MonoBehaviour
 
     public void ActiveSkillBtnDown()
     {
-        if (handEffectCollision.canUseSkill == true && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
+        if (handEffectCollision.canUseSkill && (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)))
         {
-            if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("WeakPoint"))
+            
+            if(eyeTrackingRayRight.HoveredCube.CompareTag("WeakPoint"))
             {
                 // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
                 eventManager.EnemyHP -= 10;
@@ -195,6 +197,31 @@ public class ControllerManager : MonoBehaviour
                 else if(SkillAnimaGauge >= 8)
                 {
                     dragonIsAttacked = false;
+                }
+
+                // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
+                OVRHapticsClip clip = new OVRHapticsClip();
+                for (int i = 0; i < Config.SampleRateHz * vibrationDuration; i++)
+                {
+                    byte sample = (byte)(1.0f * 255);
+                    clip.WriteSample(sample);
+                }
+
+                RightChannel.Preempt(clip);
+                LeftChannel.Preempt(clip);
+
+                // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
+                StartCoroutine(StopVibration());
+                
+                // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
+                hitEffectPosition = eyeTrackingRayRight.markerSparks.transform.position;
+                GameObject SkillMagicHitInstance = Instantiate(SkillMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                SkillMagicHitInstance.SetActive(true);
+                Destroy(SkillMagicHitInstance, 3f);
+
+                if (PoongSound != null)
+                {
+                    PoongSound.Play();
                 }
             }
         }

@@ -22,6 +22,15 @@ public class HandEffectCollision : MonoBehaviour
 
     private Collider otherCollider;
 
+    // Weakness 관련 변수
+    [SerializeField] private Material transparentMaterial;
+    private Material originalMaterial;
+    [SerializeField] private GameObject monsterMeshObject; 
+
+    [SerializeField] private GameObject weaknessObject;
+
+    public bool isTransparent = false;
+
     private void Start()
     {
 
@@ -34,6 +43,12 @@ public class HandEffectCollision : MonoBehaviour
         deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
 
         spawnManager = GameObject.Find("StageCore").GetComponent<SpawnManager>();
+
+        // 현재 오브젝트의 Material 컴포넌트 가져와 저장
+        originalMaterial = monsterMeshObject.GetComponent<Renderer>().material;
+        
+        // Weakness 오브젝트 비활성화
+        weaknessObject.SetActive(false);
     }
 
 
@@ -89,9 +104,9 @@ public class HandEffectCollision : MonoBehaviour
         spawnManager.StoneSpawnStop(true); 
         spawnManager.SpecialOrbSpawnAllStop(true); 
 
-        deleteEnemyAttack.StartCoroutine("DeleteAll"); 
+        deleteEnemyAttack.StartCoroutine("DeleteAll");
 
-        //시각 변화 함수 만들어서 넣어줘요 (예시. 드레곤의 약점만 강조되고 다른 것들은 흑백) +용석
+        turnMonsterTransparent();
     }
 
     public IEnumerator reduceSkillGauge()  //스킬 시작되고 20초동안 게이지가 감소 후 종료
@@ -110,7 +125,7 @@ public class HandEffectCollision : MonoBehaviour
 
         canUseSkill = false;
         reduceSkillCoroutine = null;
-        //시각 변화 사라지고 원래로 돌려주는 함수 넣어줘요 +용석
+        turnMonsterOpaque();
 
         LeftPurpleEffect.SetActive(false);
         RightPurpleEffect.SetActive(false);
@@ -161,5 +176,24 @@ public class HandEffectCollision : MonoBehaviour
         // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
         LeftChannel.Clear();
         RightChannel.Clear();
+    }
+
+    // Monster 투시 관련 함수들
+    void turnMonsterTransparent()
+    {
+        // 현재 오브젝트의 Material 컴포넌트를 투명한 Material로 변경
+        monsterMeshObject.GetComponent<Renderer>().material = transparentMaterial;
+
+        // Weakness 오브젝트 활성화
+        weaknessObject.SetActive(true);
+    }
+
+    void turnMonsterOpaque()
+    {
+        // 현재 오브젝트의 Material 컴포넌트를 투명한 Material로 변경
+        monsterMeshObject.GetComponent<Renderer>().material = originalMaterial;
+
+        // Weakness 오브젝트 활성화
+        weaknessObject.SetActive(false);
     }
 }
