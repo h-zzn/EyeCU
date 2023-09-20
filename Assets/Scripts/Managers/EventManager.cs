@@ -423,7 +423,6 @@ public class EventManager : MonoBehaviour
         {
             yield return null; 
         }
-        glowing.SetGlowing();
         yield return new WaitForSeconds(3); 
         animator5B.SetBool("isDone", true);
         yield return new WaitForSeconds(2); 
@@ -434,7 +433,7 @@ public class EventManager : MonoBehaviour
         SkillUI.transform.GetChild(2).gameObject.SetActive(true);      // Skill step3 UI   
         while (!tutorialEvent.skillAttackMission)
         {
-            controllerManager.skillEnergyPoint = 1900;
+            controllerManager.skillEnergyPoint = 1000;
             yield return null;
         }
         glowing.SetGlowing(); 

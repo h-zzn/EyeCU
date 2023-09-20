@@ -111,7 +111,7 @@ public class TutorialEvent : MonoBehaviour
             skillActivateMission = true;
         }
 
-        if(controllerManager.eventManager.EnemyHP <= 800)   
+        if(controllerManager.eventManager.EnemyHP <= 700)   
         {
             skillAttackMission = true;
         }

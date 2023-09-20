@@ -168,9 +168,9 @@ public class ControllerManager : MonoBehaviour
     {
         while(handEffectCollision.canUseSkill == false)
         {
-            SkillGaugeRenderer.material = SkillMaterials[11];
+            SkillGaugeRenderer.material = SkillMaterials[10];
             yield return new WaitForSeconds(1f);
-            SkillGaugeRenderer.material = SkillMaterials[12];
+            SkillGaugeRenderer.material = SkillMaterials[11];
             yield return new WaitForSeconds(1f);
         }
 
@@ -215,7 +215,9 @@ public class ControllerManager : MonoBehaviour
                 
                 // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
                 hitEffectPosition = eyeTrackingRayRight.markerSparks.transform.position;
-                GameObject SkillMagicHitInstance = Instantiate(SkillMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                GameObject SkillMagicHitInstance = Instantiate(SkillMagicHitEffectPrefab, hitEffectPosition, rotation);
+
                 SkillMagicHitInstance.SetActive(true);
                 Destroy(SkillMagicHitInstance, 3f);
 
