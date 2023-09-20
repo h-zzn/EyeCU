@@ -5208,6 +5208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragonIsAttacked: 0
+  dragonIsDead: 0
   dragonAudioSource2: {fileID: 1910980140}
 --- !u!82 &1910980140
 AudioSource:
