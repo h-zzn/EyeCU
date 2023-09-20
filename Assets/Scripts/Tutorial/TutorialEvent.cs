@@ -20,6 +20,7 @@ public class TutorialEvent : MonoBehaviour
     public bool MPMission = false;
     public bool magicFailMission = false;
     public bool skillActivateMission = false;
+    public bool skillAttackMission = false;
 
     public GameObject magicRedOrb;  
     public GameObject magicBlueOrb;
@@ -95,7 +96,8 @@ public class TutorialEvent : MonoBehaviour
             MPMission = false;
         }
 
-        if (controllerManager.blueMagicActive == false || controllerManager.redMagicActive == false)
+
+        if (controllerManager.blueMagicActive == false || controllerManager.redMagicActive == false)   
         {
             magicFailMission = true; 
         }
@@ -104,9 +106,14 @@ public class TutorialEvent : MonoBehaviour
             magicFailMission = false;
         }
 
-        if(controllerManager.handEffectCollision.canUseSkill == true)
+        if(controllerManager.handEffectCollision.canUseSkill == true)   
         {
             skillActivateMission = true;
+        }
+
+        if(controllerManager.eventManager.EnemyHP <= 800)   
+        {
+            skillAttackMission = true;
         }
     }
 }

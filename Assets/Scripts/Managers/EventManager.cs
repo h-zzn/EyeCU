@@ -390,7 +390,7 @@ public class EventManager : MonoBehaviour
         HPUI.SetActive(false);
 
         //[잘못 눌렀을 경우 게이지 감소 및 패널티 설명]
-        magicObj.transform.GetChild(2).gameObject.SetActive(true);    //Magic step3 UI
+        magicObj.transform.GetChild(2).gameObject.SetActive(true);    // Magic step3 UI
         yield return new WaitForSeconds(5);
         
         spawnManager.activeBasicOrb = true; 
@@ -408,16 +408,17 @@ public class EventManager : MonoBehaviour
 
         //[*** Skill 설명 window ***]
         SkillUI.SetActive(true);
-        //SkillUI.transform.GetChild(0).gameObject.SetActive(true);     // Skill step1 UI
+        SkillUI.transform.GetChild(0).gameObject.SetActive(true);      // Skill step1 UI   
         // 부수고 스킬 차는 애니메이션
-        SkillUI.transform.GetChild(0).gameObject.SetActive(true);
-        controllerManager.skillEnergyPoint = 2000;
+        controllerManager.skillEnergyPoint = 1950; 
         yield return new WaitForSeconds(3); 
         animator5A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         SkillUI.transform.GetChild(0).gameObject.SetActive(false);   
+
         yield return new WaitForSeconds(2);
-        SkillUI.transform.GetChild(1).gameObject.SetActive(true);     // Skill step2 UI
+        controllerManager.skillEnergyPoint = 2000;
+        SkillUI.transform.GetChild(1).gameObject.SetActive(true);      // Skill step2 UI   
         while (!tutorialEvent.skillActivateMission)  
         {
             yield return null; 
@@ -427,8 +428,23 @@ public class EventManager : MonoBehaviour
         animator5B.SetBool("isDone", true);
         yield return new WaitForSeconds(2); 
         SkillUI.transform.GetChild(1).gameObject.SetActive(false);  
-        yield return new WaitForSeconds(3);  
-        
+        yield return new WaitForSeconds(3);
+
+
+        SkillUI.transform.GetChild(2).gameObject.SetActive(true);      // Skill step3 UI   
+        while (!tutorialEvent.skillAttackMission)
+        {
+            controllerManager.skillEnergyPoint = 1900;
+            yield return null;
+        }
+        glowing.SetGlowing(); 
+        yield return new WaitForSeconds(3);
+        animator5C.SetBool("isDone", true);
+        yield return new WaitForSeconds(2);
+        SkillUI.transform.GetChild(2).gameObject.SetActive(false);
+        controllerManager.skillEnergyPoint = 0;
+        yield return new WaitForSeconds(3);
+
         // finish UI 
         finishUI.SetActive(true); 
         yield return new WaitForSeconds(12); 

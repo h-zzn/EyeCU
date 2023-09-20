@@ -15175,8 +15175,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.3042453, g: 0.30678207, b: 0.5, a: 1}
-  m_Intensity: 2.25
+  m_Color: {r: 0.46844962, g: 0.46844962, b: 0.8207547, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -15233,14 +15233,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881347901}
-  m_LocalRotation: {x: 0.4101537, y: -0.21848883, z: 0.10188301, w: 0.87957746}
+  m_LocalRotation: {x: -0.45221707, y: 0.27255636, z: -0.14737067, w: -0.836358}
   m_LocalPosition: {x: 69.9, y: 47.5, z: -15.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1916059170}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 50, y: 692.1, z: 0}
+  m_LocalEulerAnglesHint: {x: -303.2, y: -36.1, z: 0}
 --- !u!114 &881347904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44045,6 +44045,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeakPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1519330845117178, guid: f36b226aab57aef469c9adfdf6c6f8c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4317306493834218, guid: f36b226aab57aef469c9adfdf6c6f8c2, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -45110,6 +45114,18 @@ PrefabInstance:
       propertyPath: skillTrigger
       value: 
       objectReference: {fileID: 8300000, guid: c5a77ed945a1a144d819ab04de61477d, type: 3}
+    - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: weaknessObject
+      value: 
+      objectReference: {fileID: 1862761092}
+    - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: monsterMeshObject
+      value: 
+      objectReference: {fileID: 1596389631}
+    - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: transparentMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: dd7dee47aa294f34a9a3cfd742523a36, type: 2}
     - target: {fileID: 3930215984911050192, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6

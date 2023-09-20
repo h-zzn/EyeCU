@@ -127,7 +127,7 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
-    - _Blend: 2
+    - _Blend: 0
     - _BlendMode: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
@@ -154,8 +154,8 @@ Material:
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
-    - _DstBlend: 1
-    - _DstBlendAlpha: 1
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableExternalAlpha: 0
     - _EnableFogOnTransparent: 1
@@ -230,10 +230,10 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.47058824}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.47058824}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
