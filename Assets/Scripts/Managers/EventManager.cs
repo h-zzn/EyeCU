@@ -335,8 +335,7 @@ public class EventManager : MonoBehaviour
             yield return null; 
         }
         glowing.SetGlowing(); 
-        animator3B.SetBool("isDone", true);  
-        gaugeObj.SetActive(true); 
+        animator3B.SetBool("isDone", true); 
         HPUI.SetActive(true); 
         yield return new WaitForSeconds(3);  
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
@@ -344,8 +343,9 @@ public class EventManager : MonoBehaviour
         
         //[*** HP 설명 window ***]
         controllerManager.skillEnergyPoint = 0;
+        gaugeObj.SetActive(true);
         //HPUI.transform.GetChild(0).gameObject.SetActive(true);     // HP step1 UI
-        yield return new WaitForSeconds(10); 
+        yield return new WaitForSeconds(5); 
         animator4A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
         HPUI.transform.GetChild(0).gameObject.SetActive(false); 
@@ -415,8 +415,8 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         SkillUI.transform.GetChild(0).gameObject.SetActive(false);   
 
-        yield return new WaitForSeconds(2);
-        controllerManager.skillEnergyPoint = 2000;
+        yield return new WaitForSeconds(2); 
+        controllerManager.skillEnergyPoint = 2000; 
         SkillUI.transform.GetChild(1).gameObject.SetActive(true);      // Skill step2 UI   
         while (!tutorialEvent.skillActivateMission)  
         {
@@ -432,7 +432,7 @@ public class EventManager : MonoBehaviour
         SkillUI.transform.GetChild(2).gameObject.SetActive(true);      // Skill step3 UI   
         while (!tutorialEvent.skillAttackMission)
         {
-            controllerManager.skillEnergyPoint = 1000;
+            controllerManager.skillEnergyPoint = 1000; 
             yield return null;
         }
         glowing.SetGlowing(); 
