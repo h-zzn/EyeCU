@@ -54,7 +54,7 @@ public class HandEffectCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))
+        if (controllerManager.skillEnergyPoint >= 2000 && other.CompareTag("HandEffect"))  
         {
             // Deactivate children of this GameObject
             DeactivateChildren(this.gameObject);
@@ -102,7 +102,7 @@ public class HandEffectCollision : MonoBehaviour
 
         spawnManager.BasicSpawnStop(true); 
         spawnManager.StoneSpawnStop(true); 
-        spawnManager.SpecialOrbSpawnAllStop(true); 
+        spawnManager.SpecialOrbSpawnAllStop(true);  
 
         deleteEnemyAttack.StartCoroutine("DeleteAll"); 
 
@@ -111,11 +111,11 @@ public class HandEffectCollision : MonoBehaviour
 
     public IEnumerator reduceSkillGauge()  //스킬 시작되고 20초동안 게이지가 감소 후 종료
     {
-        while (controllerManager.skillEnergyPoint > 0)
+        while (controllerManager.skillEnergyPoint > 0) 
         {
             yield return new WaitForSeconds(1);
 
-            controllerManager.skillEnergyPoint -= 200; 
+            controllerManager.skillEnergyPoint -= 200;  
 
             if (controllerManager.skillEnergyPoint < 100)
             {
@@ -182,7 +182,7 @@ public class HandEffectCollision : MonoBehaviour
     void turnMonsterTransparent()
     {
         // 현재 오브젝트의 Material 컴포넌트를 투명한 Material로 변경
-        monsterMeshObject.GetComponent<Renderer>().material = transparentMaterial;
+        monsterMeshObject.GetComponent<Renderer>().material = transparentMaterial; 
 
         // Weakness 오브젝트 활성화
         weaknessObject.SetActive(true);
