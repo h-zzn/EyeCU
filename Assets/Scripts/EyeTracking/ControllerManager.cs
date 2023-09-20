@@ -44,7 +44,7 @@ public class ControllerManager : MonoBehaviour
 
     public int MissingPoint = 0;
     public int skillEnergyPoint = 0;
-    public int attackPoint = 100;
+    public int attackPoint = 100; 
 
     [SerializeField] private GameObject SkillGauge;
     [SerializeField] private GameObject SkillMaterialObj;
@@ -225,37 +225,22 @@ public class ControllerManager : MonoBehaviour
 
     private void ActiveEnemyAnimation()
     {
-        if (eventManager.EnemyHP == 1900)
+        if (eventManager.EnemyHP == 1000)
         {
             dragon_Animation_Controll.dragonIsAttacked = true;
             Invoke("DeActiveEnemyAnimation", 1f);
         }
-        else if(eventManager.EnemyHP == 1600)  
+        else if(eventManager.EnemyHP == 750)  
         {
             dragon_Animation_Controll.dragonIsAttacked = true; 
             Invoke("DeActiveEnemyAnimation", 1f);
         }
-        else if(eventManager.EnemyHP == 1300)  
+        else if(eventManager.EnemyHP == 500)  
         {
             dragon_Animation_Controll.dragonIsAttacked = true; 
             Invoke("DeActiveEnemyAnimation", 1f);
         }
-        else if(eventManager.EnemyHP == 1000)  
-        {
-            dragon_Animation_Controll.dragonIsAttacked = true; 
-            Invoke("DeActiveEnemyAnimation", 1f);
-        }
-        else if(eventManager.EnemyHP == 700)  
-        {
-            dragon_Animation_Controll.dragonIsAttacked = true; 
-            Invoke("DeActiveEnemyAnimation", 1f);
-        }
-        else if(eventManager.EnemyHP == 400)  
-        {
-            dragon_Animation_Controll.dragonIsAttacked = true; 
-            Invoke("DeActiveEnemyAnimation", 1f);
-        }
-        else if(eventManager.EnemyHP == 50)  
+        else if(eventManager.EnemyHP == 250)  
         {
             dragon_Animation_Controll.dragonIsAttacked = true; 
             Invoke("DeActiveEnemyAnimation", 1f);

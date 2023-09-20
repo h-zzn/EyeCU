@@ -945,6 +945,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2946675532799324403, guid: 0b110b3109d50194c8e4876a77fd7bd6, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946675532799324403, guid: 0b110b3109d50194c8e4876a77fd7bd6, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2983507625506902091, guid: 0b110b3109d50194c8e4876a77fd7bd6, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -5145,7 +5153,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6369e582b96323446a9e94a8bbfa76e3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.563
+  m_Volume: 0.094
   m_Pitch: 1.03
   Loop: 0
   Mute: 0
