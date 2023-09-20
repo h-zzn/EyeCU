@@ -32,13 +32,22 @@ public class HandEffectCollision : MonoBehaviour
 
     [SerializeField] private GameObject weaknessObject;
 
+    // ===시야 전환 관련===
     private Transform cam;
     // Assign Post Processing Volume from the Scene
     [SerializeField] private Volume postProcessingVolumeObject;
     private UnityEngine.Rendering.Universal.Vignette vignette;
-
-    private float originalVignetteColorValue;
+    private Color originalVignetteColorValue;
     private float originalVignetteIntensityValue;
+    public float transitionDuration = 1f; // 전환 시간 (초)
+    private float sightTransitionTimer = 0f;
+    private bool isSightTransitioning = false;
+    private float sightBackTransitionTimer = 0f;
+    private bool isSightBackTransitioning = false;
+    // target color
+    [SerializeField] private Color targetVignetteColor = Color.black;
+    // target intensity
+    [SerializeField] private float targetVignetteIntensity = 0.8f;
 
     private void Start()
     {
@@ -47,8 +56,6 @@ public class HandEffectCollision : MonoBehaviour
 
         // Scene에서 PostProcessVolume을 가져옴
         postProcessingVolumeObject = GameObject.Find("Post Processing").GetComponent<Volume>();
-        // PostProcessVolume에서 Vignette 설정 값을 가져옴
-        postProcessingVolumeObject.profile.TryGet(out vignette);
 
         skillCircle.SetActive(false);
         LeftPurpleEffect.SetActive(false);
@@ -65,6 +72,41 @@ public class HandEffectCollision : MonoBehaviour
         
         // Weakness 오브젝트 비활성화
         weaknessObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // 시야 전환
+        if (isSightTransitioning)
+        {
+            sightTransitionTimer += Time.deltaTime;
+            
+            if (sightTransitionTimer >= transitionDuration)
+            {
+                sightTransitionTimer = transitionDuration;
+                isSightTransitioning = false;
+            }
+
+            // 시간에 따라 Vignette 값 변경
+            vignette.color.Override(Color.Lerp(originalVignetteColorValue, targetVignetteColor, sightTransitionTimer / transitionDuration));
+            vignette.intensity.Override(Mathf.Lerp(originalVignetteIntensityValue, targetVignetteIntensity, sightTransitionTimer / transitionDuration));
+        }
+
+        // 시야 전환 복귀
+        if (isSightBackTransitioning)
+        {
+            sightBackTransitionTimer += Time.deltaTime;
+
+            if (sightBackTransitionTimer >= transitionDuration)
+            {
+                sightBackTransitionTimer = transitionDuration;
+                isSightBackTransitioning = false;
+            }
+
+            // 시간에 따라 Vignette 값 변경
+            vignette.color.Override(Color.Lerp(targetVignetteColor, originalVignetteColorValue, sightBackTransitionTimer / transitionDuration));
+            vignette.intensity.Override(Mathf.Lerp(targetVignetteIntensity, originalVignetteIntensityValue, sightBackTransitionTimer / transitionDuration));
+        }
     }
 
 
@@ -123,13 +165,7 @@ public class HandEffectCollision : MonoBehaviour
         deleteEnemyAttack.StartCoroutine("DeleteAll"); 
 
         turnMonsterTransparent();
-
-        // TODO: 기존 Vignette value 저장
-        
-        // TODO: Vignette의 color 검은색으로 변경
-
-        // TODO: Vignette의 intensity 특정 값으로 변경
-
+        activateSkillSight();
     }
 
     public IEnumerator reduceSkillGauge()  //스킬 시작되고 20초동안 게이지가 감소 후 종료
@@ -148,7 +184,10 @@ public class HandEffectCollision : MonoBehaviour
 
         canUseSkill = false;
         reduceSkillCoroutine = null;
+        // 적 투시 종료
         turnMonsterOpaque();
+        // 시야 정상화
+        deactivateSkillSight();
 
         LeftPurpleEffect.SetActive(false);
         RightPurpleEffect.SetActive(false);
@@ -218,5 +257,26 @@ public class HandEffectCollision : MonoBehaviour
 
         // Weakness 오브젝트 활성화
         weaknessObject.SetActive(false);
+    }
+
+    // Vignette를 사용하여 서서히 시야 좁히기
+    void activateSkillSight()
+    {
+        // PostProcessVolume에서 Vignette 설정 값을 가져옴
+        postProcessingVolumeObject.profile.TryGet(out vignette);
+
+        // TODO: 기존 Vignette value 저장
+        originalVignetteColorValue = vignette.color.value;
+        originalVignetteIntensityValue = vignette.intensity.value;
+
+        isSightTransitioning = true;
+        sightTransitionTimer = 0f;
+    }
+
+    // Vignette를 사용하여 서서히 시야 넓히기
+    void deactivateSkillSight()
+    {
+        isSightBackTransitioning = true;
+        sightBackTransitionTimer = 0f;
     }
 }
