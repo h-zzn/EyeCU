@@ -189,14 +189,14 @@ public class ControllerManager : MonoBehaviour
                 eventManager.EnemyHP -= 10;
                 SkillAnimaGauge += 1;
 
-                if(SkillAnimaGauge >= 10)
+                if (SkillAnimaGauge >= 10)
                 {
-                    SkillAnimaGauge = 0;
                     dragonIsAttacked = true;
+                    SkillAnimaGauge = 0;
                 }
-                else if(SkillAnimaGauge >= 8)
+                else
                 {
-                    dragonIsAttacked = false;
+                    dragonIsAttacked = false; // Add this line to set dragonIsAttacked to false
                 }
 
                 // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
