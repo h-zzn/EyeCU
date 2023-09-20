@@ -201,8 +201,8 @@ public class ControllerManager : MonoBehaviour
                 ActiveEnemyAnimation(); 
 
                 // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
-                eventManager.EnemyHP -= 10;
-            
+                eventManager.EnemyHP -= 10; 
+
                 // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
                 OVRHapticsClip clip = new OVRHapticsClip();
                 for (int i = 0; i < Config.SampleRateHz * vibrationDuration; i++)
@@ -235,18 +235,7 @@ public class ControllerManager : MonoBehaviour
 
     private void ActiveEnemyAnimation()
     {
-        if (eventManager.EnemyHP == 1000)
-        {
-            if(SceneManager.GetActiveScene().buildIndex == 3) 
-                dragon_Animation_Controll.dragonIsAttacked = true;
-            else if(SceneManager.GetActiveScene().buildIndex == 2)
-                dragon2_Animation_Controll.dragonIsAttacked = true;
-            else if(SceneManager.GetActiveScene().buildIndex == 1)
-                dragon1_Animation_Controll.dragonIsAttacked = true;
-            
-            Invoke("DeActiveEnemyAnimation", 1f);
-        }
-        else if(eventManager.EnemyHP == 750)  
+        if(eventManager.EnemyHP == 750)  
         {
             if(SceneManager.GetActiveScene().buildIndex == 3) 
                 dragon_Animation_Controll.dragonIsAttacked = true;
