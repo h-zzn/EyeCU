@@ -168,7 +168,7 @@ public class HandEffectCollision : MonoBehaviour
         activateSkillSight();
     }
 
-    public IEnumerator reduceSkillGauge()  //스킬 시작되고 20초동안 게이지가 감소 후 종료
+    public IEnumerator reduceSkillGauge()  //스킬 시작되고 10초동안 게이지가 감소 후 종료
     {
         while (controllerManager.skillEnergyPoint > 0) 
         {

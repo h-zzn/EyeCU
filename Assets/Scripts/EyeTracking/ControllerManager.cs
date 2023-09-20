@@ -207,16 +207,16 @@ public class ControllerManager : MonoBehaviour
                     clip.WriteSample(sample);
                 }
 
-                RightChannel.Preempt(clip);
-                LeftChannel.Preempt(clip);
+                RightChannel.Preempt(clip); 
+                LeftChannel.Preempt(clip); 
 
                 // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
                 StartCoroutine(StopVibration());
                 
                 // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
                 hitEffectPosition = eyeTrackingRayRight.markerSparks.transform.position;
-                Quaternion rotation = Quaternion.Euler(0, 90, 0);
-                GameObject SkillMagicHitInstance = Instantiate(SkillMagicHitEffectPrefab, hitEffectPosition, rotation);
+                //Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                GameObject SkillMagicHitInstance = Instantiate(SkillMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
 
                 SkillMagicHitInstance.SetActive(true);
                 Destroy(SkillMagicHitInstance, 3f);
