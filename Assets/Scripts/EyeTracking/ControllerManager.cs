@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static OVRHaptics; 
+using UnityEngine.SceneManagement;
 
 public class ControllerManager : MonoBehaviour
 {
@@ -35,7 +36,6 @@ public class ControllerManager : MonoBehaviour
 
     public bool redMagicActive = true;
     public bool blueMagicActive = true;
-    public bool dragonIsAttacked = false;
 
     private Coroutine redMagicPauseCoroutine; // Coroutine 참조 변수
     private Coroutine blueMagicPauseCoroutine; // Coroutine 참조 변수
@@ -58,7 +58,7 @@ public class ControllerManager : MonoBehaviour
 
     public EventManager eventManager;
 
-    private int SkillAnimaGauge = 0;
+    private Dragon_Animation_Controll dragon_Animation_Controll;
 
     private bool isSkilled;
 
@@ -69,13 +69,16 @@ public class ControllerManager : MonoBehaviour
         SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials); 
 
         eventManager = GameObject.Find("StageCore").GetComponent<EventManager>();
+
+        if(SceneManager.GetActiveScene().buildIndex == 3) //임시로 스테이지3만
+            dragon_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon_Animation_Controll>();
     }
 
     void Start()
     {
         OriginPosition = this.transform.position;
 
-        //LeftEyeInteractor = GameObject.Find("LeftEyeInteractor");
+        //LeftEyeInteractor = GameObject.Find("LeftEyeInteractor"); 
         RightEyeInteractor = GameObject.Find("RightEyeInteractor");
         
         //eyeTrackingRayLeft = LeftEyeInteractor.GetComponent<EyeTrackingRay>();
@@ -185,20 +188,11 @@ public class ControllerManager : MonoBehaviour
             
             if(eyeTrackingRayRight.HoveredCube.CompareTag("WeakPoint"))
             {
+                if(SceneManager.GetActiveScene().buildIndex == 3) //임시로 스테이지3만
+                    ActiveEnemyAnimation();
                 // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
                 eventManager.EnemyHP -= 10;
-                SkillAnimaGauge += 1;
-
-                if (SkillAnimaGauge >= 10)
-                {
-                    dragonIsAttacked = true;
-                    SkillAnimaGauge = 0;
-                }
-                else
-                {
-                    dragonIsAttacked = false; // Add this line to set dragonIsAttacked to false
-                }
-
+            
                 // Oculus 컨트롤러에서 햅틱 반응을 발생시킵니다.
                 OVRHapticsClip clip = new OVRHapticsClip();
                 for (int i = 0; i < Config.SampleRateHz * vibrationDuration; i++)
@@ -227,6 +221,54 @@ public class ControllerManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void ActiveEnemyAnimation()
+    {
+        if (eventManager.EnemyHP == 1900)
+        {
+            dragon_Animation_Controll.dragonIsAttacked = true;
+            Invoke("DeActiveEnemyAnimation", 1f);
+        }
+        else if(eventManager.EnemyHP == 1600)  
+        {
+            dragon_Animation_Controll.dragonIsAttacked = true; 
+            Invoke("DeActiveEnemyAnimation", 1f);
+        }
+        else if(eventManager.EnemyHP == 1300)  
+        {
+            dragon_Animation_Controll.dragonIsAttacked = true; 
+            Invoke("DeActiveEnemyAnimation", 1f);
+        }
+        else if(eventManager.EnemyHP == 1000)  
+        {
+            dragon_Animation_Controll.dragonIsAttacked = true; 
+            Invoke("DeActiveEnemyAnimation", 1f);
+        }
+        else if(eventManager.EnemyHP == 700)  
+        {
+            dragon_Animation_Controll.dragonIsAttacked = true; 
+            Invoke("DeActiveEnemyAnimation", 1f);
+        }
+        else if(eventManager.EnemyHP == 400)  
+        {
+            dragon_Animation_Controll.dragonIsAttacked = true; 
+            Invoke("DeActiveEnemyAnimation", 1f);
+        }
+        else if(eventManager.EnemyHP == 50)  
+        {
+            dragon_Animation_Controll.dragonIsAttacked = true; 
+            Invoke("DeActiveEnemyAnimation", 1f);
+        }
+        else if(eventManager.EnemyHP == 10)
+        {
+            //죽는 모션 넣어줘요
+        }
+    } 
+
+    private void DeActiveEnemyAnimation()
+    {
+        dragon_Animation_Controll.dragonIsAttacked = false;
     }
 
 

@@ -20,7 +20,7 @@ public class Dragon_sound : MonoBehaviour
     private void Update()
     {
         // Check if the "GoingToAttack" parameter has changed to true.
-        bool newGoingToAttack = dragonAnimator.GetBool("GoingToAttack");
+        bool newGoingToAttack = dragonAnimator.GetBool("attacked");
 
         if (newGoingToAttack && !goingToAttack)
         {

@@ -20,6 +20,7 @@ TagManager:
   - HandEffect
   - TaegukCube
   - WeakPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
