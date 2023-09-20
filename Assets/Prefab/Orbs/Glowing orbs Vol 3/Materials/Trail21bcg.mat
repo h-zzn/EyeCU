@@ -122,5 +122,5 @@ Material:
     - _NoisespeedUV: {r: 0, g: 1, b: 0, a: 0}
     - _SpeedMainTexUVNoiseUV: {r: 0.1, g: 1, b: 0, a: 0}
     - _SpeedMainTexUVNoiseZW: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_BuildTextureStacks: []
