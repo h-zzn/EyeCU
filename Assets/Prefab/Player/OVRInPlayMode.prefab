@@ -76416,7 +76416,10 @@ MonoBehaviour:
   transparentMaterial: {fileID: 2100000, guid: 57da928791076f747802e54c32543178, type: 2}
   monsterMeshObject: {fileID: 0}
   weaknessObject: {fileID: 0}
-  isTransparent: 0
+  postProcessingVolumeObject: {fileID: 0}
+  transitionDuration: 1
+  targetVignetteColor: {r: 0, g: 0, b: 0, a: 1}
+  targetVignetteIntensity: 0.8
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123903,7 +123906,7 @@ MonoBehaviour:
   rayWidth: 100
   layersToInclude:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 2103
   rayColorDefaultState: {r: 1, g: 0.9954416, b: 0.4575472, a: 0}
   rayColorHoverState: {r: 0.7744359, g: 1, b: 0.5707547, a: 0}
   HoveredCube: {fileID: 0}

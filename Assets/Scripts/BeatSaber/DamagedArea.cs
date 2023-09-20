@@ -15,9 +15,9 @@ public class DamagedArea : MonoBehaviour
 
     private float normalizedHP;
 
-    [SerializeField] private float hitShakeTime = 0.2f;
-    [SerializeField] private float hitShakeSpeed = 2.0f;
-    [SerializeField] private float hitShakeAmount = 1.5f;
+    private float hitShakeTime = 0.2f;
+    private float hitShakeSpeed = 2.0f;
+    private float hitShakeAmount = 2.5f;
 
     [SerializeField] private GameObject HPGauge;
     [SerializeField] private GameObject HPMaterialObj;

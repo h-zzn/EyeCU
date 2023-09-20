@@ -168,9 +168,9 @@ public class ControllerManager : MonoBehaviour
     {
         while(handEffectCollision.canUseSkill == false)
         {
-            SkillGaugeRenderer.material = SkillMaterials[10];
-            yield return new WaitForSeconds(1f);
             SkillGaugeRenderer.material = SkillMaterials[11];
+            yield return new WaitForSeconds(1f);
+            SkillGaugeRenderer.material = SkillMaterials[12];
             yield return new WaitForSeconds(1f);
         }
 

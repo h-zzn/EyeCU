@@ -65,7 +65,6 @@ public class EventManager : MonoBehaviour
            tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();
            controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
            deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
-           EnemyHP = 250;
         }
 
         if(magicObj != null && specialObj != null && stoneObj != null)  
@@ -338,20 +337,20 @@ public class EventManager : MonoBehaviour
         glowing.SetGlowing(); 
         animator3B.SetBool("isDone", true);  
         gaugeObj.SetActive(true); 
-        yield return new WaitForSeconds(2);  
+        HPUI.SetActive(true); 
+        yield return new WaitForSeconds(3);  
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
 
         
         //[*** HP 설명 window ***]
         controllerManager.skillEnergyPoint = 0;
-        HPUI.SetActive(true); 
         //HPUI.transform.GetChild(0).gameObject.SetActive(true);     // HP step1 UI
-        yield return new WaitForSeconds(5); 
+        yield return new WaitForSeconds(10); 
         animator4A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);
-        HPUI.transform.GetChild(0).gameObject.SetActive(false);   
+        HPUI.transform.GetChild(0).gameObject.SetActive(false); 
+          
         HPUI.transform.GetChild(1).gameObject.SetActive(true);     // HP step2 UI
-
         OVRInteractionObj.SetActive(false);     // 손 못 쓰게 
         controllerManager.redMagicActive = false;
         controllerManager.blueMagicActive = false;

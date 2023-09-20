@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
         if (stageLevel == StageLevel.tutorial)
         {
-            Invoke("AutoHealingHP", 2f);
+            Invoke("AutoHealingHP", 4f);
         }
         else if (stageLevel == StageLevel.stage2)
         {
@@ -285,11 +285,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void AutoHealingHP()
+    private void AutoHealingHP()  
     {
-        if (damagedArea.stageHP <= 1800)
+        if (damagedArea.stageHP <= 1900) 
         {
-            damagedArea.stageHP += 200;
+            damagedArea.stageHP += 100; 
         }
         else
         {
