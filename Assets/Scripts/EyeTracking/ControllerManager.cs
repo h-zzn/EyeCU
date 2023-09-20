@@ -215,7 +215,9 @@ public class ControllerManager : MonoBehaviour
                 
                 // Magic hit effect play at eyeTrackingRayRight.HoveredCube.transform.position
                 hitEffectPosition = eyeTrackingRayRight.markerSparks.transform.position;
-                GameObject SkillMagicHitInstance = Instantiate(SkillMagicHitEffectPrefab, hitEffectPosition, Quaternion.identity);
+                Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                GameObject SkillMagicHitInstance = Instantiate(SkillMagicHitEffectPrefab, hitEffectPosition, rotation);
+
                 SkillMagicHitInstance.SetActive(true);
                 Destroy(SkillMagicHitInstance, 3f);
 
