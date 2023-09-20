@@ -82,12 +82,12 @@ public class TutorialEvent : MonoBehaviour
         }
 
 
-        if(damagedArea.stageHP <= 1900)
+        if(damagedArea.stageHP <= 1800)
         {
             HPMission = true; 
         }
 
-        if(controllerManager.skillEnergyPoint >= 200)
+        if(controllerManager.skillEnergyPoint >= 400) 
         {
             MPMission = true; 
         }
@@ -111,7 +111,7 @@ public class TutorialEvent : MonoBehaviour
             skillActivateMission = true;
         }
 
-        if(controllerManager.eventManager.EnemyHP <= 700)   
+        if(controllerManager.eventManager.EnemyHP <= 500)   
         {
             skillAttackMission = true;
         }

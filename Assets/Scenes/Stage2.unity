@@ -44526,27 +44526,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9705667
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24083266
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000014901163
+      value: 0.98717767
       objectReference: {fileID: 0}
     - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000037252907
+      value: 0.1596255
       objectReference: {fileID: 0}
     - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 27.871
+      value: -18.37
       objectReference: {fileID: 0}
     - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -45648,12 +45648,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37806035734588581, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 604673527732599891, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: SkillGauge
       value: 
       objectReference: {fileID: 806371755}
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: leftEffect
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: rightEffect
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: SkillMaterialObj
       value: 
@@ -45778,13 +45790,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5266763265037325957, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5274578547673623769, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_Name
       value: OVRInPlayMode
       objectReference: {fileID: 0}
     - target: {fileID: 5692627244578466354, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6383744688513656933, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: m_Layer

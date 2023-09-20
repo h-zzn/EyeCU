@@ -62,6 +62,10 @@ public class ControllerManager : MonoBehaviour
 
     private Dragon_Animation_Controll dragon_Animation_Controll;
 
+    private Dragon1_Animation_Controll dragon1_Animation_Controll;
+
+    private Dragon2_Animation_Controll dragon2_Animation_Controll;
+
     private bool isSkilled;
 
     private Coroutine BlinkSkillGauge = null;
@@ -74,6 +78,10 @@ public class ControllerManager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().buildIndex == 3) //임시로 스테이지3만
             dragon_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon_Animation_Controll>();
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
+            dragon2_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon2_Animation_Controll>();
+        else if(SceneManager.GetActiveScene().buildIndex == 1)
+            dragon1_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon1_Animation_Controll>();
     }
 
     void Start()
@@ -190,8 +198,8 @@ public class ControllerManager : MonoBehaviour
             
             if(eyeTrackingRayRight.HoveredCube.CompareTag("WeakPoint"))
             {
-                if(SceneManager.GetActiveScene().buildIndex == 3) //임시로 스테이지3만
-                    ActiveEnemyAnimation();
+                ActiveEnemyAnimation(); 
+
                 // 스킬 이후 버튼 눌러서 어떻게 되는지 여기에 넣어야 함
                 eventManager.EnemyHP -= 10;
             
@@ -229,33 +237,64 @@ public class ControllerManager : MonoBehaviour
     {
         if (eventManager.EnemyHP == 1000)
         {
-            dragon_Animation_Controll.dragonIsAttacked = true;
+            if(SceneManager.GetActiveScene().buildIndex == 3) 
+                dragon_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 2)
+                dragon2_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 1)
+                dragon1_Animation_Controll.dragonIsAttacked = true;
+            
             Invoke("DeActiveEnemyAnimation", 1f);
         }
         else if(eventManager.EnemyHP == 750)  
         {
-            dragon_Animation_Controll.dragonIsAttacked = true; 
+            if(SceneManager.GetActiveScene().buildIndex == 3) 
+                dragon_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 2)
+                dragon2_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 1)
+                dragon1_Animation_Controll.dragonIsAttacked = true;
             Invoke("DeActiveEnemyAnimation", 1f);
         }
         else if(eventManager.EnemyHP == 500)  
         {
-            dragon_Animation_Controll.dragonIsAttacked = true; 
+            if(SceneManager.GetActiveScene().buildIndex == 3) 
+                dragon_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 2)
+                dragon2_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 1)
+                dragon1_Animation_Controll.dragonIsAttacked = true;
             Invoke("DeActiveEnemyAnimation", 1f);
         }
         else if(eventManager.EnemyHP == 250)  
         {
-            dragon_Animation_Controll.dragonIsAttacked = true; 
+            if(SceneManager.GetActiveScene().buildIndex == 3) 
+                dragon_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 2)
+                dragon2_Animation_Controll.dragonIsAttacked = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 1)
+                dragon1_Animation_Controll.dragonIsAttacked = true;
             Invoke("DeActiveEnemyAnimation", 1f);
         }
         else if(eventManager.EnemyHP == 10)
         {
-            dragon_Animation_Controll.dragonIsDead = true;
-}
+            if(SceneManager.GetActiveScene().buildIndex == 3) 
+                dragon_Animation_Controll.dragonIsDead = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 2)
+                dragon2_Animation_Controll.dragonIsDead = true;
+            else if(SceneManager.GetActiveScene().buildIndex == 1)
+                dragon1_Animation_Controll.dragonIsDead = true;
+        }
     } 
 
     private void DeActiveEnemyAnimation()
     {
-        dragon_Animation_Controll.dragonIsAttacked = false;
+        if(SceneManager.GetActiveScene().buildIndex == 3) //임시로 스테이지3만
+                dragon_Animation_Controll.dragonIsAttacked = false;
+            else if(SceneManager.GetActiveScene().buildIndex == 2)
+                dragon2_Animation_Controll.dragonIsAttacked = false;
+            else if(SceneManager.GetActiveScene().buildIndex == 1)
+                dragon1_Animation_Controll.dragonIsAttacked = false;
     }
 
 

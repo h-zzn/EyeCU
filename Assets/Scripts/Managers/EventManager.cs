@@ -30,7 +30,6 @@ public class EventManager : MonoBehaviour
 
     [SerializeField] private GameObject MonsterHPGauge;
     [SerializeField] private GameObject MonsterMaterialObj;
-    private Renderer MonsterGaugeRenderer;
     private List<Material> MonsterHPMaterials;
 
     // Animator 
@@ -105,8 +104,6 @@ public class EventManager : MonoBehaviour
             animator5B.SetBool("isDone", false);  
             animator5C.SetBool("isDone", false);  
         }
-
-        MonsterGaugeRenderer = MonsterHPGauge.GetComponent<Renderer>();
     }
 
     void Awake()  
@@ -134,25 +131,28 @@ public class EventManager : MonoBehaviour
 
     private void reduceEnemyHPGauge()
     {
-        if (EnemyHP <= 0)
+        if(MonsterHPGauge.transform.parent.gameObject.activeSelf)
         {
-            MonsterGaugeRenderer.material = MonsterHPMaterials[4];
-        }
-        else if (EnemyHP <= 250)
-        {
-            MonsterGaugeRenderer.material = MonsterHPMaterials[3];
-        }
-        else if (EnemyHP <= 500)
-        {
-            MonsterGaugeRenderer.material = MonsterHPMaterials[2];
-        }
-        else if (EnemyHP <= 750)
-        {
-            MonsterGaugeRenderer.material = MonsterHPMaterials[1];
-        }
-        else if (EnemyHP <= 1000)
-        {
-            MonsterGaugeRenderer.material = MonsterHPMaterials[0];
+            if (EnemyHP <= 0)
+            {
+                MonsterHPGauge.GetComponent<Renderer>().material = MonsterHPMaterials[4];
+            }
+            else if (EnemyHP <= 250)
+            {
+                MonsterHPGauge.GetComponent<Renderer>().material = MonsterHPMaterials[3];
+            }
+            else if (EnemyHP <= 500)
+            {
+                MonsterHPGauge.GetComponent<Renderer>().material = MonsterHPMaterials[2];
+            }
+            else if (EnemyHP <= 750)
+            {
+                MonsterHPGauge.GetComponent<Renderer>().material = MonsterHPMaterials[1];
+            }
+            else if (EnemyHP <= 1000)
+            {
+                MonsterHPGauge.GetComponent<Renderer>().material = MonsterHPMaterials[0];
+            }
         }
     }
 
@@ -391,11 +391,13 @@ public class EventManager : MonoBehaviour
         controllerManager.redMagicActive = false;
         controllerManager.blueMagicActive = false;
         spawnManager.activeBasicOrb = true;
+        spawnManager.basicOrbSpeed *= 1.5f; 
         while (!tutorialEvent.HPMission)
         {
             yield return null;
         }
         glowing.SetGlowing();
+        spawnManager.basicOrbSpeed /= 1.5f; 
         spawnManager.activeBasicOrb = false;
         deleteEnemyAttack.StartCoroutine("DeleteAll"); 
         
@@ -470,13 +472,13 @@ public class EventManager : MonoBehaviour
             controllerManager.skillEnergyPoint = 1000; 
             yield return null;
         }
-        glowing.SetGlowing(); 
         yield return new WaitForSeconds(3);
         animator5C.SetBool("isDone", true);
         yield return new WaitForSeconds(2);
         SkillUI.transform.GetChild(2).gameObject.SetActive(false);
         controllerManager.skillEnergyPoint = 0;
         yield return new WaitForSeconds(3);
+        glowing.SetGlowing();
 
         // finish UI 
         finishUI.SetActive(true); 

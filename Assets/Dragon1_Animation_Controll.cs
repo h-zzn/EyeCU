@@ -10,9 +10,9 @@ public class Dragon1_Animation_Controll : MonoBehaviour
     Animator Dragon1_Animation;
 
     // Reference to the second AudioSource
-    public AudioSource dragonAudioSource2;
+    public AudioSource dragonAudioSource2; 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
         Dragon1_Animation = GetComponent<Animator>();
