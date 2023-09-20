@@ -429,7 +429,6 @@ public class EventManager : MonoBehaviour
         SkillUI.transform.GetChild(1).gameObject.SetActive(false);  
         yield return new WaitForSeconds(3);
 
-
         SkillUI.transform.GetChild(2).gameObject.SetActive(true);      // Skill step3 UI   
         while (!tutorialEvent.skillAttackMission)
         {
