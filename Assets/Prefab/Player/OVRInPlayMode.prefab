@@ -34786,8 +34786,8 @@ MonoBehaviour:
   TaegukMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 2e3dfcfa695ec1443a72ab87837e8fb5, type: 3}
   leftSword: {fileID: 5777889304347496251}
   rightSword: {fileID: 8573466451353800702}
-  leftEffect: {fileID: 0}
-  rightEffect: {fileID: 0}
+  leftEffect: {fileID: 5268658541522920791}
+  rightEffect: {fileID: 607281236753780609}
   PoongSound: {fileID: 7977265096230928998}
   ChengSound: {fileID: 7218666717082086326}
   TikSound: {fileID: 424059825235472272}
@@ -34800,7 +34800,7 @@ MonoBehaviour:
   attackPoint: 100
   SkillGauge: {fileID: 9007712374849698202}
   SkillMaterialObj: {fileID: 8740802816579520912}
-  SkillMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: d78bce85bfe8a314fbce802c6895d093, type: 3}
+  SkillMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: 752a49ce25c74c04eb32fb8ee43ea163, type: 3}
   handEffectCollision: {fileID: 3328971601575479314}
   eventManager: {fileID: 0}
 --- !u!82 &7977265096230928998
@@ -56065,6 +56065,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4418833409762884, guid: acd9459c5636ac540a15dc4f629b577f, type: 3}
   m_PrefabInstance: {fileID: 606730004522375703}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &607281236753780609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1960052371527062, guid: acd9459c5636ac540a15dc4f629b577f, type: 3}
+  m_PrefabInstance: {fileID: 606730004522375703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2570025241340786382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56393,6 +56398,11 @@ PrefabInstance:
 --- !u!4 &5266763265037325957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4418833409762884, guid: 6f9818ad66096234b8c9c88766021cd3, type: 3}
+  m_PrefabInstance: {fileID: 5267240892016996545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5268658541522920791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1960052371527062, guid: 6f9818ad66096234b8c9c88766021cd3, type: 3}
   m_PrefabInstance: {fileID: 5267240892016996545}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5337113457201764116

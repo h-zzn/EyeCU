@@ -391,7 +391,7 @@ public class ControllerManager : MonoBehaviour
                 if (redMagicActive) // redMagicActive가 활성화되어 있을 때
                 {
                     MissingPoint += 1;
-                    skillEnergyPoint -= 100;
+                    skillEnergyPoint -= 50;
                     // Debug.Log("Wrong Target! : Red Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!"); 
                     redMagicActive = false; // redMagic 비활성화
                     rightEffect.SetActive(false);
@@ -452,11 +452,11 @@ public class ControllerManager : MonoBehaviour
                 if (blueMagicActive) // blueMagicActive가 활성화되어 있을 때  
                 {
                     MissingPoint += 1;
-                    skillEnergyPoint -= 100;
+                    skillEnergyPoint -= 50;
                     // Debug.Log("Wrong Target! : Blue Magic Deactivated for 1 second!!!!!!!!!!!!!!!!!!!!!");  
                     blueMagicActive = false; // blueMagic 비활성화
                     leftEffect.SetActive(false);
-                    // 1초 뒤에 blueMagicActive 다시 false로 변경하는 Coroutine 시작
+                    // 1초 뒤에 blueMagicActive 다시 false로 변경하는 Coroutine 시작 
                     if (blueMagicPauseCoroutine != null)
                     {
                         StopCoroutine(blueMagicPauseCoroutine); // 기존 Coroutine 중지
@@ -472,7 +472,7 @@ public class ControllerManager : MonoBehaviour
         yield return new WaitForSeconds(second);
         redMagicActive = true;
         rightEffect.SetActive(true);
-        // Debug.Log("Red Magic Activated!!!!!!!!!!!!!!!!!!");
+        //Debug.Log("Red Magic Activated!!!!!!!!!!!!!!!!!!");
     }
 
     IEnumerator ActivateBlueMagicAfter(float second)

@@ -266,9 +266,8 @@ public class EventManager : MonoBehaviour
         spawnManager.activeBasicOrb = true; 
         yield return new WaitForSeconds(10); 
         spawnManager.activeStone = true;
-        spawnManager.stoneSpawnInterval *= 2.5f;
-        spawnManager.stoneSpeed *= 0.8f; 
-        spawnManager.stoneSpawner[-1].SetActive(false);
+        spawnManager.stoneSpeed *= 0.6f;
+        spawnManager.stoneSpawnInterval *= 2f;
         yield return new WaitForSeconds(BasicSpawnTime-10); 
         
         while (EnemyHP > 0) 
