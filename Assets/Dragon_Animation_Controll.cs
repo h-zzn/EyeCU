@@ -32,9 +32,19 @@ public class Dragon_Animation_Controll : MonoBehaviour
             // Reset dragonIsAttacked to false immediately after playing audio
             dragonIsAttacked = false;
 
-            // Reset animator parameters (if needed) immediately after playing audio
-            dragonAnimator.SetBool("okay", true);
-            dragonAnimator.SetBool("attacked", false);
+
+            // Use StartCoroutine to introduce a delay before resetting animator parameters
+            StartCoroutine(ResetAnimatorParametersWithDelay());
         }
+    }
+
+    private IEnumerator ResetAnimatorParametersWithDelay()
+    {
+        // Wait for about 2 seconds
+        yield return new WaitForSeconds(2.0f);
+
+        // Reset animator parameters
+        dragonAnimator.SetBool("okay", true);
+        dragonAnimator.SetBool("attacked", false);
     }
 }
