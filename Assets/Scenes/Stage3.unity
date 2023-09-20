@@ -2503,18 +2503,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4418833409762884, guid: caad4455149c28e4daa6fc588b6f38de, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4418833409762884, guid: caad4455149c28e4daa6fc588b6f38de, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4418833409762884, guid: caad4455149c28e4daa6fc588b6f38de, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4418833409762884, guid: caad4455149c28e4daa6fc588b6f38de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.079
       objectReference: {fileID: 0}
@@ -2553,10 +2541,6 @@ PrefabInstance:
     - target: {fileID: 4418833409762884, guid: caad4455149c28e4daa6fc588b6f38de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4418833409762884, guid: caad4455149c28e4daa6fc588b6f38de, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6324,6 +6308,14 @@ PrefabInstance:
       propertyPath: layersToInclude.m_Bits
       value: 2103
       objectReference: {fileID: 0}
+    - target: {fileID: 3043984779413890107, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afd3b78b498055346ac2a76114e7e050, type: 2}
+    - target: {fileID: 3044002459971526845, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3539fd87c2fb8d345986d27b326e68f6, type: 2}
     - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: skillTrigger
       value: 
@@ -6479,6 +6471,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8168930351715308759, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+    - {fileID: 2953913392908280555, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+    - {fileID: 2953432446755394205, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+    - {fileID: 2953414614222831745, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8952919174108663261, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       insertIndex: -1
