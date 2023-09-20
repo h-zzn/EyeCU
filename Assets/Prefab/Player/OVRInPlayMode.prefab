@@ -69009,7 +69009,7 @@ Transform:
   - {fileID: 3930215984911050192}
   - {fileID: 5173502037961385648}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393476222726514362
 MonoBehaviour:
@@ -69037,12 +69037,14 @@ MonoBehaviour:
   deactivateMagicTime: 1
   redMagicActive: 1
   blueMagicActive: 1
+  dragonIsAttacked: 0
   vibrationDuration: 0.5
   MissingPoint: 0
   skillEnergyPoint: 0
   attackPoint: 100
   SkillGauge: {fileID: 9007712374849698202}
   SkillMaterialObj: {fileID: 8740802816579520912}
+  SkillMagicHitEffectPrefab: {fileID: 2652936054558877957, guid: d78bce85bfe8a314fbce802c6895d093, type: 3}
   handEffectCollision: {fileID: 3328971601575479314}
   eventManager: {fileID: 0}
 --- !u!82 &7977265096230928998
@@ -76411,6 +76413,10 @@ MonoBehaviour:
   LeftPurpleEffect: {fileID: 6413209293366698967}
   RightPurpleEffect: {fileID: 1371687211721541264}
   canUseSkill: 0
+  transparentMaterial: {fileID: 2100000, guid: 57da928791076f747802e54c32543178, type: 2}
+  monsterMeshObject: {fileID: 0}
+  weaknessObject: {fileID: 0}
+  isTransparent: 0
 --- !u!54 &7818211077850766905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123892,6 +123898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markerPrefab: {fileID: 7037767946665412911}
+  markerSparks: {fileID: 0}
   rayDistance: 15
   rayWidth: 100
   layersToInclude:
