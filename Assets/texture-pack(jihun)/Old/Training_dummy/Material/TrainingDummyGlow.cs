@@ -17,7 +17,7 @@ public class TrainingDummyGlow : MonoBehaviour
     [SerializeField] private bool isGlowing = false;
 
     [SerializeField] private float glowTime = 1f;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,30 +27,21 @@ public class TrainingDummyGlow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGlowing)
-        {
-            skinnedMeshRenderer.material = successMaterial;
-            good.SetActive(true);
-        }
-        else
-        {
-            skinnedMeshRenderer.material = normalMaterial;
-            good.SetActive(false);
-        }
+
     }
 
     // Set the glowing on and turn off after 1 second
     public void SetGlowing()
     {
-        isGlowing = true;
+        skinnedMeshRenderer.material = successMaterial;
+        good.SetActive(true);
         Invoke("SetNotGlowing", glowTime);
-        
     }
 
     // Set the glowing off
     private void SetNotGlowing()
     {
-        isGlowing = false;
-        
+        skinnedMeshRenderer.material = normalMaterial;
+        good.SetActive(false);
     }
 }
