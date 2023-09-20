@@ -14,9 +14,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: attacked
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: SoundTrigger
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8120282413278375757}
   m_Solo: 0
@@ -39,7 +36,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Attack01
-  m_Speed: 0.4
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7471865830313572356}
@@ -154,9 +151,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: attacked
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: SoundTrigger
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8658722605847602180}
   m_Solo: 0
@@ -268,9 +262,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: attacked
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: SoundTrigger
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8120282413278375757}
   m_Solo: 0
@@ -302,12 +293,6 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: attacked
     m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: SoundTrigger
-    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -534,9 +519,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: attacked
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: SoundTrigger
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7531884181763316687}
   m_Solo: 0
@@ -587,7 +569,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: idle 0
-  m_Speed: 0.4
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6793303076776971208}
@@ -644,9 +626,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: okay
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: SoundTrigger
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8658722605847602180}
   m_Solo: 0
@@ -669,7 +648,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: idle
-  m_Speed: 0.4
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8423662255542167432}
@@ -703,9 +682,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: attacked
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: SoundTrigger
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8120282413278375757}
   m_Solo: 0
@@ -728,7 +704,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: attack
-  m_Speed: 0.4
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1311385856104647405}
@@ -758,9 +734,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: okay
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: SoundTrigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7531884181763316687}
