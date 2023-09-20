@@ -7,6 +7,9 @@ public class Dragon_Animation_Controll : MonoBehaviour
     public bool dragonIsAttacked;
     Animator dragonAnimator;
 
+    // Reference to the second AudioSource
+    public AudioSource dragonAudioSource2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,16 @@ public class Dragon_Animation_Controll : MonoBehaviour
         {
             dragonAnimator.SetBool("attacked", true);
             dragonAnimator.SetBool("okay", false);
+
+            // Play the second audio source
+            dragonAudioSource2.Play();
+
+            // Reset dragonIsAttacked to false immediately after playing audio
+            dragonIsAttacked = false;
+
+            // Reset animator parameters (if needed) immediately after playing audio
+            dragonAnimator.SetBool("okay", true);
+            dragonAnimator.SetBool("attacked", false);
         }
     }
 }

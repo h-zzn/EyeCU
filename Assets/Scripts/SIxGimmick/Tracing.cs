@@ -66,7 +66,8 @@ public class Tracing : MonoBehaviour
                 if (transform.parent != null)
                 {
                     // Instantiate DestroyEffect at the position of the object
-                    GameObject DestroyVisualInstance = Instantiate(DestroyVisualEffectObject, HoverPosition, Quaternion.identity);
+                    Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                    GameObject DestroyVisualInstance = Instantiate(DestroyVisualEffectObject, HoverPosition, rotation);
                     // Destroy the instantiated object after 2 seconds
                     Destroy(DestroyVisualInstance, 1f);
 
