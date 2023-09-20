@@ -29,6 +29,8 @@ public class StageManagerScript : MonoBehaviour
 
     private void Start()
     {
+        // PlayerPrefs.DeleteKey("knifeActive");
+        // PlayerPrefs.DeleteKey("levelReached");
         // if (!hasDeletedKey)
         // {
         //     PlayerPrefs.DeleteKey("levelReached");
@@ -60,16 +62,16 @@ public class StageManagerScript : MonoBehaviour
         stage2BestHP = PlayerPrefs.GetInt("Stage2BestHP");
         stage3BestHP = PlayerPrefs.GetInt("Stage3BestHP");
 
-        // if(PlayerPrefs.HasKey("knifeActive")){  // 튜토리얼을 완료했다면
-        //     //knifeMeshCollider.enabled = true;
-        //     //bookMeshCollider.enabled = true;
-        //     canvasAnimator.SetBool("isStory", false);         
-        //     stages[0].SetActive(false);
-        // }
+        if(PlayerPrefs.HasKey("knifeActive")){  // 튜토리얼을 완료했다면
+            //knifeMeshCollider.enabled = true;
+            //bookMeshCollider.enabled = true;
+            canvasAnimator.SetBool("isStory", false);         
+            stages[0].SetActive(false);
+        }
 
-        // else{
-        //     canvasAnimator.SetBool("isStory", true);  // true로 바꾸기
-        // }
+        else{
+            canvasAnimator.SetBool("isStory", true);  // true로 바꾸기
+        }
 
 
         for (int i= levelat+2; i<stages.Length; i++){
@@ -123,20 +125,20 @@ public class StageManagerScript : MonoBehaviour
         }
     }
 
-    void Update(){
-        canvasAnimator.SetBool("isStory", isStory);  
+    // void Update(){
+    //     canvasAnimator.SetBool("isStory", isStory);  
 
-        if(PlayerPrefs.HasKey("knifeActive")){  // 튜토리얼을 완료했다면
-            //knifeMeshCollider.enabled = true;
-            //bookMeshCollider.enabled = true;
-            isStory = false;         
-            //stages[0].SetActive(false);
-        }
+    //     if(PlayerPrefs.HasKey("knifeActive")){  // 튜토리얼을 완료했다면
+    //         //knifeMeshCollider.enabled = true;
+    //         //bookMeshCollider.enabled = true;
+    //         isStory = false;         
+    //         //stages[0].SetActive(false);
+    //     }
 
-        else{
-            isStory = true;
-        }
-    }
+    //     else{
+    //         isStory = true;
+    //     }
+    // }
 
     public void GoStage(int stageNum){
         SceneManager.LoadScene(stageNum); 

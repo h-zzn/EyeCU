@@ -24,9 +24,9 @@ public class gameStartScript : MonoBehaviour
 
 
     void Start(){
-        PlayerPrefs.DeleteKey("knifeActive"); 
-        canvasAnimator = canvasObj.transform.gameObject.GetComponent<Animator>();
-        canvasAnimator.SetBool("isStory", true);  // true로 바꾸기
+        //PlayerPrefs.DeleteKey("knifeActive"); 
+        //canvasAnimator = canvasObj.transform.gameObject.GetComponent<Animator>();
+        //canvasAnimator.SetBool("isStory", true);  // true로 바꾸기
 
 
         //knifeMeshCollider = GameObject.Find("knife").GetComponent<MeshCollider>();
@@ -37,7 +37,7 @@ public class gameStartScript : MonoBehaviour
         if(PlayerPrefs.HasKey("knifeActive")){  // 튜토리얼을 완료했다면
             //knifeMeshCollider.enabled = true;
             //bookMeshCollider.enabled = true;
-            canvasAnimator.SetBool("isStory", false);
+            //canvasAnimator.SetBool("isStory", false);
 
         }
     }
