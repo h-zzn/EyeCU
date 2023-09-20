@@ -1046,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6328349769117678895, guid: d193ea0a5132fde44a7bb047c082dde9, type: 3}
       propertyPath: lengthInSec
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6328349769117678895, guid: d193ea0a5132fde44a7bb047c082dde9, type: 3}
       propertyPath: simulationSpeed
@@ -1070,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6328349769117678895, guid: d193ea0a5132fde44a7bb047c082dde9, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6328349769117678895, guid: d193ea0a5132fde44a7bb047c082dde9, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

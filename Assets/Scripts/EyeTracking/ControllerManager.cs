@@ -36,6 +36,8 @@ public class ControllerManager : MonoBehaviour
 
     public bool redMagicActive = true;
     public bool blueMagicActive = true;
+    
+
 
     private Coroutine redMagicPauseCoroutine; // Coroutine 참조 변수
     private Coroutine blueMagicPauseCoroutine; // Coroutine 참조 변수
@@ -247,8 +249,8 @@ public class ControllerManager : MonoBehaviour
         }
         else if(eventManager.EnemyHP == 10)
         {
-            //죽는 모션 넣어줘요
-        }
+            dragon_Animation_Controll.dragonIsDead = true;
+}
     } 
 
     private void DeActiveEnemyAnimation()
@@ -447,7 +449,7 @@ public class ControllerManager : MonoBehaviour
         // 햅틱 반응 시간 이후에 반응을 중지시킵니다.
         yield return new WaitForSeconds(vibrationDuration);
 
-        // Oculus 컨트롤러의 햅틱 반응을 중지합니다.
+        // Oculus 컨트롤러의 햅틱 반응을 중지합니다. 
         OVRHapticsChannel hapticsChannel = (controllerType == OVRInput.Controller.LTouch) ? LeftChannel : RightChannel;
         hapticsChannel.Clear();
     }
@@ -459,17 +461,17 @@ public class ControllerManager : MonoBehaviour
         {
             if (ChengSound != null)
             { 
-                ChengSound.Play();
+                ChengSound.Play(); 
             } 
 
             if (rightSword.activeSelf == false)
             { 
-                rightSword.SetActive(true);
+                rightSword.SetActive(true); 
             } 
 
             if (rightEffect.activeSelf == true)
             { 
-                rightEffect.SetActive(false);
+                rightEffect.SetActive(false); 
             } 
         }
 

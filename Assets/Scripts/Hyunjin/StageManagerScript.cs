@@ -66,7 +66,7 @@ public class StageManagerScript : MonoBehaviour
             //knifeMeshCollider.enabled = true;
             //bookMeshCollider.enabled = true;
             canvasAnimator.SetBool("isStory", false);         
-            stages[0].SetActive(false);
+            //stages[0].SetActive(false);
         }
 
         else{

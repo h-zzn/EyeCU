@@ -141,7 +141,7 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(10); 
         spawnManager.activeStone = true;
         spawnManager.stoneSpawnInterval *= 3f;
-        yield return new WaitForSeconds(BasicSpawnTime);  
+        yield return new WaitForSeconds(BasicSpawnTime);   
         
         while (EnemyHP > 0)  
         {
@@ -233,6 +233,7 @@ public class EventManager : MonoBehaviour
         spawnManager.activeStone = true;
         spawnManager.stoneSpawnInterval *= 2.5f;
         spawnManager.stoneSpeed *= 0.8f; 
+        spawnManager.stoneSpawner[-1].SetActive(false);
         yield return new WaitForSeconds(BasicSpawnTime-10); 
         
         while (EnemyHP > 0) 
