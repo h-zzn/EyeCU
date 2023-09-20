@@ -107,7 +107,6 @@ public class EyeTrackingRay : MonoBehaviour
                 if(markerSparks.activeSelf == true)
                     markerSparks.SetActive(false);
             }
-            Debug.Log("HIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + hit.transform.gameObject);
             SpawnMarker(hit);
         }
         else 

@@ -201,6 +201,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 6a7d4afc808a5524989626c6d91bc7ef, type: 3}
   m_PrefabInstance: {fileID: 2578643}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &89267873
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1910980142}
+    m_Modifications:
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.850738
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3212656
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.901501
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.43277717
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -51.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522175296987519884, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_Name
+      value: DragonGauge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522175296987519884, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+--- !u!4 &89267874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3108343744882477174, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+  m_PrefabInstance: {fileID: 89267873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &107915357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1280,6 +1350,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1032857102521645529, guid: 0b110b3109d50194c8e4876a77fd7bd6, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 89267874}
     - targetCorrespondingSourceObject: {fileID: 7957160489258937640, guid: 0b110b3109d50194c8e4876a77fd7bd6, type: 3}
       insertIndex: 0
       addedObject: {fileID: 301590773}
@@ -2717,6 +2790,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2653527515032712358, guid: f17adb0d741f4bb4aa7cfab117dce845, type: 3}
   m_PrefabInstance: {fileID: 1508549825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &795681223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6522175296987519884, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+  m_PrefabInstance: {fileID: 89267873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &822041200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3246,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1b3e9de2c8b906a4c8e22389ea7e9d5a, type: 3}
   m_PrefabInstance: {fileID: 953224885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &953820989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2792325507458472067, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+  m_PrefabInstance: {fileID: 89267873}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &995927037
 PrefabInstance:
@@ -4559,6 +4642,11 @@ Transform:
   m_Father: {fileID: 168550196}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1655322531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3531685480443510936, guid: 974588e97e182d84988a1e5cf8d2b2fb, type: 3}
+  m_PrefabInstance: {fileID: 89267873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1749373825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1b3e9de2c8b906a4c8e22389ea7e9d5a, type: 3}
@@ -5319,6 +5407,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roarMainDragon: {fileID: 8300000, guid: 738140f0faf637f4fa3962b0a1e4b984, type: 3}
+--- !u!4 &1910980142 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1032857102521645529, guid: 0b110b3109d50194c8e4876a77fd7bd6, type: 3}
+  m_PrefabInstance: {fileID: 336607106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1916059169
 GameObject:
   m_ObjectHideFlags: 0
@@ -5505,6 +5598,14 @@ PrefabInstance:
       propertyPath: specialObj
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: MonsterHPGauge
+      value: 
+      objectReference: {fileID: 953820989}
+    - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+      propertyPath: MonsterMaterialObj
+      value: 
+      objectReference: {fileID: 1655322531}
     - target: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
       propertyPath: stoneSpawner.Array.size
       value: 3
@@ -6218,6 +6319,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3539fd87c2fb8d345986d27b326e68f6, type: 2}
+    - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: EnemyGauge
+      value: 
+      objectReference: {fileID: 795681223}
     - target: {fileID: 3328971601575479314, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: skillTrigger
       value: 

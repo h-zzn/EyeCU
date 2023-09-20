@@ -31,6 +31,7 @@ public class HandEffectCollision : MonoBehaviour
     [SerializeField] private GameObject monsterMeshObject; 
 
     [SerializeField] private GameObject weaknessObject;
+    [SerializeField] private GameObject EnemyGauge;
 
     // ===시야 전환 관련===
     private Transform cam;
@@ -152,6 +153,7 @@ public class HandEffectCollision : MonoBehaviour
        
         //활성화되지 않은 "skill" 오브젝트를 찾아서 활성화
         skillCircle.SetActive(true);
+        EnemyGauge.SetActive(true);
 
         if (reduceSkillCoroutine == null)
         {
@@ -195,6 +197,7 @@ public class HandEffectCollision : MonoBehaviour
         spawnManager.activeSkill = false; 
 
         skillCircle.SetActive(false);
+        EnemyGauge.SetActive(false);
 
         ReactivateChildren(this.gameObject); 
         if (otherCollider!=null)

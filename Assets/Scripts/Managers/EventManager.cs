@@ -26,7 +26,12 @@ public class EventManager : MonoBehaviour
     [SerializeField] private GameObject HPUI; 
     [SerializeField] private GameObject SkillUI; 
     [SerializeField] private GameObject finishUI;  
-    [SerializeField] private GameObject gaugeObj;  
+    [SerializeField] private GameObject gaugeObj;
+
+    [SerializeField] private GameObject MonsterHPGauge;
+    [SerializeField] private GameObject MonsterMaterialObj;
+    private Renderer MonsterGaugeRenderer;
+    private List<Material> MonsterHPMaterials;
 
     // Animator 
     Animator animator1A; 
@@ -100,6 +105,8 @@ public class EventManager : MonoBehaviour
             animator5B.SetBool("isDone", false);  
             animator5C.SetBool("isDone", false);  
         }
+
+        MonsterGaugeRenderer = MonsterHPGauge.GetComponent<Renderer>();
     }
 
     void Awake()  
@@ -108,6 +115,8 @@ public class EventManager : MonoBehaviour
         spawnManager.activeBasicOrb = false;  
         spawnManager.activeStone = false; 
         spawnManager.activeSpecialOrb = false;
+
+        MonsterHPMaterials = new List<Material>(MonsterMaterialObj.GetComponent<Renderer>().materials);
     }   
 
     void Update()
@@ -118,6 +127,32 @@ public class EventManager : MonoBehaviour
             spawnManager.activeStone = false; 
             spawnManager.activeSpecialOrb = false; 
             GameClear = true;
+        }
+
+        reduceEnemyHPGauge();
+    }
+
+    private void reduceEnemyHPGauge()
+    {
+        if (EnemyHP <= 0)
+        {
+            MonsterGaugeRenderer.material = MonsterHPMaterials[4];
+        }
+        else if (EnemyHP <= 250)
+        {
+            MonsterGaugeRenderer.material = MonsterHPMaterials[3];
+        }
+        else if (EnemyHP <= 500)
+        {
+            MonsterGaugeRenderer.material = MonsterHPMaterials[2];
+        }
+        else if (EnemyHP <= 750)
+        {
+            MonsterGaugeRenderer.material = MonsterHPMaterials[1];
+        }
+        else if (EnemyHP <= 1000)
+        {
+            MonsterGaugeRenderer.material = MonsterHPMaterials[0];
         }
     }
 
