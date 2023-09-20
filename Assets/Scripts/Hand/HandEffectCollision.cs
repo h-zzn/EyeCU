@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering.PostProcessing; // Post-processing에 관련된 네임스페이스 추가
 using static OVRHaptics;
 
 public class HandEffectCollision : MonoBehaviour
@@ -29,10 +32,23 @@ public class HandEffectCollision : MonoBehaviour
 
     [SerializeField] private GameObject weaknessObject;
 
-    public bool isTransparent = false;
+    private Transform cam;
+    // Assign Post Processing Volume from the Scene
+    [SerializeField] private Volume postProcessingVolumeObject;
+    private UnityEngine.Rendering.Universal.Vignette vignette;
+
+    private float originalVignetteColorValue;
+    private float originalVignetteIntensityValue;
 
     private void Start()
     {
+        // Scene에서 OVRInPlayMode를 찾아 cam에 assign
+        cam = GameObject.Find("OVRInPlayMode").transform;
+
+        // Scene에서 PostProcessVolume을 가져옴
+        postProcessingVolumeObject = GameObject.Find("Post Processing").GetComponent<Volume>();
+        // PostProcessVolume에서 Vignette 설정 값을 가져옴
+        postProcessingVolumeObject.profile.TryGet(out vignette);
 
         skillCircle.SetActive(false);
         LeftPurpleEffect.SetActive(false);
@@ -107,6 +123,13 @@ public class HandEffectCollision : MonoBehaviour
         deleteEnemyAttack.StartCoroutine("DeleteAll"); 
 
         turnMonsterTransparent();
+
+        // TODO: 기존 Vignette value 저장
+        
+        // TODO: Vignette의 color 검은색으로 변경
+
+        // TODO: Vignette의 intensity 특정 값으로 변경
+
     }
 
     public IEnumerator reduceSkillGauge()  //스킬 시작되고 20초동안 게이지가 감소 후 종료
