@@ -5,6 +5,8 @@ using UnityEngine;
 public class Dragon_Animation_Controll : MonoBehaviour
 {
     public bool dragonIsAttacked;
+    public bool dragonIsDead;
+
     Animator dragonAnimator;
 
     // Reference to the second AudioSource
@@ -16,6 +18,7 @@ public class Dragon_Animation_Controll : MonoBehaviour
         dragonAnimator = GetComponent<Animator>();
         dragonAnimator.SetBool("okay", true);
         dragonAnimator.SetBool("attacked", false);
+        dragonAnimator.SetBool("death", false);
     }
 
     // Update is called once per frame
@@ -32,9 +35,14 @@ public class Dragon_Animation_Controll : MonoBehaviour
             // Reset dragonIsAttacked to false immediately after playing audio
             dragonIsAttacked = false;
 
-
             // Use StartCoroutine to introduce a delay before resetting animator parameters
             StartCoroutine(ResetAnimatorParametersWithDelay());
+        }
+
+        // Check if dragonIsDead is true and set the "death" parameter accordingly
+        if (dragonIsDead)
+        {
+            dragonAnimator.SetBool("death", true);
         }
     }
 
