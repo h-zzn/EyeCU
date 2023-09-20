@@ -9490,7 +9490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2d2a1e427ae51418eb6cff1213ff56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knife: {fileID: 0}
   stageObjectGroup: {fileID: 6734294}
   fadeInDuration: 3
 --- !u!212 &427441807
@@ -19930,7 +19929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1005564533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21044,7 +21043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1150022675
 Transform:
   m_ObjectHideFlags: 0
@@ -22099,7 +22098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6eca276da9232d4fb2514a818ca4a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStartValue: 0
+  gameStartValue: 1
   activeObj: {fileID: 1150022674}
   cam: {fileID: 0}
   canvasObj: {fileID: 2860508912465285788}
