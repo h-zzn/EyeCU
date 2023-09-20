@@ -337,15 +337,15 @@ public class EventManager : MonoBehaviour
         }
         glowing.SetGlowing(); 
         animator3B.SetBool("isDone", true);  
+        gaugeObj.SetActive(true); 
         yield return new WaitForSeconds(2);  
         stoneObj.transform.GetChild(01).gameObject.SetActive(false);
 
-
+        
         //[*** HP 설명 window ***]
         controllerManager.skillEnergyPoint = 0;
         HPUI.SetActive(true); 
         //HPUI.transform.GetChild(0).gameObject.SetActive(true);     // HP step1 UI
-        gaugeObj.transform.gameObject.SetActive(true);
         yield return new WaitForSeconds(5); 
         animator4A.SetBool("isDone", true); 
         yield return new WaitForSeconds(2);

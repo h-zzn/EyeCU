@@ -104,7 +104,7 @@ public class HandEffectCollision : MonoBehaviour
         spawnManager.StoneSpawnStop(true); 
         spawnManager.SpecialOrbSpawnAllStop(true); 
 
-        deleteEnemyAttack.StartCoroutine("DeleteAll");
+        deleteEnemyAttack.StartCoroutine("DeleteAll"); 
 
         turnMonsterTransparent();
     }
