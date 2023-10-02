@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static OVRHaptics; 
 using UnityEngine.SceneManagement;
+using static OVRHaptics;
 
 public class ControllerManager : MonoBehaviour
 {
@@ -69,6 +69,11 @@ public class ControllerManager : MonoBehaviour
     private bool isSkilled;
 
     private Coroutine BlinkSkillGauge = null;
+
+    //DDA
+    public bool leftClicked = false;
+    public bool rightClicked = false;
+
 
     private void Awake() 
     {
@@ -334,7 +339,7 @@ public class ControllerManager : MonoBehaviour
         }
 
         // 오른손 Red Magic
-        if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+        if (rightClicked || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
         {
             // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("redCube"))
@@ -395,7 +400,7 @@ public class ControllerManager : MonoBehaviour
         }
 
         // 왼손 Blue Magic
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if(leftClicked || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             // O Correct
             if(eyeTrackingRayRight.HoveredCube.transform.gameObject.CompareTag("blueCube"))
@@ -454,7 +459,7 @@ public class ControllerManager : MonoBehaviour
                 }
             }
         }
-    }
+    } 
 
     IEnumerator ActivateRedMagicAfter(float second)
     {

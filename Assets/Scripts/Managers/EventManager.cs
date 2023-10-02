@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using static GameManager;
 
 public class EventManager : MonoBehaviour
 {
@@ -62,9 +63,7 @@ public class EventManager : MonoBehaviour
 
     void Start()  
     {
-        TutorialBuildIndex = SceneManager.sceneCountInBuildSettings-1;
-
-        if(SceneManager.GetActiveScene().buildIndex == TutorialBuildIndex)  
+        if(this.GetComponent<GameManager>().stageLevel == StageLevel.tutorial)  
         {
            tutorialEvent = GameObject.Find("TutorialObjects").GetComponent<TutorialEvent>();
            controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
@@ -494,38 +493,27 @@ public class EventManager : MonoBehaviour
     public IEnumerator StageDDAEventFlow() 
     {   
         //start window 
-        spawnManager.activeBasicOrb = true; 
-        yield return new WaitForSeconds(BasicSpawnTime); 
-        spawnManager.activeBasicOrb = false;  
+        spawnManager.activeBasicOrb = true;
+        yield return new WaitForSeconds(50);
+        spawnManager.activeBasicOrb = false;
 
-        yield return new WaitForSeconds(3); 
-
-        spawnManager.activeSpecialOrb = true;  
-        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop) 
+        spawnManager.activeSpecialOrb = true;
+        yield return new WaitForSeconds(1);
+        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
         {
-            yield return null; 
+            yield return null;
         }
+        spawnManager.activeSpecialOrb = false;
 
-        spawnManager.activeStone = true; 
-        yield return new WaitForSeconds(swordTime); 
-        spawnManager.activeStone = false; 
+        spawnManager.activeBasicOrb = true;
 
-        yield return new WaitForSeconds(3); 
-        
-        spawnManager.activeBasicOrb = true; 
-        yield return new WaitForSeconds(10); 
-        spawnManager.activeStone = true;
-        spawnManager.stoneSpawnInterval *= 2.5f;
-        yield return new WaitForSeconds(BasicSpawnTime-10); 
-        
         while (EnemyHP > 0) 
         {
             yield return null; 
         }
 
-        spawnManager.activeBasicOrb = false; 
-        spawnManager.activeStone = false; 
-        spawnManager.activeSpecialOrb = false; 
+        spawnManager.activeBasicOrb = false;
+
         yield return new WaitForSeconds(8);
     
         GameClear = true;

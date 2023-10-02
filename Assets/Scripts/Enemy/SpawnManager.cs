@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
-{
+{   
     public GameObject[] basicOrbSpawner; 
     public GameObject[] stoneSpawner; 
     public GameObject[] SpecialOrbSpawner;
@@ -25,8 +25,7 @@ public class SpawnManager : MonoBehaviour
     
     public bool activeSkill = false;
 
-
-
+    
     void Awake()
     {
         SetEnemyComponents();  

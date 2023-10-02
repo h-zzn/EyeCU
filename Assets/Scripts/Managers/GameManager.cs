@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private DeleteEnemyAttack deleteEnemyAttack;
 
-    private enum StageLevel
+    public enum StageLevel
     {
         tutorial,
         stage1,
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         stageDDA
     }
 
-    [SerializeField] private StageLevel stageLevel;
+    public StageLevel stageLevel;
 
     void Awake()
     {
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
                 else if(stageLevel == StageLevel.stage3)
                     EventFlow = StartCoroutine(eventManager.Stage3EventFlow());
                 else 
-                    EventFlow = StartCoroutine(eventManager.Stage3EventFlow());
+                    EventFlow = StartCoroutine(eventManager.StageDDAEventFlow());
             }
         }
         Timer += Time.deltaTime;
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public IEnumerator StageClear() 
+    public IEnumerator StageClear()
     {
         // if(!PlayerPrefs.HasKey("FinalHP")){
         //     finalHP = damagedArea.stageHP;
@@ -176,13 +176,13 @@ public class GameManager : MonoBehaviour
         // }
         //print("FinalHP");
         finalHP = damagedArea.stageHP;
-        SaveHP(finalHP); 
+        SaveHP(finalHP);
 
 
         finalHPText.text = finalHP.ToString();
-        levelReached = PlayerPrefs.GetInt("levelReached");  
+        levelReached = PlayerPrefs.GetInt("levelReached");
 
-        if(levelReached < SceneManager.GetActiveScene().buildIndex)
+        if (levelReached < SceneManager.GetActiveScene().buildIndex)
             PlayerPrefs.SetInt("levelReached", SceneManager.GetActiveScene().buildIndex);
 
         float startVolume = BGM.volume; // Store the initial volume
@@ -195,10 +195,10 @@ public class GameManager : MonoBehaviour
         }
 
         BGM.Stop(); // Stop the BGM when the fade-out is complete
-         
-        ActiveGameClearWindow(); 
-        yield return new WaitForSeconds(5); 
-        GoHome(); 
+
+        ActiveGameClearWindow();
+        yield return new WaitForSeconds(5);
+        GoHome();
     }
 
     public void BGMOff()
