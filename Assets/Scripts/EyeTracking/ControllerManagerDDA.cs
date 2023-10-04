@@ -300,12 +300,14 @@ public class ControllerManagerDDA : MonoBehaviour
                     redMagicPauseCoroutine = StartCoroutine(ActivateRedMagicAfter(deactivateMagicTime));
                 }
             }
+
+            rightClicked = false;
         }
 
         if (leftClicked)
         {
             // O Correct
-            if (eyeTrackingRayRight.HoveredCube.CompareTag("blueCube"))
+            if (eyeTrackingRayRight.HoveredCube.CompareTag("blueCube"))   
             {
                 if (blueMagicActive)
                 { // 오른손 Blue Magic이 사용 가능일 때
@@ -325,7 +327,7 @@ public class ControllerManagerDDA : MonoBehaviour
                     TikSound?.Play();
                 }
             }
-            else if (eyeTrackingRayRight.HoveredCube.CompareTag("redCube")) // X Wrong
+            else if (eyeTrackingRayRight.HoveredCube.CompareTag("redCube")) // X Wrong   
             {
                 if (blueMagicActive) // blueMagicActive가 활성화되어 있을 때  
                 {
@@ -342,6 +344,8 @@ public class ControllerManagerDDA : MonoBehaviour
                     blueMagicPauseCoroutine = StartCoroutine(ActivateBlueMagicAfter(deactivateMagicTime));
                 }
             }
+
+            leftClicked = false; 
         }
     }
 

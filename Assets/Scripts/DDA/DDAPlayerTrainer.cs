@@ -22,11 +22,18 @@ public class DDAPlayerTrainer : Agent
     private ControllerManagerDDA controllerManager;
 
     private Transform target;
+    [SerializeField] private float rotationSpeed = 1.0f;
 
     GameObject movingCube = null;
     GameObject redCube = null;
     GameObject blueCube = null;
 
+    private float DistanceOfBlueCube = 0;
+    private float DistanceOfRedCube = 0;
+    private float DistanceOfMovingOrb = 0;
+
+    private bool RClicked = false;
+    private bool LClicked = false;
 
     private void Start()
     {
@@ -61,87 +68,96 @@ public class DDAPlayerTrainer : Agent
 
         sensor.AddObservation(Eye.transform.rotation);
 
-        //sensor.AddObservation(spawnManager.basicOrbSpeed);
-        //sensor.AddObservation(spawnManager.basicOrbSpawnInterval);
+        sensor.AddObservation(DistanceOfBlueCube); 
+        sensor.AddObservation(DistanceOfRedCube); 
+        sensor.AddObservation(DistanceOfMovingOrb); 
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        /*
-        if (actionBuffers.ContinuousActions.Length >= 2)
-        {
-            float horizontalMovement = actionBuffers.ContinuousActions[0]; // -1.0부터 1.0 사이의 값을 받아옴
-            float verticalMovement = actionBuffers.ContinuousActions[1]; // -1.0부터 1.0 사이의 값을 받아옴
-
-            // 움직일 각도 범위 설정 (-90도부터 90도로 제한)
-            float maxAngle = 90.0f; // 최대 각도
-            float xAngle = maxAngle * horizontalMovement; // x 축 각도 계산 (-90도부터 90도)
-            float yAngle = maxAngle * verticalMovement; // y 축 각도 계산 (-90도부터 90도)
-
-            // Eye 오브젝트 회전 (x 축과 y 축 주위로 회전)
-            Eye.transform.rotation = Quaternion.Euler(yAngle, xAngle, 0.0f);
-        }
-        */
-        UpdateTarget(); 
-
-        Eye.transform.LookAt(target);
-        
+        UpdateTarget(actionBuffers.DiscreteActions[2]); 
 
         if (eyeTrackingRay.HoveredCube != null)
         {
             // 나머지 게임 논리 및 보상 처리
-            if (eyeTrackingRay.HoveredCube.transform.gameObject.CompareTag("redCube"))
+            if (eyeTrackingRay.HoveredCube.transform.gameObject.CompareTag("redCube"))  
             {
-                if (actionBuffers.DiscreteActions[1] == 1)
+                DistanceOfRedCube = Vector3.Distance(eyeTrackingRay.HoveredCube.transform.position, this.transform.position);  
+
+                if (actionBuffers.DiscreteActions[1] == 1)   
                 {
-                    controllerManager.rightClicked = true;
-                    AddReward(50.0f);
+                    if (RClicked == false)
+                    {
+                        RClicked = true;
+                        controllerManager.rightClicked = true;
+                        AddReward(50.0f);
+                    }
                 }
                 else
                 {
                     controllerManager.rightClicked = false;
                     AddReward(-1.0f);
+                    RClicked = false;
                 }
 
-                if (actionBuffers.DiscreteActions[0] == 1)
+                if (actionBuffers.DiscreteActions[0] == 1)   
                 {
-                    controllerManager.leftClicked = true;
-                    AddReward(-50.0f);
+                    if (LClicked == false)
+                    {
+                        LClicked = true;
+                        controllerManager.leftClicked = true;
+                        AddReward(-50.0f);
+                    }
                 }
                 else
                 {
-                    controllerManager.leftClicked = false;
-                    AddReward(1.0f);
+                    controllerManager.leftClicked = false; 
+                    AddReward(1.0f); 
+                    LClicked = false;  
                 }
             }
 
-            if (eyeTrackingRay.HoveredCube.transform.gameObject.CompareTag("blueCube"))
+            if (eyeTrackingRay.HoveredCube.transform.gameObject.CompareTag("blueCube"))  
             {
-                if (actionBuffers.DiscreteActions[0] == 1)
+                DistanceOfBlueCube = Vector3.Distance(eyeTrackingRay.HoveredCube.transform.position, this.transform.position);
+
+                if (actionBuffers.DiscreteActions[0] == 1)   
                 {
-                    controllerManager.leftClicked = true;
-                    AddReward(50.0f);
+                    if (LClicked == false)
+                    {
+                        LClicked = true;
+                        controllerManager.leftClicked = true;
+                        AddReward(50.0f);
+                    }
                 }
-                else
+                else 
                 {
                     controllerManager.leftClicked = false;
                     AddReward(-1.0f);
+                    LClicked = false;
                 }
 
-                if (actionBuffers.DiscreteActions[1] == 1)
+                if (actionBuffers.DiscreteActions[1] == 1)   
                 {
-                    controllerManager.rightClicked = true;
-                    AddReward(-50.0f);
+                    if (RClicked == false)
+                    {
+                        RClicked = true;
+                        controllerManager.rightClicked = true;
+                        AddReward(-50.0f); 
+                    }
                 }
                 else
                 {
                     controllerManager.rightClicked = false;
                     AddReward(1.0f);
+                    RClicked = false;
                 }
             }
 
             if(eyeTrackingRay.HoveredCube.transform.gameObject.CompareTag("MovingOrb"))
             {
+                DistanceOfMovingOrb = Vector3.Distance(eyeTrackingRay.HoveredCube.transform.position, this.transform.position);
+
                 AddReward(Time.deltaTime*10f); 
             }
         }
@@ -169,24 +185,32 @@ public class DDAPlayerTrainer : Agent
     {
         if (isRewarding == false)
         {
-            if (damagedArea.stageHP <= 200)
+            if (damagedArea.stageHP <= 200)   
             {
                 AddReward(-800.0f);
             }
-            else if (damagedArea.stageHP <= 500)
+            else if (damagedArea.stageHP <= 500)   
             {
                 AddReward(-500.0f);
             }
-
-            AddReward(-10f * controllerManager.MissingPoint);
-
-            AddReward(damagedArea.stageHP);
-
-            AddReward(controllerManager.skillEnergyPoint/10f);
-
-            if (damagedArea.stageHP == OriginStageHP)
+            else if (damagedArea.stageHP <= 1000)   
             {
-                AddReward(1000f);
+                AddReward(-300.0f);
+            }
+
+            AddReward(-10f * controllerManager.MissingPoint);  
+
+            AddReward(damagedArea.stageHP);  
+
+            AddReward(controllerManager.skillEnergyPoint/10f);  
+
+            if (damagedArea.stageHP == OriginStageHP)  
+            {
+                AddReward(10000f);
+            }
+            else if(damagedArea.stageHP >= 1000)   
+            {
+                AddReward(3000f);
             }
 
             isRewarding = true;
@@ -194,32 +218,54 @@ public class DDAPlayerTrainer : Agent
     }
 
 
-    private IEnumerator DecreaseOverTime()
+    private IEnumerator DecreaseOverTime()   
     {   
         yield return new WaitForSeconds(90f);
 
         eventManager.EnemyHP -= (OriginEnemyHP+500);
     }
 
-    private void UpdateTarget()
-    {   
-        if(movingCube != null)
-        {
-            target = movingCube.transform;
-        }
-        else if (redCube != null)
+    private void UpdateTarget(int DiscreteActionsNum)   
+    {
+        if (redCube != null && DiscreteActionsNum == 0)  
         {
             target = redCube.transform;
         }
-        else if (blueCube != null)
+        else if (blueCube != null && DiscreteActionsNum == 1)   
         {
             target = blueCube.transform;
         }
-        else
+        else if (movingCube != null && DiscreteActionsNum == 2)   
+        {
+            target = movingCube.transform; 
+        }
+
+        if (redCube == null)
+        {
+            redCube = GameObject.FindGameObjectWithTag("redCube");
+            if(redCube != null)
+                DistanceOfRedCube = Vector3.Distance(redCube.transform.position, this.transform.position);
+        }
+
+        if (blueCube == null)
+        {
+            blueCube = GameObject.FindGameObjectWithTag("blueCube");
+            if (blueCube != null)
+                DistanceOfBlueCube = Vector3.Distance(blueCube.transform.position, this.transform.position);
+        }
+
+        if (movingCube == null) 
         {
             movingCube = GameObject.FindGameObjectWithTag("MovingOrb");
-            redCube = GameObject.FindGameObjectWithTag("redCube");
-            blueCube = GameObject.FindGameObjectWithTag("blueCube");
+            if (movingCube != null)
+                DistanceOfMovingOrb = Vector3.Distance(movingCube.transform.position, this.transform.position);
+        }
+
+        if (target != null)
+        {
+            // 대상 방향으로 회전 
+            Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+            Eye.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 }

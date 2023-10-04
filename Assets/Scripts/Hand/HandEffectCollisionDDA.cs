@@ -16,7 +16,9 @@ public class HandEffectCollisionDDA : MonoBehaviour
 
     public bool canUseSkill = false;
 
-    private ControllerManager controllerManager;
+    private ControllerManager controllerManager = null;
+    private ControllerManagerDDA controllerManagerDDA;
+
     private DeleteEnemyAttack deleteEnemyAttack;
     private SpawnManager spawnManager;
 
@@ -63,6 +65,8 @@ public class HandEffectCollisionDDA : MonoBehaviour
         RightPurpleEffect.SetActive(false);
 
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+        if(controllerManager == null) 
+            controllerManagerDDA = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManagerDDA>();
 
         deleteEnemyAttack = GameObject.Find("Eraser").GetComponent<DeleteEnemyAttack>();
 

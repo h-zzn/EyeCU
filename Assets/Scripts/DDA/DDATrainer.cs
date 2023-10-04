@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class DDATrainer : Agent
 {
-    
+    private bool isRewarding = false;
+
     private SpawnManager spawnManager;
     private EventManager eventManager; 
     private DamagedArea damagedArea; 
@@ -18,6 +19,12 @@ public class DDATrainer : Agent
     private int OriginStageHP;
     private int OriginEnemyHP;
 
+    private void Start()
+    {
+        StartCoroutine(DecreaseOverTime());
+
+        isRewarding = false;
+    }
 
     private void Awake()
     {
@@ -25,7 +32,7 @@ public class DDATrainer : Agent
         damagedArea = this.transform.GetComponent<DamagedArea>();
         spawnManager = this.GetComponent<SpawnManager>();
 
-        MissingPoint = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>().MissingPoint;
+        MissingPoint = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManagerDDA>().MissingPoint;
 
         OriginStageHP = damagedArea.stageHP;
         OriginEnemyHP = eventManager.EnemyHP;
@@ -34,6 +41,7 @@ public class DDATrainer : Agent
     public override void CollectObservations(VectorSensor sensor)  
     {
         // 정보 수집
+        /*
         sensor.AddObservation(damagedArea.stageHP);
         sensor.AddObservation(eventManager.EnemyHP);
 
@@ -43,6 +51,7 @@ public class DDATrainer : Agent
         sensor.AddObservation(spawnManager.stoneSpawnInterval);
         sensor.AddObservation(spawnManager.SpecialOrbSpeed);
         sensor.AddObservation(spawnManager.SpecialOrbSpawnInterval);
+        */
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -53,6 +62,8 @@ public class DDATrainer : Agent
         spawnManager.stoneSpawnInterval = actionBuffers.ContinuousActions[3];
         spawnManager.SpecialOrbSpeed = actionBuffers.ContinuousActions[4];
         spawnManager.SpecialOrbSpawnInterval = actionBuffers.ContinuousActions[5];
+
+        EndMLAgent();
     }
 
     public void EndMLAgent()
@@ -63,46 +74,58 @@ public class DDATrainer : Agent
             EndEpisode();
         }
 
-        if(damagedArea.stageHP < 0)
+        if (damagedArea.stageHP < 0)
         {
-            SetReward(-10.0f); 
-            EndEpisode(); 
+            SetReward(-10.0f);
+            EndEpisode();
         }
     }
 
     private void ReviewEnding()
     {
-        if (damagedArea.stageHP <= 200)
+        if (isRewarding == false)
         {
-            AddReward(-5.0f);
-        }
-        else if(damagedArea.stageHP <= 500)
-        {
-            AddReward(-2.0f);
-        }
+            if (damagedArea.stageHP <= 200)
+            {
+                AddReward(-5.0f);
+            }
+            else if (damagedArea.stageHP <= 500)
+            {
+                AddReward(-2.0f);
+            }
 
-        if (damagedArea.stageHP >= 1800)
-        {
-            AddReward(-5.0f);
-        }
-        else if(damagedArea.stageHP >= 1500)
-        {
-            AddReward(-2.0f);
-        }
+            if (damagedArea.stageHP >= 1800)
+            {
+                AddReward(-5.0f);
+            }
+            else if (damagedArea.stageHP >= 1500)
+            {
+                AddReward(-2.0f);
+            }
 
-        if(MissingPoint > spawnManager.totalNumOfBasicOrb/10)
-        {
-            AddReward(2.0f);
-        }
+            if (MissingPoint > spawnManager.totalNumOfBasicOrb / 10)
+            {
+                AddReward(2.0f);
+            }
 
-        if(MissingPoint > spawnManager.totalNumOfBasicOrb/2)
-        {
-            AddReward(-2.0f); 
-        }
+            if (MissingPoint > spawnManager.totalNumOfBasicOrb / 2)
+            {
+                AddReward(-2.0f);
+            }
 
-        if (damagedArea.stageHP > OriginStageHP/2 && damagedArea.stageHP < 1500)
-        {
-            AddReward(10.0f);
+            if (damagedArea.stageHP > OriginStageHP / 2 && damagedArea.stageHP < 1500)
+            {
+                AddReward(10.0f);
+            }
+
+            isRewarding = true;
         }
+    }
+
+    private IEnumerator DecreaseOverTime()
+    {
+        yield return new WaitForSeconds(90f);
+
+        eventManager.EnemyHP -= (OriginEnemyHP + 500);
     }
 }

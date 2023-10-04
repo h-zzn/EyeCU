@@ -33,13 +33,16 @@ public class Tracing : MonoBehaviour
 
     public Vector3 HoverPosition { get; set; }
 
-    public ControllerManager controllerManager;
+    public ControllerManager controllerManager = null;
+    public ControllerManagerDDA controllerManagerDDA = null;
 
     private void Awake()
     {
         IsHovered = false;
 
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
+        if(controllerManager == null)
+            controllerManagerDDA = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManagerDDA>();
     }
 
     private void Update()
@@ -78,7 +81,10 @@ public class Tracing : MonoBehaviour
 
                     Destroy(transform.parent.gameObject);
 
-                    controllerManager.skillEnergyPoint += controllerManager.attackPoint*8; 
+                    if(controllerManager != null)
+                        controllerManager.skillEnergyPoint += controllerManager.attackPoint*8; 
+                    else
+                        controllerManagerDDA.skillEnergyPoint += controllerManagerDDA.attackPoint*8;
                 }
             }
         }
