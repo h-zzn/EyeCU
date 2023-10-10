@@ -90,13 +90,13 @@ public class DDAPlayerTrainer : Agent
                     {
                         RClicked = true;
                         controllerManager.rightClicked = true;
-                        AddReward(50.0f);
+                        //AddReward(50.0f);
                     }
                 }
                 else
                 {
                     controllerManager.rightClicked = false;
-                    AddReward(-1.0f);
+                    //AddReward(-1.0f);
                     RClicked = false;
                 }
 
@@ -106,13 +106,13 @@ public class DDAPlayerTrainer : Agent
                     {
                         LClicked = true;
                         controllerManager.leftClicked = true;
-                        AddReward(-50.0f);
+                        //AddReward(-50.0f);
                     }
                 }
                 else
                 {
                     controllerManager.leftClicked = false; 
-                    AddReward(1.0f); 
+                    //AddReward(1.0f); 
                     LClicked = false;  
                 }
             }
@@ -127,13 +127,13 @@ public class DDAPlayerTrainer : Agent
                     {
                         LClicked = true;
                         controllerManager.leftClicked = true;
-                        AddReward(50.0f);
+                        //AddReward(50.0f);
                     }
                 }
                 else 
                 {
                     controllerManager.leftClicked = false;
-                    AddReward(-1.0f);
+                    //AddReward(-1.0f);
                     LClicked = false;
                 }
 
@@ -143,13 +143,13 @@ public class DDAPlayerTrainer : Agent
                     {
                         RClicked = true;
                         controllerManager.rightClicked = true;
-                        AddReward(-50.0f); 
+                        //AddReward(-50.0f); 
                     }
                 }
                 else
                 {
                     controllerManager.rightClicked = false;
-                    AddReward(1.0f);
+                    //AddReward(1.0f);
                     RClicked = false;
                 }
             }
@@ -158,11 +158,11 @@ public class DDAPlayerTrainer : Agent
             {
                 DistanceOfMovingOrb = Vector3.Distance(eyeTrackingRay.HoveredCube.transform.position, this.transform.position);
 
-                AddReward(Time.deltaTime*10f); 
+                //AddReward(Time.deltaTime*10f); 
             }
         }
 
-        EndMLAgent();
+        //EndMLAgent();
     }
 
 
@@ -266,6 +266,7 @@ public class DDAPlayerTrainer : Agent
             // 대상 방향으로 회전 
             Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
             Eye.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime/10);
         }
     }
 }
