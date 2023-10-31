@@ -5,9 +5,9 @@ using UnityEngine;
 public class TrainingDummyGlow : MonoBehaviour
 {
     // Success Material
-    [SerializeField] private Material successMaterial;
+    [SerializeField] private Material successMaterial; 
     // Normal Material
-    [SerializeField] private Material normalMaterial;
+    [SerializeField] private Material normalMaterial; 
 
     [SerializeField] private GameObject good;
 

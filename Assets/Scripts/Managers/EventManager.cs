@@ -13,9 +13,9 @@ public class EventManager : MonoBehaviour
 
     public bool GameClear = false;
     
-    [SerializeField] private float EventStartDelayTime;
-    [SerializeField] private float BasicSpawnTime;
-    [SerializeField] private float swordTime;
+    [SerializeField] private float EventStartDelayTime; 
+    [SerializeField] private float BasicSpawnTime; 
+    [SerializeField] private float swordTime; 
 
     [SerializeField] private GameObject OVRInteractionObj;  // 손 끄는거  
 
