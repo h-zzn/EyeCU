@@ -45661,11 +45661,11 @@ PrefabInstance:
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: leftEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2143618534}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: rightEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2143618532}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: SkillMaterialObj
       value: 
@@ -45825,9 +45825,19 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+--- !u!1 &2143618532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 607281236753780609, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 2143618531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &2143618533 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 791997421801663777, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 2143618531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2143618534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5268658541522920791, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
   m_PrefabInstance: {fileID: 2143618531}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2143619946
