@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using WebSocketSharp;
 
-public class CameraCapture : MonoBehaviour
+public class CameraCapture : MonoBehaviour 
 {
     private WebSocket ws;
     [SerializeField] private Camera mainCamera;
@@ -69,7 +69,7 @@ public class CameraCapture : MonoBehaviour
             receivedMessages.Clear();
 
             // 2초 대기 (Thread.Sleep 대신)
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
         }
     }
 

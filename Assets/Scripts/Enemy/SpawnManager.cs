@@ -39,6 +39,21 @@ public class SpawnManager : MonoBehaviour
         realtimeControllAllSpawner();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            basicOrbSpawnInterval /= 1.5f;
+            stoneSpawnInterval /= 1.5f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            basicOrbSpawnInterval *= 1.5f;
+            stoneSpawnInterval *= 1.5f;
+        }
+    }
+
     public void SetEnemyComponents()
     {
         int NumOfBasicOrb = 0;
