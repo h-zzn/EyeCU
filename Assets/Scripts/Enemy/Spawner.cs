@@ -23,11 +23,6 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        foreach (GameObject spawnObject in cubes) 
-        {
-            spawnObject.GetComponent<Cube>().moveSpeed *= OrbSpeed; 
-        }
-
         // Get Particle System of Magic Circle
         magicCircleParticleSystem = magicCircle.GetComponent<ParticleSystem>();
     }
@@ -49,13 +44,14 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public void spawnOrb()
+    public void spawnOrb() 
     {
         if(coolTime > Interval) 
         {
             GameObject cube = Instantiate(cubes[Random.Range(0,cubes.Length)],points[Random.Range(0,points.Length)]);
             cube.transform.localPosition = Vector3.zero;
             cube.transform.Rotate(transform.forward);
+            cube.GetComponent<Cube>().moveSpeed *= OrbSpeed; 
             coolTime = 0;
             numOfBasicOrb += 1;
         }       

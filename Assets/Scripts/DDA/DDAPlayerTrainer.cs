@@ -24,9 +24,12 @@ public class DDAPlayerTrainer : Agent
     private Transform target;
     [SerializeField] private float rotationSpeed = 1.0f;
 
-    GameObject movingCube = null;
-    GameObject redCube = null;
-    GameObject blueCube = null;
+    private string orbsTag = "Orbs";
+    private string spawnerTag = "Enemy";
+    private int maxOrbs = 3;
+
+    private GameObject[] orbsArray = new GameObject[3];
+    private Vector3[] orbsPositions = new Vector3[3];
 
     private float DistanceOfBlueCube = 0;
     private float DistanceOfRedCube = 0;
@@ -55,7 +58,10 @@ public class DDAPlayerTrainer : Agent
 
 
         OriginStageHP = damagedArea.stageHP; 
-        OriginEnemyHP = eventManager.EnemyHP; 
+        OriginEnemyHP = eventManager.EnemyHP;
+
+        // 최초에 Orbs를 찾아서 배열에 추가
+        FindAndAddOrbs();
     }
 
     public override void CollectObservations(VectorSensor sensor)   
@@ -68,18 +74,20 @@ public class DDAPlayerTrainer : Agent
 
         sensor.AddObservation(Eye.transform.rotation);
 
-        sensor.AddObservation(DistanceOfBlueCube); 
-        sensor.AddObservation(DistanceOfRedCube); 
-        sensor.AddObservation(DistanceOfMovingOrb); 
+        sensor.AddObservation(orbsPositions[0]); 
+        sensor.AddObservation(orbsPositions[1]); 
+        sensor.AddObservation(orbsPositions[2]);
+
+        sensor.AddObservation(FindClosestOrbIndex());
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         UpdateTarget(actionBuffers.DiscreteActions[2]); 
 
-        if (eyeTrackingRay.HoveredCube != null)
-        {
-            // 나머지 게임 논리 및 보상 처리
+        if (eyeTrackingRay.HoveredCube != null) 
+        { 
+            // 나머지 게임 논리 및 보상 처리 
             if (eyeTrackingRay.HoveredCube.transform.gameObject.CompareTag("redCube"))  
             {
                 DistanceOfRedCube = Vector3.Distance(eyeTrackingRay.HoveredCube.transform.position, this.transform.position);  
@@ -92,8 +100,14 @@ public class DDAPlayerTrainer : Agent
                         controllerManager.rightClicked = true;
                         //AddReward(50.0f);
                     }
+
+                    //가장 가까운 오브를 바라볼 때 보상 2배 제시
+                    if (actionBuffers.DiscreteActions[2] == FindClosestOrbIndex())
+                    {
+                        //AddReward(50f);
+                    }
                 }
-                else
+                else 
                 {
                     controllerManager.rightClicked = false;
                     //AddReward(-1.0f);
@@ -106,10 +120,10 @@ public class DDAPlayerTrainer : Agent
                     {
                         LClicked = true;
                         controllerManager.leftClicked = true;
-                        //AddReward(-50.0f);
+                        //AddReward(-500.0f);
                     }
                 }
-                else
+                else 
                 {
                     controllerManager.leftClicked = false; 
                     //AddReward(1.0f); 
@@ -129,6 +143,12 @@ public class DDAPlayerTrainer : Agent
                         controllerManager.leftClicked = true;
                         //AddReward(50.0f);
                     }
+
+                    //가장 가까운 오브를 바라볼 때 보상 2배 제시
+                    if (actionBuffers.DiscreteActions[2] == FindClosestOrbIndex())
+                    {
+                        //AddReward(50f);
+                    }
                 }
                 else 
                 {
@@ -143,7 +163,7 @@ public class DDAPlayerTrainer : Agent
                     {
                         RClicked = true;
                         controllerManager.rightClicked = true;
-                        //AddReward(-50.0f); 
+                        //AddReward(-500.0f); 
                     }
                 }
                 else
@@ -158,11 +178,27 @@ public class DDAPlayerTrainer : Agent
             {
                 DistanceOfMovingOrb = Vector3.Distance(eyeTrackingRay.HoveredCube.transform.position, this.transform.position);
 
-                //AddReward(Time.deltaTime*10f); 
+                //AddReward(Time.deltaTime*10f);
+                //가장 가까운 오브를 바라볼 때 보상 2배 제시
+                if (actionBuffers.DiscreteActions[2] == FindClosestOrbIndex())
+                {
+                    //AddReward(Time.deltaTime * 10f);
+                }
             }
+
+            /*
+            if (eyeTrackingRay.HoveredCube.transform.gameObject.CompareTag("Enemy"))
+            {
+                //가장 가까운게 Enemy일 때만 처벌 없고 나머지는 다 처벌
+                if (actionBuffers.DiscreteActions[2] != FindClosestOrbIndex())
+                {
+                    //AddReward(Time.deltaTime * 100f * (-1.0f));
+                }
+            } 
+            */
         }
 
-        //EndMLAgent();
+        EndMLAgent();
     }
 
 
@@ -187,33 +223,33 @@ public class DDAPlayerTrainer : Agent
         {
             if (damagedArea.stageHP <= 200)   
             {
-                AddReward(-800.0f);
+                //AddReward(-8000.0f);
             }
             else if (damagedArea.stageHP <= 500)   
             {
-                AddReward(-500.0f);
+                //AddReward(-5000.0f);
             }
             else if (damagedArea.stageHP <= 1000)   
             {
-                AddReward(-300.0f);
+                //AddReward(-3000.0f);
             }
 
-            AddReward(-10f * controllerManager.MissingPoint);  
+            //AddReward(-10f * controllerManager.MissingPoint);  
 
-            AddReward(damagedArea.stageHP);  
+            //AddReward(damagedArea.stageHP);  
 
-            AddReward(controllerManager.skillEnergyPoint/10f);  
+            //AddReward(controllerManager.skillEnergyPoint/10f);  
 
             if (damagedArea.stageHP == OriginStageHP)  
             {
-                AddReward(10000f);
+                //AddReward(100000f);
             }
             else if(damagedArea.stageHP >= 1000)   
             {
-                AddReward(3000f);
+                //AddReward(30000f);
             }
 
-            isRewarding = true;
+            isRewarding = true; 
         }
     }
 
@@ -227,39 +263,20 @@ public class DDAPlayerTrainer : Agent
 
     private void UpdateTarget(int DiscreteActionsNum)   
     {
-        if (redCube != null && DiscreteActionsNum == 0)  
-        {
-            target = redCube.transform;
-        }
-        else if (blueCube != null && DiscreteActionsNum == 1)   
-        {
-            target = blueCube.transform;
-        }
-        else if (movingCube != null && DiscreteActionsNum == 2)   
-        {
-            target = movingCube.transform; 
-        }
+        FindAndAddOrbs();
 
-        if (redCube == null)
+        if (orbsArray[0] != null && DiscreteActionsNum == 0 && orbsArray[0].tag != "Enemy")   
         {
-            redCube = GameObject.FindGameObjectWithTag("redCube");
-            if(redCube != null)
-                DistanceOfRedCube = Vector3.Distance(redCube.transform.position, this.transform.position);
-        }
-
-        if (blueCube == null)
+            target = orbsArray[0].transform; 
+        } 
+        else if (orbsArray[1] != null && DiscreteActionsNum == 1 && orbsArray[1].tag != "Enemy")     
         {
-            blueCube = GameObject.FindGameObjectWithTag("blueCube");
-            if (blueCube != null)
-                DistanceOfBlueCube = Vector3.Distance(blueCube.transform.position, this.transform.position);
-        }
-
-        if (movingCube == null) 
+            target = orbsArray[1].transform;
+        } 
+        else if (orbsArray[2] != null && DiscreteActionsNum == 2 && orbsArray[2].tag != "Enemy")    
         {
-            movingCube = GameObject.FindGameObjectWithTag("MovingOrb");
-            if (movingCube != null)
-                DistanceOfMovingOrb = Vector3.Distance(movingCube.transform.position, this.transform.position);
-        }
+            target = orbsArray[2].transform;  
+        } 
 
         if (target != null)
         {
@@ -268,5 +285,122 @@ public class DDAPlayerTrainer : Agent
             Eye.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime/10);
         }
+
+        // 배열에 있는 Orbs 중 파괴된 것이 있다면 대체
+        for (int i = 0; i < orbsArray.Length; i++)
+        {
+            if (orbsArray[i] == null || orbsArray[i].tag == spawnerTag)
+            {
+                ReplaceDestroyedOrb(i);
+            }
+        }
+
+        // orbsPositions 배열 업데이트
+        for (int i = 0; i < orbsArray.Length; i++)
+        {
+            if (orbsArray[i] != null)
+            {
+                orbsPositions[i] = orbsArray[i].transform.position; 
+            }
+        }
+    }
+
+    void FindAndAddOrbs()
+    {
+        GameObject[] orbs = GameObject.FindGameObjectsWithTag(orbsTag);
+
+        // 최대 3개까지 배열에 추가
+        for (int i = 0; i < Mathf.Min(orbs.Length, maxOrbs); i++)
+        {
+            orbsArray[i] = orbs[i];
+        }
+
+        // Orbs가 최대 개수보다 많을 경우, 초과된 부분을 제거
+        for (int i = maxOrbs; i < orbsArray.Length; i++)
+        {
+            orbsArray[i] = null;
+        }
+
+        // Orbs가 최대 개수보다 적을 경우, 부족한 부분을 채워넣음
+        for (int i = Mathf.Min(orbs.Length, maxOrbs); i < maxOrbs; i++)
+        {
+            GameObject replacement = FindReplacementOrbs();
+            orbsArray[i] = replacement;
+        }
+    }
+
+    void ReplaceDestroyedOrb(int index)
+    {
+        // 배열에서 파괴된 Orbs를 대체
+        GameObject replacement = FindReplacementOrbs();
+        orbsArray[index] = replacement;
+    }
+
+    GameObject FindReplacementOrbs()
+    {
+        GameObject orb = GameObject.FindGameObjectWithTag(orbsTag);
+
+        if (!ArrayContainsObject(orbsArray, orb))
+        {
+            return orb;
+        }
+
+        // Orbs를 찾지 못한 경우, Spawner를 찾아서 반환
+        GameObject spawner = GameObject.FindGameObjectWithTag(spawnerTag);
+
+        // 배열에 이미 존재하지 않는 경우에만 반환
+        if (!ArrayContainsObject(orbsArray, spawner))
+        {
+            return spawner;
+        }
+
+        return null; // Orbs나 Spawner를 찾지 못한 경우 null 반환
+    }
+
+    bool ArrayContainsObject(GameObject[] array, GameObject obj)
+    {
+        foreach (GameObject element in array)
+        {
+            if (element == obj)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int FindClosestOrbIndex()
+    {
+        float closestDistance = float.MaxValue;
+        int closestIndex = -1;
+
+        bool allDistancesEqual = true; // Assume all distances are equal initially
+
+        for (int i = 0; i < orbsPositions.Length; i++)
+        {
+            if (orbsPositions[i] != null)
+            {
+                float distance = Vector3.Distance(this.transform.position, orbsPositions[i]);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestIndex = i;
+                    allDistancesEqual = false; // Reset the flag since we found a closer distance
+                }
+                else if (distance > closestDistance)
+                {
+                    allDistancesEqual = false; // Reset the flag if we find a greater distance
+                }
+            }
+        }
+
+        // Check if all distances are equal, then return index 4
+        if (allDistancesEqual)
+        {
+            return 4;
+        }
+
+        return closestIndex;
     }
 }

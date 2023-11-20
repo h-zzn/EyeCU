@@ -62,7 +62,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void realtimeControllAllSpawner()
+     private void realtimeControllAllSpawner()
     {
         if(activeSkill == false)
         {

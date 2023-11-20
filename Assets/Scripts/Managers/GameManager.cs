@@ -227,7 +227,7 @@ public class GameManager : MonoBehaviour
     {
         if(stageLevel == StageLevel.stageDDA)
         {
-            SceneManager.LoadScene("StageDDA"); 
+            SceneManager.LoadScene("StageDDA");  
         }
         else
         {

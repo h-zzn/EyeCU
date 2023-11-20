@@ -21,6 +21,8 @@ TagManager:
   - TaegukCube
   - WeakPoint
   - Enemy
+  - Orbs
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -330,6 +330,7 @@ MonoBehaviour:
   DestroyVisualEffectObject: {fileID: 2652936054558877957, guid: 2e3dfcfa695ec1443a72ab87837e8fb5, type: 3}
   DestroySoundEffectObject: {fileID: 7354846308910032518, guid: 1a64ed9e014232d48bd91e24667cc96e, type: 3}
   controllerManager: {fileID: 0}
+  controllerManagerDDA: {fileID: 0}
 --- !u!82 &8787895274779312011
 AudioSource:
   m_ObjectHideFlags: 0
@@ -932,6 +933,10 @@ PrefabInstance:
     - target: {fileID: 1018525224193896, guid: f229f87794124e84399ecd11d4491f0e, type: 3}
       propertyPath: m_Name
       value: Glowing orb 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018525224193896, guid: f229f87794124e84399ecd11d4491f0e, type: 3}
+      propertyPath: m_TagString
+      value: Orbs
       objectReference: {fileID: 0}
     - target: {fileID: 4043564596730644, guid: f229f87794124e84399ecd11d4491f0e, type: 3}
       propertyPath: m_RootOrder

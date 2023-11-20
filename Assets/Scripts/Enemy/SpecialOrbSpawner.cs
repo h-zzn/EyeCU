@@ -13,7 +13,7 @@ public class SpecialOrbSpawner : MonoBehaviour
     private float coolTime = 0;
 
     public float SpecialOrbSpeed = 1;
-    public float SpecialOrbInterval = 5;
+    public float SpecialOrbInterval = 7.5f;
 
     [SerializeField] private int maxNumofSpecialOrb = 3;
     private List<GameObject> Orbs = new List<GameObject>();
@@ -33,11 +33,6 @@ public class SpecialOrbSpawner : MonoBehaviour
 
     private void Start()
     {
-        foreach (GameObject spawnObject in SpecialOrbPrefab)
-        {
-            spawnObject.transform.GetChild(0).GetComponent<Tracing>().movingTime /= SpecialOrbSpeed;
-        }
-
         // Get Particle System of Magic Circle
         magicCircleParticleSystem = magicCircle.GetComponent<ParticleSystem>();
     }
@@ -79,6 +74,7 @@ public class SpecialOrbSpawner : MonoBehaviour
             GameObject Orb = Instantiate(SpecialOrbPrefab[Random.Range(0,SpecialOrbPrefab.Length)], points[Random.Range(0, points.Length)]);
             Orb.transform.localPosition = Vector3.zero;
             Orb.transform.Rotate(transform.forward);
+            Orb.transform.GetChild(0).GetComponent<Tracing>().movingTime /= SpecialOrbSpeed;
             Orbs.Add(Orb);
 
             coolTime = 0;
