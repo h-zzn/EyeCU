@@ -41,7 +41,6 @@ public class DamagedArea : MonoBehaviour
         // HPGauge의 Renderer를 가져오고 Material 리스트를 설정
         HPGaugeRenderer = HPGauge.GetComponent<Renderer>(); 
         HPMaterials = new List<Material>(HPMaterialObj.GetComponent<Renderer>().materials); 
-
     }
 
     void Update()

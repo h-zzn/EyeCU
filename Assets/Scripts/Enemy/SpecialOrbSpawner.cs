@@ -74,7 +74,7 @@ public class SpecialOrbSpawner : MonoBehaviour
             GameObject Orb = Instantiate(SpecialOrbPrefab[Random.Range(0,SpecialOrbPrefab.Length)], points[Random.Range(0, points.Length)]);
             Orb.transform.localPosition = Vector3.zero;
             Orb.transform.Rotate(transform.forward);
-            Orb.transform.GetChild(0).GetComponent<Tracing>().movingTime /= SpecialOrbSpeed;
+            Orb.transform.GetChild(0).GetComponent<Tracing>().movingTime /= SpecialOrbSpeed; 
             Orbs.Add(Orb);
 
             coolTime = 0;

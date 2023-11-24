@@ -12,10 +12,10 @@ public class SpawnManager : MonoBehaviour
     public float basicOrbSpawnInterval = 1.735715f; 
 
     public float stoneSpeed = 1; 
-    public float stoneSpawnInterval = 1; 
+    public float stoneSpawnInterval = 3; 
 
     public float SpecialOrbSpeed = 1; 
-    public float SpecialOrbSpawnInterval = 1; 
+    public float SpecialOrbSpawnInterval = 7.5f;  
 
     public int totalNumOfBasicOrb = 0;
 
@@ -25,13 +25,18 @@ public class SpawnManager : MonoBehaviour
     
     public bool activeSkill = false;
 
-    
+    private float OriginBasicOrbSpeed;
+    private float OriginSpecialOrbSpeed;
+
+
     void Awake()
     {
-        SetEnemyComponents();  
+        SetEnemyComponents();
+        OriginBasicOrbSpeed = basicOrbSpeed;
+        OriginSpecialOrbSpeed = SpecialOrbSpeed;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         SetEnemyComponents();  
         
@@ -40,6 +45,23 @@ public class SpawnManager : MonoBehaviour
 
     public void SetEnemyComponents()
     {
+        if (activeBasicOrb == true)
+        {
+            AdjustCubeSpeed("redCube");
+            AdjustCubeSpeed("blueCube");
+        }
+
+        if (activeStone == true)
+        {
+            AdjustCubeSpeed("IceStone");
+            AdjustCubeSpeed("LavaStone");
+        }
+
+        if (activeSpecialOrb == true)
+        {
+            AdjustMovingOrbSpeed("MovingOrb");
+        }
+
         int NumOfBasicOrb = 0;
         foreach (GameObject spawner in basicOrbSpawner)
         {
@@ -52,7 +74,7 @@ public class SpawnManager : MonoBehaviour
         foreach (GameObject spawner in stoneSpawner)
         {
             spawner.GetComponent<Spawner>().OrbSpeed = stoneSpeed;
-            spawner.GetComponent<Spawner>().Interval = stoneSpawnInterval;
+            spawner.GetComponent<Spawner>().Interval = stoneSpawnInterval; 
         }
 
         foreach (GameObject spawner in SpecialOrbSpawner) 
@@ -62,7 +84,42 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-     private void realtimeControllAllSpawner()
+    void AdjustCubeSpeed(string cubeTag)
+    {
+        GameObject cubeObject = FindCubeWithTag(cubeTag);
+
+        if (cubeObject != null)
+        {
+            Cube cubeComponent = cubeObject.GetComponent<Cube>();
+
+            if (cubeComponent != null)
+            {
+                cubeComponent.moveSpeed = OriginBasicOrbSpeed * basicOrbSpeed;
+            }
+        }
+    }
+
+    void AdjustMovingOrbSpeed(string orbTag)
+    {
+        GameObject orbObject = FindCubeWithTag(orbTag);
+
+        if (orbObject != null)
+        {
+            Tracing tracingComponent = orbObject.GetComponent<Tracing>();
+
+            if (tracingComponent != null)
+            {
+                tracingComponent.movingTime = OriginSpecialOrbSpeed * SpecialOrbSpeed; 
+            }
+        }
+    }
+
+    GameObject FindCubeWithTag(string cubeTag)
+    {
+        return GameObject.FindWithTag(cubeTag);
+    }
+
+    private void realtimeControllAllSpawner()
     {
         if(activeSkill == false)
         {
