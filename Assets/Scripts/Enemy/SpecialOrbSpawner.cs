@@ -40,28 +40,28 @@ public class SpecialOrbSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isSpawnStop)
+        if (!isSpawnStop)    
         {
+            if (Orbs.Count == maxNumofSpecialOrb)
+            {
+                if (Orbs.All(orb => orb == null))
+                {
+                    isSpawnStop = true;
+                }
+            }
+
             if (!isMagicCircleActive)
             {
                 activateMagicCircle();
             }
 
             spawnSpecialOrb();
-
-            if (Orbs.Count == maxNumofSpecialOrb)
-            {
-                if (Orbs.All(orb => orb == null))
-                {
-                    isSpawnStop = true;
-                    resetAllValue();
-                }
-            }
         }
-        else
+        else      
         {
             if (isMagicCircleActive)
             {
+                resetAllValue();
                 deactivateMagicCircle();
             }
         }

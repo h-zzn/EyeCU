@@ -122,7 +122,7 @@ public class EventManager : MonoBehaviour
             spawnManager.activeBasicOrb = false; 
             spawnManager.activeStone = false; 
             spawnManager.activeSpecialOrb = false; 
-            GameClear = true;
+            GameClear = true; 
         }
 
         reduceEnemyHPGauge();
@@ -506,7 +506,6 @@ public class EventManager : MonoBehaviour
         spawnManager.activeSpecialOrb = false;
 
         spawnManager.activeBasicOrb = true;
-
         while (EnemyHP > 0) 
         {
             yield return null; 

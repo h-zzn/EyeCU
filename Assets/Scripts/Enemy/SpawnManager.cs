@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
 
     public int totalNumOfBasicOrb = 0;
 
-    public bool activeBasicOrb = false;
+    public bool activeBasicOrb = false; 
     public bool activeStone = false;
     public bool activeSpecialOrb = false;
     
@@ -86,30 +86,30 @@ public class SpawnManager : MonoBehaviour
 
     void AdjustCubeSpeed(string cubeTag)
     {
-        GameObject cubeObject = FindCubeWithTag(cubeTag);
+        GameObject[] cubes = GameObject.FindGameObjectsWithTag(cubeTag);
 
-        if (cubeObject != null)
+        foreach (GameObject cubeObject in cubes)
         {
             Cube cubeComponent = cubeObject.GetComponent<Cube>();
 
             if (cubeComponent != null)
             {
-                cubeComponent.moveSpeed = OriginBasicOrbSpeed * basicOrbSpeed;
+                cubeComponent.moveSpeed = 5 * basicOrbSpeed; 
             }
         }
     }
 
     void AdjustMovingOrbSpeed(string orbTag)
     {
-        GameObject orbObject = FindCubeWithTag(orbTag);
+        GameObject[] orbs = GameObject.FindGameObjectsWithTag(orbTag);
 
-        if (orbObject != null)
+        foreach (GameObject orbObject in orbs)
         {
             Tracing tracingComponent = orbObject.GetComponent<Tracing>();
 
             if (tracingComponent != null)
             {
-                tracingComponent.movingTime = OriginSpecialOrbSpeed * SpecialOrbSpeed; 
+                tracingComponent.movingTime = 3 / SpecialOrbSpeed; 
             }
         }
     }

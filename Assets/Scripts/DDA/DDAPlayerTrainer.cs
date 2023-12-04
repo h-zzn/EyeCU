@@ -40,8 +40,6 @@ public class DDAPlayerTrainer : Agent
 
     private void Start()
     {
-        StartCoroutine(DecreaseOverTime());
-
         isRewarding = false;
     }
 
@@ -251,14 +249,6 @@ public class DDAPlayerTrainer : Agent
 
             isRewarding = true; 
         }
-    }
-
-
-    private IEnumerator DecreaseOverTime()   
-    {   
-        yield return new WaitForSeconds(90f);
-
-        eventManager.EnemyHP -= (OriginEnemyHP+500);
     }
 
     private void UpdateTarget(int DiscreteActionsNum)   

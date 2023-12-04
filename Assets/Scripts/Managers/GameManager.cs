@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
                     EventFlow = StartCoroutine(eventManager.Stage3EventFlow());
                 else 
                     EventFlow = StartCoroutine(eventManager.StageDDAEventFlow());
-            }
+            }    
         }
         Timer += Time.deltaTime;
     } 
