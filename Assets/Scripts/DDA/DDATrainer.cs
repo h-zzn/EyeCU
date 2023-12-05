@@ -5,6 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class DDATrainer : Agent  
 {
@@ -13,7 +14,7 @@ public class DDATrainer : Agent
     private SpawnManager spawnManager;   
     private EventManager eventManager;   
     private DamagedArea damagedArea;   
-    private ControllerManager controllerManager;   
+    private ControllerManagerDDA controllerManager;   
 
     private int MissingPoint;
 
@@ -39,12 +40,16 @@ public class DDATrainer : Agent
     private float punishmentPoint = 0;
     private float targetedlevelPoint = 0;
 
+    private int HPChange = 0;
+    private List<int> readUsersDiff = new List<int>();
+    [SerializeField] private bool isTargetedlevel = false;
+
     private void Awake()    
     {  
         eventManager = this.transform.GetComponent<EventManager>(); 
         damagedArea = this.transform.GetComponent<DamagedArea>(); 
         spawnManager = this.GetComponent<SpawnManager>(); 
-        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>(); 
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManagerDDA>(); 
 
         MissingPoint = controllerManager.MissingPoint; 
     }  
@@ -78,8 +83,8 @@ public class DDATrainer : Agent
         sensor.AddObservation(spawnManager.SpecialOrbSpeed);    
         sensor.AddObservation(spawnManager.SpecialOrbSpawnInterval);   
          
-        sensor.AddObservation(isHardDif);  
-        sensor.AddObservation(isEasyDif);  
+        sensor.AddObservation(isTargetedlevel);    
+        sensor.AddObservation(HPChange);   
 
         sensor.AddObservation(punishmentPoint);  
         sensor.AddObservation(targetedlevelPoint);  
@@ -164,11 +169,11 @@ public class DDATrainer : Agent
             Debug.Log("쉬워");  
             if (initialLevelPoint < LevelPoint)
             {
-                AddReward(punishmentPoint / 2 * 1.5f);
+                AddReward(punishmentPoint/2); 
             }
             else
             {
-                AddReward(-punishmentPoint / 2 * 1.5f);
+                AddReward(-punishmentPoint/2);
             }
 
             //hard to easy 페널티 감당
@@ -187,7 +192,7 @@ public class DDATrainer : Agent
             initialDiff = 2;
 
             PlayerPrefs.SetFloat("SavedLevel", LevelPoint);
-            AddReward(100); 
+            AddReward(200);   
         }
     }
 
@@ -235,10 +240,6 @@ public class DDATrainer : Agent
                 AddReward(100000.0f);
             }
 
-            if (MissingPoint > spawnManager.totalNumOfBasicOrb / 2)
-            {
-                AddReward(-20000.0f);
-            }
             isRewarding = true;
         }
     }
@@ -246,7 +247,7 @@ public class DDATrainer : Agent
     // 시간에 따른 이벤트 처리
     private IEnumerator DecreaseOverTime()  
     {
-        yield return new WaitForSeconds(90f);
+        yield return new WaitForSeconds(120f);
         PlayerPrefs.Save();  
         eventManager.EnemyHP -= (OriginEnemyHP*2); 
     }
@@ -254,7 +255,7 @@ public class DDATrainer : Agent
     // 일정 시간 간격으로 채감 난이도 파악
     private IEnumerator CheckMissingPointChange()    
     {
-        yield return new WaitForSeconds(20f);    
+        yield return new WaitForSeconds(20f);     
         isStartChangeDiff = true;  
 
         while (true)   
@@ -264,29 +265,41 @@ public class DDATrainer : Agent
             // 처음에 현재의 stageHP 값을 저장  
             int initialStageHP = damagedArea.stageHP;
 
-            // 5초 기다림
-            yield return new WaitForSeconds(5f);
+            //2초 기다림
+            yield return new WaitForSeconds(2f); 
 
-            // 5초 후에 현재 MissingPoint와 처음에 저장한 값을 비교 
-            int change2 = initialStageHP - damagedArea.stageHP;
+            //2초 후에 현재 MissingPoint와 처음에 저장한 값을 비교 
+            HPChange = initialStageHP - damagedArea.stageHP;
+            
+            //10초 범위로만 판단
+            if(readUsersDiff.Count == 5)
+                readUsersDiff.RemoveAt(0);
+            readUsersDiff.Add(HPChange);
 
-            if (change2 >= 100)   //데미지가 큰 상태이면 어려운 상태 
+            Debug.Log(readUsersDiff.Count);
+
+            int sumOfChange = readUsersDiff.Sum(); 
+
+            if (sumOfChange > 100)    //데미지가 큰 상태이면 어려운 상태 
             {
-                AddReward(-1000.0f);
                 isHardDif = true; 
-                isEasyDif = false; 
+                isEasyDif = false;
+
+                isTargetedlevel = false;
             }
-            else if (change2 == 0) //데미지기 없는 상태이면 쉬운 상태  
+            else if (sumOfChange == 0) //데미지기 없는 상태이면 쉬운 상태  
             {
-                AddReward(-1000.0f); 
                 isHardDif = false; 
-                isEasyDif = true; 
+                isEasyDif = true;
+
+                isTargetedlevel = false;
             }
-            else  //한 대 맞을 때 
+            else  //한 대~두 대 맞을 때 
             {
-                AddReward(1000.0f);
                 isHardDif = false;
-                isEasyDif = false;   
+                isEasyDif = false;
+
+                isTargetedlevel = true;
             }  
 
             // 현재 MissingPoint 값을 다시 저장
