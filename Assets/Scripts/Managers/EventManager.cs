@@ -494,18 +494,6 @@ public class EventManager : MonoBehaviour
     {   
         //start window 
         spawnManager.activeBasicOrb = true;
-        yield return new WaitForSeconds(50);
-        spawnManager.activeBasicOrb = false;
-
-        spawnManager.activeSpecialOrb = true;
-        yield return new WaitForSeconds(1);
-        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)
-        {
-            yield return null;
-        }
-        spawnManager.activeSpecialOrb = false;
-
-        spawnManager.activeBasicOrb = true;
         while (EnemyHP > 0) 
         {
             yield return null; 

@@ -129,9 +129,9 @@ public class DDATrainer : Agent
             spawnManager.stoneSpeed = OriginStoneSpeed * LevelPoint;
 
             // 생성 간격 조절   
-            spawnManager.basicOrbSpawnInterval = OriginBasicOrbSpawnInterval * (2f - LevelPoint);
-            spawnManager.SpecialOrbSpawnInterval = OriginSpecialOrbSpawnInterval * (2f - LevelPoint);
-            spawnManager.stoneSpawnInterval = OriginStoneSpawnInterval * (2f - LevelPoint);
+            spawnManager.basicOrbSpawnInterval = OriginBasicOrbSpawnInterval * (2f - LevelPoint);         
+            spawnManager.SpecialOrbSpawnInterval = OriginSpecialOrbSpawnInterval * (2f - LevelPoint);     
+            spawnManager.stoneSpawnInterval = OriginStoneSpawnInterval * (2f - LevelPoint);               
         }
         else 
         {
@@ -141,24 +141,21 @@ public class DDATrainer : Agent
 
     private void RewardingByDiff()
     {
-        //변화값에 따른 패널티 
+        //변화값에 따른 패널티
         punishmentPoint = -10 * Mathf.Pow(LevelPoint - targetedlevelPoint, 2);    
         AddReward(punishmentPoint);  
-        stackOfPenalty += punishmentPoint;   
+        stackOfPenalty += punishmentPoint;
+
+        //targetedlevelPoint에 가까이 갈수록 보상 [댐핑 기능]
+        if (Mathf.Abs(initialLevelPoint - targetedlevelPoint) > Mathf.Abs(LevelPoint - targetedlevelPoint))
+        {
+            AddReward(-punishmentPoint/2);
+        }
 
         // 어려운 난이도에서의 보상 및 처벌      
         if (isHardDif == true)
         {
             Debug.Log("어려워");     
-            if (initialLevelPoint > LevelPoint)
-            {
-                AddReward(punishmentPoint/2); 
-            }
-            else
-            {
-                AddReward(-punishmentPoint/2); 
-            }
-
             //easy to hard 페널티 감당
             if (initialDiff == 1)
                 stackOfPenalty = 0; 
@@ -167,21 +164,12 @@ public class DDATrainer : Agent
         else if (isEasyDif == true) // 쉬운 난이도에서의 보상 및 처벌       
         {
             Debug.Log("쉬워");  
-            if (initialLevelPoint < LevelPoint)
-            {
-                AddReward(punishmentPoint/2); 
-            }
-            else
-            {
-                AddReward(-punishmentPoint/2);
-            }
-
             //hard to easy 페널티 감당
             if (initialDiff == 3)
                 stackOfPenalty = 0;
             initialDiff = 1;
         }
-        else //중간 난이도 보상 
+        else if(isTargetedlevel == true)//중간 난이도 보상 
         {
             Debug.Log("적당해");
             if (initialDiff == 1 || initialDiff == 3)
@@ -244,21 +232,21 @@ public class DDATrainer : Agent
         }
     }
 
-    // 시간에 따른 이벤트 처리
-    private IEnumerator DecreaseOverTime()  
+    // 시간에 따른 이벤트 처리    
+    private IEnumerator DecreaseOverTime()      
     {
-        yield return new WaitForSeconds(120f);
-        PlayerPrefs.Save();  
-        eventManager.EnemyHP -= (OriginEnemyHP*2); 
+        yield return new WaitForSeconds(120f);    
+        PlayerPrefs.Save();    
+        eventManager.EnemyHP -= (OriginEnemyHP*2);    
     }
 
     // 일정 시간 간격으로 채감 난이도 파악
     private IEnumerator CheckMissingPointChange()    
     {
         yield return new WaitForSeconds(20f);     
-        isStartChangeDiff = true;  
+        isStartChangeDiff = true;    
 
-        while (true)   
+        while (true)                
         {  
             // 처음에 현재의 MissingPoint 값을 저장  
             int initialMissingPoint = MissingPoint;
@@ -271,12 +259,10 @@ public class DDATrainer : Agent
             //2초 후에 현재 MissingPoint와 처음에 저장한 값을 비교 
             HPChange = initialStageHP - damagedArea.stageHP;
             
-            //10초 범위로만 판단
+            //현재 시점에서 10초 전 범위로만 판단
             if(readUsersDiff.Count == 5)
                 readUsersDiff.RemoveAt(0);
-            readUsersDiff.Add(HPChange);
-
-            Debug.Log(readUsersDiff.Count);
+            readUsersDiff.Add(HPChange); 
 
             int sumOfChange = readUsersDiff.Sum(); 
 
