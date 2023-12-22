@@ -34,7 +34,7 @@ public class DDATrainer : Agent
     [SerializeField] private bool isEasyDif = false;
 
     private bool isStartChangeDiff = false;
-    private float LevelPoint;  
+    [SerializeField] private float LevelPoint;  
     private float stackOfPenalty = 0;  
     private int initialDiff = 0;  //1: Easy, 2: 목표, 3:Hard
     private float punishmentPoint = 0;
@@ -56,7 +56,7 @@ public class DDATrainer : Agent
 
     private void Start()
     {
-        StartCoroutine(DecreaseOverTime());           
+        //StartCoroutine(DecreaseOverTime());           
         StartCoroutine(CheckMissingPointChange());           
          
         isRewarding = false;
@@ -75,19 +75,16 @@ public class DDATrainer : Agent
     // 에이전트가 환경에서 관찰하는 데이터 수집    
     public override void CollectObservations(VectorSensor sensor)  
     {
-        sensor.AddObservation(damagedArea.stageHP);   
+        sensor.AddObservation(damagedArea.stageHP);
+        sensor.AddObservation(HPChange);
         sensor.AddObservation(eventManager.EnemyHP);    
 
-        sensor.AddObservation(spawnManager.basicOrbSpeed);    
-        sensor.AddObservation(spawnManager.basicOrbSpawnInterval);    
-        sensor.AddObservation(spawnManager.SpecialOrbSpeed);    
-        sensor.AddObservation(spawnManager.SpecialOrbSpawnInterval);   
-         
-        sensor.AddObservation(isTargetedlevel);    
-        sensor.AddObservation(HPChange);   
+        sensor.AddObservation(LevelPoint);
+        sensor.AddObservation(targetedlevelPoint);
 
-        sensor.AddObservation(punishmentPoint);  
-        sensor.AddObservation(targetedlevelPoint);  
+        sensor.AddObservation(isTargetedlevel); 
+        
+        sensor.AddObservation(punishmentPoint);   
     }
 
     // 에이전트가 행동을 수행할 때 호출되는 메서드    
@@ -102,7 +99,7 @@ public class DDATrainer : Agent
         else if (isStartChangeDiff == true)
         {
             //LevelPoint 변화
-            LevelPoint = actionBuffers.ContinuousActions[0]*2;
+            LevelPoint = Mathf.Abs(actionBuffers.ContinuousActions[0])+0.5f;
             RewardingByDiff();
         }
         else
@@ -121,22 +118,15 @@ public class DDATrainer : Agent
 
     private void changeDiff()
     {
-        if (LevelPoint >= 0.5f && LevelPoint <= 1.5f)
-        {
-            // 속도 조절   
-            spawnManager.basicOrbSpeed = OriginBasicOrbSpeed * LevelPoint;
-            spawnManager.SpecialOrbSpeed = OriginSpecialOrbSpeed * LevelPoint; 
-            spawnManager.stoneSpeed = OriginStoneSpeed * LevelPoint;
+        // 속도 조절   
+        spawnManager.basicOrbSpeed = OriginBasicOrbSpeed * LevelPoint;
+        spawnManager.SpecialOrbSpeed = OriginSpecialOrbSpeed * LevelPoint; 
+        spawnManager.stoneSpeed = OriginStoneSpeed * LevelPoint;
 
-            // 생성 간격 조절   
-            spawnManager.basicOrbSpawnInterval = OriginBasicOrbSpawnInterval * (2f - LevelPoint);         
-            spawnManager.SpecialOrbSpawnInterval = OriginSpecialOrbSpawnInterval * (2f - LevelPoint);     
-            spawnManager.stoneSpawnInterval = OriginStoneSpawnInterval * (2f - LevelPoint);               
-        }
-        else 
-        {
-            AddReward(punishmentPoint); 
-        }
+        // 생성 간격 조절   
+        spawnManager.basicOrbSpawnInterval = OriginBasicOrbSpawnInterval * (2f - LevelPoint);         
+        spawnManager.SpecialOrbSpawnInterval = OriginSpecialOrbSpawnInterval * (2f - LevelPoint);     
+        spawnManager.stoneSpawnInterval = OriginStoneSpawnInterval * (2f - LevelPoint);               
     }
 
     private void RewardingByDiff()
@@ -254,14 +244,14 @@ public class DDATrainer : Agent
             int initialStageHP = damagedArea.stageHP;
 
             //2초 기다림
-            yield return new WaitForSeconds(2f); 
+            yield return new WaitForSeconds(3f);  
 
             //2초 후에 현재 MissingPoint와 처음에 저장한 값을 비교 
             HPChange = initialStageHP - damagedArea.stageHP;
             
             //현재 시점에서 10초 전 범위로만 판단
             if(readUsersDiff.Count == 5)
-                readUsersDiff.RemoveAt(0);
+                readUsersDiff.RemoveAt(0); 
             readUsersDiff.Add(HPChange); 
 
             int sumOfChange = readUsersDiff.Sum(); 
@@ -278,9 +268,9 @@ public class DDATrainer : Agent
                 isHardDif = false; 
                 isEasyDif = true;
 
-                isTargetedlevel = false;
+                isTargetedlevel = false;    
             }
-            else  //한 대~두 대 맞을 때 
+            else  //한 대 맞을 때   
             {
                 isHardDif = false;
                 isEasyDif = false;

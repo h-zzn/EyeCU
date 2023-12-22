@@ -248,13 +248,15 @@ public class EventManager : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
+        /*
         spawnManager.activeSpecialOrb = true;  
         yield return new WaitForSeconds(1);
-        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)  
+        while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop)   
         { 
             yield return null;  
         } 
         spawnManager.activeSpecialOrb = false;
+        */
 
         spawnManager.activeStone = true; 
         yield return new WaitForSeconds(swordTime); 
