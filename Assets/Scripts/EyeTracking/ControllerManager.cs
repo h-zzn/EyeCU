@@ -74,6 +74,7 @@ public class ControllerManager : MonoBehaviour
     public bool leftClicked = false;
     public bool rightClicked = false;
 
+    public DDATrainer dDATrainer = null;
 
     private void Awake() 
     {
@@ -373,6 +374,7 @@ public class ControllerManager : MonoBehaviour
                     Destroy(redMagicHitInstance,3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
+                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;
                 }
                 else
@@ -433,6 +435,7 @@ public class ControllerManager : MonoBehaviour
                     Destroy(blueMagicHitInstance,3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
+                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;
                 }
                 else

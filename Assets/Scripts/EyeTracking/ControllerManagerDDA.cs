@@ -64,6 +64,7 @@ public class ControllerManagerDDA : MonoBehaviour
     //DDA
     public bool leftClicked = false;
     public bool rightClicked = false;
+    public DDATrainer dDATrainer = null; 
 
     private void Awake()
     {
@@ -77,6 +78,8 @@ public class ControllerManagerDDA : MonoBehaviour
             dragon2_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon2_Animation_Controll>();
         else if (SceneManager.GetActiveScene().buildIndex == 1)
             dragon1_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon1_Animation_Controll>();
+
+        dDATrainer = GameObject.Find("StageCore").GetComponent<DDATrainer>();
     }
 
     void Start()
@@ -276,6 +279,7 @@ public class ControllerManagerDDA : MonoBehaviour
                     Destroy(redMagicHitInstance, 3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
+                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;
                 }
                 else
@@ -320,6 +324,7 @@ public class ControllerManagerDDA : MonoBehaviour
                     Destroy(blueMagicHitInstance, 3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
+                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;
                 }
                 else
@@ -345,7 +350,7 @@ public class ControllerManagerDDA : MonoBehaviour
                 }
             }
 
-            leftClicked = false; 
+            leftClicked = false;  
         }
     }
 

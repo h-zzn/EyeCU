@@ -58,7 +58,7 @@ public class DDAPlayerTrainer : Agent
         OriginStageHP = damagedArea.stageHP; 
         OriginEnemyHP = eventManager.EnemyHP;
 
-        // 최초에 Orbs를 찾아서 배열에 추가
+        //처음에 Orbs를 찾아서 배열에 추가
         FindAndAddOrbs();
     }
 
