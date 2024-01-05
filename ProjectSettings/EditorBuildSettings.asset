@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 30a23e58feff50b4c9f880578a5b5275
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
+    path: Assets/Scenes/Stage1 for recording.unity
     guid: 5c3ee449299bae74e87fb6de7f7c2846
   - enabled: 1
     path: Assets/Scenes/Stage2.unity
