@@ -200,8 +200,9 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(BasicSpawnTime); 
         spawnManager.activeBasicOrb = false;  
 
-        yield return new WaitForSeconds(3); 
+        yield return new WaitForSeconds(3);
 
+        /*
         spawnManager.activeSpecialOrb = true;  
         yield return new WaitForSeconds(1);
         while (!spawnManager.SpecialOrbSpawner[0].GetComponent<SpecialOrbSpawner>().isSpawnStop) 
@@ -209,6 +210,7 @@ public class EventManager : MonoBehaviour
             yield return null; 
         }
         spawnManager.activeSpecialOrb = false;
+        */
 
         spawnManager.activeStone = true; 
         yield return new WaitForSeconds(swordTime); 
@@ -233,8 +235,8 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(8);
 
         GameClear = true;
-        // Reset
-        //eventStarted = false;
+        //Reset
+        //eventStarted = false; 
         //EventFlow = null;
     }
 
@@ -492,19 +494,19 @@ public class EventManager : MonoBehaviour
         //EventFlow = null;
     } 
 
-    public IEnumerator StageDDAEventFlow() 
+    public IEnumerator StageDDAEventFlow()   
     {   
         //start window 
         spawnManager.activeBasicOrb = true;
         while (EnemyHP > 0) 
         {
             yield return null; 
-        }
+        } 
 
         spawnManager.activeBasicOrb = false;
 
         yield return new WaitForSeconds(8);
-    
+        
         GameClear = true;
         // Reset
         //eventStarted = false;

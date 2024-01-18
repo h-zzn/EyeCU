@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
         // Fade out the BGM
         while (BGM.volume > 0)
         {
-            BGM.volume -= startVolume * Time.deltaTime / fadeDuration;
+            BGM.volume -= startVolume * Time.deltaTime / fadeDuration; 
             yield return null;
         }
 
@@ -227,7 +227,7 @@ public class GameManager : MonoBehaviour
     {
         if(stageLevel == StageLevel.stageDDA)
         {
-            SceneManager.LoadScene("StageDDA");  
+            SceneManager.LoadScene("StageDDA_YS");  
         }
         else
         {

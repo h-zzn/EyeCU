@@ -28,6 +28,8 @@ public class DamagedArea : MonoBehaviour
 
     private Transform cam;
 
+    public DDATrainer dDATrainer = null;
+
     void Awake()
     {
         // Scene에서 OVRInPlayMode를 찾아 cam에 assign
@@ -40,7 +42,9 @@ public class DamagedArea : MonoBehaviour
 
         // HPGauge의 Renderer를 가져오고 Material 리스트를 설정
         HPGaugeRenderer = HPGauge.GetComponent<Renderer>(); 
-        HPMaterials = new List<Material>(HPMaterialObj.GetComponent<Renderer>().materials); 
+        HPMaterials = new List<Material>(HPMaterialObj.GetComponent<Renderer>().materials);
+
+        dDATrainer = GameObject.Find("StageCore").GetComponent<DDATrainer>();
     }
 
     void Update()
@@ -51,12 +55,25 @@ public class DamagedArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube") || other.gameObject.CompareTag("LavaStone") || other.gameObject.CompareTag("IceStone"))
+        if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube"))
         {
+            if(dDATrainer != null)
+                dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, other.transform.position));
+
             stageHP -= 100;
             // Shake the camera
             StartCoroutine(Shake());
             Destroy(other.gameObject); 
+        }
+        else if (other.gameObject.CompareTag("LavaStone") || other.gameObject.CompareTag("IceStone"))
+        {
+            if (dDATrainer != null)
+                dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, other.transform.position));
+
+            stageHP -= 100;
+            // Shake the camera
+            StartCoroutine(Shake());
+            Destroy(other.gameObject);
         }
         else if(other.gameObject.CompareTag("MovingOrb"))
         {
