@@ -1968,14 +1968,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4339289984181361092}
     m_Modifications:
+    - target: {fileID: 174338196951347118, guid: 87903eea09623ae4a9457dd17b46d93e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 809392403678555580, guid: 87903eea09623ae4a9457dd17b46d93e, type: 3}
       propertyPath: _faceExpressions
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120038293173720638, guid: 87903eea09623ae4a9457dd17b46d93e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1250439401588527297, guid: 87903eea09623ae4a9457dd17b46d93e, type: 3}
       propertyPath: _faceExpressions
       value: 
       objectReference: {fileID: 2978375307787017227}
+    - target: {fileID: 4867469735901846556, guid: 87903eea09623ae4a9457dd17b46d93e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.0981789
+      objectReference: {fileID: 0}
     - target: {fileID: 7710386818825989482, guid: 87903eea09623ae4a9457dd17b46d93e, type: 3}
       propertyPath: _skeletonToCopy
       value: 

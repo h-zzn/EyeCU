@@ -436,7 +436,7 @@ public class ControllerManager : MonoBehaviour
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
                     dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
-                    eyeTrackingRayRight.HoveredCube = null;
+                    eyeTrackingRayRight.HoveredCube = null;  
                 }
                 else
                 {

@@ -2618,6 +2618,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013735795762, guid: 5eb9966c8253a3649970e935258ad8d2, type: 3}
   m_PrefabInstance: {fileID: 351984368}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &399573273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5268658541522920791, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 2143618531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &406725721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45254,6 +45259,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 3213253778894077806, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
   m_PrefabInstance: {fileID: 2094405262}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2098593691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 607281236753780609, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+  m_PrefabInstance: {fileID: 2143618531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2111133615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45737,11 +45747,11 @@ PrefabInstance:
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: leftEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 399573273}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: rightEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2098593691}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: SkillMaterialObj
       value: 

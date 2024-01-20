@@ -38,7 +38,7 @@ public class DeleteEnemyAttack : MonoBehaviour
         else if (other.gameObject.CompareTag("redCube") || other.gameObject.CompareTag("LavaStone"))
         {
             DisplayHitEffect(other.transform.position, controllerManager.RedMagicHitEffectPrefab);
-            Destroy(other.gameObject);
+            Destroy(other.gameObject); 
         }
         else if (other.gameObject.CompareTag("MovingOrb"))
         {

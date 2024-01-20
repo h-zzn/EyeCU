@@ -2530,7 +2530,7 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
         {
             prevAudioOutId = audioOutId;
             prevAudioOutIdIsCached = true;
-        }
+        } 
         else if (audioOutId != prevAudioOutId)
         {
             try

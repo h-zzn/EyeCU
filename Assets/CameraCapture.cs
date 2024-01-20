@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using WebSocketSharp;
 using System.Linq;
-using System.Collections.Generic;
+using System.Collections.Generic;   
 
 public class CameraCapture : MonoBehaviour
 {
@@ -27,23 +27,21 @@ public class CameraCapture : MonoBehaviour
 
     private void Start()
     {
-        //num = 1;
+        num = 1;
 
-        //csvFilePath = "C://Users//my coms//Desktop//DDATest" + "/example.csv";
+        csvFilePath = "C://Users//my coms//Desktop//DDATest" + "/example.csv";
 
-        //dDATrainer = StageCore.GetComponent<DDATrainer>();
-        // WebSocket 연결을 Start에서 한 번만 설정
+        dDATrainer = StageCore.GetComponent<DDATrainer>();
+        //WebSocket 연결을 Start에서 한 번만 설정
         ws = new WebSocket("ws://localhost:8764");
         ws.OnOpen += (sender, e) => Debug.Log("WebSocket connected");
         ws.Connect();
-        //tried = new List<string> { "Tried"  };
+        tried = new List<string> { "Tried" };
 
-    /*
-    level = new List<string> { //Levelpoint 
-        "Real Level"
-    };
+    
+        level = new List<string> { "Real Level"};  
 
-    felt_level = new List<string> { //initialDiff
+    felt_level = new List<string> { //initialDiff  
         "Felt Level"
     };
 
@@ -51,14 +49,14 @@ public class CameraCapture : MonoBehaviour
     {
         "Playing time"
     };
-    */
+    
 
     // CaptureAndSendFrame을 코루틴으로 실행
     StartCoroutine(CaptureAndSendFrame());
 
-    //InvokeRepeating("WriteListsToCSV", 0f, 0.5f);
-}
-/*
+    InvokeRepeating("WriteListsToCSV", 0f, 0.5f);
+    }
+
 void WriteListsToCSV()
 {
     // CSV 파일에 기록할 데이터
@@ -90,7 +88,7 @@ void WriteAllLines(string[][] data)
         }
     }
 }
-*/
+
 
 private IEnumerator CaptureAndSendFrame()
 {
@@ -102,7 +100,7 @@ private IEnumerator CaptureAndSendFrame()
         // 프레임 캡처 및 전송
         CaptureAndSend();
 
-        //AddElement();
+        AddElement();
 
         // 2초 대기 (Thread.Sleep 대신)
         yield return new WaitForSeconds(.5f);
@@ -126,7 +124,7 @@ private void CaptureAndSend()
 
     ws.Send(imageBytes);
 }
-    /*
+    
     void AddElement()
     {
         string number = num.ToString();
@@ -142,5 +140,5 @@ private void CaptureAndSend()
         playing_time.Add(timed);
         
     }
-    */
+    
 }

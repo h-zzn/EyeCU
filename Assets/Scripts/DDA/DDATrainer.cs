@@ -13,7 +13,7 @@ public class DDATrainer : Agent
     private SpawnManager spawnManager;
     private EventManager eventManager;
     private DamagedArea damagedArea;
-    private ControllerManagerDDA controllerManager;
+    private ControllerManager controllerManager;
 
     private int OriginStageHP;
     private int OriginEnemyHP;
@@ -52,8 +52,8 @@ public class DDATrainer : Agent
     {
         eventManager = this.transform.GetComponent<EventManager>();
         damagedArea = this.transform.GetComponent<DamagedArea>();
-        spawnManager = this.GetComponent<SpawnManager>();
-        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManagerDDA>();
+        spawnManager = this.GetComponent<SpawnManager>(); 
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
     }
 
     private void Start()
@@ -101,7 +101,7 @@ public class DDATrainer : Agent
 
         sensor.AddObservation(initialDiff);
 
-        sensor.AddObservation(punishmentPoint);
+        sensor.AddObservation((int)punishmentPoint);
     }
 
     // 에이전트가 행동을 수행할 때 호출되는 메서드
@@ -152,7 +152,7 @@ public class DDATrainer : Agent
     {
         //적절한 거리에서 분석   
         punishmentPoint = -0.1f * Mathf.Pow(averageOfDistance - distanceOfUserToEnemy * 0.5f, 2);
-        AddReward(punishmentPoint);
+        AddReward((int)punishmentPoint); //나중에 바꿔 
 
         // 어려운 난이도에서의 보상 및 처벌
         if (initialDiff == 3)

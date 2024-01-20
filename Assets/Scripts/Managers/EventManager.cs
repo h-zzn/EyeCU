@@ -219,10 +219,10 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(3); 
         
         spawnManager.activeBasicOrb = true; 
-        yield return new WaitForSeconds(10); 
+        yield return new WaitForSeconds(10);
         spawnManager.activeStone = true;
-        spawnManager.stoneSpawnInterval *= 2.5f;
-        yield return new WaitForSeconds(BasicSpawnTime-10); 
+        spawnManager.stoneSpawnInterval *= 2.5f;  
+        yield return new WaitForSeconds(BasicSpawnTime-10);  
         
         while (EnemyHP > 0) 
         {
