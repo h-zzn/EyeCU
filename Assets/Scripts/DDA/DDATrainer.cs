@@ -56,7 +56,7 @@ public class DDATrainer : Agent
         controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManager>();
     }
 
-    private void Start()
+    private void Start() 
     {
         //StartCoroutine(DecreaseOverTime());
         StartCoroutine(CheckMissingPointChange());
@@ -119,7 +119,7 @@ public class DDATrainer : Agent
             {
                 LevelPoint = 1.75f;
             }
-            AddReward(-0.1f * Mathf.Pow(Time.deltaTime * actionBuffers.ContinuousActions[0], 2));
+            AddReward(-100f * Mathf.Pow(Time.deltaTime * actionBuffers.ContinuousActions[0], 2)); 
 
             RewardingByDiff();
         }
@@ -151,7 +151,7 @@ public class DDATrainer : Agent
     private void RewardingByDiff()
     {
         //적절한 거리에서 분석   
-        punishmentPoint = -0.1f * Mathf.Pow(averageOfDistance - distanceOfUserToEnemy * 0.5f, 2);
+        punishmentPoint = -0.1f * Mathf.Pow(averageOfDistance - distanceOfUserToEnemy * 0.5f, 2); 
         AddReward((int)punishmentPoint); //나중에 바꿔 
 
         // 어려운 난이도에서의 보상 및 처벌
