@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using System.IO;
 
 public class ControllerManagerDDA : MonoBehaviour
 {
@@ -64,10 +66,21 @@ public class ControllerManagerDDA : MonoBehaviour
     //DDA
     public bool leftClicked = false;
     public bool rightClicked = false;
-    public DDATrainer dDATrainer = null; 
+    public DDATrainer dDATrainer = null;
+
+    [HideInInspector] public List<float> distanceOfOrbsToUserList = new List<float>();  //파괴한 오브들의 거리 리스트
+    private SpawnManager spawnManager;
+    private float averageOfDistance = 0f; //위 리스트의 평균
+    // CSV 파일 경로
+    private string csvFilePath = "Assets/DDAData/averageOfDistance.csv";
 
     private void Awake()
     {
+        spawnManager = GameObject.Find("StageCore").GetComponent<SpawnManager>();
+
+
+
+
         SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials);
 
         eventManager = GameObject.Find("StageCore").GetComponent<EventManager>();
@@ -84,6 +97,9 @@ public class ControllerManagerDDA : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(DecreaseOverTime());
+        StartCoroutine(CheckMissingPointChange());
+
         OriginPosition = this.transform.position;
 
         RightEyeInteractor = GameObject.Find("RightEyeInteractor");
@@ -96,6 +112,17 @@ public class ControllerManagerDDA : MonoBehaviour
 
     void Update()
     {
+        if ((spawnManager.activeStone == true && spawnManager.activeBasicOrb == true) || spawnManager.activeBasicOrb == true)
+        {
+            //리스트 크기를 최대 6개(2개 기준, 스포너 개수에 비례하게 증가)로 해서, 최근 6개(2개 기준, 스포너 개수에 비례하게 증가) 구체의 파괴 위치의 평균값을 구함
+            if (distanceOfOrbsToUserList.Count > 3 * spawnManager.basicOrbSpawner.Length)
+            {
+                distanceOfOrbsToUserList.RemoveAt(0);
+            }
+
+            averageOfDistance = distanceOfOrbsToUserList.Sum() / distanceOfOrbsToUserList.Count();
+        }
+
         this.transform.position = OriginPosition;
 
         if (eyeTrackingRayRight.HoveredCube != null)
@@ -279,7 +306,7 @@ public class ControllerManagerDDA : MonoBehaviour
                     Destroy(redMagicHitInstance, 3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
-                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
+                    distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;
                 }
                 else
@@ -324,7 +351,7 @@ public class ControllerManagerDDA : MonoBehaviour
                     Destroy(blueMagicHitInstance, 3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
-                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
+                    distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;
                 }
                 else
@@ -366,5 +393,47 @@ public class ControllerManagerDDA : MonoBehaviour
         yield return new WaitForSeconds(second);
         blueMagicActive = true;
         leftEffect.SetActive(true);
+    }
+
+    void WriteCSVHeader()
+    {
+        // CSV 파일 생성 또는 덮어쓰기
+        using (StreamWriter writer = new StreamWriter(csvFilePath))
+        {
+            // 헤더 작성
+            writer.WriteLine("averageOfDistance");
+        }
+    }
+
+    void WriteFrameDataToCSV()
+    {
+        // CSV 파일에 프레임 데이터 추가
+        using (StreamWriter writer = new StreamWriter(csvFilePath, true))
+        {
+            // 현재 시간과 변수 값 기록
+            writer.WriteLine($"{Time.time},{averageOfDistance}");
+        }
+    }
+
+    private IEnumerator CheckMissingPointChange()
+    {
+        WriteCSVHeader();
+        yield return new WaitForSeconds(10f);
+
+        while (true)
+        {
+            //1초 기다림
+            yield return new WaitForSeconds(1f);
+            Debug.Log("a"); 
+            WriteFrameDataToCSV();
+        }
+    }
+
+    // 시간에 따른 이벤트 처리
+    private IEnumerator DecreaseOverTime()
+    {
+        yield return new WaitForSeconds(120f);
+        PlayerPrefs.Save();
+        eventManager.EnemyHP = -100;
     }
 }
