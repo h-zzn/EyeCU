@@ -89,6 +89,8 @@ public class DDATrainer : Agent
             averageOfDistance = distanceOfOrbsToUserList.Sum() / distanceOfOrbsToUserList.Count();
 
         }
+
+        Debug.Log(distanceOfUserToEnemy);
     }
     // 에이전트가 환경에서 관찰하는 데이터 수집
     public override void CollectObservations(VectorSensor sensor)
