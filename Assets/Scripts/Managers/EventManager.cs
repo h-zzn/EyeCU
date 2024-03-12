@@ -220,6 +220,7 @@ public class EventManager : MonoBehaviour
         
         spawnManager.activeBasicOrb = true; 
         yield return new WaitForSeconds(10);
+
         spawnManager.activeStone = true;
         spawnManager.stoneSpawnInterval *= 2.5f;  
         yield return new WaitForSeconds(BasicSpawnTime-10);  

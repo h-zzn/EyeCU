@@ -66,19 +66,16 @@ public class ControllerManagerDDA : MonoBehaviour
     //DDA
     public bool leftClicked = false;
     public bool rightClicked = false;
-    public DDATrainer dDATrainer = null;
 
     [HideInInspector] public List<float> distanceOfOrbsToUserList = new List<float>();  //파괴한 오브들의 거리 리스트
     private SpawnManager spawnManager;
-    private float averageOfDistance = 0f; //위 리스트의 평균
+    [HideInInspector] public float averageOfDistance = 0f; //위 리스트의 평균
     // CSV 파일 경로
     private string csvFilePath = "Assets/DDAData/averageOfDistance.csv";
 
     private void Awake()
     {
         spawnManager = GameObject.Find("StageCore").GetComponent<SpawnManager>();
-
-
 
 
         SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials);
@@ -91,13 +88,10 @@ public class ControllerManagerDDA : MonoBehaviour
             dragon2_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon2_Animation_Controll>();
         else if (SceneManager.GetActiveScene().buildIndex == 1)
             dragon1_Animation_Controll = GameObject.FindWithTag("Enemy").GetComponent<Dragon1_Animation_Controll>();
-
-        dDATrainer = GameObject.Find("StageCore").GetComponent<DDATrainer>();
     }
 
     void Start()
     {
-        StartCoroutine(DecreaseOverTime());
         StartCoroutine(CheckMissingPointChange());
 
         OriginPosition = this.transform.position;
@@ -394,46 +388,107 @@ public class ControllerManagerDDA : MonoBehaviour
         blueMagicActive = true;
         leftEffect.SetActive(true);
     }
-
-    void WriteCSVHeader()
-    {
-        // CSV 파일 생성 또는 덮어쓰기
-        using (StreamWriter writer = new StreamWriter(csvFilePath))
-        {
-            // 헤더 작성
-            writer.WriteLine("averageOfDistance");
-        }
-    }
-
     void WriteFrameDataToCSV()
     {
         // CSV 파일에 프레임 데이터 추가
         using (StreamWriter writer = new StreamWriter(csvFilePath, true))
         {
             // 현재 시간과 변수 값 기록
-            writer.WriteLine($"{Time.time},{averageOfDistance}");
+            writer.WriteLine(averageOfDistance);
         }
     }
 
-    private IEnumerator CheckMissingPointChange()
+    IEnumerator CheckMissingPointChange()
     {
-        WriteCSVHeader();
+        // CSV 파일이 존재하지 않는 경우 헤더를 쓴다.
+        if (!File.Exists(csvFilePath))
+        {
+            using (StreamWriter writer = new StreamWriter(csvFilePath))
+            {
+                writer.WriteLine("Time,Value1,Value2");
+            }
+        }
+
+        // 10초 대기 후부터 반복
         yield return new WaitForSeconds(10f);
 
         while (true)
         {
-            //1초 기다림
+            // 1초 대기
             yield return new WaitForSeconds(1f);
-            Debug.Log("a"); 
-            WriteFrameDataToCSV();
+
+            // CSV 파일 읽기
+            List<List<string>> data = ReadCSV();
+
+            // 데이터가 없는 열 찾기
+            int columnWithoutData = FindColumnWithoutData(data);
+
+            // 데이터가 없는 열에 데이터 추가
+            AddDataToColumn(columnWithoutData);
         }
     }
 
-    // 시간에 따른 이벤트 처리
-    private IEnumerator DecreaseOverTime()
+    List<List<string>> ReadCSV()
     {
-        yield return new WaitForSeconds(120f);
-        PlayerPrefs.Save();
-        eventManager.EnemyHP = -100;
+        // CSV 파일 읽기
+        List<List<string>> data = new List<List<string>>();
+
+        using (StreamReader reader = new StreamReader(csvFilePath))
+        {
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                List<string> row = line.Split(',').ToList();
+                data.Add(row);
+            }
+        }
+
+        return data;
+    }
+
+    int FindColumnWithoutData(List<List<string>> data)
+    {
+        // 데이터가 없는 열 찾기
+        int columnWithoutData = -1;
+
+        // 열 기준으로 순회
+        for (int col = 1; col < data[0].Count; col++) // 첫 번째 열은 시간이므로 넘김
+        {
+            bool hasData = false;
+
+            // 행 기준으로 데이터 존재 여부 확인
+            foreach (var row in data)
+            {
+                if (!string.IsNullOrEmpty(row[col]))
+                {
+                    hasData = true;
+                    break;
+                }
+            }
+
+            // 데이터가 없는 열을 찾으면 종료
+            if (!hasData)
+            {
+                columnWithoutData = col;
+                break;
+            }
+        }
+
+        return columnWithoutData;
+    }
+
+    void AddDataToColumn(int columnIndex) 
+    {
+        // 데이터가 없는 열에 데이터 추가
+        using (StreamWriter writer = new StreamWriter(csvFilePath, true))
+        {
+            // 빈 열에 데이터 추가
+            for (int i = 0; i < columnIndex; i++)
+            {
+                writer.Write(",");
+            }
+
+            writer.WriteLine(averageOfDistance);
+        }
     }
 }

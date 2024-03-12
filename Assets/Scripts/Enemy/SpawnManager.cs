@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {   
-    public GameObject[] basicOrbSpawner;    
+    public GameObject[] basicOrbSpawner;
     public GameObject[] stoneSpawner;       
-    public GameObject[] SpecialOrbSpawner;  
+    public GameObject[] SpecialOrbSpawner;
 
     public float basicOrbSpeed = 1; 
     public float basicOrbSpawnInterval = 1.735715f; 

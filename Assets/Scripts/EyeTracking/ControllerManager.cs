@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static OVRHaptics;
@@ -74,10 +76,16 @@ public class ControllerManager : MonoBehaviour
     public bool leftClicked = false;
     public bool rightClicked = false;
 
-    public DDATrainer dDATrainer = null;
+    [HideInInspector] public List<float> distanceOfOrbsToUserList = new List<float>();  //파괴한 오브들의 거리 리스트
+    private SpawnManager spawnManager;
+    [HideInInspector] public float averageOfDistance = 0f; //위 리스트의 평균
+    // CSV 파일 경로
+    private string csvFilePath = "Assets/DDAData/averageOfDistance.csv";
 
     private void Awake() 
     {
+        spawnManager = GameObject.Find("StageCore").GetComponent<SpawnManager>();
+
         SkillMaterials = new List<Material>(SkillMaterialObj.GetComponent<Renderer>().materials); 
 
         eventManager = GameObject.Find("StageCore").GetComponent<EventManager>();
@@ -92,6 +100,8 @@ public class ControllerManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(CheckMissingPointChange());
+
         OriginPosition = this.transform.position;
 
         //LeftEyeInteractor = GameObject.Find("LeftEyeInteractor"); 
@@ -104,8 +114,19 @@ public class ControllerManager : MonoBehaviour
         isSkilled = false;
     }
 
-    void Update()
+    void Update() 
     {
+        if ((spawnManager.activeStone == true && spawnManager.activeBasicOrb == true) || spawnManager.activeBasicOrb == true)
+        {
+            //리스트 크기를 최대 6개(2개 기준, 스포너 개수에 비례하게 증가)로 해서, 최근 6개(2개 기준, 스포너 개수에 비례하게 증가) 구체의 파괴 위치의 평균값을 구함
+            if (distanceOfOrbsToUserList.Count > 3 * spawnManager.basicOrbSpawner.Length)
+            {
+                distanceOfOrbsToUserList.RemoveAt(0); 
+            }
+
+            averageOfDistance = distanceOfOrbsToUserList.Sum() / distanceOfOrbsToUserList.Count();
+        }
+
         this.transform.position = OriginPosition; 
 
         if(eyeTrackingRayRight.HoveredCube != null) 
@@ -374,7 +395,7 @@ public class ControllerManager : MonoBehaviour
                     Destroy(redMagicHitInstance,3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
-                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
+                    distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;
                 }
                 else
@@ -435,7 +456,7 @@ public class ControllerManager : MonoBehaviour
                     Destroy(blueMagicHitInstance,3f);
 
                     Destroy(eyeTrackingRayRight.HoveredCube);
-                    dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
+                    distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, hitEffectPosition));
                     eyeTrackingRayRight.HoveredCube = null;  
                 }
                 else
@@ -554,6 +575,40 @@ public class ControllerManager : MonoBehaviour
             {
                 leftEffect.SetActive(true);
             }
+        }
+    }
+
+    void WriteCSVHeader()
+    {
+        // CSV 파일 생성 또는 덮어쓰기
+        using (StreamWriter writer = new StreamWriter(csvFilePath))
+        {
+            // 헤더 작성
+            writer.WriteLine("averageOfDistance");
+        }
+    }
+
+    void WriteFrameDataToCSV()
+    {
+        // CSV 파일에 프레임 데이터 추가
+        using (StreamWriter writer = new StreamWriter(csvFilePath, true))
+        {
+            // 현재 시간과 변수 값 기록
+            writer.WriteLine($"{Time.time},{averageOfDistance}");
+        }
+    }
+
+    private IEnumerator CheckMissingPointChange()
+    {
+        WriteCSVHeader();
+        yield return new WaitForSeconds(10f);
+
+        while (true)
+        {
+            //1초 기다림
+            yield return new WaitForSeconds(1f);
+            Debug.Log("a");
+            WriteFrameDataToCSV();
         }
     }
 }

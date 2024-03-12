@@ -17132,6 +17132,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000011207167760, guid: ff421997f346e314c82e73610f419ac1, type: 3}
   m_PrefabInstance: {fileID: 1151891244}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1174502016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1797786068356809688, guid: 8e3097712f542c6459dd51ed0afe3cf9, type: 3}
+  m_PrefabInstance: {fileID: 2094405262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122592011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2560958f9ff11be4c951869076f48683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1178164082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45265,7 +45276,6 @@ MonoBehaviour:
   isEasyDif: 0
   LevelPoint: 1
   initialDiff: 0
-  distanceOfOrbsToUserList: []
   Enemy: {fileID: 827287988}
   User: {fileID: 2143618532}
   isTargetedlevel: 0
@@ -45284,7 +45294,6 @@ MonoBehaviour:
   levelpoint: 0
   initialdiff: 0
   times: 0
-  enumFlag: 0
 --- !u!1001 &2111133615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45766,6 +45775,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 806371755}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: dDATrainer
+      value: 
+      objectReference: {fileID: 2094405266}
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: leftEffect
       value: 
       objectReference: {fileID: 1318310737}
@@ -45773,6 +45786,10 @@ PrefabInstance:
       propertyPath: rightEffect
       value: 
       objectReference: {fileID: 982711865}
+    - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
+      propertyPath: eventManager
+      value: 
+      objectReference: {fileID: 1174502016}
     - target: {fileID: 1393476222726514362, guid: 16e2b1c0a52c9de46aef912ef96ea4fe, type: 3}
       propertyPath: SkillMaterialObj
       value: 

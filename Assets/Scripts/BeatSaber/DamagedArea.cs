@@ -8,7 +8,7 @@ using UnityEngine.Rendering.PostProcessing; // Post-processing에 관련된 네�
 
 public class DamagedArea : MonoBehaviour
 {
-    public int stageHP = 2000; 
+    public int stageHP = 200000; 
     // Assign Post Processing Volume from the Scene
     [SerializeField] private Volume postProcessingVolumeObject;
     private UnityEngine.Rendering.Universal.Vignette vignette;
@@ -28,7 +28,7 @@ public class DamagedArea : MonoBehaviour
 
     private Transform cam;
 
-    public DDATrainer dDATrainer = null;
+    private ControllerManagerDDA controllerManager;
 
     void Awake()
     {
@@ -44,7 +44,13 @@ public class DamagedArea : MonoBehaviour
         HPGaugeRenderer = HPGauge.GetComponent<Renderer>(); 
         HPMaterials = new List<Material>(HPMaterialObj.GetComponent<Renderer>().materials);
 
-        dDATrainer = GameObject.Find("StageCore").GetComponent<DDATrainer>();
+        controllerManager = GameObject.Find("OVRInPlayMode").GetComponent<ControllerManagerDDA>();
+
+    }
+
+    private void Start()
+    {
+        
     }
 
     void Update()
@@ -57,8 +63,8 @@ public class DamagedArea : MonoBehaviour
     {
         if(other.gameObject.CompareTag("blueCube") || other.gameObject.CompareTag("redCube"))
         {
-            if(dDATrainer != null)
-                dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, other.transform.position));
+            if(controllerManager != null)
+                controllerManager.distanceOfOrbsToUserList.Add(-5);   
 
             stageHP -= 100;
             // Shake the camera
@@ -67,8 +73,8 @@ public class DamagedArea : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("LavaStone") || other.gameObject.CompareTag("IceStone"))
         {
-            if (dDATrainer != null)
-                dDATrainer.distanceOfOrbsToUserList.Add(Vector3.Distance(this.transform.position, other.transform.position));
+            if (controllerManager != null)
+                controllerManager.distanceOfOrbsToUserList.Add(-5);   
 
             stageHP -= 100;
             // Shake the camera
